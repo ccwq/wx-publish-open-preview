@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>档案绿风 预览</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#F5F2EB;font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif;padding:20px}
+.page{max-width:677px;margin:0 auto;background:#F5F2EB;color:#3D3D2D;line-height:1.8}
+section{padding:14px 16px;margin-bottom:14px}
+.hero{padding:20px 16px 18px;background:#E8E4DB;border-radius:4px;border:1px solid #D4CFC5}
+.hero-tags{display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap}
+.herotag{display:inline-block;border-radius:3px;padding:4px 12px;font-size:11px;font-weight:700;letter-spacing:1px}
+.hero-title{font-size:24px;line-height:1.3;color:#1E4D3A;margin:0 0 10px;font-weight:800}
+.hero-sub{font-size:14px;line-height:1.75;color:#8A8A7A}
+.dossier{padding:14px 16px;background:#FFFFFF;border:1px solid #D4CFC5;border-radius:4px}
+.dossier-row{display:flex;justify-content:space-between;margin-bottom:8px}
+.dossier-row:last-child{margin-bottom:0}
+.dossier-key{font-size:11px;font-weight:700;color:#2F6B4F;letter-spacing:1px}
+.dossier-val{font-size:11px;color:#8A8A7A}
+.quote{padding:14px 16px;background:#FFFFFF;border-left:3px solid #2F6B4F;border-radius:0 4px 4px 0;font-style:italic}
+.quote-text{font-size:14px;line-height:1.7;color:#1E4D3A;margin-bottom:8px}
+.quote-source{font-size:12px;color:#8A8A7A}
+.timeline{padding:14px 16px;background:#FFFFFF;border:1px solid #D4CFC5;border-radius:4px}
+.timeline-title{font-size:12px;font-weight:700;color:#2F6B4F;margin-bottom:12px;text-transform:uppercase;letter-spacing:1px}
+.tl{border-left:2px solid #2F6B4F;padding-left:14px}
+.tl-item{margin-bottom:14px}
+.tl-item:last-child{margin-bottom:0}
+.tl-date{font-size:13px;font-weight:800;color:#1E4D3A;margin-bottom:4px}
+.tl-desc{font-size:13px;color:#3D3D2D;line-height:1.6}
+.taglist{display:flex;gap:6px;margin-bottom:22px;flex-wrap:wrap}
+.tag{display:inline-block;border-radius:3px;padding:3px 10px;font-size:11px;font-weight:700}
+.summary{padding:16px;background:#E8E4DB;border:1px solid #D4CFC5;border-radius:4px}
+.summary-title{font-size:12px;font-weight:700;color:#2F6B4F;margin-bottom:10px;text-transform:uppercase;letter-spacing:1px}
+.summary-body{font-size:14px;line-height:1.75;color:#3D3D2D;margin-bottom:8px}
+.summary-ref{font-size:12px;color:#8A8A7A}
+@media(max-width:420px){
+  section{padding:12px 10px}
+  .hero{padding:16px 10px}
+  .dossier{padding:12px 10px}
+  .tl{border-left:2px solid #2F6B4F}
+}
+</style>
+</head>
+<body>
+<div class="page">
+  <section class="hero">
+    <div class="hero-tags">
+      <span class="herotag" style="background:#2F6B4F;color:#FFFFFF;"><span leaf="">文献档案</span></span>
+      <span class="herotag" style="background:#E8E4DB;color:#2F6B4F;border:1px solid #2F6B4F;"><span leaf="">编号 GL-2024-007</span></span>
+      <span class="herotag" style="background:#E8E4DB;color:#8A8A7A;"><span leaf="">2024年</span></span>
+    </div>
+    <h1 class="hero-title"><span leaf="">城市档案数字化整理工作指引</span></h1>
+    <p class="hero-sub"><span leaf="">针对各级档案馆在推进数字化转型过程中遇到的分类混乱、元数据缺失、检索效率低等共性问题，提出系统性解决方案。</span></p>
+  </section>
+
+  <section class="dossier">
+    <div class="dossier-row">
+      <span class="dossier-key"><span leaf="">卷宗编号</span></span>
+      <span class="dossier-val"><span leaf="">GL-2024-007</span></span>
+    </div>
+    <div class="dossier-row">
+      <span class="dossier-key"><span leaf="">档案日期</span></span>
+      <span class="dossier-val"><span leaf="">2024-03-15</span></span>
+    </div>
+    <div class="dossier-row">
+      <span class="dossier-key"><span leaf="">保管期限</span></span>
+      <span class="dossier-val"><span leaf="">永久</span></span>
+    </div>
+  </section>
+
+  <section class="quote">
+    <p class="quote-text"><span leaf=""><em>"档案数字化不仅是技术升级，更是公共服务能力的根本性变革。"</em></span></p>
+    <p class="quote-source"><span leaf="">—— 国家档案局数字化指南（2023版）</span></p>
+  </section>
+
+  <section class="timeline">
+    <p class="timeline-title"><span leaf="">档案整理时间线</span></p>
+    <div class="tl">
+      <div class="tl-item">
+        <p class="tl-date"><span leaf="">阶段一：清点登记</span></p>
+        <p class="tl-desc"><span leaf="">对现存实体档案进行全面清点，建立纸质目录与电子索引的对照关系。</span></p>
+      </div>
+      <div class="tl-item">
+        <p class="tl-date"><span leaf="">阶段二：数字化扫描</span></p>
+        <p class="tl-desc"><span leaf="">以 300DPI 以上精度进行双面扫描，建立原始影像档案。</span></p>
+      </div>
+      <div class="tl-item">
+        <p class="tl-date"><span leaf="">阶段三：元数据录入</span></p>
+        <p class="tl-desc"><span leaf="">按统一规范录入标题、时间、责任者、密级等核心元数据字段。</span></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="taglist">
+    <span class="tag" style="background:#2F6B4F;color:#FFFFFF;"><span leaf="">档案管理</span></span>
+    <span class="tag" style="background:#E8E4DB;color:#2F6B4F;border:1px solid #2F6B4F;"><span leaf="">数字化</span></span>
+    <span class="tag" style="background:#E8E4DB;color:#4A8B6F;border:1px solid #4A8B6F;"><span leaf="">标准化</span></span>
+  </section>
+
+  <section class="summary">
+    <p class="summary-title"><span leaf="">档案摘要</span></p>
+    <p class="summary-body"><span leaf="">本指引覆盖从纸质档案清点到数字化上架的全流程，明确了各环节责任人、工作标准与验收指标。</span></p>
+    <p class="summary-ref"><span leaf="">档案编号 GL-2024-007 / 来源：国家档案局</span></p>
+  </section>
+</div>
+</body>
+</html>

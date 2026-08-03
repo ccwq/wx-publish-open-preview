@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f1ece2">
+  <title>infocard-handline-editorial · 手绘草图风预览</title>
+  <style>
+    /* ── handline-editorial tokens ── */
+    :root{
+      --bg:#f1ece2;
+      --paper:#fbf7ef;
+      --paper-2:#fffaf3;
+      --ink:#181614;
+      --ink-body:#2d2926;
+      --muted:#5a5248;
+      --line:#2c2723;
+      --line-mid:#7c6e62;
+      --accent:#a76632;
+      --accent-2:#c9762f;
+      --accent-soft:#f2decb;
+      --blue:#1e5cb5;
+      --blue-soft:#edf3ff;
+      --black:#111111;
+      --green:#355f35;
+      --max:1180px;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;overflow-x:hidden}
+    body{
+      background:var(--bg);
+      color:var(--ink);
+      font-family:Inter,system-ui,-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;
+      font-size:13.5px;line-height:1.68;
+      text-rendering:optimizeLegibility;
+    }
+    /* 纸感纹理所底 */
+    body::before{
+      content:"";position:fixed;inset:0;pointer-events:none;
+      opacity:.14;
+      background-image:
+        repeating-linear-gradient(0deg, rgba(45,41,38,.016) 0 1px, transparent 1px 5px),
+        repeating-linear-gradient(90deg, rgba(255,255,255,.025) 0 1px, transparent 1px 7px);
+      mix-blend-mode:multiply;z-index:0;
+    }
+    a{color:inherit;text-decoration:none}
+    code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+    .page{width:min(var(--max),calc(100% - 34px));margin:0 auto;padding:18px 0 88px;position:relative;z-index:1}
+
+    /* ── topbar ── */
+    .topbar{
+      display:flex;justify-content:space-between;gap:14px;
+      font:800 12.5px/1.4 ui-monospace,monospace;
+      letter-spacing:.06em;text-transform:uppercase;color:var(--blue);
+      margin-bottom:10px;border-bottom:1px dashed var(--line-mid);
+      padding-bottom:9px;
+    }
+
+    /* ── hero ── */
+    .hero{
+      background:var(--paper);
+      border:2px dashed var(--line);
+      padding:18px 16px;margin-bottom:14px;
+      transform:rotate(-0.12deg);
+    }
+    .hero-title{
+      font-family:Georgia,"Times New Roman","Songti SC",serif;
+      font-size:clamp(30px,5.5vw,56px);line-height:.95;
+      letter-spacing:-.04em;color:var(--ink);margin:0 0 10px;
+    }
+    .hero-title small{font-size:.48em;color:var(--muted);font-family:system-ui,sans-serif}
+    .hero-lead{font-size:14px;line-height:1.72;color:var(--ink-body);max-width:680px;margin:0 0 10px}
+    .hero-meta{display:flex;flex-wrap:wrap;gap:7px;font-size:12px;color:var(--muted)}
+    .hero-meta span{padding:3px 9px;border:1px solid var(--accent)}
+    .hero-meta span.blue{background:var(--blue);color:#fff;border-color:var(--blue)}
+    .hero-meta span.green{background:#f4f8ff;border-color:var(--green);color:var(--green)}
+
+    /* ── process bar ── */
+    .process{display:flex;gap:0;margin-bottom:12px}
+    .step{flex:1;background:var(--black);padding:12px;color:#fff;min-height:80px;display:flex;flex-direction:column;justify-content:center}
+    .step.n1{transform:rotate(-0.2deg)}
+    .step.n2{transform:rotate(0.15deg)}
+    .step.n3{transform:rotate(-0.1deg)}
+    .step.n4{background:var(--accent-2)}
+    .step-num{font:900 12px/1 ui-monospace,monospace;color:var(--accent-2);letter-spacing:.06em}
+    .step.n4 .step-num{color:#fff}
+    .step-title{font-size:13px;font-weight:700;margin-top:5px}
+    .step-sub{font-size:11px;color:#b0a898;margin-top:4px}
+    .step.n4 .step-sub{color:#fff8f0}
+    .step-arrow{width:20px;display:flex;align-items:center;justify-content:center;font-size:14px;color:var(--accent-2);flex-shrink:0;align-self:center}
+
+    /* ── columns ── */
+    .columns{display:grid;grid-template-columns:1.05fr .95fr .98fr;gap:11px;margin-bottom:12px;align-items:start}
+    .col-card{background:var(--paper-2);padding:13px;border:2px dashed}
+    .col-card.c1{border-color:var(--accent);transform:rotate(-0.18deg)}
+    .col-card.c2{border-color:var(--green);transform:rotate(0.12deg)}
+    .col-card.c3{border-color:var(--blue);transform:rotate(-0.06deg)}
+    .col-header{display:flex;justify-content:space-between;gap:10px;align-items:flex-start;margin-bottom:9px;padding-bottom:8px;border-bottom:2px dashed var(--line)}
+    .col-cn{font:900 17px/1.06 Georgia,serif;letter-spacing:-.02em;color:var(--ink)}
+    .col-en{font:800 10px/1.2 ui-monospace,monospace;letter-spacing:.06em;text-transform:uppercase;max-width:120px;text-align:right}
+    .col-en.c1{color:var(--accent)}
+    .col-en.c2{color:var(--green)}
+    .col-en.c3{color:var(--blue)}
+    ul.col-list{margin:8px 0 0 14px;padding:0;display:grid;gap:5px}
+    ul.col-list li{font-size:12px;line-height:1.6;color:var(--ink-body)}
+
+    /* ── principles ── */
+    .principles{display:grid;gap:9px;margin-bottom:12px}
+    .principle{background:var(--blue-soft);padding:10px 12px;display:grid;grid-template-columns:32px 1fr;gap:10px;align-items:start}
+    .principle.n3{background:#fff5ef;border-left:4px solid var(--accent-2)}
+    .principle.n3 .p-num{background:var(--accent-2)}
+    .p-num{width:32px;height:32px;background:var(--blue);color:#fff;display:flex;align-items:center;justify-content:center;font:900 14px/1 ui-monospace,monospace;border-radius:6px;flex-shrink:0}
+    .p-title{display:block;margin-bottom:3px;font-size:13px;line-height:1.28;color:var(--ink);font-weight:700}
+    .p-desc{margin:0;font-size:12px;line-height:1.6;color:var(--ink-body)}
+
+    /* ── agent note ── */
+    .agent-note{background:#fff5ef;padding:12px 14px;border-left:5px solid #c8442f;margin-bottom:12px;transform:rotate(-0.1deg)}
+    .agent-note-header{display:flex;align-items:center;gap:7px;margin-bottom:7px}
+    .agent-note-label{font:800 11px/1 ui-monospace,monospace;letter-spacing:.06em;text-transform:uppercase;color:#c8442f}
+    .agent-note p{margin:0;font-size:12.5px;line-height:1.65;color:#5a2a20}
+    .agent-note p strong{font-weight:700}
+
+    /* ── quote band ── */
+    .quote-band{background:var(--paper-2);border-top:3px solid var(--line);border-bottom:3px solid var(--line);padding:12px 16px;margin-bottom:12px;display:flex;align-items:flex-start;gap:10px}
+    .quote-mark{font-size:28px;line-height:1;flex-shrink:0;color:var(--accent-2);font-family:Georgia,serif}
+    .quote-text{margin:0 0 4px;font-family:Georgia,serif;font-size:15px;line-height:1.55;color:var(--ink);font-style:italic}
+    .quote-source{font-size:11px;color:var(--muted)}
+
+    /* ── footer ── */
+    .footer{background:var(--paper);padding:11px 12px;color:var(--muted);font-size:12px;display:flex;justify-content:space-between;gap:12px;align-items:center;border:2px dashed #c0b8a8;margin-bottom:12px}
+
+    /* ── section divider ── */
+    .divider{margin:18px 0 12px;padding-top:10px;border-top:2px dashed var(--line-mid);display:flex;align-items:center;gap:8px}
+    .divider span{font:900 10px/1 ui-monospace,monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+
+    /* ── 390px mobile test ── */
+    @media(max-width:390px){
+      .page{width:100%;padding:12px 0 60px}
+      .columns{grid-template-columns:1fr}
+      .col-card{transform:none !important}
+      .process{flex-direction:column}
+      .step-arrow{width:100%;justify-content:center;padding:4px 0}
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <!-- 0. 说明 -->
+    <div style="background:#fff5ef;border:2px dashed #a76632;padding:12px 14px;margin-bottom:14px;font-size:12px;color:#5a2a20;line-height:1.6">
+      <strong>390px 验证说明：</strong>手绘草图风在移动端自动切换为单栏布局（CSS @media max-width:390px）。所有区块均无固定宽度超出容器，不依赖 rough.js CDN。
+    </div>
+
+    <!-- 1. Topbar -->
+    <div class="divider"><span>01 · TOPBAR</span></div>
+    <div class="topbar">
+      <span>✏️ HANDLINE EDITORIAL</span>
+      <span>2026-08-03</span>
+    </div>
+
+    <!-- 2. Hero -->
+    <div class="divider"><span>02 · HERO</span></div>
+    <div class="hero">
+      <div class="hero-title">
+        ✎ 手绘草图风<br>
+        <small>Whiteboard · Workflow · 便签语义</small>
+      </div>
+      <p class="hero-lead">
+        米纸底 + 黑色粗线手绘感 + 橙色强调，适合<span style="color:var(--accent-2);font-weight:700">对话式调度</span>、<span style="color:var(--accent-2);font-weight:700">自动化流程</span>与<span style="color:var(--accent-2);font-weight:700">工具链说明</span>。
+      </p>
+      <div class="hero-meta">
+        <span style="background:var(--accent-soft)">🔖 便签语义</span>
+        <span class="blue">⚡ 流程图</span>
+        <span class="green">🤖 自动化</span>
+      </div>
+    </div>
+
+    <!-- 3. Process Steps -->
+    <div class="divider"><span>03 · PROCESS STEPS</span></div>
+    <div class="process">
+      <div class="step n1">
+        <span class="step-num">STEP 01</span>
+        <strong class="step-title">对话理解</strong>
+        <span class="step-sub">用户意图解析</span>
+      </div>
+      <div class="step-arrow">→</div>
+      <div class="step n2">
+        <span class="step-num">STEP 02</span>
+        <strong class="step-title">插件调度</strong>
+        <span class="step-sub">Skill 路由匹配</span>
+      </div>
+      <div class="step-arrow">→</div>
+      <div class="step n3">
+        <span class="step-num">STEP 03</span>
+        <strong class="step-title">执行反馈</strong>
+        <span class="step-sub">结果格式化</span>
+      </div>
+      <div class="step-arrow">→</div>
+      <div class="step n4">
+        <span class="step-num">STEP 04</span>
+        <strong class="step-title">交付确认</strong>
+        <span class="step-sub">闭环验收</span>
+      </div>
+    </div>
+
+    <!-- 4. Columns -->
+    <div class="divider"><span>04 · COLUMNS</span></div>
+    <div class="columns">
+      <div class="col-card c1">
+        <div class="col-header">
+          <strong class="col-cn">📋 设计</strong>
+          <span class="col-en c1">DESIGN</span>
+        </div>
+        <ul class="col-list">
+          <li>用户需求采集</li>
+          <li>对话原型设计</li>
+          <li>意图分类标注</li>
+        </ul>
+      </div>
+      <div class="col-card c2">
+        <div class="col-header">
+          <strong class="col-cn">⚙️ 实现</strong>
+          <span class="col-en c2">BUILD</span>
+        </div>
+        <ul class="col-list">
+          <li>Skill 编写与注册</li>
+          <li>路由规则配置</li>
+          <li>参数映射调试</li>
+        </ul>
+      </div>
+      <div class="col-card c3">
+        <div class="col-header">
+          <strong class="col-cn">✅ 验证</strong>
+          <span class="col-en c3">TEST</span>
+        </div>
+        <ul class="col-list">
+          <li>端到端流程测试</li>
+          <li>异常兜底验证</li>
+          <li>用户体验走查</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 5. Principle Cards -->
+    <div class="divider"><span>05 · PRINCIPLE CARDS</span></div>
+    <div class="principles">
+      <div class="principle">
+        <div class="p-num">①</div>
+        <div>
+          <strong class="p-title">意图优先原则</strong>
+          <p class="p-desc">先理解用户真正想要什么，再决定用哪个插件。错误路由比无路由更糟。</p>
+        </div>
+      </div>
+      <div class="principle">
+        <div class="p-num">②</div>
+        <div>
+          <strong class="p-title">最小暴露原则</strong>
+          <p class="p-desc">每个 Skill 只暴露必要的参数，不要让用户面对一个技术参数的表单。</p>
+        </div>
+      </div>
+      <div class="principle n3">
+        <div class="p-num">③</div>
+        <div>
+          <strong class="p-title">回退兜底原则</strong>
+          <p class="p-desc">无法识别意图时，必须给出可操作的选项，而不是冷冰冰的错误信息。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 6. Agent Note -->
+    <div class="divider"><span>06 · AGENT NOTE</span></div>
+    <div class="agent-note">
+      <div class="agent-note-header">
+        <span style="font-size:15px">🤖</span>
+        <span class="agent-note-label">AGENT NOTE</span>
+      </div>
+      <p>
+        当用户输入<span>"帮我查一下天气"</span>时，系统需要判断：① 是否包含地点实体 ② 日期是否明确 ③ 是否需要第三方 API。任何一个环节缺失都触发<strong>回退到交互式确认</strong>。
+      </p>
+    </div>
+
+    <!-- 7. Quote Band -->
+    <div class="divider"><span>07 · QUOTE BAND</span></div>
+    <div class="quote-band">
+      <span class="quote-mark">"</span>
+      <div>
+        <p class="quote-text">手绘感不是低质量，是降低认知门槛的刻意选择。</p>
+        <span class="quote-source">— handline-editorial 设计哲学</span>
+      </div>
+    </div>
+
+    <!-- 8. Footer -->
+    <div class="divider"><span>08 · FOOTER</span></div>
+    <div class="footer">
+      <span>✏️ handline-editorial · 手绘草图风 · 2026</span>
+      <span style="font:800 10px/1 ui-monospace,monospace;letter-spacing:.06em;text-transform:uppercase;color:var(--accent)">BUILT WITH SKILLS</span>
+    </div>
+
+  </div>
+</body>
+</html>

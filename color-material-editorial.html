@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>色彩材质编辑风 · 公众号主题预览</title>
+  <style>
+    /* color-material-editorial preview tokens */
+    :root{
+      --paper:#FAF7F2;
+      --card:#FFFFFF;
+      --console:#1A1625;
+      --console-text:#F7FAFC;
+      --red:#E53E3E;
+      --orange:#DD6B20;
+      --green:#38A169;
+      --blue:#3182CE;
+      --purple:#805AD5;
+      --cyan:#00B5D8;
+      --ink:#1A202C;
+      --body:#2D3748;
+      --muted:#718096;
+      --radius:12px;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;overflow-x:hidden}
+    body{
+      background:var(--paper);
+      color:var(--body);
+      font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;
+      font-size:15px;line-height:1.8;
+    }
+    .page{max-width:677px;margin:0 auto;padding:18px 12px 64px}
+
+    /* console hero */
+    .console{background:var(--console);border-radius:var(--radius);padding:24px 20px;margin:0 0 22px}
+    .console-cat{display:block;font-size:11px;font-weight:800;letter-spacing:1.8px;color:var(--cyan);margin:0 0 6px}
+    .console-title{font-size:24px;line-height:1.3;color:var(--console-text);margin:0 0 10px;font-weight:800}
+    .console-lead{display:block;font-size:14px;line-height:1.75;color:#A0AEC0;margin:0 0 14px}
+    .console-tags{display:flex;gap:7px;flex-wrap:wrap}
+    .ctag{display:inline-block;border-radius:var(--radius);padding:3px 10px;font-size:11px;font-weight:700}
+    .ct-r{background:var(--red);color:#fff}
+    .ct-o{background:var(--orange);color:#fff}
+    .ct-g{background:var(--green);color:#fff}
+    .ct-b{background:var(--blue);color:#fff}
+    .ct-p{background:var(--purple);color:#fff}
+
+    /* ability node grid */
+    .nodes{margin:0 0 22px}
+    .node-row{display:flex;gap:9px;flex-wrap:wrap;margin:0 0 9px}
+    .node{flex:1;min-width:145px;background:var(--card);border-radius:var(--radius);padding:14px 12px;box-shadow:0 2px 10px rgba(0,0,0,.07)}
+    .node-icon{display:block;font-size:26px;line-height:1;margin:0 0 8px}
+    .node-name{display:block;font-size:15px;font-weight:800;color:var(--ink);margin:0 0 4px}
+    .node-desc{display:block;font-size:12px;line-height:1.65;color:var(--muted);margin:0}
+
+    /* lifecycle */
+    .lifecycle{margin:0 0 22px}
+    .lc-label{display:block;font-size:12px;font-weight:800;color:var(--muted);margin:0 0 10px;letter-spacing:0.5px}
+    .lc-bar{display:flex;gap:0}
+    .lc-step{flex:1;background:#E53E3E;border-radius:12px 0 0 12px;padding:12px 8px;text-align:center}
+    .lc-step.o{background:var(--orange)}
+    .lc-step.g{background:var(--green)}
+    .lc-step.b{background:var(--blue);border-radius:0 12px 12px 0}
+    .lc-n{display:block;font-size:20px;font-weight:900;color:#fff;margin:0 0 3px}
+    .lc-l{display:block;font-size:10px;font-weight:700;color:rgba(255,255,255,0.8)}
+    .lc-sep{width:14px;display:flex;align-items:center;justify-content:center;background:var(--paper);color:#CBD5E0;font-size:16px;font-weight:900}
+
+    /* section header */
+    .section{border-left:5px solid var(--purple);padding-left:12px;margin:30px 0 14px}
+    .section-cat{display:block;font-size:11px;font-weight:800;letter-spacing:1.5px;color:var(--purple);margin:0 0 4px}
+    .section-title{font-size:20px;line-height:1.35;color:var(--ink);margin:0;font-weight:800}
+
+    /* body */
+    .body{font-size:15px;line-height:1.8;text-align:justify;margin:0 0 18px;color:var(--body)}
+
+    /* ability detail card */
+    .detail{background:var(--card);border-radius:var(--radius);padding:16px 18px;margin:0 0 14px;box-shadow:0 2px 10px rgba(0,0,0,.07)}
+    .detail-card{border-left:5px solid var(--orange)}
+    .detail-name{display:block;font-size:14px;font-weight:800;color:var(--ink);margin:0 0 6px}
+    .detail-desc{display:block;font-size:13px;line-height:1.7;color:var(--muted);margin:0 0 8px}
+    .tech-tag{display:inline-block;background:#EDF2F7;color:var(--blue);border-radius:var(--radius);padding:2px 8px;font-size:11px;font-weight:700}
+
+    /* metric bar */
+    .metric{background:var(--card);border-radius:var(--radius);padding:14px 16px;margin:0 0 12px;box-shadow:0 2px 10px rgba(0,0,0,.07)}
+    .metric-row{display:flex;justify-content:space-between;margin:0 0 7px}
+    .metric-name{display:block;font-size:13px;font-weight:700;color:var(--ink)}
+    .metric-val{display:block;font-size:13px;font-weight:800;color:var(--red)}
+    .metric-bar{height:7px;background:#EDF2F7;border-radius:10px;overflow:hidden}
+    .metric-fill{display:block;height:7px;background:var(--red);border-radius:10px}
+
+    /* bottomline */
+    .bottomline{background:var(--console);border-radius:var(--radius);padding:16px 18px;margin:0 0 22px}
+    .bl-label{display:block;font-size:11px;font-weight:800;letter-spacing:1.5px;color:var(--cyan);margin:0 0 8px}
+    .bl-text{display:block;font-size:16px;font-weight:800;line-height:1.6;color:var(--console-text);margin:0}
+
+    /* mobile */
+    @media(max-width:420px){
+      .nodes{flex-direction:column}
+      .node-row{flex-direction:column}
+      .node{margin-bottom:9px}
+      .lc-bar{flex-wrap:wrap}
+      .lc-step{flex:none;width:calc(50% - 7px);border-radius:0}
+      .lc-step:first-child{border-radius:var(--radius) 0 0 0}
+      .lc-step.o{border-radius:0 var(--radius) 0 0}
+      .lc-step.g{border-radius:0 0 0 var(--radius)}
+      .lc-step.b{border-radius:0 0 var(--radius) 0}
+      .lc-sep{display:none}
+      .page{padding:14px 10px 48px}
+    }
+
+    @media(max-width:420px){
+      section[style*='max-width:677px']{max-width:100%;padding-left:10px;padding-right:10px}
+      .node-row{flex-direction:column}
+      .nodes{margin:0}
+      .lc-bar{flex-wrap:wrap}
+      .lc-step{flex:none;width:calc(50% - 7px)}
+      .lc-step:first-child{border-radius:12px 0 0 0}
+      .lc-step.o{border-radius:0 12px 0 0}
+      .lc-step.g{border-radius:0 0 0 12px}
+      .lc-step.b{border-radius:0 0 12px 0}
+      .lc-sep{display:none}
+    }
+    </style>
+</head>
+
+<section style="max-width:677px;margin:0 auto;padding:18px 12px 64px">
+
+  <!-- 控制台 Hero -->
+  <section class="console">
+    <span class="console-cat"><span leaf="">AGENT CAPABILITIES · 技术解析</span></span>
+    <h2 style="font-size:24px;line-height:1.3;color:#F7FAFC;margin:0 0 10px;font-weight:800;"><span leaf="">MiniMax MCP 全能力解析</span></h2>
+    <span class="console-lead"><span leaf="">六项核心能力覆盖图文生成、多模态推理、长程记忆与工具编排，一文拆透技术边界与真实局限。</span></span>
+    <section>
+      <span class="ctag ct-r"><span leaf="">多模态</span></span>
+      <span class="ctag ct-b"><span leaf="">MCP协议</span></span>
+      <span class="ctag ct-g"><span leaf="">工具编排</span></span>
+    </section>
+  </section>
+
+  <!-- 能力节点网格 -->
+  <section class="nodes">
+    <section>
+      <section style=border-top:4px solid var(--red)>
+        <span class="node-icon"><span leaf="">🖼️</span></span>
+        <span class="node-name"><span leaf="">图像理解</span></span>
+        <span class="node-desc"><span leaf="">支持截图、图表、流程图、结构化图片的语义解析与文字提取。</span></span>
+      </section>
+      <section style=border-top:4px solid var(--orange)>
+        <span class="node-icon"><span leaf="">✍️</span></span>
+        <span class="node-name"><span leaf="">内容生成</span></span>
+        <span class="node-desc"><span leaf="">文字、列表、摘要、问答、对比表格等结构化文本输出。</span></span>
+      </section>
+      <section style=border-top:4px solid var(--green)>
+        <span class="node-icon"><span leaf="">🧠</span></span>
+        <span class="node-name"><span leaf="">长程记忆</span></span>
+        <span class="node-desc"><span leaf="">会话状态持久化，支持跨会话上下文召回。</span></span>
+      </section>
+    </section>
+    <section>
+      <section style=border-top:4px solid var(--blue)>
+        <span class="node-icon"><span leaf="">🔧</span></span>
+        <span class="node-name"><span leaf="">工具编排</span></span>
+        <span class="node-desc"><span leaf="">MCP 标准接口调用，动态挂载 / 下线工具节点。</span></span>
+      </section>
+      <section style=border-top:4px solid var(--purple)>
+        <span class="node-icon"><span leaf="">🔍</span></span>
+        <span class="node-name"><span leaf="">深度推理</span></span>
+        <span class="node-desc"><span leaf="">Chain-of-Thought 链式思考，支持多跳问题分解与验证。</span></span>
+      </section>
+      <section style=border-top:4px solid var(--cyan)>
+        <span class="node-icon"><span leaf="">📡</span></span>
+        <span class="node-name"><span leaf="">实时信息</span></span>
+        <span class="node-desc"><span leaf="">联网检索与新闻抓取，支持指定时间窗口与来源过滤。</span></span>
+      </section>
+    </section>
+  </section>
+
+  <!-- 生命周期步骤条 -->
+  <section class="lifecycle">
+    <span class="lc-label"><span leaf="">TOOL LIFECYCLE · 工具编排生命周期</span></span>
+    <section>
+      <section>
+        <span class="lc-n"><span leaf="">1</span></span>
+        <span class="lc-l"><span leaf="">注册</span></span>
+      </section>
+      <section>›</section>
+      <section>
+        <span class="lc-n"><span leaf="">2</span></span>
+        <span class="lc-l"><span leaf="">挂载</span></span>
+      </section>
+      <section>›</section>
+      <section>
+        <span class="lc-n"><span leaf="">3</span></span>
+        <span class="lc-l"><span leaf="">调用</span></span>
+      </section>
+      <section>›</section>
+      <section>
+        <span class="lc-n"><span leaf="">4</span></span>
+        <span class="lc-l"><span leaf="">回收</span></span>
+      </section>
+    </section>
+  </section>
+
+  <!-- 章节标题 -->
+  <section>
+    <span class="section-cat"><span leaf="">01 · CAPABILITY</span></span>
+    <h3 class="section-title"><span leaf="">图像理解：从像素到语义的跨越</span></h3>
+  </section>
+
+  <p class="body"><span leaf="">MiniMax MCP 的图像理解层采用双通道架构：视觉编码器提取空间特征，大语言模型负责语义对齐。相比纯 CV 方案，这套架构在</span><span style="color:var(--red);font-weight:700;"><span leaf="">流程图和技术截图</span></span><span leaf="">上表现尤为突出，能直接输出结构化的文字描述。</span></p>
+
+  <p class="body"><span leaf="">实测边界：当图片内含超过</span><span style="color:var(--red);font-weight:700;"><span leaf="">三种以上颜色分区</span></span><span leaf="">时，识别准确率下降约 15%；复杂网络架构图建议配合额外文字标注。</span></p>
+
+  <!-- 能力详情卡 -->
+  <section>
+    <span class="detail-name"><span leaf="">视觉编码器规格</span></span>
+    <span class="detail-desc"><span leaf="">ViT-Large backbone，分辨率支持 1024×1024，原生 16:9 横版与 9:16 竖版自适应裁切。</span></span>
+    <span class="tech-tag"><span leaf="">Vision Transformer</span></span>
+  </section>
+
+  <!-- 指标条 -->
+  <section>
+    <section>
+      <span class="metric-name"><span leaf="">流程图识别准确率</span></span>
+      <span class="metric-val"><span leaf="">94.2%</span></span>
+    </section>
+    <section>
+      <span class="metric-fill" style="width:94.2%"></span>
+    </section>
+  </section>
+
+  <!-- 章节 -->
+  <section>
+    <span class="section-cat"><span leaf="">02 · LIMITATION</span></span>
+    <h3 class="section-title"><span leaf="">真实局限：不能做什么</span></h3>
+  </section>
+
+  <p class="body"><span leaf="">当前版本（v2.1）的</span><span style="color:var(--orange);font-weight:700;"><span leaf="">长程记忆有 7 天 TTL 上限</span></span><span leaf="">，超过后自动过期清理；不支持指定记忆优先级。工具编排层面，单次会话最多挂载</span><span style="color:var(--orange);font-weight:700;"><span leaf="">12 个 MCP 节点</span></span><span leaf="">，超出后需主动下线。</span></p>
+
+  <!-- 结论 -->
+  <section>
+    <span class="bl-label"><span leaf="">SUMMARY</span></span>
+    <span class="bl-text"><span leaf="">MiniMax MCP 在多模态理解与工具编排上具备生产级可用性；主要局限集中在记忆生命周期与节点数量上限，选型时需结合具体业务场景评估。</span></span>
+  </section>
+
+
+
+</html>

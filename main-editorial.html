@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>infocard-main-editorial · 主编辑风预览</title>
+  <style>
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;overflow-x:hidden}
+    body{
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
+      background:#F2F2F2;color:#111;font-size:12px;
+    }
+    .page{width:100%;max-width:720px;margin:0 auto;padding:14px 12px 80px;background:#fff;min-height:100vh}
+
+    /* ── topbar ── */
+    header{border-bottom:2px solid #0a0a0a;padding-bottom:8px;margin-bottom:10px;display:flex;justify-content:space-between;align-items:flex-end}
+    .badge{display:inline-block;padding:2px 8px;border:1.5px solid #0a0a0a;background:#0a0a0a;color:#fff;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em}
+    h1{font-size:16px;font-weight:700;margin:4px 0 0;letter-spacing:-.02em;color:#0a0a0a}
+    .meta{font-size:10px;color:#777}
+
+    /* ── stats ── */
+    .stats{display:flex;flex-wrap:wrap;border:1.5px solid #0a0a0a;margin-bottom:10px;overflow:hidden}
+    .stat{flex:1;min-width:60px;padding:8px 10px 6px;border-right:1.5px solid #0a0a0a;text-align:center}
+    .stat:last-child{border-right:none}
+    .stat strong{display:block;font-size:15px;font-weight:700;line-height:1}
+    .stat span{font-size:10px;color:#555;font-weight:600}
+    .stat.blue strong{color:#0036a3}
+    .stat.green strong{color:#15803d}
+
+    /* ── pills ── */
+    .pills{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:10px}
+    .pill{padding:3px 8px;border:1.5px solid #0a0a0a;font-size:10px;font-weight:700;background:#fff;color:#0a0a0a}
+    .pill.blue{background:#eef4ff;border-color:#0036a3;color:#0036a3}
+    .pill.yellow{background:#fff1b0;border-color:#e8c200;color:#6b4e00}
+    .pill.green{background:#dcfce7;border-color:#15803d;color:#14532d}
+    .pill.red{background:#fff5f6;border-color:#c8102e;color:#c8102e}
+
+    /* ── section ── */
+    .section{border:1.5px solid #0a0a0a;margin-bottom:8px;overflow:hidden}
+    .sec-head{background:#0a0a0a;color:#fff;padding:6px 10px;font-size:11px;font-weight:700;display:flex;justify-content:space-between;align-items:center}
+    .sec-head .num{color:#c8102e}
+    .sec-body{padding:8px 10px;background:#fffdf9}
+    h3{font-size:13px;font-weight:700;margin:0 0 6px;color:#0a0a0a}
+    p{font-size:12px;line-height:1.65;margin:0 0 8px;color:#333}
+
+    /* ── tags ── */
+    .tags{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:10px}
+    .tag{padding:2px 7px;border:1.5px solid #c8102e;color:#c8102e;font-size:10px;font-weight:700;background:#fff5f6}
+    .tag.blue{border-color:#0036a3;color:#0036a3;background:#eef4ff}
+
+    /* ── table ── */
+    table{width:100%;border-collapse:collapse;font-size:11px;margin-bottom:10px}
+    th,td{padding:5px 8px;border:1.5px solid #0a0a0a;text-align:left}
+    th{background:#0a0a0a;color:#fff;font-weight:700}
+    tr:nth-child(even) td{background:#fffdf9}
+    .td-blue{color:#0036a3;font-weight:700}
+    .td-green{color:#15803d;font-weight:700}
+
+    /* ── flow ── */
+    .flow{display:flex;align-items:center;gap:0;margin-bottom:10px;font-size:11px}
+    .flow-item{flex:1;border:1.5px solid #0a0a0a;padding:7px 8px;text-align:center;font-weight:700;background:#fffdf9;color:#0a0a0a;line-height:1.4}
+    .flow-item .sub{display:block;font-size:9px;font-weight:400;margin-top:2px}
+    .flow-item .sub.blue{color:#0036a3}
+    .flow-item .sub.yellow{color:#6b4e00}
+    .flow-item.green{background:#dcfce7;color:#14532d}
+    .flow-item.green .sub{color:#15803d}
+    .flow-arrow{width:20px;text-align:center;font-size:13px;color:#c8102e;font-weight:700;flex-shrink:0}
+
+    /* ── grid cards ── */
+    .grid{display:flex;flex-wrap:wrap;gap:0;margin-bottom:10px;border:1.5px solid #0a0a0a}
+    .grid-cell{flex:1;min-width:130px;padding:10px;border-right:1.5px solid #0a0a0a}
+    .grid-cell:last-child{border-right:none}
+    .grid-cell strong{display:block;font-size:22px;font-weight:700;line-height:1}
+    .grid-cell .label{font-size:10px;color:#555;font-weight:600}
+    .grid-cell .desc{margin:4px 0 0;font-size:11px;color:#333;line-height:1.5}
+
+    /* ── buttons ── */
+    .btns{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:10px}
+    .btn{display:inline-block;padding:6px 14px;border:2px solid;font-size:11px;font-weight:700;text-decoration:none}
+    .btn.default{background:#0a0a0a;border-color:#0a0a0a;color:#fff}
+    .btn.red{background:#c8102e;border-color:#c8102e;color:#fff}
+    .btn.blue{background:#eef4ff;border-color:#0036a3;color:#0036a3}
+    .btn.green{background:#dcfce7;border-color:#15803d;color:#14532d}
+
+    /* ── section divider ── */
+    .divider{margin:16px 0 8px;padding-top:8px;border-top:1px solid #ddd;display:flex;align-items:center;gap:8px}
+    .divider span{font:700 10px/1 ui-monospace,monospace;letter-spacing:.06em;text-transform:uppercase;color:#777}
+
+    /* ── 390px mobile test ── */
+    @media(max-width:390px){
+      .page{padding:10px 8px 60px}
+      .stats{flex-direction:column}
+      .stat{border-right:none;border-bottom:1px solid #0a0a0a}
+      .stat:last-child{border-bottom:none}
+      .grid{flex-direction:column}
+      .grid-cell{border-right:none;border-bottom:1px solid #0a0a0a}
+      .grid-cell:last-child{border-bottom:none}
+      .flow{flex-direction:column}
+      .flow-arrow{width:100%;text-align:center;padding:4px 0}
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <!-- 0. 说明 -->
+    <div style="background:#fffdf9;border:1.5px solid #ddd;padding:10px 12px;margin-bottom:12px;font-size:11px;color:#555;line-height:1.6">
+      <strong style="color:#333">390px 验证说明：</strong>main-editorial 所有组件均无固定宽度超出容器。Stats / Grid / Flow 在 390px 下自动切换为单栏垂直布局（CSS @media max-width:390px）。
+    </div>
+
+    <!-- 1. Topbar -->
+    <div class="divider"><span>01 · TOPBAR</span></div>
+    <header>
+      <div>
+        <div class="badge">MAIN EDITORIAL</div>
+        <h1>主骨架 · 默认主题 · 高密度</h1>
+        <div class="meta">红黑白 · 蓝黄绿辅助 · 说明书感</div>
+      </div>
+      <div class="meta" style="align-self:flex-end">2026-08-03</div>
+    </header>
+
+    <!-- 2. Stats Bar -->
+    <div class="divider"><span>02 · STATS BAR</span></div>
+    <div class="stats">
+      <div class="stat"><strong>13k</strong><span>Stars</span></div>
+      <div class="stat"><strong>2k</strong><span>Forks</span></div>
+      <div class="stat blue"><strong>100%</strong><span>离线</span></div>
+      <div class="stat green"><strong>8</strong><span>语言</span></div>
+    </div>
+
+    <!-- 3. Pills Row -->
+    <div class="divider"><span>03 · PILLS ROW</span></div>
+    <div class="pills">
+      <span class="pill">高密度</span>
+      <span class="pill blue">蓝辅助</span>
+      <span class="pill yellow">黄状态</span>
+      <span class="pill green">绿确认</span>
+      <span class="pill red">红警示</span>
+      <span class="pill">默认</span>
+    </div>
+
+    <!-- 4. Section Block -->
+    <div class="divider"><span>04 · SECTION BLOCK</span></div>
+    <div class="section">
+      <div class="sec-head"><span class="num">01</span><span>核心特征</span></div>
+      <div class="sec-body">
+        <h3>它是什么</h3>
+        <p>红黑白主骨架，蓝黄绿辅助状态色，<strong>stats</strong> / <strong>grid</strong> / <strong>pill</strong> / <strong>flow</strong> / <strong>section</strong> 齐全。高密度、模块化、说明书感强。</p>
+        <div class="tags">
+          <span class="tag">高密度</span>
+          <span class="tag blue">模块化</span>
+          <span class="tag" style="border-color:#0a0a0a;color:#0a0a0a;background:#fff">说明书感</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5. Table -->
+    <div class="divider"><span>05 · TABLE</span></div>
+    <table>
+      <tr><th>特征</th><th>值</th><th>说明</th></tr>
+      <tr>
+        <td>星标</td>
+        <td class="td-blue">13k+</td>
+        <td>活跃开源</td>
+      </tr>
+      <tr>
+        <td>许可证</td>
+        <td class="td-blue">MIT</td>
+        <td>免费商用</td>
+      </tr>
+      <tr>
+        <td>最新版本</td>
+        <td class="td-green">v1.2</td>
+        <td>2026-05</td>
+      </tr>
+    </table>
+
+    <!-- 6. Flow Steps -->
+    <div class="divider"><span>06 · FLOW STEPS</span></div>
+    <div class="flow">
+      <div class="flow-item">接收<span class="sub blue">输入</span></div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-item">解析<span class="sub blue">意图</span></div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-item">调度<span class="sub yellow">插件</span></div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-item green">输出<span class="sub">交付</span></div>
+    </div>
+
+    <!-- 7. Grid Cards -->
+    <div class="divider"><span>07 · GRID CARDS</span></div>
+    <div class="grid">
+      <div class="grid-cell">
+        <strong style="color:#c8102e">10×</strong>
+        <span class="label">速度提升</span>
+        <p class="desc">并行任务处理时间压缩</p>
+      </div>
+      <div class="grid-cell">
+        <strong style="color:#0036a3">50+</strong>
+        <span class="label">技能数量</span>
+        <p class="desc">可复用 Skill 资产库</p>
+      </div>
+      <div class="grid-cell">
+        <strong style="color:#15803d">99.9%</strong>
+        <span class="label">可用率</span>
+        <p class="desc">SLA 保障稳定运行</p>
+      </div>
+    </div>
+
+    <!-- 8. Buttons -->
+    <div class="divider"><span>08 · BUTTONS</span></div>
+    <div class="btns">
+      <span class="btn default">默认按钮</span>
+      <span class="btn red">红色按钮</span>
+      <span class="btn blue">蓝色按钮</span>
+      <span class="btn green">绿色按钮</span>
+    </div>
+
+  </div>
+</body>
+</html>

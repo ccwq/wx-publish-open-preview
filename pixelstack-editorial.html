@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#FFF5E6">
+  <title>infocard-pixelstack-editorial · 像素编辑风预览</title>
+  <style>
+    /* ── pixelstack-editorial tokens ── */
+    :root{
+      --bg:#FFF5E6;            /* 米纸底 */
+      --paper:#FBF1DA;         /* 卡片纸 */
+      --ink:#2D1B00;           /* 主深咖描边/主文字 */
+      --ink-soft:#3a2a14;      /* 次级文字 */
+      --muted:#7a6747;         /* 辅助灰 */
+      --line:#2D1B00;          /* 骨架线 */
+
+      --orange:#E65100;        /* 顶层强调橙 */
+      --orange-soft:#FFB066;
+      --blue-mid:#81D4FA;      /* 中蓝 */
+      --blue-pale:#B3E5FC;     /* 浅蓝 */
+      --blue-deep:#1E5CB5;     /* 深蓝（标题/思考者主色） */
+      --paper-tile:#FAF9F6;    /* 第二层象牙 */
+      --note:#FFE9C9;          /* 便签底 */
+      --max:1180px;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;overflow-x:hidden}
+    body{
+      background:var(--bg);
+      color:var(--ink);
+      font-family:Inter,system-ui,-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;
+      font-size:13.6px;line-height:1.7;
+      text-rendering:optimizeLegibility;
+    }
+    /* 像素噪点底纹 */
+    body::before{
+      content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.18;
+      background-image:
+        repeating-linear-gradient(0deg, rgba(45,27,0,.04) 0 1px, transparent 1px 4px),
+        repeating-linear-gradient(90deg, rgba(45,27,0,.025) 0 1px, transparent 1px 5px);
+      mix-blend-mode:multiply;
+    }
+    a{color:inherit;text-decoration:none}
+    code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+
+    .page{width:min(var(--max),calc(100% - 28px));margin:0 auto;padding:18px 0 72px;position:relative;z-index:1}
+
+    /* ── 像素硬边块通用 ── */
+    .pix{
+      border:3px solid var(--line);
+      border-radius:0;
+      box-shadow:4px 4px 0 0 var(--line);
+      background-color:var(--paper);
+      padding:16px;margin-bottom:12px;
+    }
+    .pix-label{
+      display:block;margin-bottom:8px;
+      font:900 11px/1 ui-monospace,monospace;
+      letter-spacing:.08em;text-transform:uppercase;color:var(--blue-deep);
+    }
+
+    /* ── topbar ── */
+    .topbar{
+      display:flex;justify-content:space-between;gap:14px;align-items:center;
+      font:800 12px/1.2 ui-monospace,monospace;
+      letter-spacing:.08em;text-transform:uppercase;color:var(--blue-deep);
+      padding:10px 14px;margin-bottom:16px;
+      background:var(--paper);border:3px solid var(--line);
+      box-shadow:4px 4px 0 0 var(--line);
+    }
+
+    /* ── hero ── */
+    .hero{
+      padding:22px;margin-bottom:18px;
+      background:linear-gradient(180deg,#FFF8EA 0%,#FBEFD2 100%);
+      border:3px solid var(--line);box-shadow:4px 4px 0 0 var(--line);
+    }
+    .hero-title{
+      font-family:Georgia,serif;font-weight:900;
+      font-size:clamp(28px,4.6vw,48px);line-height:1.02;letter-spacing:-.02em;
+      color:var(--ink);margin:8px 0 12px;
+    }
+    .hero-title small{font-size:.55em;font-weight:400;color:var(--muted)}
+    .hero-lead{font-size:14px;line-height:1.78;color:var(--ink-soft);max-width:640px;margin:0 0 14px}
+    .hero-lead b{color:var(--ink)}
+    .hero-meta{
+      display:flex;flex-wrap:wrap;gap:8px;font-size:11.5px;
+    }
+    .hero-meta span{
+      padding:4px 8px;background:#fff;border:2px solid var(--line);box-shadow:2px 2px 0 0 var(--line);
+      font:800 11px/1 ui-monospace,monospace;
+      letter-spacing:.06em;text-transform:uppercase;color:var(--ink);
+    }
+    .hero-meta span.blue{background:var(--blue-pale);color:var(--blue-deep);border-color:var(--line)}
+    .hero-meta span.orange{background:var(--orange);color:#fff;text-shadow:1px 1px 0 #7a2900}
+
+    /* ── pyramid ── */
+    .pyramid{
+      margin-bottom:16px;
+    }
+    .block{
+      position:relative;
+      border:3px solid var(--line);
+      box-shadow:4px 4px 0 0 var(--line);
+      font-family:Georgia,serif;font-weight:900;
+      letter-spacing:.04em;
+      display:flex;align-items:center;justify-content:center;
+      color:var(--ink);margin:0 auto 3px;
+    }
+    .block.l1{width:260px;height:60px;background:var(--blue-pale);font-size:17px}
+    .block.l2{width:220px;height:54px;background:var(--paper-tile);font-size:16px}
+    .block.l3{width:180px;height:50px;background:var(--blue-mid);font-size:15px}
+    .block.l4{width:140px;height:46px;background:var(--orange);color:#fff;font-size:14px;text-shadow:1px 1px 0 #7a2900}
+
+    /* ── recall strip ── */
+    .recall-strip{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-bottom:12px}
+    .recall-strip article{background:#fff;border:2px solid var(--line);box-shadow:2px 2px 0 0 var(--line);padding:10px 12px 11px}
+    .recall-strip .k{display:block;margin-bottom:4px;font:900 10.5px/1 ui-monospace,monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--blue-deep)}
+    .recall-strip b{display:block;margin-bottom:4px;font-size:14px;line-height:1.2;color:var(--ink)}
+    .recall-strip p{margin:0;font-size:12px;line-height:1.55;color:var(--ink-soft)}
+    .recall-strip article.recall .k,.recall-strip article.recall b{color:var(--orange)}
+
+    /* ── stage ── */
+    .stage{
+      position:relative;
+      background:#FFF1D7;
+      border:3px solid var(--line);
+      box-shadow:4px 4px 0 0 var(--line);
+      min-height:220px;padding:20px 16px;margin-bottom:12px;
+      overflow:hidden;
+    }
+    .stage-label{display:block;margin-bottom:6px;font:900 10.5px/1 ui-monospace,monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--blue-deep)}
+    .stage-h3{font-size:15px;font-weight:700;color:var(--ink);margin:0 0 8px}
+    .stage-p{font-size:12.5px;line-height:1.68;color:var(--ink-soft);margin:0;max-width:280px}
+
+    /* ── insight card ── */
+    .insight{
+      background:var(--ink);padding:16px 18px;
+      margin-bottom:12px;position:relative;overflow:hidden;
+    }
+    .insight-label{display:block;margin-bottom:8px;font:900 10.5px/1 ui-monospace,monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--blue-mid)}
+    .insight blockquote{
+      font-family:Georgia,serif;font-size:clamp(18px,3.5vw,24px);font-weight:900;
+      line-height:1.25;color:#fff;margin:0;letter-spacing:-.02em;
+    }
+    .insight-attribution{display:block;margin-top:8px;font-size:11.5px;color:var(--muted)}
+
+    /* ── bullets ── */
+    .bullets{margin-bottom:12px}
+    .bullets-label{display:block;margin-bottom:8px;font:900 11px/1 ui-monospace,monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--blue-deep)}
+    ul.bullet-list{margin:0;padding:0 0 0 18px;display:grid;gap:5px}
+    ul.bullet-list li{font-size:12.5px;line-height:1.65;color:var(--ink)}
+    ul.bullet-list li strong{color:var(--orange)}
+
+    /* ── section divider ── */
+    .divider{margin:18px 0 12px;padding-top:10px;border-top:3px solid var(--line);display:flex;align-items:center;gap:8px}
+    .divider span{font:900 10px/1 ui-monospace,monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+
+    /* ── 390px mobile test ── */
+    @media(max-width:390px){
+      .page{width:100%;padding:12px 0 60px}
+      .block.l1,.block.l2,.block.l3,.block.l4{width:100%;max-width:100%}
+      .hero-title{font-size:clamp(22px,8vw,36px)}
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <!-- 0. 说明 -->
+    <div style="background:#fff5ef;border:2px dashed #a76632;padding:12px 14px;margin-bottom:14px;font-size:12px;color:#5a2a20;line-height:1.6">
+      <strong>390px 验证说明：</strong>所有区块均使用 width:auto / min-width/max-width，未设固定宽度超出 390px。Pyramid 四层方块在 390px 下宽度 100%，通过 CSS @media 响应式收缩。
+    </div>
+
+    <!-- 1. Topbar -->
+    <div class="divider"><span>01 · TOPBAR</span></div>
+    <div class="topbar">
+      <span>🟧 PIXELSTACK EDITORIAL</span>
+      <span style="color:var(--muted)">2026-08-03</span>
+    </div>
+
+    <!-- 2. Hero -->
+    <div class="divider"><span>02 · HERO</span></div>
+    <div class="hero">
+      <div class="hero-title">
+        🔲 像素编辑风<br>
+        <small>方法论层级 · 工程演进</small>
+      </div>
+      <p class="hero-lead">
+        米纸底 + 像素硬边方块 + <b>金字塔堆叠</b>构成视觉锚点，现代中文高清抗锯齿不强制像素字体。
+      </p>
+      <div class="hero-meta">
+        <span>像素</span>
+        <span class="blue">🤔 思考者</span>
+        <span class="orange">消散箭头</span>
+      </div>
+    </div>
+
+    <!-- 3. Pyramid Stack -->
+    <div class="divider"><span>03 · PYRAMID STACK</span></div>
+    <div class="pyramid">
+      <div class="block l1">🧠 认知层 — 抽象概念</div>
+      <div class="block l2">⚙️ 架构层 — 系统设计</div>
+      <div class="block l3">🔧 实现层 — 代码执行</div>
+      <div class="block l4">🚀 价值层</div>
+    </div>
+
+    <!-- 4. Pixel Block -->
+    <div class="divider"><span>04 · PIXEL BLOCK</span></div>
+    <div class="pix">
+      <span class="pix-label">▣ BLOCK — 像素硬边</span>
+      <h3 style="font-size:15px;font-weight:700;color:var(--ink);margin:0 0 6px">工程演进：反直觉发现</h3>
+      <p style="font-size:12.5px;line-height:1.68;color:var(--ink-soft);margin:0">
+        当所有人都向左走时，真正的机会藏在<span style="color:var(--orange);font-weight:700">右侧的像素阴影</span>里。像素不是复古，是维度的压缩。
+      </p>
+    </div>
+
+    <!-- 5. Recall Strip -->
+    <div class="divider"><span>05 · RECALL STRIP</span></div>
+    <div class="recall-strip">
+      <article class="recall">
+        <span class="k">📌 KEY INSIGHT</span>
+        <b>层级压缩带来理解加速</b>
+        <p>金字塔结构的每一层都对应一个认知粒度，压缩不是简化，是聚焦。</p>
+      </article>
+      <article>
+        <span class="k">⚠️ CAUTION</span>
+        <b>不要用像素字体写正文</b>
+        <p>像素字体仅用于标题和标签；正文保持高清抗锯齿，否则阅读体验崩溃。</p>
+      </article>
+    </div>
+
+    <!-- 6. Stage Background (Emoji fallback) -->
+    <div class="divider"><span>06 · STAGE — 公众号版降级</span></div>
+    <div class="stage">
+      <!-- 思考者 emoji 替代 JS 小人 -->
+      <div style="position:absolute;right:20px;top:12px;font-size:44px;line-height:1">🤔</div>
+      <!-- 消散箭头简化装饰 -->
+      <div style="position:absolute;left:16px;bottom:16px;font-size:24px;opacity:.45;color:var(--blue-deep);line-height:1">➜</div>
+      <div style="position:absolute;left:42px;bottom:16px;font-size:18px;opacity:.3;color:var(--blue-deep);line-height:1">➜</div>
+      <div style="position:absolute;left:64px;bottom:16px;font-size:12px;opacity:.18;color:var(--blue-deep);line-height:1">➜</div>
+      <span class="stage-label">🗺️ STAGE — 思考者舞台</span>
+      <h3 class="stage-h3">方法论的抽象阶梯</h3>
+      <p class="stage-p">
+        每上升一层抽象，就丢失一些细节，同时获得更通用的理解力。像素思考者站在金字塔脚下，仰望顶端的橙色光芒。
+      </p>
+    </div>
+
+    <!-- 7. Insight Card -->
+    <div class="divider"><span>07 · INSIGHT CARD</span></div>
+    <div class="insight">
+      <!-- 消散箭头装饰 -->
+      <div style="position:absolute;right:12px;top:50%;transform:translateY(-50%);font-size:48px;opacity:.15;color:var(--blue-mid);line-height:1">➜➜➜</div>
+      <span class="insight-label">💡 INSIGHT</span>
+      <blockquote>"像素不是复古，是维度的<br><span style="color:var(--orange)">压缩</span>。"</blockquote>
+      <span class="insight-attribution">— 像素堆叠哲学，2026</span>
+    </div>
+
+    <!-- 8. Bullet List -->
+    <div class="divider"><span>08 · BULLET LIST</span></div>
+    <div class="bullets">
+      <span class="bullets-label">⊕ COMPONENTS</span>
+      <ul class="bullet-list">
+        <li><strong>Topbar</strong> — 像素硬边顶栏，Emoji 替代像素小人</li>
+        <li><strong>Hero</strong> — 金字塔主标题 + 渐变纸底</li>
+        <li><strong>Pyramid Stack</strong> — 四层递进方块，蓝→象牙→中蓝→橙</li>
+        <li><strong>Pixel Block</strong> — 硬边卡片容器，3px描边+4px硬阴影</li>
+        <li><strong>Recall Strip</strong> — 2列关键发现/警示</li>
+        <li><strong>Stage</strong> — 思考者舞台（公众号版用 Emoji🤔替代 JS 小人）</li>
+        <li><strong>Insight Card</strong> — 消散箭头金句（公众号版简化箭头装饰）</li>
+        <li><strong>Bullet List</strong> — 粗线列表，橙色序号标记</li>
+      </ul>
+    </div>
+
+  </div>
+</body>
+</html>

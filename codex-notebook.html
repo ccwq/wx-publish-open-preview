@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Codex 笔记风 · 公众号主题预览</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#F8F7F4;color:#333;font:15px/1.85 -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif}
+.page{max-width:677px;margin:auto;padding:18px 12px 60px}
+/* Hero */
+.hero{background:#1A1A1A;border:2px solid #1A1A1A;margin:0 0 22px}
+.hero-bar{padding:16px 16px 10px}
+.hero-tag{font-size:10px;font-weight:900;letter-spacing:2px;color:#4ADE80}
+.hero-cmd{background:#111;margin:0 12px 12px;padding:14px 16px;border-left:3px solid #4ADE80}
+.hero-cmd-prompt{font-size:9px;color:#4ADE80}
+.hero-cmd-text{font-size:14px;font-family:'SF Mono','Fira Code','Cascadia Code',monospace;color:#4ADE80;word-break:break-all}
+.hero-body{padding:12px 16px 16px}
+.hero-title{font-size:22px;line-height:1.3;font-weight:900;color:#F8F7F4;margin:0 0 8px}
+.hero-desc{font-size:14px;line-height:1.7;color:#9CA3AF;margin:0}
+.hero-tags{padding:0 16px 14px;display:flex;gap:5px;flex-wrap:wrap}
+.hero-tag-pill{display:inline-block;background:#1E1E1E;border:1px solid #374151;padding:3px 8px;font-size:10px;font-weight:700;color:#4ADE80}
+/* Steps */
+.step{display:flex;gap:14px;margin:0 0 20px;align-items:flex-start}
+.step-badge{flex-shrink:0;width:38px;height:38px;background:#1A1A1A;border:2px solid #4ADE80;display:flex;align-items:center;justify-content:center}
+.step-badge-num{font-size:18px;font-weight:900;color:#4ADE80}
+.step-content{flex:1;padding-top:4px}
+.step-title{font-size:16px;font-weight:900;color:#1A1A1A;margin:0 0 6px}
+.step-desc{font-size:14px;line-height:1.8;color:#4B5563;margin:0 0 8px}
+.step-code{background:#1A1A1A;padding:8px 12px;border-left:2px solid #4ADE80;margin-top:6px}
+.step-code-prompt{font-size:9px;color:#4ADE80}
+.step-code-text{font-size:13px;font-family:'SF Mono','Fira Code',monospace;color:#D1D5DB;word-break:break-all}
+/* Code block */
+.code-block{background:#111;border:2px solid #1A1A1A;border-left:4px solid #4ADE80;margin:0 0 18px;padding:12px 14px}
+.code-label{font-size:9px;font-weight:900;letter-spacing:1.5px;color:#4ADE80;display:block;margin-bottom:8px}
+.code-text{font-size:13px;font-family:'SF Mono','Fira Code','Cascadia Code',monospace;color:#E5E7EB;line-height:1.7;word-break:break-all}
+/* Terminal output */
+.terminal{background:#0F0F0F;border:1px solid #2D2D2D;margin:0 0 16px;padding:10px 14px}
+.terminal-label{font-size:9px;font-weight:900;letter-spacing:1.5px;color:#6B7280;display:block;margin-bottom:6px}
+.terminal-text{font-size:13px;font-family:'SF Mono',monospace;color:#9CA3AF;line-height:1.7}
+/* Note */
+.note{background:#F0FDF4;border:2px solid #22C55E;border-left:4px solid #22C55E;margin:0 0 16px;padding:10px 13px}
+.note-label{font-size:9px;font-weight:900;letter-spacing:1.5px;color:#22C55E;display:block;margin-bottom:5px}
+.note-text{font-size:14px;line-height:1.75;color:#374151;margin:0}
+/* Config */
+.config{background:#FFFBEB;border:2px solid #D97706;border-left:4px solid #D97706;margin:0 0 16px;padding:10px 13px}
+.config-label{font-size:9px;font-weight:900;letter-spacing:1.5px;color:#D97706;display:block;margin-bottom:6px}
+.config-key{font-size:13px;font-family:'SF Mono',monospace;color:#92400E;line-height:1.7}
+.config-val{font-size:13px;font-family:'SF Mono',monospace;color:#374151;line-height:1.7}
+/* Path — no flex, no grid, overflow hidden to clip at mobile */
+.path{margin:0 0 22px;padding:0;white-space:nowrap;overflow:hidden}
+.path-inner{display:inline-flex;align-items:center;gap:0;min-width:100%}
+.path-node{min-width:60px;text-align:center;display:inline-block;vertical-align:top}
+.path-circle{width:32px;height:32px;background:#1A1A1A;border:2px solid #4ADE80;margin:0 auto 5px}
+.path-num{font-size:14px;font-weight:900;color:#4ADE80;text-align:center;line-height:32px}
+.path-name{font-size:10px;color:#374151;text-align:center;display:block}
+.path-arrow{font-size:16px;color:#D1D5DB;display:inline-block;vertical-align:top;padding-top:8px}
+/* Section */
+.section{border-left:3px solid #4ADE80;padding-left:10px;margin:28px 0 12px}
+.section-title{font-size:18px;font-weight:900;color:#1A1A1A;margin:0 0 4px}
+.body-text{font-size:15px;line-height:1.85;color:#4B5563;margin:0 0 16px}
+/* Conclusion */
+.conclusion{background:#1A1A1A;border:2px solid #1A1A1A;padding:14px 16px;margin:24px 0}
+.conclusion-label{font-size:9px;font-weight:900;letter-spacing:2px;color:#4ADE80;display:block;margin-bottom:6px}
+.conclusion-text{font-size:15px;font-weight:700;color:#F8F7F4;line-height:1.6}
+/* Mobile */
+@media(max-width:390px){
+  .page{padding:14px 10px 50px}
+  .hero-tags{overflow-x:auto;flex-wrap:nowrap;padding-bottom:6px}
+  .path{overflow-x:auto;-webkit-overflow-scrolling:touch}
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- 组件 2: 深色命令行 Hero -->
+  <section class="hero">
+    <section class="hero-bar">
+      <span class="hero-tag">CODEX NOTEBOOK · CLI WORKFLOW</span>
+    </section>
+    <section class="hero-cmd">
+      <span class="hero-cmd-prompt">$ </span><span class="hero-cmd-text">pip install codex-cli &amp;&amp; codex init --project my-workspace</span>
+    </section>
+    <section class="hero-body">
+      <h2 class="hero-title">三分钟上手 Codex CLI：从安装到跑通第一个工作流</h2>
+      <p class="hero-desc">本文面向想快速用 Codex CLI 自动化日常代码任务的开发者，演示安装、配网、执行与验证的完整闭环。</p>
+    </section>
+    <section class="hero-tags">
+      <span class="hero-tag-pill">CLI 指南</span>
+      <span class="hero-tag-pill">入门级 · 5 分钟</span>
+    </section>
+  </section>
+
+  <!-- 组件 7: 进度路径 -->
+  <section class="path">
+    <section class="path-inner">
+      <section class="path-node">
+        <section class="path-circle"><span class="path-num">1</span></section>
+        <span class="path-name">安装</span>
+      </section>
+      <span class="path-arrow">→</span>
+      <section class="path-node">
+        <section class="path-circle"><span class="path-num">2</span></section>
+        <span class="path-name">配网</span>
+      </section>
+      <span class="path-arrow">→</span>
+      <section class="path-node">
+        <section class="path-circle"><span class="path-num">3</span></section>
+        <span class="path-name">初始化</span>
+      </section>
+      <span class="path-arrow">→</span>
+      <section class="path-node">
+        <section class="path-circle"><span class="path-num">4</span></section>
+        <span class="path-name">验证</span>
+      </section>
+    </section>
+  </section>
+
+  <!-- 组件 8: 章节标题 + 组件 3: 步骤编号 -->
+  <section class="section">
+    <h3 class="section-title">第一步：安装 Codex CLI</h3>
+  </section>
+
+  <section class="step">
+    <section class="step-badge"><span class="step-badge-num">1</span></section>
+    <section class="step-content">
+      <h4 class="step-title">通过 pip 安装</h4>
+      <p class="step-desc">Codex CLI 支持 Python 3.9+，使用 pip 一键安装，安装完成后验证版本。</p>
+      <section class="step-code">
+        <span class="step-code-prompt">$ </span><span class="step-code-text">pip install codex-cli</span>
+      </section>
+    </section>
+  </section>
+
+  <section class="step">
+    <section class="step-badge"><span class="step-badge-num">2</span></section>
+    <section class="step-content">
+      <h4 class="step-title">验证安装</h4>
+      <p class="step-desc">运行以下命令确认安装成功，应输出版本号。</p>
+      <section class="step-code">
+        <span class="step-code-prompt">$ </span><span class="step-code-text">codex --version</span>
+      </section>
+    </section>
+  </section>
+
+  <!-- 组件 5: 终端输出块 -->
+  <section class="terminal">
+    <span class="terminal-label">OUTPUT</span>
+    <span class="terminal-text">codex, version 1.4.2<br>Type "codex help" for usage information.</span>
+  </section>
+
+  <!-- 组件 8: 章节标题 + 步骤 -->
+  <section class="section">
+    <h3 class="section-title">第二步：配置 API Key</h3>
+  </section>
+
+  <section class="step">
+    <section class="step-badge"><span class="step-badge-num">3</span></section>
+    <section class="step-content">
+      <h4 class="step-title">设置环境变量</h4>
+      <p class="step-desc">将 API Key 写入环境变量，Codex CLI 启动时自动读取。支持 .env 文件或 shell profile 两种方式。</p>
+      <section class="step-code">
+        <span class="step-code-prompt">$ </span><span class="step-code-text">export CODEX_API_KEY=sk-xxxxxxxxxxxxxxxx</span>
+      </section>
+    </section>
+  </section>
+
+  <!-- 组件 9: 配置引用块 -->
+  <section class="config">
+    <span class="config-label">CONFIG</span>
+    <span class="config-key">CODEX_API_KEY</span>
+    <span class="config-val">sk-xxxxxxxxxxxxxxxx — 从 dashboard.codex.dev 获取</span>
+  </section>
+
+  <!-- 组件 4: 代码引用块 -->
+  <section class="code-block">
+    <span class="code-label">CODE BLOCK</span>
+    <span class="code-text"># .env 文件示例<br>CODEX_API_KEY=sk-xxxxxxxxxxxxxxxx<br>CODEX_MODEL=gpt-4o<br>CODEX_MAX_TOKENS=4096</span>
+  </section>
+
+  <!-- 组件 6: 注释说明 -->
+  <section class="note">
+    <span class="note-label">NOTE</span>
+    <p class="note-text">API Key 请勿提交至代码仓库。推荐将 .env 加入 .gitignore，或使用 secret 管理工具注入环境变量。</p>
+  </section>
+
+  <!-- 组件 8: 章节 -->
+  <section class="section">
+    <h3 class="section-title">第三步：初始化工作区</h3>
+  </section>
+
+  <section class="step">
+    <section class="step-badge"><span class="step-badge-num">4</span></section>
+    <section class="step-content">
+      <h4 class="step-title">创建项目</h4>
+      <p class="step-desc">在当前目录初始化 Codex 工作区，自动生成 .codex/ 配置目录与 cache 子目录。</p>
+      <section class="step-code">
+        <span class="step-code-prompt">$ </span><span class="step-code-text">codex init --project my-workspace</span>
+      </section>
+    </section>
+  </section>
+
+  <section class="step">
+    <section class="step-badge"><span class="step-badge-num">5</span></section>
+    <section class="step-content">
+      <h4 class="step-title">查看状态</h4>
+      <p class="step-desc">初始化后可用 status 子命令查看当前工作区状态、配网状态与缓存情况。</p>
+      <section class="step-code">
+        <span class="step-code-prompt">$ </span><span class="step-code-text">codex status</span>
+      </section>
+    </section>
+  </section>
+
+  <!-- 终端输出 -->
+  <section class="terminal">
+    <span class="terminal-label">OUTPUT</span>
+    <span class="terminal-text">Project: my-workspace<br>Model: gpt-4o (connected ✓)<br>Cache: 0 tasks, 0 MB<br>Ready to run.</span>
+  </section>
+
+  <!-- 组件 8: 章节 + 正文 -->
+  <section class="section">
+    <h3 class="section-title">进阶：自定义 Prompt 模板</h3>
+  </section>
+
+  <p class="body-text">Codex CLI 支持通过 <span style="font-family:'SF Mono',monospace;font-size:13px;color:#374151;">~/.codex/templates/</span> 目录加载自定义 Prompt 模板。创建同名 YAML 文件即可覆盖默认行为。</p>
+
+  <!-- 组件 4: 代码引用块 -->
+  <section class="code-block">
+    <span class="code-label">CODE BLOCK</span>
+    <span class="code-text"># ~/.codex/templates/review.yaml<br>name: Code Review<br>prompt: |<br>  Review the following code for bugs,<br>  security issues, and style problems.<br>model: gpt-4o</span>
+  </section>
+
+  <p class="body-text">运行 <span style="font-family:'SF Mono',monospace;font-size:13px;color:#374151;">codex run review ./src</span> 即可触发自定义模板工作流。</p>
+
+  <!-- 组件 6: 注释 -->
+  <section class="note">
+    <span class="note-label">NOTE</span>
+    <p class="note-text">模板支持 Jinja2 语法，可在 prompt 中引用文件路径、变更列表等变量，实现条件化生成。</p>
+  </section>
+
+  <!-- 组件: 结论 -->
+  <section class="conclusion">
+    <span class="conclusion-label">NEXT STEP</span>
+    <p class="conclusion-text">运行 <span style="font-family:'SF Mono',monospace;color:#4ADE80;">codex run review ./src</span> 验证工作流，完整闭环已就绪。</p>
+  </section>
+
+</div>
+</body>
+</html>
