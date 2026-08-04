@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>paper.wechat · 公众号排版预览</title>
+<style>
+  body{margin:0;background:#eef0f2;font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;-webkit-text-size-adjust:100%;}
+  .gzh-toolbar{position:fixed;top:0;left:0;right:0;height:54px;background:#ffffff;box-shadow:0 1px 10px rgba(0,0,0,.08);display:flex;align-items:center;justify-content:space-between;padding:0 16px;z-index:99;}
+  .gzh-hint{font-size:13px;color:#6b7280;line-height:1.4;}
+  .gzh-hint b{color:#111827;}
+  .gzh-copy{background:#059669;color:#fff;border:0;border-radius:9px;padding:10px 20px;font-size:14px;font-weight:700;cursor:pointer;box-shadow:0 3px 10px rgba(5,150,105,.28);white-space:nowrap;transition:transform .08s,background .15s;}
+  .gzh-copy:hover{background:#047857;}
+  .gzh-copy:active{transform:translateY(1px);}
+  .gzh-toast{position:fixed;top:66px;left:50%;transform:translateX(-50%);background:#111827;color:#fff;padding:11px 20px;border-radius:10px;font-size:14px;font-weight:600;opacity:0;pointer-events:none;transition:opacity .25s;z-index:100;box-shadow:0 6px 20px rgba(0,0,0,.25);max-width:88vw;text-align:center;}
+  .gzh-toast.show{opacity:1;}
+  .gzh-stage{max-width:700px;margin:78px auto 64px;padding:0 8px;}
+  @media(max-width:520px){.gzh-hint{max-width:150px;}}
+</style>
+</head>
+<body>
+<div class="gzh-toolbar">
+  <span class="gzh-hint">👇 下方是排版效果 · 点右侧 <b>复制</b> 直接粘到公众号</span>
+  <button class="gzh-copy" id="gzhCopyBtn" onclick="gzhCopy()">📋 复制到公众号</button>
+</div>
+<div class="gzh-toast" id="gzhToast"></div>
+<div class="gzh-stage">
+  <div id="gzh-content">
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>纸感编辑风 · 公众号主题预览</title>
+</head>
+<body style="margin:0;background:#ede2c9;color:#1d1b16;font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif;font-size:15px;line-height:1.8;">
+<section style="width:100%;max-width:677px;margin:0 auto;padding:18px 12px 60px;">
+
+  <!-- 四色导轨 -->
+  <section style="display:flex;height:7px;overflow:hidden;border-radius:4px 4px 0 0;margin:0 0 0;">
+    <span style="flex:1;background:#C8102E;"><span leaf=""><br></span></span>
+    <span style="flex:1;background:#1D1B16;"><span leaf=""><br></span></span>
+    <span style="flex:1;background:#7CC8FF;"><span leaf=""><br></span></span>
+    <span style="flex:1;background:#FFC45C;"><span leaf=""><br></span></span>
+  </section>
+
+  <!-- Hero 卡片 -->
+  <section style="background:#FFFDF9;border:2px solid #1D1B16;border-radius:9px;padding:16px;margin:0 0 14px;box-shadow:4px 4px 0 #C9BDA7;">
+    <p style="margin:0 0 10px;">
+      <span style="display:inline-block;background:#FFB3C6;border:1.5px solid #1D1B16;border-radius:15px;padding:2px 8px;font-size:11px;font-weight:800;margin-right:4px;"><span leaf="">调查复盘</span></span>
+      <span style="display:inline-block;background:#9BDC77;border:1.5px solid #1D1B16;border-radius:15px;padding:2px 8px;font-size:11px;font-weight:800;"><span leaf="">纸感编辑</span></span>
+    </p>
+    <h1 style="font-size:26px;line-height:1.25;margin:10px 0;color:#1D1B16;font-weight:800;"><span leaf="">一场行业风暴，应该如何被拆开讲清楚？</span></h1>
+    <p style="font-size:15px;color:#625D56;line-height:1.75;margin:0;"><span leaf="">暖米纸、粗黑线与贴纸标签，把复杂事实组织成读者可以跟着走的证据链。</span></p>
+  </section>
+
+  <!-- 数据格 -->
+  <section style="display:flex;gap:7px;margin:0 0 14px;flex-wrap:wrap;">
+    <section style="flex:1;background:#FFFDF9;border:2px solid #1D1B16;border-radius:9px;padding:16px;text-align:center;box-shadow:4px 4px 0 #C9BDA7;">
+      <p style="font-size:22px;font-weight:900;color:#C8102E;margin:0 0 4px;"><span leaf="">47天</span></p>
+      <p style="font-size:11px;font-weight:700;color:#625D56;margin:0;"><span leaf="">平均周期</span></p>
+    </section>
+    <section style="flex:1;background:#FFFDF9;border:2px solid #1D1B16;border-radius:9px;padding:16px;text-align:center;box-shadow:4px 4px 0 #C9BDA7;">
+      <p style="font-size:22px;font-weight:900;color:#C8102E;margin:0 0 4px;"><span leaf="">3层</span></p>
+      <p style="font-size:11px;font-weight:700;color:#625D56;margin:0;"><span leaf="">证据结构</span></p>
+    </section>
+    <section style="flex:1;background:#FFFDF9;border:2px solid #1D1B16;border-radius:9px;padding:16px;text-align:center;box-shadow:4px 4px 0 #C9BDA7;">
+      <p style="font-size:22px;font-weight:900;color:#C8102E;margin:0 0 4px;"><span leaf="">01</span></p>
+      <p style="font-size:11px;font-weight:700;color:#625D56;margin:0;"><span leaf="">核心结论</span></p>
+    </section>
+  </section>
+
+  <!-- 章节 01 -->
+  <section style="border-bottom:2px solid #1D1B16;padding-bottom:7px;margin:30px 0 13px;">
+    <p style="font-size:11px;font-weight:900;color:#C8102E;letter-spacing:1.5px;margin:0 0 4px;"><span leaf="">01 · EVIDENCE</span></p>
+    <h2 style="font-size:20px;line-height:1.35;color:#1D1B16;margin:2px 0 0;font-weight:800;"><span leaf="">先把事实与判断分开</span></h2>
+  </section>
+  <p style="font-size:15px;line-height:1.8;text-align:justify;margin:0 0 18px;color:#3D3A32;">
+    <span leaf="">正文以</span><span style="border-bottom:2px solid #FFC45C;font-weight:800;"><span leaf="">黄色下划线</span></span><span leaf="">标出关键事实；标签只负责导航，不假装承担可信度判断。</span>
+  </p>
+
+  <!-- 证据卡 -->
+  <section style="background:#FFFDF9;border:2px solid #1D1B16;border-radius:8px;padding:14px 14px;margin:0 0 14px;border-left:5px solid #7CC8FF;">
+    <p style="margin:0 0 8px;">
+      <span style="display:inline-block;background:#7CC8FF;border:1.5px solid #1D1B16;border-radius:4px;padding:2px 7px;font-size:10px;font-weight:800;"><span leaf="">公开资料</span></span>
+    </p>
+    <h3 style="font-size:16px;font-weight:800;color:#1D1B16;margin:0 0 6px;"><span leaf="">证据卡：一条可追溯的事实</span></h3>
+    <p style="font-size:13px;color:#625D56;line-height:1.65;margin:0;"><span leaf="">在这里写来源、时间、口径，以及这个事实不能证明什么。</span></p>
+  </section>
+
+  <!-- 章节 02 -->
+  <section style="border-bottom:2px solid #1D1B16;padding-bottom:7px;margin:30px 0 13px;">
+    <p style="font-size:11px;font-weight:900;color:#C8102E;letter-spacing:1.5px;margin:0 0 4px;"><span leaf="">02 · TIMELINE</span></p>
+    <h2 style="font-size:20px;line-height:1.35;color:#1D1B16;margin:2px 0 0;font-weight:800;"><span leaf="">把事件放回时间里</span></h2>
+  </section>
+
+  <!-- 时间线节点 -->
+  <section style="display:flex;gap:10px;margin:0 0 14px;">
+    <section style="width:22px;display:flex;flex-direction:column;align-items:center;flex-shrink:0;">
+      <span style="display:inline-block;width:12px;height:12px;border-radius:50%;background:#FFC45C;border:2px solid #1D1B16;margin-top:5px;"><span leaf=""><br></span></span>
+      <span style="width:2px;flex:1;background:#1D1B16;margin-top:4px;min-height:38px;"><span leaf=""><br></span></span>
+    </section>
+    <section style="flex:1;padding-bottom:10px;">
+      <p style="font-size:11px;font-weight:900;color:#C8102E;margin:0 0 3px;"><span leaf="">2026.04</span></p>
+      <h3 style="font-size:16px;font-weight:800;color:#1D1B16;margin:0 0 4px;"><span leaf="">关键政策与市场信号出现</span></h3>
+      <p style="font-size:13px;line-height:1.65;color:#625D56;margin:0;"><span leaf="">流式时间线适合公众号窄屏，不依赖网页端的固定多列布局。</span></p>
+    </section>
+  </section>
+
+  <!-- 最后一个时间线节点（无竖线） -->
+  <section style="display:flex;gap:10px;margin:0 0 14px;">
+    <section style="width:22px;display:flex;flex-direction:column;align-items:center;flex-shrink:0;padding-top:5px;">
+      <span style="display:inline-block;width:12px;height:12px;border-radius:50%;background:#FFC45C;border:2px solid #1D1B16;"><span leaf=""><br></span></span>
+    </section>
+    <section style="flex:1;">
+      <p style="font-size:11px;font-weight:900;color:#C8102E;margin:0 0 3px;"><span leaf="">2026.06</span></p>
+      <h3 style="font-size:16px;font-weight:800;color:#1D1B16;margin:0 0 4px;"><span leaf="">行业格局初步重塑</span></h3>
+      <p style="font-size:13px;line-height:1.65;color:#625D56;margin:0;"><span leaf="">市场信号传导至终端，影响开始显现。</span></p>
+    </section>
+  </section>
+
+  <!-- 记者注 -->
+  <section style="border-left:5px solid #C8102E;background:#FFF5F5;padding:12px 14px;margin:0 0 18px;">
+    <p style="font-size:12px;font-weight:900;color:#C8102E;letter-spacing:1px;margin:0 0 5px;"><span leaf="">王记者注</span></p>
+    <p style="font-size:14px;color:#3D3A32;line-height:1.75;margin:0;"><span leaf="">这是分析判断，不是新增事实；它解释证据之间的关系，也公开它的边界。</span></p>
+  </section>
+
+  <!-- 结论卡 -->
+  <section style="background:#1D1B16;border:2px solid #1D1B16;border-radius:8px;padding:14px 15px;margin:0 0 24px;">
+    <p style="font-size:11px;font-weight:900;color:#FFC45C;letter-spacing:1.6px;margin:0 0 7px;"><span leaf="">BOTTOM LINE</span></p>
+    <p style="font-size:17px;font-weight:800;line-height:1.6;color:#FFFFFF;margin:6px 0 0;"><span leaf="">结论先给，证据随后；贴纸可以轻，判断必须重。</span></p>
+  </section>
+
+  <!-- 资料来源 -->
+  <section style="border-top:2px dashed #C9BDA7;padding-top:12px;margin:0 0 16px;">
+    <p style="font-size:11px;font-weight:900;color:#625D56;letter-spacing:1px;margin:0 0 6px;"><span leaf="">📎 资料来源</span></p>
+    <ul style="font-size:13px;color:#625D56;line-height:1.8;margin:0;padding-left:20px;">
+      <li><span leaf="">公开政策文件与官方声明</span></li>
+      <li><span leaf="">市场数据第三方报告</span></li>
+      <li><span leaf="">记者核实采访记录（化名处理）</span></li>
+    </ul>
+  </section>
+
+  <!-- 作者签名 -->
+  <section style="text-align:center;padding:10px 0 0;border-top:1px solid #C9BDA7;">
+    <p style="font-size:12px;color:#625D56;margin:0;"><span leaf="">— 王记者 · AG 雷达 · 调查复盘 —</span></p>
+  </section>
+
+</section>
+</body>
+</html>
+  </div>
+</div>
+<script>
+  function gzhShowToast(msg){
+    var t=document.getElementById('gzhToast');
+    t.textContent=msg;t.classList.add('show');
+    clearTimeout(t._timer);
+    t._timer=setTimeout(function(){t.classList.remove('show');},2800);
+  }
+  function gzhCopy(){
+    var el=document.getElementById('gzh-content');
+    // 选中渲染后的富文本节点并复制（等价于手动 Ctrl+A / Ctrl+C，保留全部样式）
+    var range=document.createRange();
+    range.selectNodeContents(el);
+    var sel=window.getSelection();
+    sel.removeAllRanges();
+    sel.addRange(range);
+    var ok=false;
+    try{ok=document.execCommand('copy');}catch(e){ok=false;}
+    sel.removeAllRanges();
+    var btn=document.getElementById('gzhCopyBtn');
+    if(ok){
+      gzhShowToast('✅ 已复制！去公众号编辑器按 Ctrl/⌘+V 粘贴即可');
+      var old=btn.textContent;btn.textContent='✅ 已复制';
+      setTimeout(function(){btn.textContent=old;},2200);
+    }else{
+      gzhShowToast('⚠ 自动复制失败，请手动全选(Ctrl/⌘+A)再复制(Ctrl/⌘+C)');
+    }
+  }
+</script>
+</body>
+</html>
