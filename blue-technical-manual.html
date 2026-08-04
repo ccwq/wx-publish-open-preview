@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>blue-technical-manual.wechat · 公众号排版预览</title>
+<style>
+  body{margin:0;background:#eef0f2;font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;-webkit-text-size-adjust:100%;}
+  .gzh-toolbar{position:fixed;top:0;left:0;right:0;height:54px;background:#ffffff;box-shadow:0 1px 10px rgba(0,0,0,.08);display:flex;align-items:center;justify-content:space-between;padding:0 16px;z-index:99;}
+  .gzh-hint{font-size:13px;color:#6b7280;line-height:1.4;}
+  .gzh-hint b{color:#111827;}
+  .gzh-copy{background:#059669;color:#fff;border:0;border-radius:9px;padding:10px 20px;font-size:14px;font-weight:700;cursor:pointer;box-shadow:0 3px 10px rgba(5,150,105,.28);white-space:nowrap;transition:transform .08s,background .15s;}
+  .gzh-copy:hover{background:#047857;}
+  .gzh-copy:active{transform:translateY(1px);}
+  .gzh-toast{position:fixed;top:66px;left:50%;transform:translateX(-50%);background:#111827;color:#fff;padding:11px 20px;border-radius:10px;font-size:14px;font-weight:600;opacity:0;pointer-events:none;transition:opacity .25s;z-index:100;box-shadow:0 6px 20px rgba(0,0,0,.25);max-width:88vw;text-align:center;}
+  .gzh-toast.show{opacity:1;}
+  .gzh-stage{max-width:700px;margin:78px auto 64px;padding:0 8px;}
+  @media(max-width:520px){.gzh-hint{max-width:150px;}}
+</style>
+</head>
+<body>
+<div class="gzh-toolbar">
+  <span class="gzh-hint">👇 公众号兼容样稿 · RefID 已标注</span>
+  <span style="display:flex;gap:8px;align-items:center;"><button class="gzh-copy" style="background:#111827;padding:10px 12px;" id="gzhRefBtn" onclick="gzhCopyRef()">复制 RefID</button><button class="gzh-copy" id="gzhCopyBtn" onclick="gzhCopy()">📋 复制到公众号</button></span>
+</div>
+<div class="gzh-toast" id="gzhToast"></div>
+<div class="gzh-stage">
+  <div id="gzh-content">
+<section style="width:100%;max-width:677px;margin:0 auto;padding:12px 10px 36px;box-sizing:border-box;background:#FAFBFF;color:#1A1A2E;font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif;line-height:1.8;">
+  <section style="width:100%;margin:0 0 20px;border:2px solid #0A1931;background:#FFFFFF;box-sizing:border-box;">
+    <section style="height:8px;background:#1E5EFF;border-bottom:2px solid #0A1931;box-sizing:border-box;"><span leaf=""> </span></section>
+    <section style="padding:16px 14px;background:#EEF4FF;border-bottom:2px solid #0A1931;box-sizing:border-box;">
+      <span leaf="" style="display:inline-block;margin:0 6px 8px 0;padding:3px 8px;border:1.5px solid #0A1931;background:#0A1931;color:#FFFFFF;font-size:10px;font-weight:900;letter-spacing:1px;">SKILL MANUAL</span>
+      <span leaf="" style="display:inline-block;margin:0 0 8px;padding:3px 8px;border:1.5px solid #1E5EFF;background:#FFFFFF;color:#1E5EFF;font-size:10px;font-weight:900;letter-spacing:1px;">WX-READY</span>
+      <h3 style="margin:2px 0 8px;font-size:24px;line-height:1.28;color:#0A1931;font-weight:900;letter-spacing:-0.3px;"><span leaf="">复杂系统，必须有一份能翻到结论的手册</span></h3>
+      <span leaf="" style="font-size:14px;line-height:1.72;color:#334155;">蓝色技术手册风的公众号兼容样稿：保留蓝色锚点、编号推进、命令证据与结论收束，并让内容在手机端自然换行。</span>
+    </section>
+    <section style="padding:10px 11px;background:#FFFFFF;box-sizing:border-box;">
+      <span leaf="" style="display:inline-block;margin:2px 6px 2px 0;padding:3px 8px;border:1.5px solid #0A1931;background:#FFFFFF;color:#0A1931;font-size:10px;font-weight:900;">技术手册</span>
+      <span leaf="" style="display:inline-block;margin:2px 6px 2px 0;padding:3px 8px;border-left:4px solid #1E5EFF;border-top:1.5px solid #0A1931;border-right:1.5px solid #0A1931;border-bottom:1.5px solid #0A1931;background:#FFFFFF;color:#0A1931;font-size:10px;font-weight:900;">证据优先</span>
+      <span leaf="" style="display:inline-block;margin:2px 0;padding:3px 8px;border:1.5px solid #1E5EFF;background:#EEF4FF;color:#1E5EFF;font-size:10px;font-weight:900;">RefID · wx-theme:blue-technical</span>
+    </section>
+  </section>
+
+  <section style="width:100%;margin:0 0 16px;padding:11px 12px;border-top:2px solid #1E5EFF;border-bottom:2px solid #1E5EFF;background:#FFFFFF;box-sizing:border-box;">
+    <span leaf="" style="display:block;margin:0 0 5px;font-size:15px;line-height:1.5;font-weight:900;color:#1E5EFF;">一句话概览：先建立阅读容器，再把命令、证据和结论编排成可复核的技术路径。</span>
+    <span leaf="" style="font-size:12px;line-height:1.7;color:#475569;">蓝底编号负责定位章节，深蓝命令块负责承载执行证据，浅蓝引用块负责固定关键结论。</span>
+  </section>
+
+  <section style="width:100%;margin:0 0 16px;padding:12px 0;border-top:2px solid #1E5EFF;box-sizing:border-box;">
+    <span leaf="" style="display:inline-block;margin:0 10px 0 0;padding:10px 11px;background:#1E5EFF;border:2px solid #0A1931;color:#FFFFFF;font-size:24px;font-weight:900;line-height:1;vertical-align:top;">01</span>
+    <section style="display:inline-block;width:78%;padding-top:1px;vertical-align:top;box-sizing:border-box;">
+      <span leaf="" style="display:block;margin:0 0 3px;font-size:10px;font-weight:900;letter-spacing:1.4px;color:#1E5EFF;">INSTALLATION</span>
+      <h3 style="margin:0;font-size:20px;line-height:1.35;color:#0A1931;font-weight:900;"><span leaf="">安装与初始化</span></h3>
+    </section>
+  </section>
+  <section style="width:100%;margin:0 0 14px;box-sizing:border-box;">
+    <span leaf="" style="font-size:15px;line-height:1.8;color:#1A1A2E;">首先确认运行环境满足 Node.js 18 或更高版本，然后执行 </span><strong style="color:#1E5EFF;font-weight:800;border-bottom:2px solid #1E5EFF;"><span leaf="">npx hermes-agent install</span></strong><span leaf="" style="font-size:15px;line-height:1.8;color:#1A1A2E;"> 完成 CLI 安装。安装动作应当可重复，输出路径也必须能被后续步骤验证。</span>
+  </section>
+
+  <section style="width:100%;margin:0 0 14px;padding:12px 13px;background:#0F172A;border:2px solid #0A1931;box-sizing:border-box;">
+    <span leaf="" style="display:block;margin:0 0 6px;font-size:11px;font-weight:900;letter-spacing:0.7px;color:#60A5FA;">$ TERMINAL</span>
+    <span leaf="" style="display:block;font-family:monospace;font-size:13px;line-height:1.8;color:#E2E8F0;">npx hermes-agent install blue-technical</span>
+    <span leaf="" style="display:block;font-family:monospace;font-size:12px;line-height:1.7;color:#86EFAC;">PASS · CLI installed and command is available</span>
+  </section>
+
+  <section style="width:100%;margin:0 0 16px;padding:11px 12px;background:#FFFFFF;border:2px solid #1E5EFF;box-sizing:border-box;">
+    <span leaf="" style="display:block;margin:0 0 4px;font-size:10px;font-weight:900;letter-spacing:1.1px;color:#1E5EFF;">PROGRESS</span>
+    <span leaf="" style="display:block;font-size:13px;color:#1E5EFF;font-weight:900;">STEP 01 · 环境检查　 STEP 02 · 依赖安装</span>
+    <span leaf="" style="display:block;font-size:13px;color:#94A3B8;">STEP 03 · 配置验证　 STEP 04 · 启动服务</span>
+  </section>
+
+  <section style="width:100%;margin:0 0 16px;padding:12px 14px;border-left:4px solid #1E5EFF;background:#EEF4FF;box-sizing:border-box;">
+    <span leaf="" style="display:block;margin:0 0 5px;font-size:11px;font-weight:900;letter-spacing:0.6px;color:#1E5EFF;">KEY INSIGHT</span>
+    <span leaf="" style="font-size:15px;line-height:1.75;color:#1A1A2E;">命令只是入口，证据才是交付。每一步都应留下可复核的输出，让下游读者能判断“已完成”还是“仅执行过”。</span>
+  </section>
+
+  <section style="width:100%;margin:0 0 16px;padding:12px 0;border-top:2px solid #1E5EFF;box-sizing:border-box;">
+    <span leaf="" style="display:inline-block;margin:0 10px 0 0;padding:10px 11px;background:#1E5EFF;border:2px solid #0A1931;color:#FFFFFF;font-size:24px;font-weight:900;line-height:1;vertical-align:top;">02</span>
+    <section style="display:inline-block;width:78%;padding-top:1px;vertical-align:top;box-sizing:border-box;">
+      <span leaf="" style="display:block;margin:0 0 3px;font-size:10px;font-weight:900;letter-spacing:1.4px;color:#1E5EFF;">VERIFICATION</span>
+      <h3 style="margin:0;font-size:20px;line-height:1.35;color:#0A1931;font-weight:900;"><span leaf="">配置、证据与结论</span></h3>
+    </section>
+  </section>
+  <section style="width:100%;margin:0 0 14px;padding:12px 13px;background:#FFFFFF;border:2px solid #0A1931;box-sizing:border-box;">
+    <span leaf="" style="display:block;margin:0 0 5px;font-size:10px;font-weight:900;letter-spacing:1px;color:#1E5EFF;">EVIDENCE CHECKLIST</span>
+    <ul style="margin:0;padding:0 0 0 20px;color:#1A1A2E;">
+      <li style="margin:0 0 5px;font-size:14px;line-height:1.7;"><span leaf="">配置项已写入 hermes config set model / provider / tools。</span></li>
+      <li style="margin:0 0 5px;font-size:14px;line-height:1.7;"><span leaf="">命令输出包含成功标记，并能定位生成的文件或目录。</span></li>
+      <li style="margin:0;font-size:14px;line-height:1.7;"><span leaf="">结论明确说明下一步动作，而不是只复述执行过程。</span></li>
+    </ul>
+  </section>
+
+  <section style="width:100%;margin:0 0 16px;padding:12px 13px;background:#0F172A;border:2px solid #0A1931;box-sizing:border-box;">
+    <span leaf="" style="display:block;margin:0 0 6px;font-size:11px;font-weight:900;letter-spacing:0.7px;color:#60A5FA;">$ TERMINAL</span>
+    <span leaf="" style="display:block;font-family:monospace;font-size:13px;line-height:1.8;color:#E2E8F0;">hermes config set model custom:model</span>
+    <span leaf="" style="display:block;font-family:monospace;font-size:12px;line-height:1.7;color:#86EFAC;">PASS · configuration saved</span>
+    <span leaf="" style="display:block;font-family:monospace;font-size:12px;line-height:1.7;color:#FDE68A;">RESULT · ~/.hermes/sessions/ and skills/ are ready</span>
+  </section>
+
+  <section style="width:100%;margin:0 0 18px;padding:14px 15px;background:#0A1931;border:2px solid #0A1931;box-sizing:border-box;">
+    <span leaf="" style="display:block;margin:0 0 6px;font-size:10px;font-weight:900;letter-spacing:1.3px;color:#60A5FA;">MANUAL CONCLUSION</span>
+    <span leaf="" style="font-size:16px;line-height:1.65;font-weight:800;color:#FFFFFF;">蓝色技术手册的核心不是装饰，而是让编号、命令、证据和结论形成一条可追踪的阅读链路。先验证环境，再执行命令，最后用明确结论完成交付。</span>
+  </section>
+
+  <section style="width:100%;padding-top:10px;border-top:2px solid #1E5EFF;box-sizing:border-box;">
+    <span leaf="" style="display:block;margin:0 0 5px;font-size:10px;font-weight:900;letter-spacing:1.2px;color:#1E5EFF;">SOURCES / NOTES</span>
+    <span leaf="" style="font-size:12px;line-height:1.7;color:#64748B;">设计依据：蓝色技术手册风组件规范；正文按微信公众号自然文档流组织，根容器宽度为 100%，宽屏最大参考宽度为 677px。</span>
+  </section>
+</section>
+  </div>
+</div>
+<script>
+  function gzhShowToast(msg){
+    var t=document.getElementById('gzhToast');
+    t.textContent=msg;t.classList.add('show');
+    clearTimeout(t._timer);
+    t._timer=setTimeout(function(){t.classList.remove('show');},2800);
+  }
+  function gzhCopyRef(){
+    var ref='wx-theme:blue-technical-manual';
+    var done=function(){gzhShowToast('✅ 已复制主题 RefID：'+ref);var btn=document.getElementById('gzhRefBtn');var old=btn.textContent;btn.textContent='✅ RefID 已复制';setTimeout(function(){btn.textContent=old;},2200);};
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(ref).then(done,function(){gzhShowToast('⚠ 请手动复制：'+ref);});}
+    else{var x=document.createElement('textarea');x.value=ref;document.body.appendChild(x);x.select();try{document.execCommand('copy');done();}catch(e){gzhShowToast('⚠ 请手动复制：'+ref);}document.body.removeChild(x);}
+  }
+  function gzhCopy(){
+    var el=document.getElementById('gzh-content');
+    // 选中渲染后的富文本节点并复制（等价于手动 Ctrl+A / Ctrl+C，保留全部样式）
+    var range=document.createRange();
+    range.selectNodeContents(el);
+    var sel=window.getSelection();
+    sel.removeAllRanges();
+    sel.addRange(range);
+    var ok=false;
+    try{ok=document.execCommand('copy');}catch(e){ok=false;}
+    sel.removeAllRanges();
+    var btn=document.getElementById('gzhCopyBtn');
+    if(ok){
+      gzhShowToast('✅ 已复制！去公众号编辑器按 Ctrl/⌘+V 粘贴即可');
+      var old=btn.textContent;btn.textContent='✅ 已复制';
+      setTimeout(function(){btn.textContent=old;},2200);
+    }else{
+      gzhShowToast('⚠ 自动复制失败，请手动全选(Ctrl/⌘+A)再复制(Ctrl/⌘+C)');
+    }
+  }
+</script>
+</body>
+</html>
