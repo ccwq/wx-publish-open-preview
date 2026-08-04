@@ -1,212 +1,169 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>蜡笔编辑风 · 公众号主题预览</title>
-  <style>
-    /* crayon-editorial preview tokens */
-    :root{
-      --bg:#F0EAD8;
-      --card:#F5F0E2;
-      --blue:#2A6FA8;
-      --green:#2A8A6E;
-      --purple:#7955AB;
-      --red:#D45C1A;
-      --yellow:#C8971F;
-      --ink:#1D1B16;
-      --body:#3D3A32;
-      --muted:#625D56;
-      --radius:13px;
-    }
-    *{box-sizing:border-box}
-    html,body{margin:0;padding:0;overflow-x:hidden}
-    body{
-      background:var(--bg);
-      color:var(--body);
-      font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;
-      font-size:15px;line-height:1.8;
-    }
-    .page{max-width:677px;margin:0 auto;padding:18px 12px 64px}
-
-    /* 5-color rail */
-    .rail{display:flex;height:7px;border-radius:8px 8px 0 0;overflow:hidden}
-    .rail span{flex:1}
-
-    /* hero card */
-    .hero{background:var(--card);border-radius:0 0 var(--radius) var(--radius);padding:20px 16px;box-shadow:0 3px 14px rgba(0,0,0,.11)}
-    .emoji{font-size:40px;line-height:1;margin:0 0 10px}
-    .tag{display:inline-block;background:var(--blue);color:#fff;border-radius:var(--radius);padding:3px 10px;font-size:11px;font-weight:700;margin-right:5px}
-    .tag.g{background:var(--green)}
-    .hero-title{font-size:24px;line-height:1.3;color:var(--ink);margin:10px 0;font-weight:800;letter-spacing:-0.3px}
-    .hero-lead{font-size:14px;line-height:1.75;color:var(--muted)}
-
-    /* stats row */
-    .stats{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 22px}
-    .stat{flex:1;min-width:140px;background:var(--card);border-radius:var(--radius);padding:12px 10px;text-align:center;box-shadow:0 3px 14px rgba(0,0,0,.11)}
-    .stat-num{display:block;font-size:28px;line-height:1;font-weight:900;margin:0 0 5px}
-    .stat-lbl{display:block;font-size:11px;font-weight:700;color:var(--muted);margin:0}
-
-    /* 5-color cards */
-    .cards{margin:0 0 22px}
-    .ccard{display:flex;align-items:flex-start;background:var(--card);border-radius:var(--radius);padding:14px 16px;margin-bottom:10px;box-shadow:0 3px 14px rgba(0,0,0,.11)}
-    .ccard-icon{font-size:32px;line-height:1;margin-right:12px;flex-shrink:0}
-    .ccard-title{display:block;font-size:16px;font-weight:800;color:var(--ink);margin:0 0 4px}
-    .ccard-body{display:block;font-size:13px;line-height:1.65;color:var(--muted);margin:0}
-
-    /* section header */
-    .section{border-bottom:2px solid var(--yellow);padding-bottom:8px;margin:30px 0 14px}
-    .section-num{display:block;font-size:11px;font-weight:800;letter-spacing:1.5px;color:var(--red);margin:0 0 4px}
-    .section-title{font-size:20px;line-height:1.35;color:var(--ink);margin:0;font-weight:800}
-
-    /* body + highlight */
-    .body{font-size:15px;line-height:1.8;text-align:justify;margin:0 0 18px;color:var(--body)}
-    .hl{border-bottom:2px solid var(--yellow);font-weight:700}
-
-    /* tools */
-    .tools{margin:0 0 22px}
-    .tools-label{display:block;font-size:12px;font-weight:800;color:var(--blue);margin:0 0 10px}
-    .tool{display:inline-block;border-radius:var(--radius);padding:4px 10px;font-size:12px;font-weight:700;margin-right:6px;margin-bottom:6px}
-    .tool-b{background:var(--blue);color:#fff}
-    .tool-p{background:var(--purple);color:#fff}
-    .tool-g{background:var(--green);color:#fff}
-
-    /* quote */
-    .quote{background:var(--card);border-radius:var(--radius);padding:16px 18px;margin:0 0 18px;border-left:5px solid var(--red);box-shadow:0 3px 14px rgba(0,0,0,.11)}
-    .quote-text{display:block;font-size:13px;font-style:italic;line-height:1.75;color:var(--body);margin:0 0 8px}
-    .quote-from{display:block;font-size:12px;font-weight:700;color:var(--muted);margin:0}
-
-    /* bottom line */
-    .bottomline{background:var(--ink);border-radius:var(--radius);padding:16px 18px;margin:0 0 22px;box-shadow:0 3px 14px rgba(0,0,0,.11)}
-    .bl-label{display:block;font-size:11px;font-weight:800;letter-spacing:1.5px;color:var(--yellow);margin:0 0 8px}
-    .bl-text{display:block;font-size:16px;font-weight:800;line-height:1.6;color:#fff;margin:0}
-
-    /* mobile */
-    @media(max-width:420px){
-      .stats{flex-direction:column}
-      .stats .stat{margin-bottom:8px}
-    }
-
-    @media(max-width:420px){
-      .page{max-width:100%;padding:14px 10px 48px}
-      section[style*='max-width:677px']{max-width:100%;padding-left:10px;padding-right:10px}
-    }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>crayon-editorial.wechat · 公众号排版预览</title>
+<style>
+  body{margin:0;background:#eef0f2;font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;-webkit-text-size-adjust:100%;}
+  .gzh-toolbar{position:fixed;top:0;left:0;right:0;height:54px;background:#ffffff;box-shadow:0 1px 10px rgba(0,0,0,.08);display:flex;align-items:center;justify-content:space-between;padding:0 16px;z-index:99;}
+  .gzh-hint{font-size:13px;color:#6b7280;line-height:1.4;}
+  .gzh-hint b{color:#111827;}
+  .gzh-copy{background:#059669;color:#fff;border:0;border-radius:9px;padding:10px 20px;font-size:14px;font-weight:700;cursor:pointer;box-shadow:0 3px 10px rgba(5,150,105,.28);white-space:nowrap;transition:transform .08s,background .15s;}
+  .gzh-copy:hover{background:#047857;}
+  .gzh-copy:active{transform:translateY(1px);}
+  .gzh-toast{position:fixed;top:66px;left:50%;transform:translateX(-50%);background:#111827;color:#fff;padding:11px 20px;border-radius:10px;font-size:14px;font-weight:600;opacity:0;pointer-events:none;transition:opacity .25s;z-index:100;box-shadow:0 6px 20px rgba(0,0,0,.25);max-width:88vw;text-align:center;}
+  .gzh-toast.show{opacity:1;}
+  .gzh-stage{max-width:700px;margin:78px auto 64px;padding:0 8px;}
+  @media(max-width:520px){.gzh-hint{max-width:150px;}}
+</style>
 </head>
-
-<section style="max-width:677px;margin:0 auto;padding:18px 12px 64px">
-
-  <!-- 5色导轨 + Hero -->
+<body>
+<div class="gzh-toolbar">
+  <span class="gzh-hint">👇 公众号兼容样稿 · RefID 已标注</span>
+  <span style="display:flex;gap:8px;align-items:center;"><button class="gzh-copy" style="background:#111827;padding:10px 12px;" id="gzhRefBtn" onclick="gzhCopyRef()">复制 RefID</button><button class="gzh-copy" id="gzhCopyBtn" onclick="gzhCopy()">📋 复制到公众号</button></span>
+</div>
+<div class="gzh-toast" id="gzhToast"></div>
+<div class="gzh-stage">
+  <div id="gzh-content">
+<section style="width:100%;max-width:677px;margin:0 auto;padding:18px 12px 64px;background:#F0EAD8;color:#3D3A32;font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif;font-size:15px;line-height:1.8;letter-spacing:0.35px;box-sizing:border-box;">
   <section style="margin:0 0 22px;">
-    <section>
-      <span style="background:var(--blue)"></span>
-      <span style="background:var(--green)"></span>
-      <span style="background:var(--purple)"></span>
-      <span style="background:var(--red)"></span>
-      <span style="background:var(--yellow)"></span>
+    <section style="display:flex;height:7px;overflow:hidden;border-radius:8px 8px 0 0;">
+      <span style="display:block;flex:1;background:#2A6FA8;"></span>
+      <span style="display:block;flex:1;background:#2A8A6E;"></span>
+      <span style="display:block;flex:1;background:#7955AB;"></span>
+      <span style="display:block;flex:1;background:#D45C1A;"></span>
+      <span style="display:block;flex:1;background:#C8971F;"></span>
     </section>
-    <section>
-      <p class="emoji"><span leaf="">🚀</span></p>
-      <span class="tag"><span leaf="">Agent 拆解</span></span>
-      <span class="tag g"><span leaf="">人物方法论</span></span>
-      <h2 style="font-size:24px;line-height:1.3;color:#1D1B16;margin:10px 0;font-weight:800;letter-spacing:-0.3px;"><span leaf="">Paul Graham 如何持续想出好点子</span></h2>
-      <p class="hero-lead"><span leaf="">YC 创始人三十年实践，核心不是天赋，而是一套可训练的思考操作系统。</span></p>
-    </section>
-  </section>
-
-  <!-- 数据格 -->
-  <section class="stats">
-    <section>
-      <b class="stat-num" style="color:var(--blue)"><span leaf="">30</span></b>
-      <span class="stat-lbl"><span leaf="">年持续输出</span></span>
-    </section>
-    <section>
-      <b class="stat-num" style="color:var(--red)"><span leaf="">5</span></b>
-      <span class="stat-lbl"><span leaf="">核心思维模型</span></span>
-    </section>
-    <section>
-      <b class="stat-num" style="color:var(--green)"><span leaf="">1</span></b>
-      <span class="stat-lbl"><span leaf="">条元规则</span></span>
+    <section style="background:#F5F0E2;border-radius:0 0 13px 13px;padding:20px 16px;box-shadow:0 3px 14px rgba(0,0,0,.11);">
+      <span style="display:block;font-size:40px;line-height:1;margin:0 0 10px;"><span leaf="">🚀</span></span>
+      <span style="display:inline-block;background:#2A6FA8;color:#FFFFFF;border-radius:13px;padding:3px 10px;font-size:11px;font-weight:700;margin-right:5px;"><span leaf="">Agent 拆解</span></span>
+      <span style="display:inline-block;background:#2A8A6E;color:#FFFFFF;border-radius:13px;padding:3px 10px;font-size:11px;font-weight:700;"><span leaf="">人物方法论</span></span>
+      <h3 style="font-size:24px;line-height:1.3;color:#1D1B16;margin:10px 0;font-weight:800;letter-spacing:-0.3px;"><span leaf="">Paul Graham 如何持续想出好点子</span></h3>
+      <span style="display:block;font-size:14px;line-height:1.75;color:#625D56;margin:0;"><span leaf="">YC 创始人三十年实践，核心不是天赋，而是一套可训练的思考操作系统。</span></span>
     </section>
   </section>
 
-  <!-- 5色卡片 -->
-  <section class="cards">
-    <section style=border-left:5px solid var(--blue)>
-      <span class="ccard-icon"><span leaf="">🧠</span></span>
-      <section>
-        <span class="ccard-title"><span leaf="">写作即思考</span></span>
-        <span class="ccard-body"><span leaf="">把模糊念头写成文字，是把潜意识里的想法拉到逻辑前台的第一步。</span></span>
+  <section style="display:flex;gap:8px;flex-wrap:wrap;margin:0 0 22px;">
+    <section style="flex:1;background:#F5F0E2;border-radius:13px;padding:12px 10px;text-align:center;box-shadow:0 3px 14px rgba(0,0,0,.11);">
+      <strong style="display:block;font-size:28px;line-height:1;color:#2A6FA8;font-weight:900;margin:0 0 5px;"><span leaf="">30</span></strong>
+      <span style="display:block;font-size:11px;font-weight:700;color:#625D56;margin:0;"><span leaf="">年持续输出</span></span>
+    </section>
+    <section style="flex:1;background:#F5F0E2;border-radius:13px;padding:12px 10px;text-align:center;box-shadow:0 3px 14px rgba(0,0,0,.11);">
+      <strong style="display:block;font-size:28px;line-height:1;color:#D45C1A;font-weight:900;margin:0 0 5px;"><span leaf="">5</span></strong>
+      <span style="display:block;font-size:11px;font-weight:700;color:#625D56;margin:0;"><span leaf="">核心思维模型</span></span>
+    </section>
+    <section style="flex:1;background:#F5F0E2;border-radius:13px;padding:12px 10px;text-align:center;box-shadow:0 3px 14px rgba(0,0,0,.11);">
+      <strong style="display:block;font-size:28px;line-height:1;color:#2A8A6E;font-weight:900;margin:0 0 5px;"><span leaf="">1</span></strong>
+      <span style="display:block;font-size:11px;font-weight:700;color:#625D56;margin:0;"><span leaf="">条元规则</span></span>
+    </section>
+  </section>
+
+  <section style="margin:0 0 22px;">
+    <section style="display:flex;align-items:flex-start;background:#F5F0E2;border-radius:13px;padding:14px 16px;margin-bottom:10px;box-shadow:0 3px 14px rgba(0,0,0,.11);border-left:5px solid #2A6FA8;">
+      <span style="font-size:32px;line-height:1;margin-right:12px;flex-shrink:0;"><span leaf="">🧠</span></span>
+      <section style="flex:1;">
+        <span style="display:block;font-size:16px;font-weight:800;color:#1D1B16;margin:0 0 4px;"><span leaf="">写作即思考</span></span>
+        <span style="display:block;font-size:13px;line-height:1.65;color:#625D56;margin:0;"><span leaf="">把模糊念头写成文字，是把潜意识里的想法拉到逻辑前台的第一步。</span></span>
       </section>
     </section>
-    <section style=border-left:5px solid var(--green)>
-      <span class="ccard-icon"><span leaf="">📊</span></span>
-      <section>
-        <span class="ccard-title"><span leaf="">数量是质量的先决条件</span></span>
-        <span class="ccard-body"><span leaf="">好点子的产生概率与思考总次数正相关；失败不扣分，只是候选样本。</span></span>
+    <section style="display:flex;align-items:flex-start;background:#F5F0E2;border-radius:13px;padding:14px 16px;margin-bottom:10px;box-shadow:0 3px 14px rgba(0,0,0,.11);border-left:5px solid #2A8A6E;">
+      <span style="font-size:32px;line-height:1;margin-right:12px;flex-shrink:0;"><span leaf="">📊</span></span>
+      <section style="flex:1;">
+        <span style="display:block;font-size:16px;font-weight:800;color:#1D1B16;margin:0 0 4px;"><span leaf="">数量是质量的先决条件</span></span>
+        <span style="display:block;font-size:13px;line-height:1.65;color:#625D56;margin:0;"><span leaf="">好点子的产生概率与思考总次数正相关；失败不扣分，只是候选样本。</span></span>
       </section>
     </section>
-    <section style=border-left:5px solid var(--purple)>
-      <span class="ccard-icon"><span leaf="">🎯</span></span>
-      <section>
-        <span class="ccard-title"><span leaf="">关注你真正在意的事</span></span>
-        <span class="ccard-body"><span leaf="">内在动机是最强过滤网；强迫自己写不感兴趣的话题，产出的是安全的废话。</span></span>
+    <section style="display:flex;align-items:flex-start;background:#F5F0E2;border-radius:13px;padding:14px 16px;margin-bottom:10px;box-shadow:0 3px 14px rgba(0,0,0,.11);border-left:5px solid #7955AB;">
+      <span style="font-size:32px;line-height:1;margin-right:12px;flex-shrink:0;"><span leaf="">🎯</span></span>
+      <section style="flex:1;">
+        <span style="display:block;font-size:16px;font-weight:800;color:#1D1B16;margin:0 0 4px;"><span leaf="">关注你真正在意的事</span></span>
+        <span style="display:block;font-size:13px;line-height:1.65;color:#625D56;margin:0;"><span leaf="">内在动机是最强过滤网；强迫自己写不感兴趣的话题，产出的是安全的废话。</span></span>
       </section>
     </section>
-    <section style=border-left:5px solid var(--red)>
-      <span class="ccard-icon"><span leaf="">⚡</span></span>
-      <section>
-        <span class="ccard-title"><span leaf="">类比是思维的跳跃</span></span>
-        <span class="ccard-body"><span leaf="">把 A 领域的问题映射到 B 领域，通常是突破性洞见的前奏。</span></span>
+    <section style="display:flex;align-items:flex-start;background:#F5F0E2;border-radius:13px;padding:14px 16px;margin-bottom:10px;box-shadow:0 3px 14px rgba(0,0,0,.11);border-left:5px solid #D45C1A;">
+      <span style="font-size:32px;line-height:1;margin-right:12px;flex-shrink:0;"><span leaf="">⚡</span></span>
+      <section style="flex:1;">
+        <span style="display:block;font-size:16px;font-weight:800;color:#1D1B16;margin:0 0 4px;"><span leaf="">类比是思维的跳跃</span></span>
+        <span style="display:block;font-size:13px;line-height:1.65;color:#625D56;margin:0;"><span leaf="">把 A 领域的问题映射到 B 领域，通常是突破性洞见的前奏。</span></span>
       </section>
     </section>
-    <section style=border-left:5px solid var(--yellow)>
-      <span class="ccard-icon"><span leaf="">💡</span></span>
-      <section>
-        <span class="ccard-title"><span leaf="">保持愚蠢</span></span>
-        <span class="ccard-body"><span leaf="">新手心态意味着你还没学会对问题失去好奇；专家偏见是最隐蔽的思维陷阱。</span></span>
+    <section style="display:flex;align-items:flex-start;background:#F5F0E2;border-radius:13px;padding:14px 16px;box-shadow:0 3px 14px rgba(0,0,0,.11);border-left:5px solid #C8971F;">
+      <span style="font-size:32px;line-height:1;margin-right:12px;flex-shrink:0;"><span leaf="">💡</span></span>
+      <section style="flex:1;">
+        <span style="display:block;font-size:16px;font-weight:800;color:#1D1B16;margin:0 0 4px;"><span leaf="">保持愚蠢</span></span>
+        <span style="display:block;font-size:13px;line-height:1.65;color:#625D56;margin:0;"><span leaf="">新手心态意味着你还没学会对问题失去好奇；专家偏见是最隐蔽的思维陷阱。</span></span>
       </section>
     </section>
   </section>
 
-  <!-- 章节标题 -->
-  <section>
-    <span class="section-num"><span leaf="">01 · METHOD</span></span>
-    <h3 class="section-title"><span leaf="">写作即思考：把念头变成可检验的命题</span></h3>
+  <section style="margin:30px 0 14px;border-bottom:2px solid #C8971F;padding-bottom:8px;">
+    <span style="display:block;font-size:11px;font-weight:800;letter-spacing:1.5px;color:#D45C1A;margin:0 0 4px;"><span leaf="">01 · METHOD</span></span>
+    <h3 style="font-size:20px;line-height:1.35;color:#1D1B16;margin:0;font-weight:800;"><span leaf="">写作即思考：把念头变成可检验的命题</span></h3>
+  </section>
+  <span style="display:block;font-size:15px;line-height:1.8;text-align:justify;margin:0 0 18px;color:#3D3A32;"><span leaf="">Graham 每天早上第一件事是写日记——不是记录，而是</span><span style="border-bottom:2px solid #C8971F;font-weight:700;"><span leaf="">在文字里寻找还没被自己发现的前提</span></span><span leaf="">。这个动作把模糊的情绪波动翻译成具体的、可反驳的主张。</span></span>
+  <span style="display:block;font-size:15px;line-height:1.8;text-align:justify;margin:0 0 18px;color:#3D3A32;"><span leaf="">YC 内部把这叫“写作测试”：如果你不能用一段清晰的文字描述你的想法，那你的</span><span style="border-bottom:2px solid #C8971F;font-weight:700;"><span leaf="">想法还不够成熟到值得讨论</span></span><span leaf="">。</span></span>
+
+  <section style="margin:0 0 22px;">
+    <span style="display:block;font-size:12px;font-weight:800;color:#2A6FA8;margin:0 0 10px;"><span leaf="">🛠️ 工具推荐</span></span>
+    <section style="display:flex;gap:8px;flex-wrap:wrap;margin:0 0 10px;">
+      <span style="display:inline-block;background:#2A6FA8;color:#FFFFFF;border-radius:13px;padding:4px 10px;font-size:12px;font-weight:700;margin:0 6px 6px 0;"><span leaf="">Obsidian</span></span>
+      <span style="display:inline-block;background:#7955AB;color:#FFFFFF;border-radius:13px;padding:4px 10px;font-size:12px;font-weight:700;margin:0 6px 6px 0;"><span leaf="">iA Writer</span></span>
+      <span style="display:inline-block;background:#2A8A6E;color:#FFFFFF;border-radius:13px;padding:4px 10px;font-size:12px;font-weight:700;margin:0 6px 6px 0;"><span leaf="">Roam Research</span></span>
+    </section>
   </section>
 
-  <p class="body"><span leaf="">Graham 每天早上第一件事是写日记——不是记录，而是</span><span class="hl"><span leaf="">在文字里寻找还没被自己发现的前提</span></span><span leaf="">。这个动作把模糊的情绪波动翻译成具体的、可反驳的主张。</span></p>
-
-  <p class="body"><span leaf="">YC 内部把这叫"写作测试"：如果你不能用一段清晰的文字描述你的想法，那你的</span><span class="hl"><span leaf="">想法还不够成熟到值得讨论</span></span><span leaf="">。</span></p>
-
-  <!-- 工具卡 -->
-  <section class="tools">
-    <span class="tools-label"><span leaf="">🛠️ 工具推荐</span></span>
-    <span class="tool tool-b"><span leaf="">Obsidian</span></span>
-    <span class="tool tool-p"><span leaf="">iA Writer</span></span>
-    <span class="tool tool-g"><span leaf="">Roam Research</span></span>
+  <section style="background:#F5F0E2;border-radius:13px;padding:16px 18px;margin:0 0 18px;border-left:5px solid #D45C1A;box-shadow:0 3px 14px rgba(0,0,0,.11);">
+    <span style="display:block;font-size:13px;font-style:italic;line-height:1.75;color:#3D3A32;margin:0 0 8px;"><span leaf="">“If you can't express it as a single sentence, you probably don't understand it yet.”</span></span>
+    <span style="display:block;font-size:12px;font-weight:700;color:#625D56;margin:0;"><span leaf="">— Paul Graham, How to Think for Yourself</span></span>
   </section>
 
-  <!-- 引用 -->
-  <section>
-    <span class="quote-text"><span leaf="">"If you can't express it as a single sentence, you probably don't understand it yet."</span></span>
-    <span class="quote-from"><span leaf="">— Paul Graham, How to Think for Yourself</span></span>
+  <section style="margin:30px 0 14px;border-bottom:2px solid #C8971F;padding-bottom:8px;">
+    <span style="display:block;font-size:11px;font-weight:800;letter-spacing:1.5px;color:#D45C1A;margin:0 0 4px;"><span leaf="">02 · INSIGHT</span></span>
+    <h3 style="font-size:20px;line-height:1.35;color:#1D1B16;margin:0;font-weight:800;"><span leaf="">数量是质量的先决条件：为什么“想出一个好点子”是错误的追求</span></h3>
   </section>
+  <span style="display:block;font-size:15px;line-height:1.8;text-align:justify;margin:0 0 18px;color:#3D3A32;"><span leaf="">大多数人对“创意”的想象停留在灵感迸发的瞬间。但 Graham 的方法论要求你先产出</span><span style="border-bottom:2px solid #C8971F;font-weight:700;"><span leaf="">一百个坏点子</span></span><span leaf="">，因为好点子躲在序列分布里，单独拎出来它根本不会出现。</span></span>
 
-  <!-- 章节 -->
-  <section>
-    <span class="section-num"><span leaf="">02 · INSIGHT</span></span>
-    <h3 class="section-title"><span leaf="">数量是质量的先决条件：为什么"想出一个好点子"是错误的追求</span></h3>
+  <section style="background:#1D1B16;border-radius:13px;padding:16px 18px;margin:0 0 22px;box-shadow:0 3px 14px rgba(0,0,0,.11);">
+    <span style="display:block;font-size:11px;font-weight:800;letter-spacing:1.5px;color:#C8971F;margin:0 0 8px;"><span leaf="">BOTTOM LINE</span></span>
+    <span style="display:block;font-size:16px;font-weight:800;line-height:1.6;color:#FFFFFF;margin:0;"><span leaf="">Paul Graham 的“思考操作系统”本质是：一套减少认知偏见干扰、提高想法密度的日常实践。核心不是天赋，是持续写。</span></span>
   </section>
-
-  <p class="body"><span leaf="">大多数人对"创意"的想象停留在灵感迸发的瞬间。但 Graham 的方法论要求你先产出</span><span class="hl"><span leaf="">一百个坏点子</span></span><span leaf="">，因为好点子躲在序列分布里，单独拎出来它根本不会出现。</span></p>
-
-  <!-- 结论 -->
-  <section>
-    <span class="bl-label"><span leaf="">BOTTOM LINE</span></span>
-    <span class="bl-text"><span leaf="">Paul Graham 的"思考操作系统"本质是：一套减少认知偏见干扰、提高想法密度的日常实践。核心不是天赋，是持续写。</span></span>
-  </section>
-
-
-
+</section>
+  </div>
+</div>
+<script>
+  function gzhShowToast(msg){
+    var t=document.getElementById('gzhToast');
+    t.textContent=msg;t.classList.add('show');
+    clearTimeout(t._timer);
+    t._timer=setTimeout(function(){t.classList.remove('show');},2800);
+  }
+  function gzhCopyRef(){
+    var ref='wx-theme:crayon-editorial';
+    var done=function(){gzhShowToast('✅ 已复制主题 RefID：'+ref);var btn=document.getElementById('gzhRefBtn');var old=btn.textContent;btn.textContent='✅ RefID 已复制';setTimeout(function(){btn.textContent=old;},2200);};
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(ref).then(done,function(){gzhShowToast('⚠ 请手动复制：'+ref);});}
+    else{var x=document.createElement('textarea');x.value=ref;document.body.appendChild(x);x.select();try{document.execCommand('copy');done();}catch(e){gzhShowToast('⚠ 请手动复制：'+ref);}document.body.removeChild(x);}
+  }
+  function gzhCopy(){
+    var el=document.getElementById('gzh-content');
+    // 选中渲染后的富文本节点并复制（等价于手动 Ctrl+A / Ctrl+C，保留全部样式）
+    var range=document.createRange();
+    range.selectNodeContents(el);
+    var sel=window.getSelection();
+    sel.removeAllRanges();
+    sel.addRange(range);
+    var ok=false;
+    try{ok=document.execCommand('copy');}catch(e){ok=false;}
+    sel.removeAllRanges();
+    var btn=document.getElementById('gzhCopyBtn');
+    if(ok){
+      gzhShowToast('✅ 已复制！去公众号编辑器按 Ctrl/⌘+V 粘贴即可');
+      var old=btn.textContent;btn.textContent='✅ 已复制';
+      setTimeout(function(){btn.textContent=old;},2200);
+    }else{
+      gzhShowToast('⚠ 自动复制失败，请手动全选(Ctrl/⌘+A)再复制(Ctrl/⌘+C)');
+    }
+  }
+</script>
+</body>
 </html>
