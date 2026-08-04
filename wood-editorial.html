@@ -1,158 +1,220 @@
-<!doctype html>
-<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>木感编辑风 · 公众号主题预览</title><style>*{box-sizing:border-box}body{margin:0;background:#f5ede0;color:#44403C;font:15px/1.8 'Noto Serif SC','Songti SC',SimSun,-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif}main{max-width:677px;margin:0 auto;padding:18px 10px 60px}.page-bg{background:#F5EDD8;padding:10px;border-radius:0 0 12px 12px}.hero,.card{background:#FEFCF5;border:2px solid #1C1917;padding:16px;margin:0 0 14px}.rail{display:flex;height:8px;border-radius:6px 6px 0 0;overflow:hidden;margin:-16px -16px 16px}.rail span{flex:1}.tag{display:inline-block;border:1.5px solid #1C1917;padding:2px 8px;font-size:10px;font-weight:800;border-radius:4px;margin-right:3px}.blue{background:#5B8DB8;color:#fff}.black{background:#1C1917;color:#fff}.section{border-top:3px solid #1C1917;padding-top:10px;margin:28px 0 12px}.quote{background:#F2EAE0;border-left:5px solid #C4A882;border-radius:0 6px 6px 0;padding:14px 16px;margin:0 0 14px}.step{background:#1C1917;border-radius:6px;padding:14px 16px;margin:0 0 14px}.warn{border-left:4px solid #B91C1C;background:#FEF2F2;padding:12px 14px;border-radius:0 6px 6px 0;margin:0 0 14px}.comp{display:flex;gap:10px;flex-wrap:wrap}.comp>section{flex:1;min-width:180px;background:#FEFCF5;border:2px solid #1C1917;border-radius:6px;padding:14px}.bottom{background:#1C1917;border-radius:8px;padding:18px;margin:0}@media(max-width:420px){main{padding:14px 8px 40px}.comp>section{min-width:100%}}</style></head><body><main>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>wood-editorial.wechat · 公众号排版预览</title>
+<style>
+  body{margin:0;background:#eef0f2;font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;-webkit-text-size-adjust:100%;}
+  .gzh-toolbar{position:fixed;top:0;left:0;right:0;height:54px;background:#ffffff;box-shadow:0 1px 10px rgba(0,0,0,.08);display:flex;align-items:center;justify-content:space-between;padding:0 16px;z-index:99;}
+  .gzh-hint{font-size:13px;color:#6b7280;line-height:1.4;}
+  .gzh-hint b{color:#111827;}
+  .gzh-copy{background:#059669;color:#fff;border:0;border-radius:9px;padding:10px 20px;font-size:14px;font-weight:700;cursor:pointer;box-shadow:0 3px 10px rgba(5,150,105,.28);white-space:nowrap;transition:transform .08s,background .15s;}
+  .gzh-copy:hover{background:#047857;}
+  .gzh-copy:active{transform:translateY(1px);}
+  .gzh-toast{position:fixed;top:66px;left:50%;transform:translateX(-50%);background:#111827;color:#fff;padding:11px 20px;border-radius:10px;font-size:14px;font-weight:600;opacity:0;pointer-events:none;transition:opacity .25s;z-index:100;box-shadow:0 6px 20px rgba(0,0,0,.25);max-width:88vw;text-align:center;}
+  .gzh-toast.show{opacity:1;}
+  .gzh-stage{max-width:700px;margin:78px auto 64px;padding:0 8px;}
+  @media(max-width:520px){.gzh-hint{max-width:150px;}}
+</style>
+</head>
+<body>
+<div class="gzh-toolbar">
+  <span class="gzh-hint">👇 公众号兼容样稿 · RefID 已标注</span>
+  <span style="display:flex;gap:8px;align-items:center;"><button class="gzh-copy" style="background:#111827;padding:10px 12px;" id="gzhRefBtn" onclick="gzhCopyRef()">复制 RefID</button><button class="gzh-copy" id="gzhCopyBtn" onclick="gzhCopy()">📋 复制到公众号</button></span>
+</div>
+<div class="gzh-toast" id="gzhToast"></div>
+<div class="gzh-stage">
+  <div id="gzh-content">
+<section style="width:100%;max-width:677px;margin:0 auto;padding:10px;background:#F5EDD8;color:#44403C;font-family:'Noto Serif SC','Songti SC','SimSun',-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif;line-height:1.8;box-sizing:border-box;">
+  <section style="margin:0 0 20px;padding:0 0 14px;border-bottom:2px solid #1C1917;">
+    <span style="display:block;margin:0;font-size:11px;font-weight:900;letter-spacing:3px;color:#1C1917;"><span leaf="">THEME SAMPLE · OFFICIAL · 木感编辑风</span></span>
+    <span style="display:block;margin:6px 0 0;font-size:12px;color:#78716C;"><span leaf="">暖米纸 · 粗黑骨架 · 蓝灰路径 · 棕金引用 · 黑色流程条</span></span>
+  </section>
 
-<!-- THEME LABEL -->
-<section style="margin:0 0 20px;padding:0 0 14px;border-bottom:2px solid #1C1917;">
-  <p style="margin:0;font-size:11px;font-weight:900;letter-spacing:3px;color:#1C1917;">THEME SAMPLE · OFFICIAL · 木感编辑风</p>
-  <p style="margin:6px 0 0;font-size:12px;color:#78716C;">暖米纸 · 粗黑骨架 · 蓝灰路径 · 棕金引用 · 黑色流程条</p>
+  <section style="margin:0 0 28px;">
+    <section style="display:flex;height:8px;border-radius:6px 6px 0 0;overflow:hidden;">
+      <span style="flex:1;background:#5B8DB8;"><span leaf="">&nbsp;</span></span>
+      <span style="flex:1;background:#1C1917;"><span leaf="">&nbsp;</span></span>
+      <span style="flex:1;background:#C4A882;"><span leaf="">&nbsp;</span></span>
+      <span style="flex:1;background:#5B8DB8;"><span leaf="">&nbsp;</span></span>
+    </section>
+    <section style="background:#FEFCF5;border:2px solid #1C1917;border-top:0;border-radius:0 0 8px 8px;padding:22px 18px 18px;">
+      <span style="display:inline-block;background:#5B8DB8;color:#fff;padding:3px 10px;border-radius:4px;font-size:11px;font-weight:800;margin:0 0 12px;"><span leaf="">工具图鉴</span></span>
+      <h3 style="font-size:24px;line-height:1.3;color:#1C1917;margin:0 0 12px;font-weight:800;letter-spacing:-0.3px;"><span leaf="">LLM Agent 框架，工具链如何设计最合理？</span></h3>
+      <section style="display:flex;align-items:center;gap:0;flex-wrap:wrap;">
+        <span style="display:inline-flex;align-items:center;background:#F2EAE0;border:1px solid #C4A882;border-radius:4px;padding:5px 12px;font-size:12px;color:#78716C;gap:5px;">
+          <span style="width:8px;height:8px;background:#5B8DB8;border-radius:50%;flex-shrink:0;"><span leaf="">&nbsp;</span></span>
+          <span leaf=""><strong style="color:#1C1917;font-size:13px;">核心框架</strong></span>
+        </span>
+        <span style="color:#78716C;font-size:12px;padding:0 8px;"><span leaf="">→</span></span>
+        <span style="display:inline-flex;align-items:center;background:#F2EAE0;border:1px solid #C4A882;border-radius:4px;padding:5px 12px;font-size:12px;color:#78716C;gap:5px;">
+          <span style="width:8px;height:8px;background:#C4A882;border-radius:50%;flex-shrink:0;"><span leaf="">&nbsp;</span></span>
+          <span leaf=""><strong style="color:#1C1917;font-size:13px;">工具分类</strong></span>
+        </span>
+        <span style="color:#78716C;font-size:12px;padding:0 8px;"><span leaf="">→</span></span>
+        <span style="display:inline-flex;align-items:center;background:#F2EAE0;border:1px solid #C4A882;border-radius:4px;padding:5px 12px;font-size:12px;color:#78716C;gap:5px;">
+          <span style="width:8px;height:8px;background:#1C1917;border-radius:50%;flex-shrink:0;"><span leaf="">&nbsp;</span></span>
+          <span leaf=""><strong style="color:#1C1917;font-size:13px;">落地实践</strong></span>
+        </span>
+      </section>
+    </section>
+  </section>
+
+  <section style="margin:0 0 20px;">
+    <section style="background:#F2EAE0;border-left:5px solid #C4A882;border-radius:0 6px 6px 0;padding:14px 16px;">
+      <span style="display:block;font-size:15px;font-weight:700;color:#1C1917;margin:0 0 8px;line-height:1.75;"><span leaf=""><strong style="border-bottom:2px solid #5B8DB8;">好的工具链设计</strong>不是让 Agent 多做事，而是让 Agent 做对事。</span></span>
+      <span style="display:block;font-size:12px;color:#78716C;margin:0;letter-spacing:0.3px;"><span leaf="">— Simon Willison，2024</span></span>
+    </section>
+  </section>
+
+  <section style="margin:28px 0 14px;">
+    <section style="border-top:3px solid #1C1917;padding-top:10px;">
+      <span style="display:block;margin:0 0 4px;font-size:11px;font-weight:800;letter-spacing:2.5px;color:#5B8DB8;"><span leaf="">01 · FRAMEWORK</span></span>
+      <h3 style="font-size:20px;font-weight:800;color:#1C1917;margin:0;letter-spacing:-0.2px;line-height:1.35;"><span leaf=""><strong>核心框架</strong>：四种主流 Agent 架构</span></h3>
+    </section>
+  </section>
+
+  <section style="font-size:15px;line-height:1.85;text-align:justify;color:#44403C;margin:0 0 18px;">
+    <span leaf="">目前主流的 LLM Agent 架构可以分为四类：ReAct、Plan-and-Execute、</span>
+    <span style="border-bottom:2px solid #5B8DB8;font-weight:600;color:#1C1917;"><span leaf=""><strong>React 混合</strong></span></span>
+    <span leaf="">和</span>
+    <span style="border-bottom:2px solid #5B8DB8;font-weight:600;color:#1C1917;"><span leaf=""><strong>反思式</strong></span></span>
+    <span leaf="">。每种架构对应不同的任务类型和延迟预算。</span>
+  </section>
+
+  <section style="margin:0 0 18px;">
+    <section style="background:#1C1917;border-radius:6px;padding:14px 16px;">
+      <section style="display:flex;align-items:flex-start;gap:12px;">
+        <span style="display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;background:#FEFCF5;color:#1C1917;font-size:14px;font-weight:900;flex-shrink:0;border-radius:50%;margin-top:2px;"><span leaf="">1</span></span>
+        <section>
+          <span style="display:block;font-size:15px;font-weight:800;color:#FEFCF5;margin:0 0 5px;line-height:1.3;"><span leaf=""><strong>定义工具边界</strong></span></span>
+          <span style="display:block;font-size:13px;color:#A8A29E;margin:0;line-height:1.7;"><span leaf="">明确每个工具的输入输出格式，避免模糊描述导致的幻觉调用。</span></span>
+        </section>
+      </section>
+    </section>
+  </section>
+  <section style="margin:0 0 18px;">
+    <section style="background:#1C1917;border-radius:6px;padding:14px 16px;">
+      <section style="display:flex;align-items:flex-start;gap:12px;">
+        <span style="display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;background:#FEFCF5;color:#1C1917;font-size:14px;font-weight:900;flex-shrink:0;border-radius:50%;margin-top:2px;"><span leaf="">2</span></span>
+        <section>
+          <span style="display:block;font-size:15px;font-weight:800;color:#FEFCF5;margin:0 0 5px;line-height:1.3;"><span leaf=""><strong>设计错误回退</strong></span></span>
+          <span style="display:block;font-size:13px;color:#A8A29E;margin:0;line-height:1.7;"><span leaf="">每个工具失败后应有明确的降级路径，而不是直接抛异常。</span></span>
+        </section>
+      </section>
+    </section>
+  </section>
+
+  <section style="margin:0 0 16px;">
+    <section style="border-left:4px solid #B91C1C;background:#FEF2F2;padding:12px 14px;border-radius:0 6px 6px 0;">
+      <span style="display:block;font-size:11px;font-weight:900;color:#B91C1C;margin:0 0 5px;letter-spacing:1.5px;"><span leaf="">⚠ 注意</span></span>
+      <span style="display:block;font-size:14px;color:#44403C;margin:0;line-height:1.75;"><span leaf="">不要把 LLM 能力的边界当成工具设计的边界——工具应当超越模型能力本身。</span></span>
+    </section>
+  </section>
+
+  <section style="margin:0 0 12px;">
+    <section style="background:#FEFCF5;border:2px solid #1C1917;border-radius:6px;padding:16px 16px 14px;">
+      <section style="display:flex;align-items:flex-start;gap:12px;">
+        <span style="display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;background:#1C1917;color:#fff;font-size:18px;font-weight:900;flex-shrink:0;border-radius:4px;"><span leaf="">01</span></span>
+        <section style="flex:1;">
+          <span style="display:block;margin:0 0 7px;font-size:17px;font-weight:800;color:#1C1917;line-height:1.3;"><span leaf=""><strong>LangChain</strong></span></span>
+          <span style="display:block;margin:0 0 8px;font-size:12px;color:#78716C;line-height:1.65;"><span leaf="">最成熟的 Agent 编排框架，支持多种工具调用范式与记忆系统。</span></span>
+          <section style="display:flex;gap:5px;flex-wrap:wrap;">
+            <span style="background:#EBF3FB;border:1px solid #5B8DB8;border-radius:4px;padding:2px 8px;font-size:11px;color:#5B8DB8;font-weight:700;"><span leaf="">工具链</span></span>
+            <span style="background:#EBF3FB;border:1px solid #5B8DB8;border-radius:4px;padding:2px 8px;font-size:11px;color:#5B8DB8;font-weight:700;"><span leaf="">记忆</span></span>
+            <span style="background:#EBF3FB;border:1px solid #5B8DB8;border-radius:4px;padding:2px 8px;font-size:11px;color:#5B8DB8;font-weight:700;"><span leaf="">RAG</span></span>
+          </section>
+        </section>
+      </section>
+    </section>
+  </section>
+  <section style="margin:0 0 12px;">
+    <section style="background:#FEFCF5;border:2px solid #1C1917;border-radius:6px;padding:16px 16px 14px;">
+      <section style="display:flex;align-items:flex-start;gap:12px;">
+        <span style="display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;background:#1C1917;color:#fff;font-size:18px;font-weight:900;flex-shrink:0;border-radius:4px;"><span leaf="">02</span></span>
+        <section style="flex:1;">
+          <span style="display:block;margin:0 0 7px;font-size:17px;font-weight:800;color:#1C1917;line-height:1.3;"><span leaf=""><strong>LlamaIndex</strong></span></span>
+          <span style="display:block;margin:0 0 8px;font-size:12px;color:#78716C;line-height:1.65;"><span leaf="">专注知识增强检索，以索引为中心的 Agent 构建范式。</span></span>
+          <section style="display:flex;gap:5px;flex-wrap:wrap;">
+            <span style="background:#EBF3FB;border:1px solid #5B8DB8;border-radius:4px;padding:2px 8px;font-size:11px;color:#5B8DB8;font-weight:700;"><span leaf="">检索</span></span>
+            <span style="background:#EBF3FB;border:1px solid #5B8DB8;border-radius:4px;padding:2px 8px;font-size:11px;color:#5B8DB8;font-weight:700;"><span leaf="">查询引擎</span></span>
+          </section>
+        </section>
+      </section>
+    </section>
+  </section>
+
+  <section style="display:flex;gap:10px;margin:0 0 20px;flex-wrap:wrap;">
+    <section style="flex:1;background:#FEFCF5;border:2px solid #1C1917;border-radius:6px;padding:14px;">
+      <span style="display:block;font-size:11px;font-weight:900;letter-spacing:1.5px;color:#1C1917;margin:0 0 8px;"><span leaf="">方案 A：LangChain</span></span>
+      <span style="display:block;font-size:14px;color:#44403C;margin:0;line-height:1.75;"><span leaf="">生态完整、学习曲线适中，适合需要快速搭建完整 Agent 的团队。</span></span>
+    </section>
+    <section style="flex:1;background:#FEFCF5;border:2px solid #1C1917;border-radius:6px;padding:14px;">
+      <span style="display:block;font-size:11px;font-weight:900;letter-spacing:1.5px;color:#1C1917;margin:0 0 8px;"><span leaf="">方案 B：自研</span></span>
+      <span style="display:block;font-size:14px;color:#44403C;margin:0;line-height:1.75;"><span leaf="">灵活度高、控制力强，适合有专项 LLM 工程能力的技术团队。</span></span>
+    </section>
+  </section>
+
+  <section style="margin:18px 0;display:flex;align-items:center;justify-content:center;gap:10px;">
+    <span style="width:6px;height:6px;border-radius:50%;background:#1C1917;display:inline-block;"><span leaf="">&nbsp;</span></span>
+    <span style="width:6px;height:6px;border-radius:50%;background:#C4A882;display:inline-block;"><span leaf="">&nbsp;</span></span>
+    <span style="width:6px;height:6px;border-radius:50%;background:#5B8DB8;display:inline-block;"><span leaf="">&nbsp;</span></span>
+  </section>
+
+  <section style="margin:24px 0 0;">
+    <section style="background:#1C1917;border-radius:8px;padding:18px 18px 16px;">
+      <span style="display:block;font-size:11px;font-weight:900;letter-spacing:2px;color:#C4A882;margin:0 0 8px;"><span leaf="">BOTTOM LINE</span></span>
+      <span style="display:block;font-size:16px;font-weight:800;line-height:1.7;color:#FEFCF5;margin:0;"><span leaf=""><strong>工具链设计</strong>决定 Agent 上限：边界清晰、回退可靠、超越模型能力边界。</span></span>
+    </section>
+  </section>
+
+  <section style="margin:16px 0 0;padding-top:10px;border-top:1px solid #D6D3C4;">
+    <section style="display:flex;align-items:flex-start;gap:8px;padding:8px 0;border-bottom:1px solid #D6D3C4;">
+      <span style="display:inline-block;background:#EBF3FB;border:1px solid #5B8DB8;border-radius:4px;padding:2px 8px;font-size:11px;color:#5B8DB8;font-weight:700;flex-shrink:0;margin-top:1px;"><span leaf="">DOCS</span></span>
+      <span style="display:block;font-size:14px;color:#5B8DB8;margin:0;line-height:1.6;"><span leaf="">LangChain 官方文档 · langchain.com</span></span>
+    </section>
+    <section style="display:flex;align-items:flex-start;gap:8px;padding:8px 0;">
+      <span style="display:inline-block;background:#EBF3FB;border:1px solid #5B8DB8;border-radius:4px;padding:2px 8px;font-size:11px;color:#5B8DB8;font-weight:700;flex-shrink:0;margin-top:1px;"><span leaf="">PAPER</span></span>
+      <span style="display:block;font-size:14px;color:#5B8DB8;margin:0;line-height:1.6;"><span leaf="">ReAct: Synergizing Reasoning and Acting in Language Models · arXiv</span></span>
+    </section>
+  </section>
 </section>
-
-<!-- 1. HERO -->
-<section class="hero">
-  <div class="rail" style="margin:-16px -16px 16px;">
-    <span style="flex:1;background:#5B8DB8;"></span>
-    <span style="flex:1;background:#1C1917;"></span>
-    <span style="flex:1;background:#C4A882;"></span>
-    <span style="flex:1;background:#5B8DB8;"></span>
   </div>
-  <p style="margin:0 0 12px;">
-    <span style="display:inline-block;background:#5B8DB8;color:#fff;padding:3px 10px;border-radius:4px;font-size:11px;font-weight:800;margin-right:5px;"><span leaf="">工具图鉴</span></span>
-  </p>
-  <h1 style="font-size:24px;line-height:1.3;color:#1C1917;margin:0 0 12px;font-weight:800;letter-spacing:-0.3px;"><span leaf="">LLM Agent 框架，工具链如何设计最合理？</span></h1>
-  <!-- 路径摘要 -->
-  <section style="display:flex;align-items:center;gap:0;flex-wrap:wrap;">
-    <span style="display:inline-flex;align-items:center;background:#F2EAE0;border:1px solid #C4A882;border-radius:4px;padding:5px 12px;font-size:12px;color:#78716C;gap:5px;">
-      <span style="width:8px;height:8px;background:#5B8DB8;border-radius:50%;flex-shrink:0;"><span leaf=""><br></span></span>
-      <span leaf=""><strong style="color:#1C1917;font-size:13px;">核心框架</strong></span>
-    </span>
-    <span style="color:#78716C;font-size:12px;padding:0 8px;">→</span>
-    <span style="display:inline-flex;align-items:center;background:#F2EAE0;border:1px solid #C4A882;border-radius:4px;padding:5px 12px;font-size:12px;color:#78716C;gap:5px;">
-      <span style="width:8px;height:8px;background:#C4A882;border-radius:50%;flex-shrink:0;"><span leaf=""><br></span></span>
-      <span leaf=""><strong style="color:#1C1917;font-size:13px;">工具分类</strong></span>
-    </span>
-    <span style="color:#78716C;font-size:12px;padding:0 8px;">→</span>
-    <span style="display:inline-flex;align-items:center;background:#F2EAE0;border:1px solid #C4A882;border-radius:4px;padding:5px 12px;font-size:12px;color:#78716C;gap:5px;">
-      <span style="width:8px;height:8px;background:#1C1917;border-radius:50%;flex-shrink:0;"><span leaf=""><br></span></span>
-      <span leaf=""><strong style="color:#1C1917;font-size:13px;">落地实践</strong></span>
-    </span>
-  </section>
-</section>
-
-<!-- 2. 棕金引用块 -->
-<section class="quote">
-  <p style="font-size:15px;font-weight:700;color:#1C1917;margin:0 0 8px;line-height:1.75;"><span leaf=""><strong style="border-bottom:2px solid #5B8DB8;">好的工具链设计</strong>不是让 Agent 多做事，而是让 Agent 做对事。</span></p>
-  <p style="font-size:12px;color:#78716C;margin:0;letter-spacing:0.3px;"><span leaf="">— Simon Willison，2024</span></p>
-</section>
-
-<!-- 3. 章节标题 -->
-<section class="section">
-  <p style="margin:0 0 4px;font-size:11px;font-weight:800;letter-spacing:2.5px;color:#5B8DB8;"><span leaf="">01 · FRAMEWORK</span></p>
-  <h2 style="font-size:20px;font-weight:800;color:#1C1917;margin:0;letter-spacing:-0.2px;line-height:1.35;"><span leaf=""><strong>核心框架</strong>：四种主流 Agent 架构</span></h2>
-</section>
-
-<!-- 4. 正文段落 -->
-<p style="font-size:15px;line-height:1.85;text-align:justify;color:#44403C;margin:0 0 16px;">
-  <span leaf="">目前主流的 LLM Agent 架构可以分为四类：ReAct、Plan-and-Execute、</span>
-  <span style="border-bottom:2px solid #5B8DB8;font-weight:600;color:#1C1917;"><span leaf=""><strong>React</strong> 混合</span>
-  <span leaf="">和</span>
-  <span style="border-bottom:2px solid #5B8DB8;font-weight:600;color:#1C1917;"><span leaf=""><strong>反思式</strong></span>
-  <span leaf="">。每种架构对应不同的任务类型和延迟预算。</span>
-</p>
-
-<!-- 5. 流程步骤条 -->
-<section class="step">
-  <section style="display:flex;align-items:flex-start;gap:12px;">
-    <span style="display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;background:#FEFCF5;color:#1C1917;font-size:14px;font-weight:900;flex-shrink:0;border-radius:50%;margin-top:2px;"><span leaf="">1</span></span>
-    <section>
-      <p style="font-size:15px;font-weight:800;color:#FEFCF5;margin:0 0 5px;line-height:1.3;"><span leaf=""><strong>定义工具边界</strong></span></p>
-      <p style="font-size:13px;color:#A8A29E;margin:0;line-height:1.7;"><span leaf="">明确每个工具的输入输出格式，避免模糊描述导致的幻觉调用。</span></p>
-    </section>
-  </section>
-</section>
-<section class="step">
-  <section style="display:flex;align-items:flex-start;gap:12px;">
-    <span style="display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;background:#FEFCF5;color:#1C1917;font-size:14px;font-weight:900;flex-shrink:0;border-radius:50%;margin-top:2px;"><span leaf="">2</span></span>
-    <section>
-      <p style="font-size:15px;font-weight:800;color:#FEFCF5;margin:0 0 5px;line-height:1.3;"><span leaf=""><strong>设计错误回退</strong></span></p>
-      <p style="font-size:13px;color:#A8A29E;margin:0;line-height:1.7;"><span leaf="">每个工具失败后应有明确的降级路径，而不是直接抛异常。</span></p>
-    </section>
-  </section>
-</section>
-
-<!-- 6. 警告条 -->
-<section class="warn">
-  <p style="font-size:11px;font-weight:900;color:#B91C1C;margin:0 0 5px;letter-spacing:1.5px;"><span leaf="">⚠ 注意</span></p>
-  <p style="font-size:14px;color:#44403C;margin:0;line-height:1.75;"><span leaf="">不要把 LLM 能力的边界当成工具设计的边界——工具应当超越模型能力本身。</span></p>
-</section>
-
-<!-- 7. 工具卡片 -->
-<section style="margin:0 0 12px;">
-  <section style="background:#FEFCF5;border:2px solid #1C1917;border-radius:6px;padding:16px 16px 14px;">
-    <section style="display:flex;align-items:flex-start;gap:12px;">
-      <span style="display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;background:#1C1917;color:#fff;font-size:18px;font-weight:900;flex-shrink:0;border-radius:4px;"><span leaf="">01</span></span>
-      <section style="flex:1;min-width:0;">
-        <p style="margin:0 0 7px;font-size:17px;font-weight:800;color:#1C1917;line-height:1.3;"><span leaf=""><strong>LangChain</strong></span></p>
-        <p style="margin:0 0 8px;font-size:12px;color:#78716C;line-height:1.65;"><span leaf="">最成熟的 Agent 编排框架，支持多种工具调用范式与记忆系统。</span></p>
-        <section style="display:flex;gap:5px;flex-wrap:wrap;">
-          <span style="background:#EBF3FB;border:1px solid #5B8DB8;border-radius:4px;padding:2px 8px;font-size:11px;color:#5B8DB8;font-weight:700;"><span leaf="">工具链</span></span>
-          <span style="background:#EBF3FB;border:1px solid #5B8DB8;border-radius:4px;padding:2px 8px;font-size:11px;color:#5B8DB8;font-weight:700;"><span leaf="">记忆</span></span>
-          <span style="background:#EBF3FB;border:1px solid #5B8DB8;border-radius:4px;padding:2px 8px;font-size:11px;color:#5B8DB8;font-weight:700;"><span leaf="">RAG</span></span>
-        </section>
-      </section>
-    </section>
-  </section>
-</section>
-<section style="margin:0 0 12px;">
-  <section style="background:#FEFCF5;border:2px solid #1C1917;border-radius:6px;padding:16px 16px 14px;">
-    <section style="display:flex;align-items:flex-start;gap:12px;">
-      <span style="display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;background:#1C1917;color:#fff;font-size:18px;font-weight:900;flex-shrink:0;border-radius:4px;"><span leaf="">02</span></span>
-      <section style="flex:1;min-width:0;">
-        <p style="margin:0 0 7px;font-size:17px;font-weight:800;color:#1C1917;line-height:1.3;"><span leaf=""><strong>LlamaIndex</strong></span></p>
-        <p style="margin:0 0 8px;font-size:12px;color:#78716C;line-height:1.65;"><span leaf="">专注知识增强检索，以索引为中心的 Agent 构建范式。</span></p>
-        <section style="display:flex;gap:5px;flex-wrap:wrap;">
-          <span style="background:#EBF3FB;border:1px solid #5B8DB8;border-radius:4px;padding:2px 8px;font-size:11px;color:#5B8DB8;font-weight:700;"><span leaf="">检索</span></span>
-          <span style="background:#EBF3FB;border:1px solid #5B8DB8;border-radius:4px;padding:2px 8px;font-size:11px;color:#5B8DB8;font-weight:700;"><span leaf="">查询引擎</span></span>
-        </section>
-      </section>
-    </section>
-  </section>
-</section>
-
-<!-- 8. 对比卡片 -->
-<section class="comp">
-  <section style="flex:1;min-width:180px;background:#FEFCF5;border:2px solid #1C1917;border-radius:6px;padding:14px;">
-    <p style="font-size:11px;font-weight:900;letter-spacing:1.5px;color:#1C1917;margin:0 0 8px;"><span leaf="">方案 A：LangChain</span></p>
-    <p style="font-size:14px;color:#44403C;margin:0;line-height:1.75;"><span leaf="">生态完整、学习曲线适中，适合需要快速搭建完整 Agent 的团队。</span></p>
-  </section>
-  <section style="flex:1;min-width:180px;background:#FEFCF5;border:2px solid #1C1917;border-radius:6px;padding:14px;">
-    <p style="font-size:11px;font-weight:900;letter-spacing:1.5px;color:#1C1917;margin:0 0 8px;"><span leaf="">方案 B：自研</span></p>
-    <p style="font-size:14px;color:#44403C;margin:0;line-height:1.75;"><span leaf="">灵活度高，控制力强，适合有专项 LLM 工程能力的技术团队。</span></p>
-  </section>
-</section>
-
-<!-- 9. 编辑分隔线 -->
-<section style="margin:18px 0;display:flex;align-items:center;justify-content:center;gap:10px;">
-  <span style="width:6px;height:6px;border-radius:50%;background:#1C1917;display:inline-block;"><span leaf=""><br></span></span>
-  <span style="width:6px;height:6px;border-radius:50%;background:#C4A882;display:inline-block;"><span leaf=""><br></span></span>
-  <span style="width:6px;height:6px;border-radius:50%;background:#5B8DB8;display:inline-block;"><span leaf=""><br></span></span>
-</section>
-
-<!-- 10. 收束卡 -->
-<section class="bottom">
-  <p style="font-size:11px;font-weight:900;letter-spacing:2px;color:#C4A882;margin:0 0 8px;"><span leaf="">BOTTOM LINE</span></p>
-  <p style="font-size:16px;font-weight:800;line-height:1.7;color:#FEFCF5;margin:0;"><span leaf=""><strong>工具链设计</strong>决定 Agent 上限：边界清晰、回退可靠、超越模型能力边界。</span></p>
-</section>
-
-<!-- 11. 链接参考条目 -->
-<section style="margin:16px 0 0;padding-top:10px;border-top:1px solid #D6D3C4;">
-  <section style="display:flex;align-items:flex-start;gap:8px;padding:8px 0;">
-    <span style="display:inline-block;background:#EBF3FB;border:1px solid #5B8DB8;border-radius:4px;padding:2px 8px;font-size:11px;color:#5B8DB8;font-weight:700;flex-shrink:0;margin-top:1px;"><span leaf="">DOCS</span></span>
-    <p style="font-size:14px;color:#5B8DB8;margin:0;line-height:1.6;"><span leaf="">LangChain 官方文档 · langchain.com</span></p>
-  </section>
-  <section style="display:flex;align-items:flex-start;gap:8px;padding:8px 0;">
-    <span style="display:inline-block;background:#EBF3FB;border:1px solid #5B8DB8;border-radius:4px;padding:2px 8px;font-size:11px;color:#5B8DB8;font-weight:700;flex-shrink:0;margin-top:1px;"><span leaf="">PAPER</span></span>
-    <p style="font-size:14px;color:#5B8DB8;margin:0;line-height:1.6;"><span leaf="">ReAct: Synergizing Reasoning and Acting in Language Models · arXiv</span></p>
-  </section>
-</section>
-
-</main></body></html>
+</div>
+<script>
+  function gzhShowToast(msg){
+    var t=document.getElementById('gzhToast');
+    t.textContent=msg;t.classList.add('show');
+    clearTimeout(t._timer);
+    t._timer=setTimeout(function(){t.classList.remove('show');},2800);
+  }
+  function gzhCopyRef(){
+    var ref='wx-theme:wood-editorial';
+    var done=function(){gzhShowToast('✅ 已复制主题 RefID：'+ref);var btn=document.getElementById('gzhRefBtn');var old=btn.textContent;btn.textContent='✅ RefID 已复制';setTimeout(function(){btn.textContent=old;},2200);};
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(ref).then(done,function(){gzhShowToast('⚠ 请手动复制：'+ref);});}
+    else{var x=document.createElement('textarea');x.value=ref;document.body.appendChild(x);x.select();try{document.execCommand('copy');done();}catch(e){gzhShowToast('⚠ 请手动复制：'+ref);}document.body.removeChild(x);}
+  }
+  function gzhCopy(){
+    var el=document.getElementById('gzh-content');
+    // 选中渲染后的富文本节点并复制（等价于手动 Ctrl+A / Ctrl+C，保留全部样式）
+    var range=document.createRange();
+    range.selectNodeContents(el);
+    var sel=window.getSelection();
+    sel.removeAllRanges();
+    sel.addRange(range);
+    var ok=false;
+    try{ok=document.execCommand('copy');}catch(e){ok=false;}
+    sel.removeAllRanges();
+    var btn=document.getElementById('gzhCopyBtn');
+    if(ok){
+      gzhShowToast('✅ 已复制！去公众号编辑器按 Ctrl/⌘+V 粘贴即可');
+      var old=btn.textContent;btn.textContent='✅ 已复制';
+      setTimeout(function(){btn.textContent=old;},2200);
+    }else{
+      gzhShowToast('⚠ 自动复制失败，请手动全选(Ctrl/⌘+A)再复制(Ctrl/⌘+C)');
+    }
+  }
+</script>
+</body>
+</html>
