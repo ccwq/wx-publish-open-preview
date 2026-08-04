@@ -1,1 +1,164 @@
-<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>深绿监控风 · 公众号主题预览</title><style>*{box-sizing:border-box}body{margin:0;background:#07120d;color:#eaf7ef;font:15px/1.75 -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif}.page{max-width:677px;margin:auto;padding:16px 12px 52px}.top,.panel{border:1px solid rgba(180,255,210,.22);background:#102018;border-radius:10px;padding:16px;margin-bottom:12px}.signal{display:inline-block;width:9px;height:9px;border-radius:50%;background:#33d17a;margin-right:7px}.tag{display:inline-block;border:1px solid #33d17a;color:#78f2b0;padding:2px 8px;border-radius:14px;font-size:11px;font-weight:700}.metric{display:flex;gap:8px;flex-wrap:wrap}.metric section{flex:1;min-width:150px;background:#15261d;border:1px solid rgba(180,255,210,.17);border-radius:8px;padding:12px}.num{display:block;font-size:27px;line-height:1.2;font-weight:800;color:#78f2b0}.head{font-size:11px;letter-spacing:1.6px;color:#c6dccd;font-weight:800;margin:0 0 7px}.bar{height:7px;background:#294936;border-radius:10px;overflow:hidden}.bar span{display:block;height:100%;background:#33d17a;border-radius:10px}.warn{border-left:4px solid #f2d45c;background:#1c2a1d;padding:12px 14px;margin:12px 0}.cmd{background:#020704;border:1px solid rgba(180,255,210,.32);padding:12px;border-radius:7px;color:#b7f171;font-family:ui-monospace,monospace;font-size:12px;overflow-wrap:anywhere}@media(max-width:420px){.metric{display:block}.metric section{margin-bottom:8px}.page{padding:12px 9px 40px}}</style></head><body><main class="page"><section class="top"><p class="head"><span class="signal"></span>AGENT STATUS · LOCAL MONITOR</p><span class="tag">ONLINE · 03 SERVICES</span><h1 style="font-size:25px;line-height:1.3;margin:12px 0 8px"><span leaf="">把运行状态变成一眼可读的工作台</span></h1><p style="color:#9fbeab;margin:0"><span leaf="">深绿面板、状态灯和告警语义，适用于本地运行、健康检查与系统复盘。</span></p></section><section class="metric"><section><p class="head">HEALTH SCORE</p><span class="num">98.4%</span><div class="bar"><span style="width:98.4%"></span></div><p style="margin:8px 0 0;color:#9fbeab;font-size:12px"><span leaf="">全部关键检查通过</span></p></section><section><p class="head">LATENCY</p><span class="num">124ms</span><p style="margin:13px 0 0;color:#9fbeab;font-size:12px"><span leaf="">低于 250ms 预警阈值</span></p></section><section><p class="head">MODE</p><span class="num" style="font-size:20px">READ ONLY</span><p style="margin:13px 0 0;color:#9fbeab;font-size:12px"><span leaf="">只读安全模式</span></p></section></section><section class="panel"><p class="head">01 · SERVICE CHECK</p><h3 style="margin:0 0 10px;color:#eaf7ef"><span leaf="">状态清单</span></h3><p style="margin:8px 0"><span class="signal"></span><span leaf="">网关已连接 · 最近心跳 12 秒前</span></p><p style="margin:8px 0"><span class="signal"></span><span leaf="">任务队列正常 · 等待项 0</span></p><p style="margin:8px 0"><span class="signal"></span><span leaf="">本地存储可用 · 余量 72%</span></p></section><section class="warn"><strong style="color:#f2d45c"><span leaf="">ATTENTION · 阈值不是装饰</span></strong><p style="margin:5px 0 0;color:#d5e9dd"><span leaf="">黄色只表示需要关注；红色仅用于明确故障，避免把工作台做成警报页。</span></p></section><section class="panel"><p class="head">02 · QUICK COMMAND</p><p class="cmd"><span leaf="">$ healthcheck --scope=agent --format=summary</span></p><p style="margin:0;color:#9fbeab;font-size:12px"><span leaf="">命令块短、可复制、可直接解释当前状态。</span></p></section><section style="border-top:1px solid rgba(180,255,210,.2);padding-top:12px;color:#9fbeab;font-size:11px"><span leaf="">DARKGREEN MONITOR · 状态总览 / 本地运行 / 安全复盘</span></section></main></body></html>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>darkgreen-monitor.wechat · 公众号排版预览</title>
+<style>
+  body{margin:0;background:#eef0f2;font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;-webkit-text-size-adjust:100%;}
+  .gzh-toolbar{position:fixed;top:0;left:0;right:0;height:54px;background:#ffffff;box-shadow:0 1px 10px rgba(0,0,0,.08);display:flex;align-items:center;justify-content:space-between;padding:0 16px;z-index:99;}
+  .gzh-hint{font-size:13px;color:#6b7280;line-height:1.4;}
+  .gzh-hint b{color:#111827;}
+  .gzh-copy{background:#059669;color:#fff;border:0;border-radius:9px;padding:10px 20px;font-size:14px;font-weight:700;cursor:pointer;box-shadow:0 3px 10px rgba(5,150,105,.28);white-space:nowrap;transition:transform .08s,background .15s;}
+  .gzh-copy:hover{background:#047857;}
+  .gzh-copy:active{transform:translateY(1px);}
+  .gzh-toast{position:fixed;top:66px;left:50%;transform:translateX(-50%);background:#111827;color:#fff;padding:11px 20px;border-radius:10px;font-size:14px;font-weight:600;opacity:0;pointer-events:none;transition:opacity .25s;z-index:100;box-shadow:0 6px 20px rgba(0,0,0,.25);max-width:88vw;text-align:center;}
+  .gzh-toast.show{opacity:1;}
+  .gzh-stage{max-width:700px;margin:78px auto 64px;padding:0 8px;}
+  @media(max-width:520px){.gzh-hint{max-width:150px;}}
+</style>
+</head>
+<body>
+<div class="gzh-toolbar">
+  <span class="gzh-hint">👇 下方是排版效果 · 点右侧 <b>复制</b> 直接粘到公众号</span>
+  <button class="gzh-copy" id="gzhCopyBtn" onclick="gzhCopy()">📋 复制到公众号</button>
+</div>
+<div class="gzh-toast" id="gzhToast"></div>
+<div class="gzh-stage">
+  <div id="gzh-content">
+<section style="width:100%;max-width:677px;margin:0 auto;padding:10px 8px 32px;box-sizing:border-box;background:#061A0E;color:#B8E0C8;font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif;line-height:1.75;">
+  <section style="width:100%;margin:0 0 18px;padding:14px 13px;background:#0A3A1F;border:1px solid #1A5A30;border-radius:6px;box-sizing:border-box;">
+    <section style="margin:0 0 9px;box-sizing:border-box;">
+      <span leaf="" style="display:inline-block;width:8px;height:8px;background:#00E676;border-radius:50%;vertical-align:middle;margin:0 5px 0 0;"></span>
+      <span leaf="" style="display:inline-block;font-size:10px;font-weight:900;letter-spacing:1.5px;color:#00E676;vertical-align:middle;">AGENT STATUS · LOCAL MONITOR</span>
+    </section>
+    <h3 style="margin:0 0 8px;font-size:20px;line-height:1.3;font-weight:850;color:#FFFFFF;"><span leaf="">在本地跑一个永远在线的 Agent</span></h3>
+    <span leaf="" style="display:block;margin:0 0 10px;font-size:13px;line-height:1.65;color:#6AAF7A;">深绿监控风保留终端感、状态语义与进度表达；全部组件以自然文档流 + 内联具体色值实现，无需媒体查询或样式表。</span>
+    <section style="box-sizing:border-box;">
+      <span leaf="" style="display:inline-block;margin:2px 4px 2px 0;padding:3px 8px;background:#0D4A22;border:1px solid #00E676;border-radius:4px;font-size:10px;font-weight:900;color:#00E676;"><span leaf="">ONLINE · 03 SERVICES</span></span>
+      <span leaf="" style="display:inline-block;margin:2px 4px 2px 0;padding:3px 8px;background:#0A3A1F;border:1px solid #1A5A30;border-radius:4px;font-size:10px;font-weight:900;color:#6AAF7A;"><span leaf="">RefID · wx-theme:darkgreen-monitor</span></span>
+    </section>
+  </section>
+
+  <section style="width:100%;margin:0 0 18px;box-sizing:border-box;">
+    <section style="width:100%;margin:0 0 6px;padding:11px 12px;background:#0D4A22;border:1px solid #1A5A30;border-radius:6px;box-sizing:border-box;">
+      <span leaf="" style="display:block;margin:0 0 3px;font-size:10px;font-weight:900;letter-spacing:1.2px;color:#00E676;">HEALTH SCORE</span>
+      <span leaf="" style="display:block;font-size:26px;line-height:1;font-weight:900;color:#00E676;margin:0 0 4px;">98.4%</span>
+      <span leaf="" style="font-size:12px;line-height:1.6;color:#6AAF7A;">系统整体运行正常，无关键告警</span>
+    </section>
+    <section style="width:100%;margin:0 0 6px;padding:11px 12px;background:#0A3A1F;border:1px solid #1A5A30;border-radius:6px;box-sizing:border-box;">
+      <span leaf="" style="display:block;margin:0 0 3px;font-size:10px;font-weight:900;letter-spacing:1.2px;color:#40C4FF;">LATENCY</span>
+      <span leaf="" style="display:block;font-size:26px;line-height:1;font-weight:900;color:#40C4FF;margin:0 0 4px;">124ms</span>
+      <span leaf="" style="font-size:12px;line-height:1.6;color:#6AAF7A;">平均响应时间在预期范围内</span>
+    </section>
+    <section style="width:100%;padding:11px 12px;background:#0A3A1F;border:1px solid #1A5A30;border-radius:6px;box-sizing:border-box;">
+      <span leaf="" style="display:block;margin:0 0 3px;font-size:10px;font-weight:900;letter-spacing:1.2px;color:#FFB300;">MODE</span>
+      <span leaf="" style="display:block;font-size:26px;line-height:1;font-weight:900;color:#FFB300;margin:0 0 4px;">READ ONLY</span>
+      <span leaf="" style="font-size:12px;line-height:1.6;color:#6AAF7A;">当前禁用写入操作，等待配置确认</span>
+    </section>
+  </section>
+
+  <section style="width:100%;margin:0 0 18px;padding:0 0 9px;border-bottom:1px solid #1A5A30;box-sizing:border-box;">
+    <span leaf="" style="display:block;margin:0 0 3px;font-size:10px;font-weight:900;letter-spacing:1.5px;color:#33D17A;">01 · SERVICE STATUS</span>
+    <h4 style="margin:0;font-size:18px;line-height:1.35;font-weight:850;color:#FFFFFF;"><span leaf="">当前快照：3 项服务状态</span></h4>
+  </section>
+
+  <section style="width:100%;margin:0 0 18px;padding:12px 13px;background:#0D4A22;border:1px solid #1A5A30;border-left:3px solid #00E676;border-radius:4px;box-sizing:border-box;">
+    <span leaf="" style="display:inline-block;width:8px;height:8px;background:#00E676;border-radius:50%;vertical-align:middle;margin:0 6px 0 0;"></span>
+    <span leaf="" style="display:inline;font-size:13px;font-weight:800;color:#FFFFFF;">UP · Agent Gateway</span>
+    <span leaf="" style="display:block;margin:4px 0 0 14px;font-size:12px;line-height:1.6;color:#6AAF7A;">端口 8080，延迟 12ms，内存占用 48MB</span>
+  </section>
+  <section style="width:100%;margin:0 0 18px;padding:12px 13px;background:#0A3A1F;border:1px solid #1A5A30;border-left:3px solid #FFB300;border-radius:4px;box-sizing:border-box;">
+    <span leaf="" style="display:inline-block;width:8px;height:8px;background:#FFB300;border-radius:50%;vertical-align:middle;margin:0 6px 0 0;"></span>
+    <span leaf="" style="display:inline;font-size:13px;font-weight:800;color:#FFFFFF;">WARN · Task Queue</span>
+    <span leaf="" style="display:block;margin:4px 0 0 14px;font-size:12px;line-height:1.6;color:#6AAF7A;">待处理任务 17 项，积压超过阈值 10</span>
+  </section>
+  <section style="width:100%;margin:0 0 18px;padding:12px 13px;background:#0A3A1F;border:1px solid #1A5A30;border-left:3px solid #00E676;border-radius:4px;box-sizing:border-box;">
+    <span leaf="" style="display:inline-block;width:8px;height:8px;background:#00E676;border-radius:50%;vertical-align:middle;margin:0 6px 0 0;"></span>
+    <span leaf="" style="display:inline;font-size:13px;font-weight:800;color:#FFFFFF;">UP · Local Storage</span>
+    <span leaf="" style="display:block;margin:4px 0 0 14px;font-size:12px;line-height:1.6;color:#6AAF7A;">磁盘使用率 34%，空间充足</span>
+  </section>
+
+  <section style="width:100%;margin:0 0 18px;padding:0 0 9px;border-bottom:1px solid #1A5A30;box-sizing:border-box;">
+    <span leaf="" style="display:block;margin:0 0 3px;font-size:10px;font-weight:900;letter-spacing:1.5px;color:#33D17A;">02 · HEALTH THRESHOLD</span>
+    <h4 style="margin:0;font-size:18px;line-height:1.35;font-weight:850;color:#FFFFFF;"><span leaf="">健康阈值与进度表达</span></h4>
+  </section>
+
+  <section style="width:100%;margin:0 0 10px;box-sizing:border-box;">
+    <section style="width:100%;margin:0 0 4px;box-sizing:border-box;">
+      <section style="width:100%;height:8px;background:#0D4A22;border:1px solid #1A5A30;border-radius:4px;padding:2px;box-sizing:border-box;">
+        <section style="width:98.4%;height:100%;background:#00E676;border-radius:2px;box-sizing:border-box;"></section>
+      </section>
+    </section>
+    <span leaf="" style="display:block;font-size:12px;color:#6AAF7A;">HEALTH SCORE · <strong style="color:#00E676;">98.4%</strong> · 阈值：≥ 80% 正常 / ≥ 60% 注意 / &lt; 60% 故障</span>
+  </section>
+
+  <section style="width:100%;margin:0 0 18px;padding:14px 13px;background:#102018;border:1px solid #1A5A30;border-radius:6px;box-sizing:border-box;">
+    <span leaf="" style="display:block;margin:0 0 6px;font-size:10px;font-weight:900;letter-spacing:1.4px;color:#FFB300;">⚠ WARNING</span>
+    <span leaf="" style="display:block;font-size:14px;font-weight:800;color:#FFFFFF;margin:0 0 4px;">Task Queue 积压超过阈值</span>
+    <span leaf="" style="font-size:12px;line-height:1.65;color:#6AAF7A;">当前待处理任务 17 项，建议在 1 小时内手动确认或增加工作节点。</span>
+  </section>
+
+  <section style="width:100%;margin:0 0 18px;padding:0 0 9px;border-bottom:1px solid #1A5A30;box-sizing:border-box;">
+    <span leaf="" style="display:block;margin:0 0 3px;font-size:10px;font-weight:900;letter-spacing:1.5px;color:#33D17A;">03 · REPRODUCIBLE CHECK</span>
+    <h4 style="margin:0;font-size:18px;line-height:1.35;font-weight:850;color:#FFFFFF;"><span leaf="">可复制的检查命令</span></h4>
+  </section>
+
+  <section style="width:100%;margin:0 0 18px;padding:12px 13px;background:#061A0E;border:1px solid #1A5A30;border-radius:6px;box-sizing:border-box;">
+    <section style="margin:0 0 9px;box-sizing:border-box;">
+      <span leaf="" style="display:inline-block;width:7px;height:7px;background:#FF1744;border-radius:50%;vertical-align:middle;margin:0 3px;"></span>
+      <span leaf="" style="display:inline-block;width:7px;height:7px;background:#FFB300;border-radius:50%;vertical-align:middle;margin:0 3px;"></span>
+      <span leaf="" style="display:inline-block;width:7px;height:7px;background:#00E676;border-radius:50%;vertical-align:middle;margin:0 3px;"></span>
+      <span leaf="" style="display:inline;font-size:10px;font-weight:900;letter-spacing:1.3px;color:#33D17A;margin:0 0 0 8px;">TERMINAL</span>
+    </section>
+    <section style="margin:0 0 5px;box-sizing:border-box;">
+      <span leaf="" style="display:block;font-size:13px;color:#00E676;font-family:'Courier New',Courier,monospace;">$ curl localhost:8080/status | jq</span>
+    </section>
+    <section style="margin:0;box-sizing:border-box;">
+      <span leaf="" style="display:block;font-size:13px;color:#00E676;font-family:'Courier New',Courier,monospace;">$ curl localhost:8080/health | jq .health_score</span>
+    </section>
+  </section>
+
+  <section style="width:100%;margin:0 0 18px;padding:14px 13px;background:#0D4A22;border:1px solid #1A5A30;border-radius:6px;box-sizing:border-box;">
+    <span leaf="" style="display:block;margin:0 0 6px;font-size:10px;font-weight:900;letter-spacing:1.4px;color:#00E676;">SUMMARY</span>
+    <span leaf="" style="display:block;font-size:15px;font-weight:800;color:#FFFFFF;line-height:1.65;">Agent 运行正常；Task Queue 需关注；Local Storage 空间充足。</span>
+    <span leaf="" style="display:block;margin:8px 0 0;font-size:12px;line-height:1.6;color:#6AAF7A;">下一步：监控 Task Queue 积压趋势，必要时扩展工作节点。</span>
+  </section>
+
+  <section style="width:100%;padding-top:10px;border-top:1px solid #1A5A30;box-sizing:border-box;">
+    <span leaf="" style="display:block;margin:0 0 4px;font-size:10px;font-weight:900;letter-spacing:1.2px;color:#4A7A58;">SOURCES / NOTES</span>
+    <span leaf="" style="font-size:12px;line-height:1.7;color:#4A7A58;">设计依据：微信公众号正文采用响应式阅读容器；手机端优先，约 677px 仅为宽屏环境的常见最大阅读参考。此样稿仅用于主题兼容验收。</span>
+  </section>
+</section>
+  </div>
+</div>
+<script>
+  function gzhShowToast(msg){
+    var t=document.getElementById('gzhToast');
+    t.textContent=msg;t.classList.add('show');
+    clearTimeout(t._timer);
+    t._timer=setTimeout(function(){t.classList.remove('show');},2800);
+  }
+  function gzhCopy(){
+    var el=document.getElementById('gzh-content');
+    // 选中渲染后的富文本节点并复制（等价于手动 Ctrl+A / Ctrl+C，保留全部样式）
+    var range=document.createRange();
+    range.selectNodeContents(el);
+    var sel=window.getSelection();
+    sel.removeAllRanges();
+    sel.addRange(range);
+    var ok=false;
+    try{ok=document.execCommand('copy');}catch(e){ok=false;}
+    sel.removeAllRanges();
+    var btn=document.getElementById('gzhCopyBtn');
+    if(ok){
+      gzhShowToast('✅ 已复制！去公众号编辑器按 Ctrl/⌘+V 粘贴即可');
+      var old=btn.textContent;btn.textContent='✅ 已复制';
+      setTimeout(function(){btn.textContent=old;},2200);
+    }else{
+      gzhShowToast('⚠ 自动复制失败，请手动全选(Ctrl/⌘+A)再复制(Ctrl/⌘+C)');
+    }
+  }
+</script>
+</body>
+</html>
