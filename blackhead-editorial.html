@@ -49,43 +49,56 @@
     <span style="font-size:14px;line-height:1.9;color:#1A1A1A;"><span leaf="">红色负责结论，不负责把每个边框都做成警报。</span></span>
   </section>
 
+  <section style="margin-top:24px;background:#FFFFFF;border:1px solid #DDDDDD;border-radius:4px;padding:15px;">
+    <span style="display:block;font-size:11px;letter-spacing:2px;font-weight:800;color:#C80018;margin:0 0 7px;"><span leaf="">02 · FLOW</span></span>
+    <h4 style="margin:0 0 12px;font-size:17px;line-height:1.45;color:#1A1A1A;font-weight:800;"><span leaf="">把一次执行拆成四个可回看的节点</span></h4>
+    <section style="padding:12px 0;border-top:2px solid #111111;">
+      <strong style="font-size:15px;color:#1A1A1A;"><span leaf="">1. 定义边界</span></strong>
+      <span style="display:block;margin:4px 0 0;font-size:14px;line-height:1.8;color:#4A4A4A;"><span leaf="">哪些动作只读，哪些动作需要授权，先在开始前说清楚。</span></span>
+    </section>
+    <section style="padding:12px 0;border-top:1px solid #DDDDDD;">
+      <strong style="font-size:15px;color:#1A1A1A;"><span leaf="">2. 保留证据</span></strong>
+      <span style="display:block;margin:4px 0 0;font-size:14px;line-height:1.8;color:#4A4A4A;"><span leaf="">把输入、工具输出、修改范围和验收结果放在同一条链路里。</span></span>
+    </section>
+    <section style="padding:12px 0;border-top:1px solid #DDDDDD;">
+      <strong style="font-size:15px;color:#1A1A1A;"><span leaf="">3. 检查影响</span></strong>
+      <span style="display:block;margin:4px 0 0;font-size:14px;line-height:1.8;color:#4A4A4A;"><span leaf="">区分已完成、已验证和仍需人工确认的部分，不用一个成功标记掩盖差异。</span></span>
+    </section>
+    <section style="padding:12px 0 0;border-top:1px solid #DDDDDD;">
+      <strong style="font-size:15px;color:#1A1A1A;"><span leaf="">4. 给出回退</span></strong>
+      <span style="display:block;margin:4px 0 0;font-size:14px;line-height:1.8;color:#4A4A4A;"><span leaf="">失败时说明影响与替代路径，不伪造成功，也不让下一步继续踩着未知前进。</span></span>
+    </section>
+  </section>
+
   <section style="display:flex;gap:10px;flex-wrap:wrap;margin-top:24px;">
     <section style="flex:1;background:#FFFFFF;border:1px solid #DDDDDD;border-radius:4px;padding:15px;">
       <span style="display:inline-block;background:#111111;color:#C80018;padding:4px 8px;font-size:12px;font-weight:800;"><span leaf="">A</span></span>
       <h4 style="margin:9px 0;font-size:16px;line-height:1.4;color:#1A1A1A;font-weight:800;"><span leaf="">传统做法</span></h4>
-      <span style="display:block;margin:0;font-size:14px;line-height:1.9;color:#1A1A1A;"><span leaf="">任务直接交给工具，失败后难以解释问题出在哪里。</span></span>
+      <span style="display:block;margin:0;font-size:14px;line-height:1.9;color:#1A1A1A;"><span leaf="">任务直接交给工具，失败后只能回头猜问题出在哪里。</span></span>
     </section>
-    <section style="flex:1;background:#FFFFFF;border:1px solid #DDDDDD;border-radius:4px;padding:15px;">
+    <section style="flex:1;background:#FFFFFF;border:1px solid #111111;border-top:3px solid #C80018;border-radius:4px;padding:15px;">
       <span style="display:inline-block;background:#111111;color:#C80018;padding:4px 8px;font-size:12px;font-weight:800;"><span leaf="">B</span></span>
       <h4 style="margin:9px 0;font-size:16px;line-height:1.4;color:#1A1A1A;font-weight:800;"><span leaf="">可审计做法</span></h4>
-      <span style="display:block;margin:0;font-size:14px;line-height:1.9;color:#1A1A1A;"><span leaf="">把执行拆成步骤、证据和回退方案，结果才可复现。</span></span>
+      <span style="display:block;margin:0;font-size:14px;line-height:1.9;color:#1A1A1A;"><span leaf="">把执行拆成步骤、证据和回退方案，结果才可复现、可解释、可改进。</span></span>
     </section>
   </section>
 
-  <section style="margin-top:24px;background:#FFFFFF;border:1px solid #DDDDDD;border-radius:4px;padding:15px;">
-    <span style="display:block;font-size:11px;letter-spacing:2px;font-weight:800;color:#C80018;margin:0 0 7px;"><span leaf="">02 · FLOW</span></span>
-    <section style="padding:12px 0;border-top:2px solid #111111;">
-      <strong style="font-size:15px;color:#1A1A1A;"><span leaf="1. 定义边界"></span></strong>
-      <span style="display:block;margin:4px 0 0;font-size:14px;line-height:1.8;color:#4A4A4A;"><span leaf="哪些动作只读，哪些动作需要授权。"></span></span>
-    </section>
-    <section style="padding:12px 0;border-top:1px solid #DDDDDD;">
-      <strong style="font-size:15px;color:#1A1A1A;"><span leaf="2. 保留证据"></span></strong>
-      <span style="display:block;margin:4px 0 0;font-size:14px;line-height:1.8;color:#4A4A4A;"><span leaf="把输入、工具输出和验收结果放在同一条链路里。"></span></span>
-    </section>
-    <section style="padding:12px 0 0;border-top:1px solid #DDDDDD;">
-      <strong style="font-size:15px;color:#1A1A1A;"><span leaf="3. 给出回退"></span></strong>
-      <span style="display:block;margin:4px 0 0;font-size:14px;line-height:1.8;color:#4A4A4A;"><span leaf="失败时说明影响与替代路径，不伪造成功。"></span></span>
-    </section>
+  <section style="margin-top:24px;background:#F5F5F5;border-top:2px solid #111111;border-bottom:1px solid #DDDDDD;padding:14px 15px;">
+    <span style="display:block;font-size:11px;letter-spacing:2px;font-weight:800;color:#C80018;margin:0 0 7px;"><span leaf="">03 · ACCEPTANCE</span></span>
+    <h4 style="margin:0 0 9px;font-size:17px;line-height:1.45;color:#1A1A1A;font-weight:800;"><span leaf="">交付前只问三件事</span></h4>
+    <ul style="margin:0;padding-left:20px;color:#1A1A1A;">
+      <li style="font-size:14px;line-height:1.9;margin-bottom:5px;"><span leaf="">关键结论是否能被证据支持。</span></li>
+      <li style="font-size:14px;line-height:1.9;margin-bottom:5px;"><span leaf="">边界和授权是否被明确记录。</span></li>
+      <li style="font-size:14px;line-height:1.9;"><span leaf="">失败时是否还有可执行的回退路径。</span></li>
+    </ul>
   </section>
 
   <section style="margin-top:24px;background:#111111;border-left:6px solid #C80018;border-radius:4px;padding:16px;color:#FFFFFF;">
-    <span style="display:block;font-size:11px;color:#FF5968;letter-spacing:2px;margin:0 0 7px;font-weight:800;"><span leaf="BOTTOM LINE"></span></span>
-    <h3 style="margin:0 0 6px;font-size:19px;line-height:1.45;color:#FFFFFF;font-weight:800;"><span leaf="结构先于炫技，证据先于结论。"></span></h3>
-    <span style="display:block;margin:0;color:#D7D7D7;font-size:14px;line-height:1.8;"><span leaf="适用于调查拆解、授权边界与复杂工作流说明。"></span></span>
+    <span style="display:block;font-size:11px;color:#FF5968;letter-spacing:2px;margin:0 0 7px;font-weight:800;"><span leaf="">BOTTOM LINE</span></span>
+    <h3 style="margin:0 0 6px;font-size:19px;line-height:1.45;color:#FFFFFF;font-weight:800;"><span leaf="">结构先于炫技，证据先于结论。</span></h3>
+    <span style="display:block;margin:0;color:#D7D7D7;font-size:14px;line-height:1.8;"><span leaf="">适用于调查拆解、授权边界与复杂工作流说明。</span></span>
   </section>
 </section>
-
-<ul style="display:none;margin:0;padding:0;"><li><span leaf=""></span></li></ul>
   </div>
 </div>
 <script>
