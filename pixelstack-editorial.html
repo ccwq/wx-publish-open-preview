@@ -1,278 +1,127 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#FFF5E6">
-  <title>infocard-pixelstack-editorial · 像素编辑风预览</title>
-  <style>
-    /* ── pixelstack-editorial tokens ── */
-    :root{
-      --bg:#FFF5E6;            /* 米纸底 */
-      --paper:#FBF1DA;         /* 卡片纸 */
-      --ink:#2D1B00;           /* 主深咖描边/主文字 */
-      --ink-soft:#3a2a14;      /* 次级文字 */
-      --muted:#7a6747;         /* 辅助灰 */
-      --line:#2D1B00;          /* 骨架线 */
-
-      --orange:#E65100;        /* 顶层强调橙 */
-      --orange-soft:#FFB066;
-      --blue-mid:#81D4FA;      /* 中蓝 */
-      --blue-pale:#B3E5FC;     /* 浅蓝 */
-      --blue-deep:#1E5CB5;     /* 深蓝（标题/思考者主色） */
-      --paper-tile:#FAF9F6;    /* 第二层象牙 */
-      --note:#FFE9C9;          /* 便签底 */
-      --max:1180px;
-    }
-    *{box-sizing:border-box}
-    html,body{margin:0;padding:0;overflow-x:hidden}
-    body{
-      background:var(--bg);
-      color:var(--ink);
-      font-family:Inter,system-ui,-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;
-      font-size:13.6px;line-height:1.7;
-      text-rendering:optimizeLegibility;
-    }
-    /* 像素噪点底纹 */
-    body::before{
-      content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.18;
-      background-image:
-        repeating-linear-gradient(0deg, rgba(45,27,0,.04) 0 1px, transparent 1px 4px),
-        repeating-linear-gradient(90deg, rgba(45,27,0,.025) 0 1px, transparent 1px 5px);
-      mix-blend-mode:multiply;
-    }
-    a{color:inherit;text-decoration:none}
-    code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
-
-    .page{width:min(var(--max),calc(100% - 28px));margin:0 auto;padding:18px 0 72px;position:relative;z-index:1}
-
-    /* ── 像素硬边块通用 ── */
-    .pix{
-      border:3px solid var(--line);
-      border-radius:0;
-      box-shadow:4px 4px 0 0 var(--line);
-      background-color:var(--paper);
-      padding:16px;margin-bottom:12px;
-    }
-    .pix-label{
-      display:block;margin-bottom:8px;
-      font:900 11px/1 ui-monospace,monospace;
-      letter-spacing:.08em;text-transform:uppercase;color:var(--blue-deep);
-    }
-
-    /* ── topbar ── */
-    .topbar{
-      display:flex;justify-content:space-between;gap:14px;align-items:center;
-      font:800 12px/1.2 ui-monospace,monospace;
-      letter-spacing:.08em;text-transform:uppercase;color:var(--blue-deep);
-      padding:10px 14px;margin-bottom:16px;
-      background:var(--paper);border:3px solid var(--line);
-      box-shadow:4px 4px 0 0 var(--line);
-    }
-
-    /* ── hero ── */
-    .hero{
-      padding:22px;margin-bottom:18px;
-      background:linear-gradient(180deg,#FFF8EA 0%,#FBEFD2 100%);
-      border:3px solid var(--line);box-shadow:4px 4px 0 0 var(--line);
-    }
-    .hero-title{
-      font-family:Georgia,serif;font-weight:900;
-      font-size:clamp(28px,4.6vw,48px);line-height:1.02;letter-spacing:-.02em;
-      color:var(--ink);margin:8px 0 12px;
-    }
-    .hero-title small{font-size:.55em;font-weight:400;color:var(--muted)}
-    .hero-lead{font-size:14px;line-height:1.78;color:var(--ink-soft);max-width:640px;margin:0 0 14px}
-    .hero-lead b{color:var(--ink)}
-    .hero-meta{
-      display:flex;flex-wrap:wrap;gap:8px;font-size:11.5px;
-    }
-    .hero-meta span{
-      padding:4px 8px;background:#fff;border:2px solid var(--line);box-shadow:2px 2px 0 0 var(--line);
-      font:800 11px/1 ui-monospace,monospace;
-      letter-spacing:.06em;text-transform:uppercase;color:var(--ink);
-    }
-    .hero-meta span.blue{background:var(--blue-pale);color:var(--blue-deep);border-color:var(--line)}
-    .hero-meta span.orange{background:var(--orange);color:#fff;text-shadow:1px 1px 0 #7a2900}
-
-    /* ── pyramid ── */
-    .pyramid{
-      margin-bottom:16px;
-    }
-    .block{
-      position:relative;
-      border:3px solid var(--line);
-      box-shadow:4px 4px 0 0 var(--line);
-      font-family:Georgia,serif;font-weight:900;
-      letter-spacing:.04em;
-      display:flex;align-items:center;justify-content:center;
-      color:var(--ink);margin:0 auto 3px;
-    }
-    .block.l1{width:260px;height:60px;background:var(--blue-pale);font-size:17px}
-    .block.l2{width:220px;height:54px;background:var(--paper-tile);font-size:16px}
-    .block.l3{width:180px;height:50px;background:var(--blue-mid);font-size:15px}
-    .block.l4{width:140px;height:46px;background:var(--orange);color:#fff;font-size:14px;text-shadow:1px 1px 0 #7a2900}
-
-    /* ── recall strip ── */
-    .recall-strip{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-bottom:12px}
-    .recall-strip article{background:#fff;border:2px solid var(--line);box-shadow:2px 2px 0 0 var(--line);padding:10px 12px 11px}
-    .recall-strip .k{display:block;margin-bottom:4px;font:900 10.5px/1 ui-monospace,monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--blue-deep)}
-    .recall-strip b{display:block;margin-bottom:4px;font-size:14px;line-height:1.2;color:var(--ink)}
-    .recall-strip p{margin:0;font-size:12px;line-height:1.55;color:var(--ink-soft)}
-    .recall-strip article.recall .k,.recall-strip article.recall b{color:var(--orange)}
-
-    /* ── stage ── */
-    .stage{
-      position:relative;
-      background:#FFF1D7;
-      border:3px solid var(--line);
-      box-shadow:4px 4px 0 0 var(--line);
-      min-height:220px;padding:20px 16px;margin-bottom:12px;
-      overflow:hidden;
-    }
-    .stage-label{display:block;margin-bottom:6px;font:900 10.5px/1 ui-monospace,monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--blue-deep)}
-    .stage-h3{font-size:15px;font-weight:700;color:var(--ink);margin:0 0 8px}
-    .stage-p{font-size:12.5px;line-height:1.68;color:var(--ink-soft);margin:0;max-width:280px}
-
-    /* ── insight card ── */
-    .insight{
-      background:var(--ink);padding:16px 18px;
-      margin-bottom:12px;position:relative;overflow:hidden;
-    }
-    .insight-label{display:block;margin-bottom:8px;font:900 10.5px/1 ui-monospace,monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--blue-mid)}
-    .insight blockquote{
-      font-family:Georgia,serif;font-size:clamp(18px,3.5vw,24px);font-weight:900;
-      line-height:1.25;color:#fff;margin:0;letter-spacing:-.02em;
-    }
-    .insight-attribution{display:block;margin-top:8px;font-size:11.5px;color:var(--muted)}
-
-    /* ── bullets ── */
-    .bullets{margin-bottom:12px}
-    .bullets-label{display:block;margin-bottom:8px;font:900 11px/1 ui-monospace,monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--blue-deep)}
-    ul.bullet-list{margin:0;padding:0 0 0 18px;display:grid;gap:5px}
-    ul.bullet-list li{font-size:12.5px;line-height:1.65;color:var(--ink)}
-    ul.bullet-list li strong{color:var(--orange)}
-
-    /* ── section divider ── */
-    .divider{margin:18px 0 12px;padding-top:10px;border-top:3px solid var(--line);display:flex;align-items:center;gap:8px}
-    .divider span{font:900 10px/1 ui-monospace,monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
-
-    /* ── 390px mobile test ── */
-    @media(max-width:390px){
-      .page{width:100%;padding:12px 0 60px}
-      .block.l1,.block.l2,.block.l3,.block.l4{width:100%;max-width:100%}
-      .hero-title{font-size:clamp(22px,8vw,36px)}
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>pixelstack-editorial.wechat · 公众号排版预览</title>
+<style>
+  body{margin:0;background:#eef0f2;font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;-webkit-text-size-adjust:100%;}
+  .gzh-toolbar{position:fixed;top:0;left:0;right:0;height:54px;background:#ffffff;box-shadow:0 1px 10px rgba(0,0,0,.08);display:flex;align-items:center;justify-content:space-between;padding:0 16px;z-index:99;}
+  .gzh-hint{font-size:13px;color:#6b7280;line-height:1.4;}
+  .gzh-hint b{color:#111827;}
+  .gzh-copy{background:#059669;color:#fff;border:0;border-radius:9px;padding:10px 20px;font-size:14px;font-weight:700;cursor:pointer;box-shadow:0 3px 10px rgba(5,150,105,.28);white-space:nowrap;transition:transform .08s,background .15s;}
+  .gzh-copy:hover{background:#047857;}
+  .gzh-copy:active{transform:translateY(1px);}
+  .gzh-toast{position:fixed;top:66px;left:50%;transform:translateX(-50%);background:#111827;color:#fff;padding:11px 20px;border-radius:10px;font-size:14px;font-weight:600;opacity:0;pointer-events:none;transition:opacity .25s;z-index:100;box-shadow:0 6px 20px rgba(0,0,0,.25);max-width:88vw;text-align:center;}
+  .gzh-toast.show{opacity:1;}
+  .gzh-stage{max-width:700px;margin:78px auto 64px;padding:0 8px;}
+  @media(max-width:520px){.gzh-hint{max-width:150px;}}
+</style>
 </head>
 <body>
-  <div class="page">
-
-    <!-- 0. 说明 -->
-    <div style="background:#fff5ef;border:2px dashed #a76632;padding:12px 14px;margin-bottom:14px;font-size:12px;color:#5a2a20;line-height:1.6">
-      <strong>390px 验证说明：</strong>所有区块均使用 width:auto / min-width/max-width，未设固定宽度超出 390px。Pyramid 四层方块在 390px 下宽度 100%，通过 CSS @media 响应式收缩。
-    </div>
-
-    <!-- 1. Topbar -->
-    <div class="divider"><span>01 · TOPBAR</span></div>
-    <div class="topbar">
-      <span>🟧 PIXELSTACK EDITORIAL</span>
-      <span style="color:var(--muted)">2026-08-03</span>
-    </div>
-
-    <!-- 2. Hero -->
-    <div class="divider"><span>02 · HERO</span></div>
-    <div class="hero">
-      <div class="hero-title">
-        🔲 像素编辑风<br>
-        <small>方法论层级 · 工程演进</small>
-      </div>
-      <p class="hero-lead">
-        米纸底 + 像素硬边方块 + <b>金字塔堆叠</b>构成视觉锚点，现代中文高清抗锯齿不强制像素字体。
-      </p>
-      <div class="hero-meta">
-        <span>像素</span>
-        <span class="blue">🤔 思考者</span>
-        <span class="orange">消散箭头</span>
-      </div>
-    </div>
-
-    <!-- 3. Pyramid Stack -->
-    <div class="divider"><span>03 · PYRAMID STACK</span></div>
-    <div class="pyramid">
-      <div class="block l1">🧠 认知层 — 抽象概念</div>
-      <div class="block l2">⚙️ 架构层 — 系统设计</div>
-      <div class="block l3">🔧 实现层 — 代码执行</div>
-      <div class="block l4">🚀 价值层</div>
-    </div>
-
-    <!-- 4. Pixel Block -->
-    <div class="divider"><span>04 · PIXEL BLOCK</span></div>
-    <div class="pix">
-      <span class="pix-label">▣ BLOCK — 像素硬边</span>
-      <h3 style="font-size:15px;font-weight:700;color:var(--ink);margin:0 0 6px">工程演进：反直觉发现</h3>
-      <p style="font-size:12.5px;line-height:1.68;color:var(--ink-soft);margin:0">
-        当所有人都向左走时，真正的机会藏在<span style="color:var(--orange);font-weight:700">右侧的像素阴影</span>里。像素不是复古，是维度的压缩。
-      </p>
-    </div>
-
-    <!-- 5. Recall Strip -->
-    <div class="divider"><span>05 · RECALL STRIP</span></div>
-    <div class="recall-strip">
-      <article class="recall">
-        <span class="k">📌 KEY INSIGHT</span>
-        <b>层级压缩带来理解加速</b>
-        <p>金字塔结构的每一层都对应一个认知粒度，压缩不是简化，是聚焦。</p>
-      </article>
-      <article>
-        <span class="k">⚠️ CAUTION</span>
-        <b>不要用像素字体写正文</b>
-        <p>像素字体仅用于标题和标签；正文保持高清抗锯齿，否则阅读体验崩溃。</p>
-      </article>
-    </div>
-
-    <!-- 6. Stage Background (Emoji fallback) -->
-    <div class="divider"><span>06 · STAGE — 公众号版降级</span></div>
-    <div class="stage">
-      <!-- 思考者 emoji 替代 JS 小人 -->
-      <div style="position:absolute;right:20px;top:12px;font-size:44px;line-height:1">🤔</div>
-      <!-- 消散箭头简化装饰 -->
-      <div style="position:absolute;left:16px;bottom:16px;font-size:24px;opacity:.45;color:var(--blue-deep);line-height:1">➜</div>
-      <div style="position:absolute;left:42px;bottom:16px;font-size:18px;opacity:.3;color:var(--blue-deep);line-height:1">➜</div>
-      <div style="position:absolute;left:64px;bottom:16px;font-size:12px;opacity:.18;color:var(--blue-deep);line-height:1">➜</div>
-      <span class="stage-label">🗺️ STAGE — 思考者舞台</span>
-      <h3 class="stage-h3">方法论的抽象阶梯</h3>
-      <p class="stage-p">
-        每上升一层抽象，就丢失一些细节，同时获得更通用的理解力。像素思考者站在金字塔脚下，仰望顶端的橙色光芒。
-      </p>
-    </div>
-
-    <!-- 7. Insight Card -->
-    <div class="divider"><span>07 · INSIGHT CARD</span></div>
-    <div class="insight">
-      <!-- 消散箭头装饰 -->
-      <div style="position:absolute;right:12px;top:50%;transform:translateY(-50%);font-size:48px;opacity:.15;color:var(--blue-mid);line-height:1">➜➜➜</div>
-      <span class="insight-label">💡 INSIGHT</span>
-      <blockquote>"像素不是复古，是维度的<br><span style="color:var(--orange)">压缩</span>。"</blockquote>
-      <span class="insight-attribution">— 像素堆叠哲学，2026</span>
-    </div>
-
-    <!-- 8. Bullet List -->
-    <div class="divider"><span>08 · BULLET LIST</span></div>
-    <div class="bullets">
-      <span class="bullets-label">⊕ COMPONENTS</span>
-      <ul class="bullet-list">
-        <li><strong>Topbar</strong> — 像素硬边顶栏，Emoji 替代像素小人</li>
-        <li><strong>Hero</strong> — 金字塔主标题 + 渐变纸底</li>
-        <li><strong>Pyramid Stack</strong> — 四层递进方块，蓝→象牙→中蓝→橙</li>
-        <li><strong>Pixel Block</strong> — 硬边卡片容器，3px描边+4px硬阴影</li>
-        <li><strong>Recall Strip</strong> — 2列关键发现/警示</li>
-        <li><strong>Stage</strong> — 思考者舞台（公众号版用 Emoji🤔替代 JS 小人）</li>
-        <li><strong>Insight Card</strong> — 消散箭头金句（公众号版简化箭头装饰）</li>
-        <li><strong>Bullet List</strong> — 粗线列表，橙色序号标记</li>
-      </ul>
-    </div>
-
+<div class="gzh-toolbar">
+  <span class="gzh-hint">👇 下方是排版效果 · 点右侧 <b>复制</b> 直接粘到公众号</span>
+  <button class="gzh-copy" id="gzhCopyBtn" onclick="gzhCopy()">📋 复制到公众号</button>
+</div>
+<div class="gzh-toast" id="gzhToast"></div>
+<div class="gzh-stage">
+  <div id="gzh-content">
+<section style="width:100%;max-width:677px;margin:0 auto;padding:16px;background:#FFF5E6;color:#2D1B00;font-family:Arial,'PingFang SC','Microsoft YaHei',sans-serif;line-height:1.7;box-sizing:border-box;">
+<section style="padding:10px 12px;margin-bottom:16px;background:#FBF1DA;border:3px solid #2D1B00;box-shadow:4px 4px 0 #2D1B00;">
+<span leaf="" style="display:inline-block;font-size:12px;font-weight:800;letter-spacing:1px;color:#1E5CB5;">🟧 PIXELSTACK EDITORIAL</span>
+<span leaf="" style="display:inline-block;margin-left:12px;font-size:11px;color:#7A6747;">2026 · WECHAT</span>
+</section>
+<section style="padding:18px 16px;margin-bottom:18px;background:#FFF8EA;border:3px solid #2D1B00;box-shadow:4px 4px 0 #2D1B00;">
+<h3 style="margin:0 0 8px;font-size:28px;line-height:1.15;font-weight:900;letter-spacing:-1px;"><span><span leaf="">像素堆叠风</span></span><span leaf="" style="display:block;"></span><span leaf="" style="font-size:16px;font-weight:600;color:#7A6747;letter-spacing:0;">方法论层级 · 工程演进</span></h3>
+<span leaf="" style="display:block;margin-bottom:12px;font-size:14px;color:#3A2A14;">米纸底、硬边方块与层级编号组成一套<strong style="color:#E65100;"><span>可读的视觉秩序</span></strong>：像素负责记忆点，正文负责把观点讲清楚。</span>
+<span leaf="" style="display:inline-block;margin:3px 6px 3px 0;padding:4px 8px;background:#B3E5FC;border:2px solid #2D1B00;box-shadow:2px 2px 0 #2D1B00;font-size:11px;font-weight:800;color:#1E5CB5;">01 像素</span>
+<span leaf="" style="display:inline-block;margin:3px 6px 3px 0;padding:4px 8px;background:#FAF9F6;border:2px solid #2D1B00;box-shadow:2px 2px 0 #2D1B00;font-size:11px;font-weight:800;">02 思考者</span>
+<span leaf="" style="display:inline-block;margin:3px 0;padding:4px 8px;background:#E65100;border:2px solid #2D1B00;box-shadow:2px 2px 0 #2D1B00;font-size:11px;font-weight:800;color:#FFFFFF;">03 箭头</span>
+</section>
+<section style="padding:14px;margin-bottom:18px;background:#FFF1D7;border:3px solid #2D1B00;box-shadow:4px 4px 0 #2D1B00;overflow:hidden;">
+<span leaf="" style="display:block;margin-bottom:8px;font-size:11px;font-weight:800;letter-spacing:1px;color:#1E5CB5;">STAGE · 思考者舞台</span>
+<section style="text-align:center;margin:4px 0 12px;line-height:1;">
+<span leaf="" style="display:inline-block;width:12px;height:12px;background:#6B3F20;border:2px solid #2D1B00;vertical-align:top;"></span>
+<span leaf="" style="display:inline-block;width:10px;height:10px;margin:10px 0 0 -2px;background:#F3C7A1;border:2px solid #2D1B00;vertical-align:top;"></span>
+<span leaf="" style="display:inline-block;width:12px;height:18px;margin:8px 0 0 -2px;background:#1E5CB5;border:2px solid #2D1B00;vertical-align:top;"></span>
+<span leaf="" style="display:inline-block;width:8px;height:8px;margin:18px 0 0 -2px;background:#F3C7A1;border:2px solid #2D1B00;vertical-align:top;"></span>
+<span leaf="" style="display:block;margin-top:5px;font-size:12px;font-weight:800;color:#1E5CB5;"><span>像素思考者</span></span>
+</section>
+<section style="text-align:center;margin-bottom:12px;">
+<span leaf="" style="display:inline-block;margin:0 3px;color:#1E5CB5;font-size:18px;font-weight:900;">·</span>
+<span leaf="" style="display:inline-block;margin:0 3px;color:#1E5CB5;font-size:22px;font-weight:900;">··</span>
+<span leaf="" style="display:inline-block;margin:0 3px;color:#1E5CB5;font-size:26px;font-weight:900;">➜</span>
+<span leaf="" style="display:inline-block;margin-left:8px;font-size:13px;font-weight:800;color:#1E5CB5;">先看层级，再看细节</span>
+</section>
+<span leaf="" style="display:block;font-size:13px;color:#3A2A14;">每上升一层抽象，就丢失一些细节，同时获得更通用的理解力。思考者站在堆叠结构前，不是为了逃离细节，而是为了找到能复用的规律。</span>
+</section>
+<section style="margin-bottom:18px;text-align:center;">
+<span leaf="" style="display:block;margin-bottom:8px;text-align:left;font-size:11px;font-weight:800;letter-spacing:1px;color:#1E5CB5;">PYRAMID STACK · 四层结构</span>
+<section style="margin-bottom:4px;padding:12px 8px;background:#E65100;border:3px solid #2D1B00;box-shadow:4px 4px 0 #2D1B00;"><span leaf="" style="font-size:15px;font-weight:900;color:#FFFFFF;">L4 · 价值层</span></section>
+<section style="width:82%;margin:0 auto 4px;padding:12px 8px;background:#81D4FA;border:3px solid #2D1B00;box-shadow:4px 4px 0 #2D1B00;box-sizing:border-box;"><span leaf="" style="font-size:15px;font-weight:900;">L3 · 实现层</span></section>
+<section style="width:68%;margin:0 auto 4px;padding:12px 8px;background:#FAF9F6;border:3px solid #2D1B00;box-shadow:4px 4px 0 #2D1B00;box-sizing:border-box;"><span leaf="" style="font-size:15px;font-weight:900;">L2 · 架构层</span></section>
+<section style="width:54%;margin:0 auto;padding:12px 8px;background:#B3E5FC;border:3px solid #2D1B00;box-shadow:4px 4px 0 #2D1B00;box-sizing:border-box;"><span leaf="" style="font-size:15px;font-weight:900;">L1 · 认知层</span></section>
+</section>
+<section style="padding:14px;margin-bottom:14px;background:#FBF1DA;border:3px solid #2D1B00;box-shadow:4px 4px 0 #2D1B00;">
+<span leaf="" style="display:block;margin-bottom:6px;font-size:11px;font-weight:800;letter-spacing:1px;color:#1E5CB5;">▣ BLOCK · 像素硬边</span>
+<h4 style="margin:0 0 6px;font-size:16px;font-weight:800;"><span><span leaf="">层级压缩不是删减，而是聚焦</span></span></h4>
+<span leaf="" style="display:block;font-size:13px;color:#3A2A14;">好的结构会把复杂内容拆成可定位、可回忆、可继续展开的台阶。先交付全局地图，再补充局部路径，读者才不会在第一屏迷路。</span>
+</section>
+<section style="margin-bottom:14px;">
+<section style="display:inline-block;width:48%;vertical-align:top;padding:12px;background:#FFFFFF;border:2px solid #2D1B00;box-shadow:2px 2px 0 #2D1B00;box-sizing:border-box;">
+<span leaf="" style="display:block;margin-bottom:5px;font-size:10px;font-weight:800;color:#1E5CB5;">KEY INSIGHT</span>
+<strong style="display:block;margin-bottom:4px;font-size:14px;"><span><span leaf="">先建立地图</span></span></strong>
+<span leaf="" style="display:block;font-size:12px;color:#3A2A14;">层级让信息拥有入口。</span>
+</section>
+<section style="display:inline-block;width:48%;margin-left:2%;vertical-align:top;padding:12px;background:#FFE9C9;border:2px solid #2D1B00;box-shadow:2px 2px 0 #2D1B00;box-sizing:border-box;">
+<span leaf="" style="display:block;margin-bottom:5px;font-size:10px;font-weight:800;color:#E65100;">CAUTION</span>
+<strong style="display:block;margin-bottom:4px;font-size:14px;"><span><span leaf="">不要牺牲正文</span></span></strong>
+<span leaf="" style="display:block;font-size:12px;color:#3A2A14;">像素是骨架，不是噪音。</span>
+</section>
+</section>
+<section style="padding:14px 16px;margin-bottom:14px;background:#2D1B00;border:3px solid #2D1B00;box-shadow:4px 4px 0 #E65100;">
+<span leaf="" style="display:block;margin-bottom:8px;font-size:11px;font-weight:800;letter-spacing:1px;color:#81D4FA;">INSIGHT · 消散箭头金句</span>
+<h4 style="margin:0 0 8px;font-size:21px;line-height:1.3;font-weight:900;color:#FFFFFF;"><span><span leaf="">像素不是复古，</span><span leaf="" style="display:block;"></span><strong style="color:#FFB066;"><span><span leaf="">是维度的压缩。</span></span></strong></span></h4>
+<span leaf="" style="display:block;font-size:12px;color:#B3E5FC;">— 像素堆叠哲学</span>
+</section>
+<section style="padding-top:10px;border-top:3px solid #2D1B00;">
+<h4 style="margin:0 0 8px;font-size:15px;font-weight:800;"><span><span leaf="">读者带走什么</span></span></h4>
+<ul style="margin:0;padding-left:20px;">
+<li style="margin-bottom:5px;font-size:13px;"><span><strong style="color:#E65100;"><span><span leaf="">第一层：</span></span></strong><span leaf="">先用一句话说清楚主题。</span></span></li>
+<li style="margin-bottom:5px;font-size:13px;"><span><strong style="color:#E65100;"><span><span leaf="">第二层：</span></span></strong><span leaf="">再把架构、实现与价值分开。</span></span></li>
+<li style="font-size:13px;"><span><strong style="color:#E65100;"><span><span leaf="">第三层：</span></span></strong><span leaf="">最后用箭头把观点推向行动。</span></span></li>
+</ul>
+</section>
+</section>
   </div>
+</div>
+<script>
+  function gzhShowToast(msg){
+    var t=document.getElementById('gzhToast');
+    t.textContent=msg;t.classList.add('show');
+    clearTimeout(t._timer);
+    t._timer=setTimeout(function(){t.classList.remove('show');},2800);
+  }
+  function gzhCopy(){
+    var el=document.getElementById('gzh-content');
+    // 选中渲染后的富文本节点并复制（等价于手动 Ctrl+A / Ctrl+C，保留全部样式）
+    var range=document.createRange();
+    range.selectNodeContents(el);
+    var sel=window.getSelection();
+    sel.removeAllRanges();
+    sel.addRange(range);
+    var ok=false;
+    try{ok=document.execCommand('copy');}catch(e){ok=false;}
+    sel.removeAllRanges();
+    var btn=document.getElementById('gzhCopyBtn');
+    if(ok){
+      gzhShowToast('✅ 已复制！去公众号编辑器按 Ctrl/⌘+V 粘贴即可');
+      var old=btn.textContent;btn.textContent='✅ 已复制';
+      setTimeout(function(){btn.textContent=old;},2200);
+    }else{
+      gzhShowToast('⚠ 自动复制失败，请手动全选(Ctrl/⌘+A)再复制(Ctrl/⌘+C)');
+    }
+  }
+</script>
 </body>
 </html>
