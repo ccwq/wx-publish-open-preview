@@ -1,222 +1,265 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>infocard-main-editorial · 主编辑风预览</title>
-  <style>
-    *{box-sizing:border-box}
-    html,body{margin:0;padding:0;overflow-x:hidden}
-    body{
-      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
-      background:#F2F2F2;color:#111;font-size:12px;
-    }
-    .page{width:100%;max-width:720px;margin:0 auto;padding:14px 12px 80px;background:#fff;min-height:100vh}
-
-    /* ── topbar ── */
-    header{border-bottom:2px solid #0a0a0a;padding-bottom:8px;margin-bottom:10px;display:flex;justify-content:space-between;align-items:flex-end}
-    .badge{display:inline-block;padding:2px 8px;border:1.5px solid #0a0a0a;background:#0a0a0a;color:#fff;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em}
-    h1{font-size:16px;font-weight:700;margin:4px 0 0;letter-spacing:-.02em;color:#0a0a0a}
-    .meta{font-size:10px;color:#777}
-
-    /* ── stats ── */
-    .stats{display:flex;flex-wrap:wrap;border:1.5px solid #0a0a0a;margin-bottom:10px;overflow:hidden}
-    .stat{flex:1;min-width:60px;padding:8px 10px 6px;border-right:1.5px solid #0a0a0a;text-align:center}
-    .stat:last-child{border-right:none}
-    .stat strong{display:block;font-size:15px;font-weight:700;line-height:1}
-    .stat span{font-size:10px;color:#555;font-weight:600}
-    .stat.blue strong{color:#0036a3}
-    .stat.green strong{color:#15803d}
-
-    /* ── pills ── */
-    .pills{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:10px}
-    .pill{padding:3px 8px;border:1.5px solid #0a0a0a;font-size:10px;font-weight:700;background:#fff;color:#0a0a0a}
-    .pill.blue{background:#eef4ff;border-color:#0036a3;color:#0036a3}
-    .pill.yellow{background:#fff1b0;border-color:#e8c200;color:#6b4e00}
-    .pill.green{background:#dcfce7;border-color:#15803d;color:#14532d}
-    .pill.red{background:#fff5f6;border-color:#c8102e;color:#c8102e}
-
-    /* ── section ── */
-    .section{border:1.5px solid #0a0a0a;margin-bottom:8px;overflow:hidden}
-    .sec-head{background:#0a0a0a;color:#fff;padding:6px 10px;font-size:11px;font-weight:700;display:flex;justify-content:space-between;align-items:center}
-    .sec-head .num{color:#c8102e}
-    .sec-body{padding:8px 10px;background:#fffdf9}
-    h3{font-size:13px;font-weight:700;margin:0 0 6px;color:#0a0a0a}
-    p{font-size:12px;line-height:1.65;margin:0 0 8px;color:#333}
-
-    /* ── tags ── */
-    .tags{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:10px}
-    .tag{padding:2px 7px;border:1.5px solid #c8102e;color:#c8102e;font-size:10px;font-weight:700;background:#fff5f6}
-    .tag.blue{border-color:#0036a3;color:#0036a3;background:#eef4ff}
-
-    /* ── table ── */
-    table{width:100%;border-collapse:collapse;font-size:11px;margin-bottom:10px}
-    th,td{padding:5px 8px;border:1.5px solid #0a0a0a;text-align:left}
-    th{background:#0a0a0a;color:#fff;font-weight:700}
-    tr:nth-child(even) td{background:#fffdf9}
-    .td-blue{color:#0036a3;font-weight:700}
-    .td-green{color:#15803d;font-weight:700}
-
-    /* ── flow ── */
-    .flow{display:flex;align-items:center;gap:0;margin-bottom:10px;font-size:11px}
-    .flow-item{flex:1;border:1.5px solid #0a0a0a;padding:7px 8px;text-align:center;font-weight:700;background:#fffdf9;color:#0a0a0a;line-height:1.4}
-    .flow-item .sub{display:block;font-size:9px;font-weight:400;margin-top:2px}
-    .flow-item .sub.blue{color:#0036a3}
-    .flow-item .sub.yellow{color:#6b4e00}
-    .flow-item.green{background:#dcfce7;color:#14532d}
-    .flow-item.green .sub{color:#15803d}
-    .flow-arrow{width:20px;text-align:center;font-size:13px;color:#c8102e;font-weight:700;flex-shrink:0}
-
-    /* ── grid cards ── */
-    .grid{display:flex;flex-wrap:wrap;gap:0;margin-bottom:10px;border:1.5px solid #0a0a0a}
-    .grid-cell{flex:1;min-width:130px;padding:10px;border-right:1.5px solid #0a0a0a}
-    .grid-cell:last-child{border-right:none}
-    .grid-cell strong{display:block;font-size:22px;font-weight:700;line-height:1}
-    .grid-cell .label{font-size:10px;color:#555;font-weight:600}
-    .grid-cell .desc{margin:4px 0 0;font-size:11px;color:#333;line-height:1.5}
-
-    /* ── buttons ── */
-    .btns{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:10px}
-    .btn{display:inline-block;padding:6px 14px;border:2px solid;font-size:11px;font-weight:700;text-decoration:none}
-    .btn.default{background:#0a0a0a;border-color:#0a0a0a;color:#fff}
-    .btn.red{background:#c8102e;border-color:#c8102e;color:#fff}
-    .btn.blue{background:#eef4ff;border-color:#0036a3;color:#0036a3}
-    .btn.green{background:#dcfce7;border-color:#15803d;color:#14532d}
-
-    /* ── section divider ── */
-    .divider{margin:16px 0 8px;padding-top:8px;border-top:1px solid #ddd;display:flex;align-items:center;gap:8px}
-    .divider span{font:700 10px/1 ui-monospace,monospace;letter-spacing:.06em;text-transform:uppercase;color:#777}
-
-    /* ── 390px mobile test ── */
-    @media(max-width:390px){
-      .page{padding:10px 8px 60px}
-      .stats{flex-direction:column}
-      .stat{border-right:none;border-bottom:1px solid #0a0a0a}
-      .stat:last-child{border-bottom:none}
-      .grid{flex-direction:column}
-      .grid-cell{border-right:none;border-bottom:1px solid #0a0a0a}
-      .grid-cell:last-child{border-bottom:none}
-      .flow{flex-direction:column}
-      .flow-arrow{width:100%;text-align:center;padding:4px 0}
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>main-editorial.wechat · 公众号排版预览</title>
+<style>
+  body{margin:0;background:#eef0f2;font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;-webkit-text-size-adjust:100%;}
+  .gzh-toolbar{position:fixed;top:0;left:0;right:0;height:54px;background:#ffffff;box-shadow:0 1px 10px rgba(0,0,0,.08);display:flex;align-items:center;justify-content:space-between;padding:0 16px;z-index:99;}
+  .gzh-hint{font-size:13px;color:#6b7280;line-height:1.4;}
+  .gzh-hint b{color:#111827;}
+  .gzh-copy{background:#059669;color:#fff;border:0;border-radius:9px;padding:10px 20px;font-size:14px;font-weight:700;cursor:pointer;box-shadow:0 3px 10px rgba(5,150,105,.28);white-space:nowrap;transition:transform .08s,background .15s;}
+  .gzh-copy:hover{background:#047857;}
+  .gzh-copy:active{transform:translateY(1px);}
+  .gzh-toast{position:fixed;top:66px;left:50%;transform:translateX(-50%);background:#111827;color:#fff;padding:11px 20px;border-radius:10px;font-size:14px;font-weight:600;opacity:0;pointer-events:none;transition:opacity .25s;z-index:100;box-shadow:0 6px 20px rgba(0,0,0,.25);max-width:88vw;text-align:center;}
+  .gzh-toast.show{opacity:1;}
+  .gzh-stage{max-width:700px;margin:78px auto 64px;padding:0 8px;}
+  @media(max-width:520px){.gzh-hint{max-width:150px;}}
+</style>
 </head>
 <body>
-  <div class="page">
+<div class="gzh-toolbar">
+  <span class="gzh-hint">👇 公众号兼容样稿 · RefID 已标注</span>
+  <span style="display:flex;gap:8px;align-items:center;"><button class="gzh-copy" style="background:#111827;padding:10px 12px;" id="gzhRefBtn" onclick="gzhCopyRef()">复制 RefID</button><button class="gzh-copy" id="gzhCopyBtn" onclick="gzhCopy()">📋 复制到公众号</button></span>
+</div>
+<div class="gzh-toast" id="gzhToast"></div>
+<div class="gzh-stage">
+  <div id="gzh-content">
+<section style="width:100%;max-width:677px;margin:0 auto;padding:12px 10px 36px;box-sizing:border-box;background:#F5F2EC;color:#333333;font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif;line-height:1.8;letter-spacing:0.35px;">
 
-    <!-- 0. 说明 -->
-    <div style="background:#fffdf9;border:1.5px solid #ddd;padding:10px 12px;margin-bottom:12px;font-size:11px;color:#555;line-height:1.6">
-      <strong style="color:#333">390px 验证说明：</strong>main-editorial 所有组件均无固定宽度超出容器。Stats / Grid / Flow 在 390px 下自动切换为单栏垂直布局（CSS @media max-width:390px）。
-    </div>
+  <!-- HERO CARD -->
+  <section style="width:100%;margin:0 0 18px;border:2px solid #0A0A0A;box-sizing:border-box;background:#FFFDF9;">
+    <!-- Topbar: badge + title + meta -->
+    <section style="padding:10px 12px 12px;border-bottom:2px solid #0A0A0A;box-sizing:border-box;">
+      <span style="display:inline-block;margin:0 0 8px;padding:2px 8px;background:#0A0A0A;border:1.5px solid #0A0A0A;box-sizing:border-box;"><span leaf="" style="font-size:10px;font-weight:700;letter-spacing:.08em;color:#FFFFFF;text-transform:uppercase;">MAIN EDITORIAL</span></span>
+      <h3 style="margin:0 0 5px;font-size:18px;font-weight:700;letter-spacing:-.02em;line-height:1.3;color:#0A0A0A;"><span leaf="">主骨架 · 默认主题 · 高密度</span></h3>
+      <span leaf="" style="font-size:10px;color:#777777;">红黑白 · 蓝黄绿辅助 · 说明书感</span>
+      <span style="display:block;margin-top:5px;font-size:10px;color:#777777;text-align:right;">2026-08-03</span>
+    </section>
+    <!-- Pills Row -->
+    <section style="padding:9px 10px;border-bottom:2px solid #0A0A0A;background:#FFFDF9;box-sizing:border-box;">
+      <span style="display:inline-block;margin:2px 4px 2px 0;padding:3px 8px;border:1.5px solid #0A0A0A;background:#FFFFFF;box-sizing:border-box;"><span leaf="" style="font-size:10px;font-weight:700;color:#0A0A0A;">高密度</span></span>
+      <span style="display:inline-block;margin:2px 4px 2px 0;padding:3px 8px;border:1.5px solid #0036A3;background:#EEF4FF;box-sizing:border-box;"><span leaf="" style="font-size:10px;font-weight:700;color:#0036A3;">蓝辅助</span></span>
+      <span style="display:inline-block;margin:2px 4px 2px 0;padding:3px 8px;border:1.5px solid #E8C200;background:#FFF1B0;box-sizing:border-box;"><span leaf="" style="font-size:10px;font-weight:700;color:#6B4E00;">黄状态</span></span>
+      <span style="display:inline-block;margin:2px 4px 2px 0;padding:3px 8px;border:1.5px solid #15803D;background:#DCFCE7;box-sizing:border-box;"><span leaf="" style="font-size:10px;font-weight:700;color:#14532D;">绿确认</span></span>
+      <span style="display:inline-block;margin:2px 4px 2px 0;padding:3px 8px;border:1.5px solid #C8102E;background:#FFF5F6;box-sizing:border-box;"><span leaf="" style="font-size:10px;font-weight:700;color:#C8102E;">红警示</span></span>
+      <span style="display:inline-block;margin:2px 4px 2px 0;padding:3px 8px;border:1.5px solid #0A0A0A;background:#0A0A0A;box-sizing:border-box;"><span leaf="" style="font-size:10px;font-weight:700;color:#FFFFFF;">默认</span></span>
+    </section>
+    <!-- RefID pill -->
+    <section style="padding:8px 10px;background:#FFF5F6;box-sizing:border-box;">
+      <span style="display:inline-block;padding:2px 7px;border:1.5px solid #C8102E;box-sizing:border-box;"><span leaf="" style="font-size:10px;font-weight:700;color:#C8102E;">RefID · wx-theme:main-editorial</span></span>
+    </section>
+  </section>
 
-    <!-- 1. Topbar -->
-    <div class="divider"><span>01 · TOPBAR</span></div>
-    <header>
-      <div>
-        <div class="badge">MAIN EDITORIAL</div>
-        <h1>主骨架 · 默认主题 · 高密度</h1>
-        <div class="meta">红黑白 · 蓝黄绿辅助 · 说明书感</div>
-      </div>
-      <div class="meta" style="align-self:flex-end">2026-08-03</div>
-    </header>
+  <!-- STATS BAR -->
+  <section style="width:100%;margin:0 0 10px;border:1.5px solid #0A0A0A;background:#FFFFFF;box-sizing:border-box;overflow:hidden;">
+    <section style="display:inline-block;width:25%;padding:8px 6px;text-align:center;vertical-align:top;border-right:1.5px solid #0A0A0A;box-sizing:border-box;">
+      <strong style="display:block;font-size:15px;font-weight:700;line-height:1;color:#0A0A0A;">13k</strong>
+      <span leaf="" style="font-size:10px;color:#555555;font-weight:600;">Stars</span>
+    </section>
+    <section style="display:inline-block;width:25%;padding:8px 6px;text-align:center;vertical-align:top;border-right:1.5px solid #0A0A0A;box-sizing:border-box;">
+      <strong style="display:block;font-size:15px;font-weight:700;line-height:1;color:#0A0A0A;">2k</strong>
+      <span leaf="" style="font-size:10px;color:#555555;font-weight:600;">Forks</span>
+    </section>
+    <section style="display:inline-block;width:25%;padding:8px 6px;text-align:center;vertical-align:top;border-right:1.5px solid #0A0A0A;box-sizing:border-box;">
+      <strong style="display:block;font-size:15px;font-weight:700;line-height:1;color:#0036A3;">100%</strong>
+      <span leaf="" style="font-size:10px;color:#555555;font-weight:600;">离线</span>
+    </section>
+    <section style="display:inline-block;width:24.9%;padding:8px 6px;text-align:center;vertical-align:top;box-sizing:border-box;">
+      <strong style="display:block;font-size:15px;font-weight:700;line-height:1;color:#15803D;">8</strong>
+      <span leaf="" style="font-size:10px;color:#555555;font-weight:600;">语言</span>
+    </section>
+  </section>
 
-    <!-- 2. Stats Bar -->
-    <div class="divider"><span>02 · STATS BAR</span></div>
-    <div class="stats">
-      <div class="stat"><strong>13k</strong><span>Stars</span></div>
-      <div class="stat"><strong>2k</strong><span>Forks</span></div>
-      <div class="stat blue"><strong>100%</strong><span>离线</span></div>
-      <div class="stat green"><strong>8</strong><span>语言</span></div>
-    </div>
+  <!-- SECTION 01: CORE FEATURES -->
+  <section style="width:100%;margin:0 0 14px;padding:7px 11px;background:#0A0A0A;border:2px solid #0A0A0A;box-sizing:border-box;">
+    <span leaf="" style="font-size:13px;font-weight:900;color:#C8102E;">01</span>
+    <span leaf="" style="margin-left:9px;font-size:11px;font-weight:800;letter-spacing:1.2px;color:#FFFFFF;">核心特征</span>
+  </section>
+  <h3 style="margin:0 0 10px;font-size:17px;font-weight:700;color:#0A0A0A;line-height:1.35;"><span leaf="">它是什么</span></h3>
+  <p style="margin:0 0 12px;font-size:14px;line-height:1.75;color:#333333;"><span leaf="">红黑白主骨架，蓝黄绿辅助状态色，</span><strong>stats</strong><span leaf=""> / </span><strong>grid</strong><span leaf=""> / </span><strong>pill</strong><span leaf=""> / </span><strong>flow</strong><span leaf=""> / </span><strong>section</strong><span leaf=""> 齐全。高密度、模块化、说明书感强。</span></p>
+  <section style="width:100%;margin:0 0 14px;border:1.5px solid #0A0A0A;background:#FFFDF9;box-sizing:border-box;">
+    <section style="padding:7px 10px;background:#0A0A0A;box-sizing:border-box;">
+      <span leaf="" style="font-size:11px;font-weight:700;color:#FFFFFF;">核心特征</span>
+      <span leaf="" style="margin-left:8px;font-size:11px;font-weight:700;color:#C8102E;">01</span>
+    </section>
+    <section style="padding:10px 11px;box-sizing:border-box;">
+      <section style="margin:0 0 9px;box-sizing:border-box;">
+        <span style="display:inline-block;margin:0 4px 4px 0;padding:2px 7px;border:1.5px solid #C8102E;background:#FFF5F6;box-sizing:border-box;"><span leaf="" style="font-size:10px;font-weight:700;color:#C8102E;">高密度</span></span>
+        <span style="display:inline-block;margin:0 4px 4px 0;padding:2px 7px;border:1.5px solid #0036A3;background:#EEF4FF;box-sizing:border-box;"><span leaf="" style="font-size:10px;font-weight:700;color:#0036A3;">模块化</span></span>
+        <span style="display:inline-block;margin:0 0 4px;padding:2px 7px;border:1.5px solid #0A0A0A;background:#FFFFFF;box-sizing:border-box;"><span leaf="" style="font-size:10px;font-weight:700;color:#0A0A0A;">说明书感</span></span>
+      </section>
+    </section>
+  </section>
 
-    <!-- 3. Pills Row -->
-    <div class="divider"><span>03 · PILLS ROW</span></div>
-    <div class="pills">
-      <span class="pill">高密度</span>
-      <span class="pill blue">蓝辅助</span>
-      <span class="pill yellow">黄状态</span>
-      <span class="pill green">绿确认</span>
-      <span class="pill red">红警示</span>
-      <span class="pill">默认</span>
-    </div>
+  <!-- SECTION 02: TABLE -->
+  <section style="width:100%;margin:0 0 14px;padding:7px 11px;background:#0A0A0A;border:2px solid #0A0A0A;box-sizing:border-box;">
+    <span leaf="" style="font-size:13px;font-weight:900;color:#C8102E;">02</span>
+    <span leaf="" style="margin-left:9px;font-size:11px;font-weight:800;letter-spacing:1.2px;color:#FFFFFF;">参数表</span>
+  </section>
+  <section style="width:100%;margin:0 0 14px;border:1.5px solid #0A0A0A;background:#FFFFFF;box-sizing:border-box;overflow:hidden;">
+    <section style="width:100%;padding:0;box-sizing:border-box;">
+      <section style="display:inline-block;width:34%;padding:5px 8px;background:#0A0A0A;border-right:1.5px solid #0A0A0A;vertical-align:top;box-sizing:border-box;">
+        <span leaf="" style="font-size:11px;font-weight:700;color:#FFFFFF;">特征</span>
+      </section>
+      <section style="display:inline-block;width:33%;padding:5px 8px;background:#0A0A0A;border-right:1.5px solid #0A0A0A;vertical-align:top;box-sizing:border-box;">
+        <span leaf="" style="font-size:11px;font-weight:700;color:#FFFFFF;">值</span>
+      </section>
+      <section style="display:inline-block;width:33%;padding:5px 8px;background:#0A0A0A;vertical-align:top;box-sizing:border-box;">
+        <span leaf="" style="font-size:11px;font-weight:700;color:#FFFFFF;">说明</span>
+      </section>
+    </section>
+    <section style="width:100%;padding:0;box-sizing:border-box;border-top:1.5px solid #0A0A0A;">
+      <section style="display:inline-block;width:34%;padding:5px 8px;border-right:1.5px solid #0A0A0A;vertical-align:top;box-sizing:border-box;">
+        <span leaf="" style="font-size:11px;color:#333333;">星标</span>
+      </section>
+      <section style="display:inline-block;width:33%;padding:5px 8px;border-right:1.5px solid #0A0A0A;vertical-align:top;box-sizing:border-box;">
+        <span leaf="" style="font-size:11px;font-weight:700;color:#0036A3;">13k+</span>
+      </section>
+      <section style="display:inline-block;width:33%;padding:5px 8px;vertical-align:top;box-sizing:border-box;">
+        <span leaf="" style="font-size:11px;color:#333333;">活跃开源</span>
+      </section>
+    </section>
+    <section style="width:100%;padding:0;box-sizing:border-box;border-top:1.5px solid #0A0A0A;background:#FFFDF9;">
+      <section style="display:inline-block;width:34%;padding:5px 8px;border-right:1.5px solid #0A0A0A;vertical-align:top;box-sizing:border-box;">
+        <span leaf="" style="font-size:11px;color:#333333;">许可证</span>
+      </section>
+      <section style="display:inline-block;width:33%;padding:5px 8px;border-right:1.5px solid #0A0A0A;vertical-align:top;box-sizing:border-box;">
+        <span leaf="" style="font-size:11px;font-weight:700;color:#0036A3;">MIT</span>
+      </section>
+      <section style="display:inline-block;width:33%;padding:5px 8px;vertical-align:top;box-sizing:border-box;">
+        <span leaf="" style="font-size:11px;color:#333333;">免费商用</span>
+      </section>
+    </section>
+    <section style="width:100%;padding:0;box-sizing:border-box;border-top:1.5px solid #0A0A0A;">
+      <section style="display:inline-block;width:34%;padding:5px 8px;border-right:1.5px solid #0A0A0A;vertical-align:top;box-sizing:border-box;">
+        <span leaf="" style="font-size:11px;color:#333333;">最新版本</span>
+      </section>
+      <section style="display:inline-block;width:33%;padding:5px 8px;border-right:1.5px solid #0A0A0A;vertical-align:top;box-sizing:border-box;">
+        <span leaf="" style="font-size:11px;font-weight:700;color:#15803D;">v1.2</span>
+      </section>
+      <section style="display:inline-block;width:33%;padding:5px 8px;vertical-align:top;box-sizing:border-box;">
+        <span leaf="" style="font-size:11px;color:#333333;">2026-05</span>
+      </section>
+    </section>
+  </section>
 
-    <!-- 4. Section Block -->
-    <div class="divider"><span>04 · SECTION BLOCK</span></div>
-    <div class="section">
-      <div class="sec-head"><span class="num">01</span><span>核心特征</span></div>
-      <div class="sec-body">
-        <h3>它是什么</h3>
-        <p>红黑白主骨架，蓝黄绿辅助状态色，<strong>stats</strong> / <strong>grid</strong> / <strong>pill</strong> / <strong>flow</strong> / <strong>section</strong> 齐全。高密度、模块化、说明书感强。</p>
-        <div class="tags">
-          <span class="tag">高密度</span>
-          <span class="tag blue">模块化</span>
-          <span class="tag" style="border-color:#0a0a0a;color:#0a0a0a;background:#fff">说明书感</span>
-        </div>
-      </div>
-    </div>
+  <!-- SECTION 03: FLOW STEPS -->
+  <section style="width:100%;margin:0 0 14px;padding:7px 11px;background:#0A0A0A;border:2px solid #0A0A0A;box-sizing:border-box;">
+    <span leaf="" style="font-size:13px;font-weight:900;color:#C8102E;">03</span>
+    <span leaf="" style="margin-left:9px;font-size:11px;font-weight:800;letter-spacing:1.2px;color:#FFFFFF;">流程步骤</span>
+  </section>
+  <section style="width:100%;margin:0 0 6px;box-sizing:border-box;">
+    <section style="display:inline-block;width:23%;padding:7px 4px;text-align:center;vertical-align:top;background:#FFFDF9;border:1.5px solid #0A0A0A;box-sizing:border-box;">
+      <span leaf="" style="font-size:12px;font-weight:700;color:#0A0A0A;">接收</span><br>
+      <span leaf="" style="font-size:10px;color:#0036A3;">输入</span>
+    </section>
+    <section style="display:inline-block;width:4%;padding:7px 0;text-align:center;vertical-align:top;box-sizing:border-box;">
+      <span leaf="" style="font-size:14px;font-weight:700;color:#C8102E;">→</span>
+    </section>
+    <section style="display:inline-block;width:23%;padding:7px 4px;text-align:center;vertical-align:top;background:#FFFDF9;border:1.5px solid #0A0A0A;box-sizing:border-box;">
+      <span leaf="" style="font-size:12px;font-weight:700;color:#0A0A0A;">解析</span><br>
+      <span leaf="" style="font-size:10px;color:#0036A3;">意图</span>
+    </section>
+    <section style="display:inline-block;width:4%;padding:7px 0;text-align:center;vertical-align:top;box-sizing:border-box;">
+      <span leaf="" style="font-size:14px;font-weight:700;color:#C8102E;">→</span>
+    </section>
+    <section style="display:inline-block;width:23%;padding:7px 4px;text-align:center;vertical-align:top;background:#FFFDF9;border:1.5px solid #0A0A0A;box-sizing:border-box;">
+      <span leaf="" style="font-size:12px;font-weight:700;color:#0A0A0A;">调度</span><br>
+      <span leaf="" style="font-size:10px;color:#6B4E00;">插件</span>
+    </section>
+    <section style="display:inline-block;width:4%;padding:7px 0;text-align:center;vertical-align:top;box-sizing:border-box;">
+      <span leaf="" style="font-size:14px;font-weight:700;color:#C8102E;">→</span>
+    </section>
+    <section style="display:inline-block;width:19%;padding:7px 4px;text-align:center;vertical-align:top;background:#DCFCE7;border:1.5px solid #15803D;box-sizing:border-box;">
+      <span leaf="" style="font-size:12px;font-weight:700;color:#14532D;">输出</span><br>
+      <span leaf="" style="font-size:10px;color:#15803D;">交付</span>
+    </section>
+  </section>
 
-    <!-- 5. Table -->
-    <div class="divider"><span>05 · TABLE</span></div>
-    <table>
-      <tr><th>特征</th><th>值</th><th>说明</th></tr>
-      <tr>
-        <td>星标</td>
-        <td class="td-blue">13k+</td>
-        <td>活跃开源</td>
-      </tr>
-      <tr>
-        <td>许可证</td>
-        <td class="td-blue">MIT</td>
-        <td>免费商用</td>
-      </tr>
-      <tr>
-        <td>最新版本</td>
-        <td class="td-green">v1.2</td>
-        <td>2026-05</td>
-      </tr>
-    </table>
+  <!-- SECTION 04: GRID CARDS -->
+  <section style="width:100%;margin:0 0 14px;padding:7px 11px;background:#0A0A0A;border:2px solid #0A0A0A;box-sizing:border-box;">
+    <span leaf="" style="font-size:13px;font-weight:900;color:#C8102E;">04</span>
+    <span leaf="" style="margin-left:9px;font-size:11px;font-weight:800;letter-spacing:1.2px;color:#FFFFFF;">网格卡片</span>
+  </section>
+  <section style="width:100%;margin:0 0 10px;border:1.5px solid #0A0A0A;background:#FFFFFF;box-sizing:border-box;overflow:hidden;">
+    <section style="display:inline-block;width:33.3%;padding:10px 8px;vertical-align:top;text-align:center;border-right:1.5px solid #0A0A0A;box-sizing:border-box;">
+      <strong style="display:block;font-size:22px;font-weight:700;line-height:1;color:#C8102E;">10×</strong>
+      <span leaf="" style="font-size:10px;color:#555555;font-weight:600;">速度提升</span>
+      <p style="margin:4px 0 0;font-size:11px;line-height:1.5;color:#333333;text-align:center;"><span leaf="">并行任务处理时间压缩</span></p>
+    </section>
+    <section style="display:inline-block;width:33.3%;padding:10px 8px;vertical-align:top;text-align:center;border-right:1.5px solid #0A0A0A;box-sizing:border-box;">
+      <strong style="display:block;font-size:22px;font-weight:700;line-height:1;color:#0036A3;">50+</strong>
+      <span leaf="" style="font-size:10px;color:#555555;font-weight:600;">技能数量</span>
+      <p style="margin:4px 0 0;font-size:11px;line-height:1.5;color:#333333;text-align:center;"><span leaf="">可复用 Skill 资产库</span></p>
+    </section>
+    <section style="display:inline-block;width:33.4%;padding:10px 8px;vertical-align:top;text-align:center;box-sizing:border-box;">
+      <strong style="display:block;font-size:22px;font-weight:700;line-height:1;color:#15803D;">99.9%</strong>
+      <span leaf="" style="font-size:10px;color:#555555;font-weight:600;">可用率</span>
+      <p style="margin:4px 0 0;font-size:11px;line-height:1.5;color:#333333;text-align:center;"><span leaf="">SLA 保障稳定运行</span></p>
+    </section>
+  </section>
 
-    <!-- 6. Flow Steps -->
-    <div class="divider"><span>06 · FLOW STEPS</span></div>
-    <div class="flow">
-      <div class="flow-item">接收<span class="sub blue">输入</span></div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-item">解析<span class="sub blue">意图</span></div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-item">调度<span class="sub yellow">插件</span></div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-item green">输出<span class="sub">交付</span></div>
-    </div>
+  <!-- SECTION 05: BUTTONS -->
+  <section style="width:100%;margin:0 0 14px;padding:7px 11px;background:#0A0A0A;border:2px solid #0A0A0A;box-sizing:border-box;">
+    <span leaf="" style="font-size:13px;font-weight:900;color:#C8102E;">05</span>
+    <span leaf="" style="margin-left:9px;font-size:11px;font-weight:800;letter-spacing:1.2px;color:#FFFFFF;">按钮样式</span>
+  </section>
+  <section style="width:100%;margin:0 0 14px;box-sizing:border-box;">
+    <span style="display:inline-block;margin:0 6px 6px 0;padding:6px 14px;border:2px solid #0A0A0A;background:#0A0A0A;box-sizing:border-box;"><span leaf="" style="font-size:11px;font-weight:700;color:#FFFFFF;">默认按钮</span></span>
+    <span style="display:inline-block;margin:0 6px 6px 0;padding:6px 14px;border:2px solid #C8102E;background:#C8102E;box-sizing:border-box;"><span leaf="" style="font-size:11px;font-weight:700;color:#FFFFFF;">红色按钮</span></span>
+    <span style="display:inline-block;margin:0 6px 6px 0;padding:6px 14px;border:2px solid #0036A3;background:#EEF4FF;box-sizing:border-box;"><span leaf="" style="font-size:11px;font-weight:700;color:#0036A3;">蓝色按钮</span></span>
+    <span style="display:inline-block;margin:0 0 6px;padding:6px 14px;border:2px solid #15803D;background:#DCFCE7;box-sizing:border-box;"><span leaf="" style="font-size:11px;font-weight:700;color:#14532D;">绿色按钮</span></span>
+  </section>
 
-    <!-- 7. Grid Cards -->
-    <div class="divider"><span>07 · GRID CARDS</span></div>
-    <div class="grid">
-      <div class="grid-cell">
-        <strong style="color:#c8102e">10×</strong>
-        <span class="label">速度提升</span>
-        <p class="desc">并行任务处理时间压缩</p>
-      </div>
-      <div class="grid-cell">
-        <strong style="color:#0036a3">50+</strong>
-        <span class="label">技能数量</span>
-        <p class="desc">可复用 Skill 资产库</p>
-      </div>
-      <div class="grid-cell">
-        <strong style="color:#15803d">99.9%</strong>
-        <span class="label">可用率</span>
-        <p class="desc">SLA 保障稳定运行</p>
-      </div>
-    </div>
+  <!-- VERDICT BLOCK -->
+  <section style="width:100%;margin:0 0 16px;padding:12px 14px;background:#C8102E;border:2px solid #C8102E;box-sizing:border-box;">
+    <span leaf="" style="display:block;margin:0 0 5px;font-size:10px;font-weight:900;letter-spacing:1.4px;color:#FFFFFF;">EDITORIAL VERDICT</span>
+    <span leaf="" style="font-size:14px;line-height:1.65;font-weight:700;color:#FFFFFF;">主编辑风格（main-editorial）完成公众号兼容改造：保留红黑白骨架 + 蓝黄绿辅助信号 + 高密度模块布局，所有组件在手机端可自然换行，无固定宽度溢出风险。</span>
+  </section>
 
-    <!-- 8. Buttons -->
-    <div class="divider"><span>08 · BUTTONS</span></div>
-    <div class="btns">
-      <span class="btn default">默认按钮</span>
-      <span class="btn red">红色按钮</span>
-      <span class="btn blue">蓝色按钮</span>
-      <span class="btn green">绿色按钮</span>
-    </div>
-
+  <!-- SOURCES -->
+  <section style="width:100%;padding-top:10px;border-top:2px solid #0A0A0A;box-sizing:border-box;">
+    <span leaf="" style="display:block;margin:0 0 5px;font-size:10px;font-weight:900;letter-spacing:1.2px;color:#777777;">SOURCES / NOTES</span>
+    <span leaf="" style="font-size:11px;line-height:1.7;color:#777777;">设计依据：红黑白主骨架 + 蓝黄绿辅助信号 + 高密度模块。公众号版直接迁移，无需降级。所有组件均为纵向单列自然流，无固定宽度溢出风险。</span>
+  </section>
+</section>
   </div>
+</div>
+<script>
+  function gzhShowToast(msg){
+    var t=document.getElementById('gzhToast');
+    t.textContent=msg;t.classList.add('show');
+    clearTimeout(t._timer);
+    t._timer=setTimeout(function(){t.classList.remove('show');},2800);
+  }
+  function gzhCopyRef(){
+    var ref="wx-theme:main-editorial";
+    var done=function(){gzhShowToast("✅ 已复制主题 RefID："+ref);var btn=document.getElementById("gzhRefBtn");var old=btn.textContent;btn.textContent="✅ RefID 已复制";setTimeout(function(){btn.textContent=old;},2200);};
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(ref).then(done,function(){gzhShowToast("⚠ 请手动复制："+ref);});}
+    else{var t=document.createElement("textarea");t.value=ref;document.body.appendChild(t);t.select();try{document.execCommand("copy");done();}catch(e){gzhShowToast("⚠ 请手动复制："+ref);}document.body.removeChild(t);}
+  }
+  function gzhCopy(){
+    var el=document.getElementById("gzh-content");
+    // 选中渲染后的富文本节点并复制（等价于手动 Ctrl+A / Ctrl+C，保留全部样式）
+    var range=document.createRange();
+    range.selectNodeContents(el);
+    var sel=window.getSelection();
+    sel.removeAllRanges();
+    sel.addRange(range);
+    var ok=false;
+    try{ok=document.execCommand('copy');}catch(e){ok=false;}
+    sel.removeAllRanges();
+    var btn=document.getElementById('gzhCopyBtn');
+    if(ok){
+      gzhShowToast('✅ 已复制！去公众号编辑器按 Ctrl/⌘+V 粘贴即可');
+      var old=btn.textContent;btn.textContent='✅ 已复制';
+      setTimeout(function(){btn.textContent=old;},2200);
+    }else{
+      gzhShowToast('⚠ 自动复制失败，请手动全选(Ctrl/⌘+A)再复制(Ctrl/⌘+C)');
+    }
+  }
+</script>
 </body>
 </html>
