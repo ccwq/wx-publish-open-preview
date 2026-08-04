@@ -1,1 +1,97 @@
-<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>白紫轻科技风 · 公众号主题预览</title><style>body{margin:0;background:#f7f7fb;color:#4f4f61;font:15px/1.8 -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif}.page{max-width:677px;margin:auto;padding:18px 12px 60px}.card{background:#fff;border:1px solid #dcd4fa;padding:16px;margin:0 0 14px}.kicker{color:#5b49ff;font-size:11px;font-weight:900;letter-spacing:2px}.stage{display:flex;gap:6px;flex-wrap:wrap}.stage div{flex:1;min-width:115px;padding:10px;border:1px solid #dcd4fa;background:#fff}.stage div:first-child{background:#e8deff;border:2px solid #8a5cf5}.stage b{display:block;color:#5b49ff;font-size:11px}.stage div:first-child b:before{content:"● ";font-size:9px}.title{border-bottom:2px solid #8a5cf5;padding:0 0 8px;margin:30px 0 14px}.title small{color:#5b49ff;font-weight:900;letter-spacing:1.5px}.flow{border-left:3px solid #8a5cf5}.compare{display:flex;gap:8px;flex-wrap:wrap}.compare div{flex:1;min-width:220px;padding:12px;border:1px solid #dcd4fa;background:#fff}.compare div:last-child{background:#f2eeff;border-color:#b9a5fb}.rule{background:#161324;color:#fff;padding:15px}.rule small{color:#c8b8ff;letter-spacing:1.5px;font-weight:900}.check p{margin:7px 0;font-weight:700;color:#111}@media(max-width:420px){.stage,.compare{flex-direction:column}.compare div,.stage div{min-width:0;margin:0 0 6px}}@media(max-width:390px){.page{overflow-x:hidden}}</style></head><body><main class="page"><section class="card"><p class="kicker">AGENT WORKBENCH · METHOD</p><h1 style="font-size:26px;line-height:1.25;color:#111;margin:8px 0">把 AI 工作流拆成可以验证的阶段</h1><p style="margin:0;color:#68687b">白紫轻科技风保留工作台的秩序感，但所有模块都能在公众号窄屏自然流动。</p></section><section class="stage"><div><b>01 · ALIGN</b><strong>对齐问题</strong></div><div><b>02 · BUILD</b><strong>建立路径</strong></div><div><b>03 · LOOP</b><strong>验证回环</strong></div></section><section class="title"><small>01 · FRAMEWORK</small><h2 style="margin:2px 0 0;color:#111">流程不是装饰，它是决策的接口</h2></section><p>把每一步的输入、动作与输出写清，才能让团队在同一处复核。</p><section class="card flow"><b style="color:#5b49ff">STEP 01</b><h3 style="color:#111;margin:5px 0">先定义可验收的终点</h3><p style="margin:0;color:#68687b">不是先堆工具，而是先确定哪些结果可以被读取、检查与复用。</p></section><section class="compare"><div><small style="font-weight:900;color:#68687b">OLD WAY</small><p>灵感驱动、多人各自理解、结果难复核。</p></div><div><small style="font-weight:900;color:#5b49ff">NEW WAY</small><p>阶段明确、接口清楚、每一步都有可验收产物。</p></div></section><section class="rule"><small>DECISION RULE</small><p style="margin:6px 0 0;font-size:17px;font-weight:800">工作流的价值，不是让步骤更多，而是让返工更少。</p></section><section class="card check"><b style="color:#111">最小检查清单</b><p>☑ 阶段目标是否清楚</p><p>☑ 输出是否可被复核</p><p>☑ 失败后是否有回环</p></section></main></body></html>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>white-purple-workbench.wechat · 公众号排版预览</title>
+<style>
+  body{margin:0;background:#eef0f2;font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;-webkit-text-size-adjust:100%;}
+  .gzh-toolbar{position:fixed;top:0;left:0;right:0;height:54px;background:#ffffff;box-shadow:0 1px 10px rgba(0,0,0,.08);display:flex;align-items:center;justify-content:space-between;padding:0 16px;z-index:99;}
+  .gzh-hint{font-size:13px;color:#6b7280;line-height:1.4;}
+  .gzh-hint b{color:#111827;}
+  .gzh-copy{background:#059669;color:#fff;border:0;border-radius:9px;padding:10px 20px;font-size:14px;font-weight:700;cursor:pointer;box-shadow:0 3px 10px rgba(5,150,105,.28);white-space:nowrap;transition:transform .08s,background .15s;}
+  .gzh-copy:hover{background:#047857;}
+  .gzh-copy:active{transform:translateY(1px);}
+  .gzh-toast{position:fixed;top:66px;left:50%;transform:translateX(-50%);background:#111827;color:#fff;padding:11px 20px;border-radius:10px;font-size:14px;font-weight:600;opacity:0;pointer-events:none;transition:opacity .25s;z-index:100;box-shadow:0 6px 20px rgba(0,0,0,.25);max-width:88vw;text-align:center;}
+  .gzh-toast.show{opacity:1;}
+  .gzh-stage{max-width:700px;margin:78px auto 64px;padding:0 8px;}
+  @media(max-width:520px){.gzh-hint{max-width:150px;}}
+</style>
+</head>
+<body>
+<div class="gzh-toolbar">
+  <span class="gzh-hint">👇 下方是排版效果 · 点右侧 <b>复制</b> 直接粘到公众号</span>
+  <button class="gzh-copy" id="gzhCopyBtn" onclick="gzhCopy()">📋 复制到公众号</button>
+</div>
+<div class="gzh-toast" id="gzhToast"></div>
+<div class="gzh-stage">
+  <div id="gzh-content">
+<section style="width:100%;max-width:677px;margin:0 auto;padding:12px 10px 36px;box-sizing:border-box;background:#F7F7FB;color:#4F4F61;font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif;line-height:1.8;letter-spacing:0.25px;">
+  <section style="width:100%;margin:0 0 18px;padding:16px 14px;background:#FFFFFF;border:1px solid #DCD4FA;border-top:4px solid #8A5CF5;border-radius:8px;box-sizing:border-box;">
+    <span leaf="" style="display:block;margin:0 0 7px;font-size:10px;font-weight:900;letter-spacing:1.7px;color:#5B49FF;">AGENT WORKBENCH · METHOD</span>
+    <h3 style="margin:0 0 8px;font-size:24px;line-height:1.28;font-weight:850;letter-spacing:-0.4px;color:#111111;"><span leaf="">把 AI 工作流拆成可以验证的阶段</span></h3>
+    <span leaf="" style="display:block;margin:0 0 12px;font-size:14px;line-height:1.72;color:#68687B;">白紫轻科技风保留工作台的秩序感、阶段感和判断块；公众号端以自然流动的卡片顺序承接，不依赖桌面多栏或媒体查询。</span>
+    <section style="padding-top:9px;border-top:1px solid #DCD4FA;box-sizing:border-box;">
+      <span style="display:inline-block;margin:2px 5px 2px 0;padding:4px 8px;background:#F2EEFF;border:1px solid #DCD4FA;border-radius:4px;box-sizing:border-box;"><span leaf="" style="font-size:10px;font-weight:800;color:#5B49FF;">Agent 工作流</span></span>
+      <span style="display:inline-block;margin:2px 5px 2px 0;padding:4px 8px;background:#F2EEFF;border:1px solid #DCD4FA;border-radius:4px;box-sizing:border-box;"><span leaf="" style="font-size:10px;font-weight:800;color:#5B49FF;">阶段拆解</span></span>
+      <span style="display:inline-block;margin:2px 0;padding:4px 8px;background:#FFFFFF;border:1px solid #8A5CF5;border-radius:4px;box-sizing:border-box;"><span leaf="" style="font-size:10px;font-weight:900;color:#5B49FF;">RefID · wx-theme:white-purple-workbench</span></span>
+    </section>
+  </section>
+
+  <section style="width:100%;margin:0 0 18px;padding:12px 13px;background:#F2EEFF;border:1px solid #DCD4FA;border-radius:8px;box-sizing:border-box;">
+    <span leaf="" style="display:block;margin:0 0 4px;font-size:10px;font-weight:900;letter-spacing:1.2px;color:#5B49FF;">WORKBENCH CONTRACT</span>
+    <span leaf="" style="font-size:14px;font-weight:800;line-height:1.65;color:#111111;">手机是主要阅读环境；宽屏的约 677px 只限制最大阅读行长，不定义文章的实际显示宽度。</span>
+  </section>
+
+  <section style="width:100%;margin:0 0 18px;box-sizing:border-box;">
+    <section style="width:100%;margin:0 0 6px;padding:10px 11px;background:#F2EEFF;border:1px solid #8A5CF5;border-left:5px solid #8A5CF5;border-radius:6px;box-sizing:border-box;"><span leaf="" style="display:inline-block;min-width:74px;font-size:11px;font-weight:900;color:#5B49FF;">01 · ALIGN</span><span leaf="" style="font-size:13px;font-weight:800;color:#111111;">对齐问题与读者收益</span></section>
+    <section style="width:100%;margin:0 0 6px;padding:10px 11px;background:#FFFFFF;border:1px solid #DCD4FA;border-left:5px solid #C8B8FF;border-radius:6px;box-sizing:border-box;"><span leaf="" style="display:inline-block;min-width:74px;font-size:11px;font-weight:900;color:#5B49FF;">02 · BUILD</span><span leaf="" style="font-size:13px;font-weight:800;color:#111111;">建立可执行的路径</span></section>
+    <section style="width:100%;padding:10px 11px;background:#FFFFFF;border:1px solid #DCD4FA;border-left:5px solid #C8B8FF;border-radius:6px;box-sizing:border-box;"><span leaf="" style="display:inline-block;min-width:74px;font-size:11px;font-weight:900;color:#5B49FF;">03 · LOOP</span><span leaf="" style="font-size:13px;font-weight:800;color:#111111;">回读证据并继续迭代</span></section>
+  </section>
+
+  <section style="width:100%;margin:0 0 14px;padding:0 0 9px;border-bottom:2px solid #8A5CF5;box-sizing:border-box;"><span leaf="" style="display:block;margin:0 0 3px;font-size:10px;font-weight:900;letter-spacing:1.5px;color:#5B49FF;">01 · RESPONSIVE READING</span><h3 style="margin:0;font-size:20px;line-height:1.35;font-weight:850;color:#111111;"><span leaf="">先让内容流动，再谈工作台感</span></h3></section>
+  <p style="margin:0 0 14px;font-size:15px;line-height:1.8;text-align:justify;color:#4F4F61;"><span leaf="">白紫主题的核心不是把桌面看板缩小到手机，而是把“阶段—动作—回读”这一工作台逻辑保留下来。</span><span style="font-weight:700;color:#111111;border-bottom:2px solid #C8B8FF;"><span leaf="">每个模块都以宽度 100% 的卡片自然堆叠</span></span><span leaf="">，使不同手机、横竖屏与宽屏阅读环境都能获得稳定层级。</span></p>
+
+  <section style="width:100%;margin:0 0 12px;padding:13px 14px;background:#FFFFFF;border:1px solid #DCD4FA;border-left:4px solid #8A5CF5;border-radius:6px;box-sizing:border-box;"><span leaf="" style="display:block;margin:0 0 5px;font-size:10px;font-weight:900;letter-spacing:1.1px;color:#5B49FF;">STEP 01 · CONTENT FIRST</span><span leaf="" style="display:block;margin:0 0 4px;font-size:16px;font-weight:800;color:#111111;">将复杂阶段压缩为可读的连续卡片</span><span leaf="" style="font-size:13px;line-height:1.65;color:#68687B;">保留阶段编号、浅紫状态和细线秩序；删除 Grid、伪元素、媒体查询、CSS 变量与依赖 hover 的网页交互。</span></section>
+
+  <section style="width:100%;margin:0 0 18px;padding:12px 13px;background:#FFFFFF;border:1px solid #DCD4FA;border-radius:6px;box-sizing:border-box;"><span leaf="" style="display:block;margin:0 0 5px;font-size:10px;font-weight:900;letter-spacing:1px;color:#68687B;">OLD WAY · 桌面优先</span><span leaf="" style="font-size:13px;line-height:1.65;color:#4F4F61;">用固定列数、复杂面板和客户端响应式规则塑造“工作台”；一旦平台清洗 CSS，结构就会失去依托。</span></section>
+  <section style="width:100%;margin:0 0 18px;padding:12px 13px;background:#F2EEFF;border:1px solid #B9A5FB;border-radius:6px;box-sizing:border-box;"><span leaf="" style="display:block;margin:0 0 5px;font-size:10px;font-weight:900;letter-spacing:1px;color:#5B49FF;">NEW WAY · 公众号优先</span><span leaf="" style="font-size:13px;line-height:1.65;color:#111111;">以顺序、边框、主紫色和判断块建立工作台感；所有关键内容均为普通文档流和内联具体样式。</span></section>
+
+  <section style="width:100%;margin:0 0 18px;padding:14px 15px;background:#161324;border:1px solid #161324;border-radius:6px;box-sizing:border-box;"><span leaf="" style="display:block;margin:0 0 6px;font-size:10px;font-weight:900;letter-spacing:1.4px;color:#C8B8FF;">DECISION RULE</span><span leaf="" style="font-size:16px;line-height:1.6;font-weight:800;color:#FFFFFF;">不要让“响应式”依赖公众号客户端执行媒体查询；文章本身应在任何可用宽度中保持单列、清晰与可继续阅读。</span></section>
+
+  <section style="width:100%;margin:0 0 18px;padding:12px 14px;background:#FFFFFF;border:1px solid #DCD4FA;border-radius:6px;box-sizing:border-box;"><span leaf="" style="display:block;margin:0 0 7px;font-size:13px;font-weight:700;color:#111111;">☑ 关键内容使用全宽自然文档流</span><span leaf="" style="display:block;margin:0 0 7px;font-size:13px;font-weight:700;color:#111111;">☑ 阶段通过连续卡片而非桌面网格表达</span><span leaf="" style="font-size:13px;font-weight:700;color:#111111;">☑ 主题 RefID 可以独立复制和引用</span></section>
+
+  <section style="width:100%;padding-top:10px;border-top:1px solid #DCD4FA;box-sizing:border-box;"><span leaf="" style="display:block;margin:0 0 5px;font-size:10px;font-weight:900;letter-spacing:1.2px;color:#68687B;">SOURCES / NOTES</span><span leaf="" style="font-size:12px;line-height:1.7;color:#68687B;">设计依据：微信公众号正文采用响应式阅读容器；手机端优先，约 677px 仅为宽屏环境的常见最大阅读参考。此样稿仅用于主题兼容验收。</span></section>
+</section>
+  </div>
+</div>
+<script>
+  function gzhShowToast(msg){
+    var t=document.getElementById('gzhToast');
+    t.textContent=msg;t.classList.add('show');
+    clearTimeout(t._timer);
+    t._timer=setTimeout(function(){t.classList.remove('show');},2800);
+  }
+  function gzhCopy(){
+    var el=document.getElementById('gzh-content');
+    // 选中渲染后的富文本节点并复制（等价于手动 Ctrl+A / Ctrl+C，保留全部样式）
+    var range=document.createRange();
+    range.selectNodeContents(el);
+    var sel=window.getSelection();
+    sel.removeAllRanges();
+    sel.addRange(range);
+    var ok=false;
+    try{ok=document.execCommand('copy');}catch(e){ok=false;}
+    sel.removeAllRanges();
+    var btn=document.getElementById('gzhCopyBtn');
+    if(ok){
+      gzhShowToast('✅ 已复制！去公众号编辑器按 Ctrl/⌘+V 粘贴即可');
+      var old=btn.textContent;btn.textContent='✅ 已复制';
+      setTimeout(function(){btn.textContent=old;},2200);
+    }else{
+      gzhShowToast('⚠ 自动复制失败，请手动全选(Ctrl/⌘+A)再复制(Ctrl/⌘+C)');
+    }
+  }
+</script>
+</body>
+</html>
