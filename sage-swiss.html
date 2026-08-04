@@ -1,183 +1,134 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>鼠尾草瑞士 · 公众号主题预览</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>sage-swiss.wechat · 公众号排版预览</title>
 <style>
-*{box-sizing:border-box}
-body{margin:0;background:#f0f4ef;color:#3A4A3C;font:15px/1.75 -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif}
-.page{max-width:390px;margin:auto;padding:16px 0 52px;background:#FAFCFA;min-height:100vh}
-.hero{margin:0 12px;border-radius:8px;overflow:hidden;border:1px solid #B8D4B0}
-.hero-top{background:#C8E6C9;padding:18px 16px 12px}
-.hero-label{font-size:10px;font-weight:700;letter-spacing:2px;color:#2E5339}
-.hero-title{font-size:22px;font-weight:800;color:#2E5339;margin:10px 0 8px;line-height:1.2}
-.hero-sub{font-size:12px;color:#4A7C59;line-height:1.6}
-.hero-bottom{background:#2E5339;padding:10px 16px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px}
-.hero-tag{background:#D4EDDA;color:#2E5339;padding:2px 8px;border-radius:4px;font-size:7px;font-weight:700;border:1px solid #B8D4B0;display:inline-block}
-.hero-caption{font-size:10px;color:#C8E6C9;font-weight:600}
-.datagrid{margin:12px 12px 0;border:1px solid #B8D4B0;border-radius:8px;overflow:hidden;background:#E8F0E5}
-.datagrid-row{display:flex}
-.datagrid-cell{flex:1;padding:12px 8px;text-align:center;border-right:1px solid #B8D4B0}
-.datagrid-cell:last-child{border-right:none}
-.datagrid-label{font-size:9px;color:#6B8E6B;font-weight:700;letter-spacing:1px;margin:0 0 4px}
-.datagrid-value{font-size:18px;font-weight:800;color:#2E5339;line-height:1.2;margin:0 0 2px}
-.datagrid-unit{font-size:9px;color:#9DB59D;margin:0}
-.quote{margin:12px 12px 0;border:1px solid #B8D4B0;border-radius:8px;overflow:hidden;background:#E8F0E5;display:flex}
-.quote-bar{width:4px;background:#4A7C59;flex-shrink:0}
-.quote-body{padding:14px 16px;flex:1}
-.quote-text{font-size:13px;line-height:1.8;color:#3A4A3C;font-style:italic;text-align:justify;margin:0 0 8px}
-.quote-source{font-size:11px;color:#6B8E6B;font-weight:600;margin:0}
-.nodes{margin:12px 12px 0;border:1px solid #B8D4B0;border-radius:8px;overflow:hidden;background:#FAFCFA;padding:14px 12px}
-.nodes-title{font-size:11px;font-weight:700;color:#2E5339;letter-spacing:1px;margin:0 0 12px;text-align:center}
-.nodes-row{display:flex;align-items:center;justify-content:center;flex-wrap:wrap}
-.node-box{background:#C8E6C9;border:2px solid #4A7C59;border-radius:8px;padding:8px 12px;text-align:center;min-width:72px}
-.node-box-alt{background:#D4EDDA}
-.node-arrow{padding:0 2px}
-.checklist{margin:12px 12px 0;border:1px solid #B8D4B0;border-radius:8px;background:#E8F0E5;padding:14px 16px}
-.check-item{display:flex;align-items:flex-start;gap:10px;margin-bottom:10px;font-size:13px;color:#3A4A3C}
-.check-item:last-child{margin-bottom:0}
-.check-done{width:16px;height:16px;background:#4A7C59;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;margin-top:2px}
-.check-undo{width:16px;height:16px;background:#C8E6C9;border:1.5px solid #4A7C59;border-radius:50%;flex-shrink:0;margin-top:2px}
-.tags{margin:12px 12px 0;display:flex;gap:6px;flex-wrap:wrap}
-.tag{background:#D4EDDA;color:#2E5339;padding:3px 10px;border-radius:999px;font-size:10px;font-weight:700;border:1px solid #B8D4B0;display:inline-block}
-.tag-alt{background:#C8E6C9}
-.tag-alt2{background:#E8F0E5;color:#4A7C59}
-.chapter{margin:24px 12px 0;border-left:3px solid #4A7C59;padding-left:12px}
-.chapter-num{font-size:20px;font-weight:800;color:#4A7C59;line-height:1;letter-spacing:-1.5px;margin:0}
-.chapter-part{font-size:8px;font-weight:700;color:#9DB59D;letter-spacing:2px;margin:0}
-.chapter-title{font-size:15px;font-weight:800;color:#2E5339;margin:4px 0 1px}
-.chapter-sub{font-size:10px;color:#6B8E6B;font-weight:600;letter-spacing:1px;margin:0}
-.body{margin:12px 12px 0;font-size:13px;line-height:1.9;color:#3A4A3C;text-align:justify}
-.divider{margin:12px 12px 0;border:none;height:1px;background:#B8D4B0}
-.footer{margin:20px 12px 0;font-size:10px;color:#9DB59D;text-align:center;border-top:1px solid #B8D4B0;padding-top:12px}
-@media(max-width:420px){
-  .page{max-width:100%;padding:12px 0 40px}
-  .hero,.datagrid,.quote,.nodes,.checklist,.tags,.chapter,.body,.divider,.footer{margin-left:8px;margin-right:8px}
-  .chapter{margin-top:20px}
-}
+  body{margin:0;background:#eef0f2;font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;-webkit-text-size-adjust:100%;}
+  .gzh-toolbar{position:fixed;top:0;left:0;right:0;height:54px;background:#ffffff;box-shadow:0 1px 10px rgba(0,0,0,.08);display:flex;align-items:center;justify-content:space-between;padding:0 16px;z-index:99;}
+  .gzh-hint{font-size:13px;color:#6b7280;line-height:1.4;}
+  .gzh-hint b{color:#111827;}
+  .gzh-copy{background:#059669;color:#fff;border:0;border-radius:9px;padding:10px 20px;font-size:14px;font-weight:700;cursor:pointer;box-shadow:0 3px 10px rgba(5,150,105,.28);white-space:nowrap;transition:transform .08s,background .15s;}
+  .gzh-copy:hover{background:#047857;}
+  .gzh-copy:active{transform:translateY(1px);}
+  .gzh-toast{position:fixed;top:66px;left:50%;transform:translateX(-50%);background:#111827;color:#fff;padding:11px 20px;border-radius:10px;font-size:14px;font-weight:600;opacity:0;pointer-events:none;transition:opacity .25s;z-index:100;box-shadow:0 6px 20px rgba(0,0,0,.25);max-width:88vw;text-align:center;}
+  .gzh-toast.show{opacity:1;}
+  .gzh-stage{max-width:700px;margin:78px auto 64px;padding:0 8px;}
+  @media(max-width:520px){.gzh-hint{max-width:150px;}}
 </style>
 </head>
 <body>
-<main class="page">
-
-  <section class="hero">
-    <section class="hero-top">
-      <p class="hero-label"><span leaf="">ECOLOGY · NATURAL SCIENCE</span></p>
-      <h1 class="hero-title"><span leaf="">植物叶绿素光合作用的科学机制</span></h1>
-      <p class="hero-sub"><span leaf="">鼠尾草绿调与瑞士式简洁结合，适合环保科普与科学报告</span></p>
+<div class="gzh-toolbar">
+  <span class="gzh-hint">👇 公众号兼容样稿 · RefID 已标注</span>
+  <span style="display:flex;gap:8px;align-items:center;"><button class="gzh-copy" style="background:#111827;padding:10px 12px;" id="gzhRefBtn" onclick="gzhCopyRef()">复制 RefID</button><button class="gzh-copy" id="gzhCopyBtn" onclick="gzhCopy()">📋 复制到公众号</button></span>
+</div>
+<div class="gzh-toast" id="gzhToast"></div>
+<div class="gzh-stage">
+  <div id="gzh-content">
+<section style="width:100%;max-width:677px;margin:0 auto;padding:10px;background:#F5F8F5;color:#3D4D3D;font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif;line-height:1.8;letter-spacing:0.3px;">
+  <section style="margin:0 0 22px;padding:20px 16px 18px;background:#EEF4EE;border-radius:8px;">
+    <section style="display:flex;height:5px;overflow:hidden;border-radius:6px 6px 0 0;margin-bottom:16px;">
+      <span style="flex:3;background:#5C7A5C;"><span leaf=""><br></span></span>
+      <span style="flex:2;background:#8FBC8F;"><span leaf=""><br></span></span>
+      <span style="flex:1;background:#C8E6C8;"><span leaf=""><br></span></span>
     </section>
-    <section class="hero-bottom">
-      <p class="hero-caption"><span leaf="">绿色是自然语言，不是霓虹装饰</span></p>
-      <span class="hero-tag"><span leaf="">环保主题</span></span>
-      <span class="hero-tag"><span leaf="">科学报告</span></span>
+    <span style="display:block;font-size:12px;font-weight:700;color:#5C7A5C;margin:0 0 8px;text-transform:uppercase;letter-spacing:1.5px;"><span leaf="">ECOLOGY · NATURAL SCIENCE</span></span>
+    <h3 style="font-size:24px;line-height:1.3;color:#2F4F2F;margin:0 0 10px;font-weight:800;"><span leaf="">植物叶绿素光合作用的科学机制</span></h3>
+    <span style="display:block;font-size:14px;line-height:1.75;margin:0;color:#7A8A7A;"><span leaf="">鼠尾草绿调与瑞士式简洁结合，适合环保科普与科学报告</span></span>
+  </section>
+  <section style="display:flex;gap:8px;margin:0 0 22px;">
+    <section style="flex:1;background:#EEF4EE;border-radius:8px;padding:12px 6px;text-align:center;">
+      <strong style="display:block;font-size:24px;font-weight:900;color:#5C7A5C;margin:0 0 5px;"><span leaf="">38%</span></strong>
+      <span style="display:block;font-size:10px;font-weight:700;color:#7A8A7A;"><span leaf="">光合效率</span></span>
+    </section>
+    <section style="flex:1;background:#EEF4EE;border-radius:8px;padding:12px 6px;text-align:center;">
+      <strong style="display:block;font-size:24px;font-weight:900;color:#3D7A3D;margin:0 0 5px;"><span leaf="">2.1</span></strong>
+      <span style="display:block;font-size:10px;font-weight:700;color:#7A8A7A;"><span leaf="">叶绿素A</span></span>
+    </section>
+    <section style="flex:1;background:#EEF4EE;border-radius:8px;padding:12px 6px;text-align:center;">
+      <strong style="display:block;font-size:24px;font-weight:900;color:#8FBC8F;margin:0 0 5px;"><span leaf="">0.8</span></strong>
+      <span style="display:block;font-size:10px;font-weight:700;color:#7A8A7A;"><span leaf="">生长速率</span></span>
     </section>
   </section>
-
-  <section class="datagrid">
-    <section class="datagrid-row">
-      <section class="datagrid-cell">
-        <p class="datagrid-label"><span leaf="">光合效率</span></p>
-        <p class="datagrid-value"><span leaf="">38%</span></p>
-        <p class="datagrid-unit"><span leaf="">效率指数</span></p>
-      </section>
-      <section class="datagrid-cell">
-        <p class="datagrid-label"><span leaf="">叶绿素A</span></p>
-        <p class="datagrid-value" style="color:#4A7C59"><span leaf="">2.1</span></p>
-        <p class="datagrid-unit"><span leaf="">mg/g干重</span></p>
-      </section>
-      <section class="datagrid-cell">
-        <p class="datagrid-label"><span leaf="">生长速率</span></p>
-        <p class="datagrid-value"><span leaf="">0.8</span></p>
-        <p class="datagrid-unit"><span leaf="">cm/天</span></p>
-      </section>
-      <section class="datagrid-cell">
-        <p class="datagrid-label"><span leaf="">CO2固定</span></p>
-        <p class="datagrid-value" style="color:#4A7C59"><span leaf="">4.2</span></p>
-        <p class="datagrid-unit"><span leaf="">g/m2/天</span></p>
-      </section>
+  <section style="margin:0 0 22px;padding:14px 16px;background:#E2EDE2;border-left:4px solid #5C7A5C;border-radius:0 8px 8px 0;">
+    <span style="display:block;font-size:16px;line-height:1.7;color:#2F4F2F;margin:0 0 8px;font-style:italic;"><span leaf="">光合作用是地球上最重要的生化反应之一，它将太阳能转化为化学能，维持着几乎所有生态系统的运转。</span></span>
+    <span style="display:block;font-size:12px;color:#7A8A7A;"><span leaf="">—— 植物生理学基础</span></span>
+  </section>
+  <section style="margin:0 0 22px;padding:14px 16px;background:#EEF4EE;border-radius:8px;">
+    <span style="display:block;font-size:12px;font-weight:700;color:#5C7A5C;margin:0 0 12px;text-transform:uppercase;letter-spacing:1px;"><span leaf="">光合作用能量流动</span></span>
+    <section style="display:flex;gap:6px;margin-bottom:10px;flex-wrap:wrap;">
+      <span style="display:inline-block;background:#5C7A5C;color:#FFFFFF;border-radius:20px;padding:4px 12px;font-size:12px;font-weight:700;"><span leaf="">光能</span></span>
+      <span style="display:inline-block;background:#8FBC8F;color:#FFFFFF;border-radius:20px;padding:4px 12px;font-size:12px;font-weight:700;"><span leaf="">叶绿体</span></span>
+      <span style="display:inline-block;background:#C8E6C8;color:#2F4F2F;border-radius:20px;padding:4px 12px;font-size:12px;font-weight:700;"><span leaf="">化学能</span></span>
+    </section>
+    <section style="border-top:1px dashed #8FBC8F;padding-top:10px;">
+      <span style="display:block;font-size:14px;color:#3D4D3D;line-height:1.7;"><span leaf="">光能 → 叶绿体 → 化学能：太阳能被转化为可储存的化学能。</span></span>
     </section>
   </section>
-
-  <section class="quote">
-    <section class="quote-bar"><span leaf=""><br></span></section>
-    <section class="quote-body">
-      <p class="quote-text"><span leaf="">光合作用是地球上最重要的生化反应之一，它将太阳能转化为化学能，维持着几乎所有生态系统的运转。</span></p>
-      <p class="quote-source"><span leaf="">—— 植物生理学基础</span></p>
-    </section>
-  </section>
-
-  <section class="nodes">
-    <p class="nodes-title"><span leaf="">光合作用能量流动</span></p>
-    <section class="nodes-row">
-      <section class="node-box"><p style="margin:0;font-size:11px;font-weight:700;color:#2E5339;line-height:1.4;"><span leaf="">光能</span></p></section>
-      <section class="node-arrow">
-        <svg width="28" height="14" viewBox="0 0 28 14" style="display:block;">
-          <line x1="0" y1="7" x2="24" y2="7" stroke="#4A7C59" stroke-width="1.5" stroke-dasharray="3,2"/>
-          <polygon points="24,3 28,7 24,11" fill="#4A7C59"/>
-        </svg>
-      </section>
-      <section class="node-box node-box-alt"><p style="margin:0;font-size:11px;font-weight:700;color:#2E5339;line-height:1.4;"><span leaf="">叶绿体</span></p></section>
-      <section class="node-arrow">
-        <svg width="28" height="14" viewBox="0 0 28 14" style="display:block;">
-          <line x1="0" y1="7" x2="24" y2="7" stroke="#4A7C59" stroke-width="1.5" stroke-dasharray="3,2"/>
-          <polygon points="24,3 28,7 24,11" fill="#4A7C59"/>
-        </svg>
-      </section>
-      <section class="node-box"><p style="margin:0;font-size:11px;font-weight:700;color:#2E5339;line-height:1.4;"><span leaf="">化学能</span></p></section>
-    </section>
-    <p style="margin:10px 0 0;font-size:11px;color:#6B8E6B;text-align:center;"><span leaf="">光能 → 化学能转化路径</span></p>
-  </section>
-
-  <section class="checklist">
-    <ul style="margin:0;padding-left:0;list-style:none;">
-      <li class="check-item">
-        <span class="check-done">
-          <svg width="9" height="7" viewBox="0 0 9 7" style="display:block;">
-            <polyline points="1,3.5 3.5,6 8,1" fill="none" stroke="#FAFCFA" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </span>
-        <section style="flex:1;min-width:0;"><span leaf="">叶绿素吸收蓝光与红光，反射绿光</span></section>
-      </li>
-      <li class="check-item">
-        <span class="check-done">
-          <svg width="9" height="7" viewBox="0 0 9 7" style="display:block;">
-            <polyline points="1,3.5 3.5,6 8,1" fill="none" stroke="#FAFCFA" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </span>
-        <section style="flex:1;min-width:0;"><span leaf="">光系统II将水分子分解，释放氧气</span></section>
-      </li>
-      <li class="check-item">
-        <span class="check-undo"><span leaf=""><br></span></span>
-        <section style="flex:1;min-width:0;"><span leaf="">光系统I将NADP+还原为NADPH</span></section>
-      </li>
+  <section style="margin:0 0 22px;padding:14px 16px;background:#EEF4EE;border-radius:8px;">
+    <span style="display:block;font-size:12px;font-weight:700;color:#5C7A5C;margin:0 0 10px;text-transform:uppercase;letter-spacing:1px;"><span leaf="">关键要点</span></span>
+    <ul style="margin:0;padding:0 0 0 20px;color:#3D4D3D;font-size:14px;line-height:1.9;">
+      <li style="margin-bottom:6px;"><span leaf="">叶绿素吸收蓝光与红光，反射绿光</span></li>
+      <li style="margin-bottom:6px;"><span leaf="">光系统II将水分子分解，释放氧气</span></li>
+      <li style="margin-bottom:0;"><span leaf="">光系统I将NADP+还原为NADPH</span></li>
     </ul>
   </section>
-
-  <section class="tags">
-    <span class="tag"><span leaf="">植物养护</span></span>
-    <span class="tag tag-alt"><span leaf="">光合作用</span></span>
-    <span class="tag tag-alt2"><span leaf="">科学报告</span></span>
-    <span class="tag"><span leaf="">生态研究</span></span>
+  <section style="display:flex;gap:6px;margin:0 0 22px;flex-wrap:wrap;">
+    <span style="display:inline-block;background:#5C7A5C;color:#FFFFFF;border-radius:4px;padding:3px 10px;font-size:11px;font-weight:700;"><span leaf="">植物养护</span></span>
+    <span style="display:inline-block;background:#EEF4EE;color:#5C7A5C;border:1px solid #8FBC8F;border-radius:4px;padding:3px 10px;font-size:11px;font-weight:700;"><span leaf="">光合作用</span></span>
+    <span style="display:inline-block;background:#E2EDE2;color:#3D7A3D;border-radius:4px;padding:3px 10px;font-size:11px;font-weight:700;"><span leaf="">科学报告</span></span>
+    <span style="display:inline-block;background:#5C7A5C;color:#FFFFFF;border-radius:4px;padding:3px 10px;font-size:11px;font-weight:700;"><span leaf="">生态研究</span></span>
   </section>
-
-  <section class="chapter">
-    <p class="chapter-num"><span leaf="">01</span></p>
-    <p class="chapter-part"><span leaf="">PART</span></p>
-    <h2 class="chapter-title"><span leaf="">叶绿体结构与光反应</span></h2>
-    <p class="chapter-sub"><span leaf="">CHLOROPLAST AND LIGHT REACTION</span></p>
+  <section style="margin:0 0 12px;border-left:3px solid #5C7A5C;padding-left:12px;">
+    <span style="display:block;font-size:20px;font-weight:800;color:#5C7A5C;line-height:1;letter-spacing:-1.5px;"><span leaf="">01</span></span>
+    <span style="display:block;font-size:8px;font-weight:700;color:#7A8A7A;letter-spacing:2px;"><span leaf="">PART</span></span>
+    <h4 style="font-size:15px;font-weight:800;color:#2F4F2F;margin:4px 0 1px;"><span leaf="">叶绿体结构与光反应</span></h4>
+    <span style="display:block;font-size:10px;color:#7A8A7A;font-weight:600;letter-spacing:1px;"><span leaf="">CHLOROPLAST AND LIGHT REACTION</span></span>
   </section>
-
-  <p class="body">
+  <section style="margin:0 0 22px;font-size:15px;line-height:1.8;color:#3D4D3D;text-align:justify;">
     <span leaf="">叶绿体是植物细胞中进行光合作用的核心细胞器，其内部具有复杂的膜系统结构。内囊体膜上分布着大量的叶绿素分子，能够捕获光子并启动光化学反应。</span>
-  </p>
-
-  <hr class="divider">
-
-  <section class="footer">
-    <p><span leaf="">SAGE SWISS · 鼠尾草瑞士 · 环保主题 · 健康生活 · 植物养护 · 科学报告</span></p>
   </section>
-
-</main>
+  <section style="margin:0 0 20px;border-top:1px solid #8FBC8F;height:1px;"><span leaf=""><br></span></section>
+  <section style="margin:0;padding:12px 0 0;border-top:1px solid #8FBC8F;text-align:center;">
+    <span style="font-size:10px;color:#7A8A7A;"><span leaf="">SAGE SWISS · 鼠尾草瑞士 · 环保主题 · 健康生活 · 植物养护 · 科学报告</span></span>
+  </section>
+</section>
+  </div>
+</div>
+<script>
+  function gzhShowToast(msg){
+    var t=document.getElementById('gzhToast');
+    t.textContent=msg;t.classList.add('show');
+    clearTimeout(t._timer);
+    t._timer=setTimeout(function(){t.classList.remove('show');},2800);
+  }
+  function gzhCopyRef(){
+    var ref='wx-theme:sage-swiss';
+    var done=function(){gzhShowToast('✅ 已复制主题 RefID：'+ref);var btn=document.getElementById('gzhRefBtn');var old=btn.textContent;btn.textContent='✅ RefID 已复制';setTimeout(function(){btn.textContent=old;},2200);};
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(ref).then(done,function(){gzhShowToast('⚠ 请手动复制：'+ref);});}
+    else{var x=document.createElement('textarea');x.value=ref;document.body.appendChild(x);x.select();try{document.execCommand('copy');done();}catch(e){gzhShowToast('⚠ 请手动复制：'+ref);}document.body.removeChild(x);}
+  }
+  function gzhCopy(){
+    var el=document.getElementById('gzh-content');
+    // 选中渲染后的富文本节点并复制（等价于手动 Ctrl+A / Ctrl+C，保留全部样式）
+    var range=document.createRange();
+    range.selectNodeContents(el);
+    var sel=window.getSelection();
+    sel.removeAllRanges();
+    sel.addRange(range);
+    var ok=false;
+    try{ok=document.execCommand('copy');}catch(e){ok=false;}
+    sel.removeAllRanges();
+    var btn=document.getElementById('gzhCopyBtn');
+    if(ok){
+      gzhShowToast('✅ 已复制！去公众号编辑器按 Ctrl/⌘+V 粘贴即可');
+      var old=btn.textContent;btn.textContent='✅ 已复制';
+      setTimeout(function(){btn.textContent=old;},2200);
+    }else{
+      gzhShowToast('⚠ 自动复制失败，请手动全选(Ctrl/⌘+A)再复制(Ctrl/⌘+C)');
+    }
+  }
+</script>
 </body>
 </html>
