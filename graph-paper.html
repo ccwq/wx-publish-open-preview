@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>graph-paper.wechat · 公众号排版预览</title>
+<style>
+  body{margin:0;background:#eef0f2;font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;-webkit-text-size-adjust:100%;}
+  .gzh-toolbar{position:fixed;top:0;left:0;right:0;height:54px;background:#ffffff;box-shadow:0 1px 10px rgba(0,0,0,.08);display:flex;align-items:center;justify-content:space-between;padding:0 16px;z-index:99;}
+  .gzh-hint{font-size:13px;color:#6b7280;line-height:1.4;}
+  .gzh-hint b{color:#111827;}
+  .gzh-copy{background:#059669;color:#fff;border:0;border-radius:9px;padding:10px 20px;font-size:14px;font-weight:700;cursor:pointer;box-shadow:0 3px 10px rgba(5,150,105,.28);white-space:nowrap;transition:transform .08s,background .15s;}
+  .gzh-copy:hover{background:#047857;}
+  .gzh-copy:active{transform:translateY(1px);}
+  .gzh-toast{position:fixed;top:66px;left:50%;transform:translateX(-50%);background:#111827;color:#fff;padding:11px 20px;border-radius:10px;font-size:14px;font-weight:600;opacity:0;pointer-events:none;transition:opacity .25s;z-index:100;box-shadow:0 6px 20px rgba(0,0,0,.25);max-width:88vw;text-align:center;}
+  .gzh-toast.show{opacity:1;}
+  .gzh-stage{max-width:700px;margin:78px auto 64px;padding:0 8px;}
+  @media(max-width:520px){.gzh-hint{max-width:150px;}}
+</style>
+</head>
+<body>
+<div class="gzh-toolbar">
+  <span class="gzh-hint">👇 下方是排版效果 · 点右侧 <b>复制</b> 直接粘到公众号</span>
+  <button class="gzh-copy" id="gzhCopyBtn" onclick="gzhCopy()">📋 复制到公众号</button>
+</div>
+<div class="gzh-toast" id="gzhToast"></div>
+<div class="gzh-stage">
+  <div id="gzh-content">
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>图谱纸感手册 · 公众号兼容正文样稿</title></head><body style="margin:0;background:#FAF8F0;">
+<section style="max-width:677px;margin:0 auto;padding:10px;background:#FAF8F0;color:#4A4A4A;font-family:'Noto Sans SC','PingFang SC','Microsoft YaHei',-apple-system,BlinkMacSystemFont,sans-serif;line-height:1.85;box-sizing:border-box;">
+
+<!-- THEME LABEL -->
+<section style="margin:0 0 20px;padding:0 0 14px;border-bottom:2px solid #3D3D3D;">
+  <p style="margin:0;font-size:11px;font-weight:900;letter-spacing:3px;color:#3D3D3D;"><span leaf="">THEME SAMPLE · OFFICIAL · 图谱纸感手册</span></p>
+  <p style="margin:6px 0 0;font-size:12px;color:#8A8A8A;"><span leaf="">米白纸 · 黑灰细线 · 等宽标记 · 节点关系路径 · 蓝强调</span></p>
+</section>
+
+<!-- 1. 纸感 HERO -->
+<section style="margin:0 0 12px;">
+  <section style="background:#fff;border:1px solid #E0DDD0;border-radius:4px;padding:14px;">
+    <section style="border-bottom:2px solid #3D3D3D;padding-bottom:16px;margin-bottom:16px;">
+      <section style="display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;">
+        <span style="font-size:10px;font-weight:800;letter-spacing:3px;color:#3D3D3D;"><span leaf="">TECH GRAPH</span></span>
+        <span style="font-size:10px;color:#8A8A8A;"><span leaf="">知识网络 · 2024</span></span>
+      </section>
+    </section>
+    <h2 style="font-size:24px;font-weight:900;color:#3D3D3D;margin:14px 0 12px;line-height:1.25;letter-spacing:-0.3px;"><span leaf="">LLM Agent 技术图谱：推理、记忆与工具三角关系</span></h2>
+    <section style="border-top:1px solid #E0DDD0;border-bottom:1px solid #E0DDD0;padding:10px 0;margin:0;">
+      <p style="font-size:13px;color:#8A8A8A;margin:0;line-height:1.7;text-align:center;"><span leaf=""><span style="font-weight:700;color:#4A7DB8;"><span leaf="">推理引擎</span></span><span leaf=""> ↔ </span><span style="font-weight:700;color:#4A7DB8;"><span leaf="">记忆系统</span></span><span leaf=""> ↔ </span><span style="font-weight:700;color:#4A7DB8;"><span leaf="">工具调用</span></span><span leaf="">，三者构成现代 LLM Agent 的核心三角。</span></span></p>
+    </section>
+  </section>
+</section>
+
+<!-- 2. 节点卡片 01 -->
+<section style="margin:0 0 12px;">
+  <section style="background:#fff;border:1px solid #E0DDD0;border-radius:4px;padding:14px 14px 12px;">
+    <section style="display:flex;align-items:flex-start;gap:10px;">
+      <span style="display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;background:#EBF1FA;border:2px solid #4A7DB8;color:#4A7DB8;font-size:13px;font-weight:900;flex-shrink:0;font-family:'SF Mono',Consolas,monospace;"><span leaf="">01</span></span>
+      <section style="flex:1;min-width:0;">
+        <span style="display:inline-block;background:#EBF1FA;border:1px solid #4A7DB8;border-radius:3px;padding:1px 7px;font-size:10px;color:#4A7DB8;font-weight:700;margin-bottom:5px;"><span leaf="">推理引擎</span></span>
+        <p style="font-size:16px;font-weight:800;color:#3D3D3D;margin:0 0 5px;line-height:1.3;"><span leaf=""><span style="font-weight:800;"><span leaf="">Chain-of-Thought</span></span></span></p>
+        <p style="font-size:13px;color:#8A8A8A;margin:0;line-height:1.7;"><span leaf="">通过分步推理将复杂问题分解为可验证的子步骤，是 Agent 规划能力的基础。</span></p>
+      </section>
+    </section>
+  </section>
+</section>
+
+<!-- 3. 节点卡片 02 -->
+<section style="margin:0 0 12px;">
+  <section style="background:#fff;border:1px solid #E0DDD0;border-radius:4px;padding:14px 14px 12px;">
+    <section style="display:flex;align-items:flex-start;gap:10px;">
+      <span style="display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;background:#EBF1FA;border:2px solid #4A7DB8;color:#4A7DB8;font-size:13px;font-weight:900;flex-shrink:0;font-family:'SF Mono',Consolas,monospace;"><span leaf="">02</span></span>
+      <section style="flex:1;min-width:0;">
+        <span style="display:inline-block;background:#EBF1FA;border:1px solid #4A7DB8;border-radius:3px;padding:1px 7px;font-size:10px;color:#4A7DB8;font-weight:700;margin-bottom:5px;"><span leaf="">记忆系统</span></span>
+        <p style="font-size:16px;font-weight:800;color:#3D3D3D;margin:0 0 5px;line-height:1.3;"><span leaf=""><span style="font-weight:800;"><span leaf="">向量检索 + RAG</span></span></span></p>
+        <p style="font-size:13px;color:#8A8A8A;margin:0;line-height:1.7;"><span leaf="">将外部知识编码为向量，实时检索最相关内容注入上下文，解决模型知识截止问题。</span></p>
+      </section>
+    </section>
+  </section>
+</section>
+
+<!-- 4. 节点卡片 03 -->
+<section style="margin:0 0 12px;">
+  <section style="background:#fff;border:1px solid #E0DDD0;border-radius:4px;padding:14px 14px 12px;">
+    <section style="display:flex;align-items:flex-start;gap:10px;">
+      <span style="display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;background:#EBF1FA;border:2px solid #4A7DB8;color:#4A7DB8;font-size:13px;font-weight:900;flex-shrink:0;font-family:'SF Mono',Consolas,monospace;"><span leaf="">03</span></span>
+      <section style="flex:1;min-width:0;">
+        <span style="display:inline-block;background:#EBF1FA;border:1px solid #4A7DB8;border-radius:3px;padding:1px 7px;font-size:10px;color:#4A7DB8;font-weight:700;margin-bottom:5px;"><span leaf="">工具调用</span></span>
+        <p style="font-size:16px;font-weight:800;color:#3D3D3D;margin:0 0 5px;line-height:1.3;"><span leaf=""><span style="font-weight:800;"><span leaf="">Function Calling</span></span></span></p>
+        <p style="font-size:13px;color:#8A8A8A;margin:0;line-height:1.7;"><span leaf="">结构化函数调用协议，将 LLM 输出映射为可执行的工具操作，实现 Agent 与外部世界的交互。</span></p>
+      </section>
+    </section>
+  </section>
+</section>
+
+<!-- 5. 关系路径连线 A -->
+<section style="margin:0 0 16px;">
+  <section style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;background:#fff;border:1px solid #E0DDD0;border-radius:4px;padding:10px 12px;">
+    <span style="font-family:'SF Mono',Consolas,monospace;font-size:12px;font-weight:700;color:#3D3D3D;"><span leaf="">推理引擎</span></span>
+    <span style="color:#5B8DB8;font-size:14px;font-weight:900;padding:0 4px;"><span leaf="">→</span></span>
+    <span style="font-family:'SF Mono',Consolas,monospace;font-size:12px;font-weight:700;color:#3D3D3D;"><span leaf="">记忆系统</span></span>
+    <span style="background:#EBF1FA;border:1px solid #4A7DB8;border-radius:3px;padding:1px 7px;font-size:10px;color:#4A7DB8;font-weight:700;margin-left:4px;"><span leaf="">提供背景</span></span>
+    <p style="width:100%;font-size:13px;color:#8A8A8A;margin:5px 0 0;line-height:1.6;"><span leaf="">推理需要记忆提供事实基础，两者通过注意力机制深度耦合。</span></p>
+  </section>
+</section>
+
+<!-- 6. 关系路径连线 B -->
+<section style="margin:0 0 16px;">
+  <section style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;background:#fff;border:1px solid #E0DDD0;border-radius:4px;padding:10px 12px;">
+    <span style="font-family:'SF Mono',Consolas,monospace;font-size:12px;font-weight:700;color:#3D3D3D;"><span leaf="">推理引擎</span></span>
+    <span style="color:#5B8DB8;font-size:14px;font-weight:900;padding:0 4px;"><span leaf="">→</span></span>
+    <span style="font-family:'SF Mono',Consolas,monospace;font-size:12px;font-weight:700;color:#3D3D3D;"><span leaf="">工具调用</span></span>
+    <span style="background:#EBF1FA;border:1px solid #4A7DB8;border-radius:3px;padding:1px 7px;font-size:10px;color:#4A7DB8;font-weight:700;margin-left:4px;"><span leaf="">执行计划</span></span>
+    <p style="width:100%;font-size:13px;color:#8A8A8A;margin:5px 0 0;line-height:1.6;"><span leaf="">推理引擎生成的执行计划通过 Function Calling 映射为具体工具调用。</span></p>
+  </section>
+</section>
+
+<!-- 7. 关系路径连线 C -->
+<section style="margin:0 0 16px;">
+  <section style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;background:#fff;border:1px solid #E0DDD0;border-radius:4px;padding:10px 12px;">
+    <span style="font-family:'SF Mono',Consolas,monospace;font-size:12px;font-weight:700;color:#3D3D3D;"><span leaf="">记忆系统</span></span>
+    <span style="color:#5B8DB8;font-size:14px;font-weight:900;padding:0 4px;"><span leaf="">↔</span></span>
+    <span style="font-family:'SF Mono',Consolas,monospace;font-size:12px;font-weight:700;color:#3D3D3D;"><span leaf="">工具调用</span></span>
+    <span style="background:#EBF1FA;border:1px solid #4A7DB8;border-radius:3px;padding:1px 7px;font-size:10px;color:#4A7DB8;font-weight:700;margin-left:4px;"><span leaf="">双向反馈</span></span>
+    <p style="width:100%;font-size:13px;color:#8A8A8A;margin:5px 0 0;line-height:1.6;"><span leaf="">工具执行结果写入记忆，记忆再指导后续推理与调用策略。</span></p>
+  </section>
+</section>
+
+<!-- 8. 网格纸分隔线 -->
+<section style="margin:20px 0;">
+  <section style="height:1px;background:#E0DDD0;"><span leaf=""><br></span></section>
+  <section style="height:1px;background:#E0DDD0;margin-top:4px;"><span leaf=""><br></span></section>
+</section>
+
+<!-- 9. 章节标题 -->
+<section style="margin:30px 0 14px;border-bottom:1px solid #E0DDD0;padding-bottom:10px;">
+  <section style="display:flex;align-items:flex-end;gap:12px;">
+    <span style="font-family:'SF Mono',Consolas,monospace;font-size:28px;font-weight:900;color:#E0DDD0;line-height:1;flex-shrink:0;"><span leaf="">01</span></span>
+    <section style="flex:1;min-width:0;">
+      <p style="font-size:10px;font-weight:700;color:#8A8A8A;margin:0 0 3px;letter-spacing:2px;"><span leaf="">FRAMEWORK</span></p>
+      <h3 style="font-size:19px;font-weight:900;color:#3D3D3D;margin:0;line-height:1.3;letter-spacing:-0.1px;"><span leaf=""><span style="font-weight:800;"><span leaf="">框架对比</span></span><span leaf="">：三种 Agent 架构的节点关系</span></span></h3>
+    </section>
+  </section>
+</section>
+
+<!-- 10. 正文段落 -->
+<p style="font-size:15px;line-height:1.85;text-align:justify;color:#4A4A4A;margin:0 0 16px;">
+  <span leaf="">基于上述三角关系，主流 Agent 框架可以分为三类：</span>
+  <span style="border-bottom:2px solid #5B8DB8;font-weight:600;color:#3D3D3D;"><span leaf=""><span style="font-weight:700;"><span leaf="">ReAct</span></span></span></span>
+  <span leaf="">（推理驱动）、</span>
+  <span style="border-bottom:2px solid #5B8DB8;font-weight:600;color:#3D3D3D;"><span leaf=""><span style="font-weight:700;"><span leaf="">RAG-First</span></span></span></span>
+  <span leaf="">（记忆优先）和</span>
+  <span style="border-bottom:2px solid #5B8DB8;font-weight:600;color:#3D3D3D;"><span leaf=""><span style="font-weight:700;"><span leaf="">Tool-Forward</span></span></span></span>
+  <span leaf="">（工具前置）。每种架构对三角顶点的优先级不同。</span>
+</p>
+
+<!-- 11. 等宽引用块 -->
+<section style="margin:0 0 18px;">
+  <section style="border-left:3px solid #4A7DB8;background:#fff;border:1px solid #E0DDD0;border-radius:4px;padding:12px 14px;">
+    <p style="font-size:10px;font-weight:800;color:#4A7DB8;margin:0 0 8px;letter-spacing:1.5px;font-family:'SF Mono',Consolas,monospace;"><span leaf="">DEFINE</span></p>
+    <p style="font-size:13px;color:#3D3D3D;margin:0;line-height:1.8;font-family:'SF Mono','Cascadia Code','Fira Code',Consolas,monospace;"><span leaf="">Function Calling: { name, arguments } → { tool, result }</span></p>
+  </section>
+</section>
+
+<!-- 12. 要点列表 -->
+<section style="margin:0 0 16px;">
+  <ul style="margin:0;padding-left:20px;list-style-type:none;">
+    <li style="margin-bottom:8px;font-size:14px;color:#4A4A4A;line-height:1.7;">
+      <span style="display:inline-block;width:5px;height:5px;background:#4A7DB8;border-radius:50%;margin-right:8px;vertical-align:middle;flex-shrink:0;"><span leaf=""><br></span></span>
+      <span leaf=""><span style="font-weight:700;color:#3D3D3D;"><span leaf="">ReAct</span></span><span leaf="">：推理→行动→观察的循环，适合需要多步验证的任务。</span></span>
+    </li>
+    <li style="margin-bottom:8px;font-size:14px;color:#4A4A4A;line-height:1.7;">
+      <span style="display:inline-block;width:5px;height:5px;background:#4A7DB8;border-radius:50%;margin-right:8px;vertical-align:middle;flex-shrink:0;"><span leaf=""><br></span></span>
+      <span leaf=""><span style="font-weight:700;color:#3D3D3D;"><span leaf="">RAG-First</span></span><span leaf="">：先检索背景知识，再推理，召回率决定上限。</span></span>
+    </li>
+    <li style="margin-bottom:0;font-size:14px;color:#4A4A4A;line-height:1.7;">
+      <span style="display:inline-block;width:5px;height:5px;background:#4A7DB8;border-radius:50%;margin-right:8px;vertical-align:middle;flex-shrink:0;"><span leaf=""><br></span></span>
+      <span leaf=""><span style="font-weight:700;color:#3D3D3D;"><span leaf="">Tool-Forward</span></span><span leaf="">：工具定义先行，模型只负责调用决策。</span></span>
+    </li>
+  </ul>
+</section>
+
+<!-- 13. 三列节点卡片组 -->
+<section style="display:flex;gap:8px;margin:0 0 20px;flex-wrap:wrap;">
+  <section style="flex:1;min-width:160px;background:#fff;border:1px solid #E0DDD0;border-radius:4px;padding:14px 12px;text-align:center;">
+    <span style="display:inline-block;font-family:'SF Mono',Consolas,monospace;font-size:22px;font-weight:900;color:#4A7DB8;margin-bottom:6px;"><span leaf="">&lt;/&gt;</span></span>
+    <p style="font-size:14px;font-weight:800;color:#3D3D3D;margin:0 0 5px;line-height:1.3;"><span leaf=""><span style="font-weight:800;"><span leaf="">ReAct</span></span></span></p>
+    <p style="font-size:12px;color:#8A8A8A;margin:0;line-height:1.6;"><span leaf="">推理优先 · 多步验证</span></p>
+  </section>
+  <section style="flex:1;min-width:160px;background:#fff;border:1px solid #E0DDD0;border-radius:4px;padding:14px 12px;text-align:center;">
+    <span style="display:inline-block;font-family:'SF Mono',Consolas,monospace;font-size:22px;font-weight:900;color:#4A7DB8;margin-bottom:6px;"><span leaf="">[#]</span></span>
+    <p style="font-size:14px;font-weight:800;color:#3D3D3D;margin:0 0 5px;line-height:1.3;"><span leaf=""><span style="font-weight:800;"><span leaf="">RAG</span></span></span></p>
+    <p style="font-size:12px;color:#8A8A8A;margin:0;line-height:1.6;"><span leaf="">记忆优先 · 知识密集</span></p>
+  </section>
+  <section style="flex:1;min-width:160px;background:#fff;border:1px solid #E0DDD0;border-radius:4px;padding:14px 12px;text-align:center;">
+    <span style="display:inline-block;font-family:'SF Mono',Consolas,monospace;font-size:22px;font-weight:900;color:#4A7DB8;margin-bottom:6px;"><span leaf="">&gt;_</span></span>
+    <p style="font-size:14px;font-weight:800;color:#3D3D3D;margin:0 0 5px;line-height:1.3;"><span leaf=""><span style="font-weight:800;"><span leaf="">Tool</span></span></span></p>
+    <p style="font-size:12px;color:#8A8A8A;margin:0;line-height:1.6;"><span leaf=""><span style="font-weight:700;color:#3D3D3D;"><span leaf="">工具前置</span></span><span leaf=""> · 决策清晰</span></span></p>
+  </section>
+</section>
+
+<!-- 14. 小结卡 -->
+<section style="margin:22px 0 0;">
+  <section style="background:#fff;border:1px solid #E0DDD0;border-radius:4px;overflow:hidden;">
+    <section style="background:#3D3D3D;padding:10px 14px;">
+      <p style="font-size:10px;font-weight:800;color:#EBF1FA;letter-spacing:2.5px;margin:0;"><span leaf="">SUMMARY</span></p>
+    </section>
+    <section style="padding:14px 16px 12px;">
+      <p style="font-size:15px;font-weight:700;color:#3D3D3D;margin:0 0 8px;line-height:1.7;"><span leaf=""><span style="font-weight:800;"><span leaf="">推理 + 记忆 + 工具</span></span><span leaf="">构成现代 LLM Agent 的不可分割三角，选择框架即选择优先级。</span></span></p>
+      <section style="border-top:1px solid #E0DDD0;padding-top:10px;margin-top:4px;">
+        <p style="font-size:12px;color:#8A8A8A;margin:0;line-height:1.7;"><span leaf=""><span style="font-style:italic;"><span leaf="">本文三角关系基于 arXiv:2210.03629、2308.00352 等论文综合整理，框架对比基于 2024 年公开评测数据（未独立核验所有指标）。</span></span></span></p>
+      </section>
+    </section>
+  </section>
+</section>
+
+</section>
+</body></html>
+  </div>
+</div>
+<script>
+  function gzhShowToast(msg){
+    var t=document.getElementById('gzhToast');
+    t.textContent=msg;t.classList.add('show');
+    clearTimeout(t._timer);
+    t._timer=setTimeout(function(){t.classList.remove('show');},2800);
+  }
+  function gzhCopy(){
+    var el=document.getElementById('gzh-content');
+    // 选中渲染后的富文本节点并复制（等价于手动 Ctrl+A / Ctrl+C，保留全部样式）
+    var range=document.createRange();
+    range.selectNodeContents(el);
+    var sel=window.getSelection();
+    sel.removeAllRanges();
+    sel.addRange(range);
+    var ok=false;
+    try{ok=document.execCommand('copy');}catch(e){ok=false;}
+    sel.removeAllRanges();
+    var btn=document.getElementById('gzhCopyBtn');
+    if(ok){
+      gzhShowToast('✅ 已复制！去公众号编辑器按 Ctrl/⌘+V 粘贴即可');
+      var old=btn.textContent;btn.textContent='✅ 已复制';
+      setTimeout(function(){btn.textContent=old;},2200);
+    }else{
+      gzhShowToast('⚠ 自动复制失败，请手动全选(Ctrl/⌘+A)再复制(Ctrl/⌘+C)');
+    }
+  }
+</script>
+</body>
+</html>
