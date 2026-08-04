@@ -1,387 +1,164 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>大白商务风 · 公众号主题预览</title>
-  <style>
-    /* ── Reset & Base ── */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html, body { overflow-x: hidden; }
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
-      background: #FFFFFF;
-      color: #333333;
-      font-size: 15px;
-      line-height: 1.8;
-      letter-spacing: 0.35px;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    /* ── Layout ── */
-    .page {
-      max-width: 677px;
-      margin: 0 auto;
-      padding: 0 16px 60px;
-    }
-
-    /* ── Typography helpers ── */
-    .kicker {
-      font-size: 12px;
-      letter-spacing: 1.5px;
-      color: #2D5F8A;
-      font-weight: 700;
-      text-transform: uppercase;
-      margin-bottom: 10px;
-    }
-    .kicker-blue {
-      font-size: 11px;
-      letter-spacing: 1.5px;
-      color: #1A3A5C;
-      font-weight: 700;
-      text-transform: uppercase;
-    }
-    .kicker-light {
-      font-size: 11px;
-      letter-spacing: 1.5px;
-      color: #88B4D8;
-      font-weight: 700;
-      text-transform: uppercase;
-    }
-    .title-hero {
-      font-size: 26px;
-      line-height: 1.22;
-      color: #1A3A5C;
-      font-weight: 900;
-      letter-spacing: -0.5px;
-      margin: 0 0 12px;
-    }
-    .subtitle {
-      font-size: 15px;
-      line-height: 1.7;
-      color: #888888;
-      margin: 0 0 14px;
-    }
-    .meta-row {
-      display: flex;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-    .meta-item {
-      font-size: 12px;
-      color: #888888;
-    }
-    .meta-item strong {
-      color: #1A3A5C;
-      font-weight: 700;
-    }
-
-    /* ── Hero ── */
-    .hero {
-      padding: 40px 0 24px;
-      margin-bottom: 28px;
-      border-bottom: 1px solid #E8E8E8;
-    }
-
-    /* ── Data Strip ── */
-    .data-strip {
-      background: #F4F4F4;
-      border-top: 1px solid #E8E8E8;
-      border-bottom: 1px solid #E8E8E8;
-      padding: 16px;
-      margin-bottom: 24px;
-    }
-    .data-row {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-    .data-cell {
-      flex: 1;
-      min-width: 130px;
-      text-align: center;
-      padding: 4px 0;
-    }
-    .data-num {
-      font-size: 28px;
-      line-height: 1;
-      font-weight: 900;
-      color: #1A3A5C;
-      margin-bottom: 4px;
-    }
-    .data-label {
-      font-size: 11px;
-      color: #888888;
-      font-weight: 600;
-      letter-spacing: 0.5px;
-    }
-    .data-sep {
-      width: 1px;
-      background: #E8E8E8;
-      margin: 4px 0;
-      align-self: stretch;
-    }
-
-    /* ── Decision Box ── */
-    .decision-box {
-      background: #FFFFFF;
-      border: 1.5px solid #1A3A5C;
-      border-top: 3px solid #1A3A5C;
-      padding: 16px 18px;
-      margin-bottom: 22px;
-    }
-    .decision-headline {
-      font-size: 17px;
-      line-height: 1.65;
-      color: #1A3A5C;
-      font-weight: 700;
-      margin: 0 0 10px;
-    }
-    .decision-body {
-      font-size: 14px;
-      line-height: 1.75;
-      color: #333333;
-      margin: 0;
-    }
-
-    /* ── Two Column Info ── */
-    .two-col {
-      display: flex;
-      gap: 0;
-      flex-wrap: wrap;
-      margin-bottom: 22px;
-      border: 1px solid #E8E8E8;
-    }
-    .col {
-      flex: 1;
-      min-width: 200px;
-      padding: 16px 16px 16px 0;
-    }
-    .col:first-child {
-      border-right: 1px solid #E8E8E8;
-    }
-    .col:last-child {
-      padding: 16px 0 16px 16px;
-    }
-    .col-title {
-      font-size: 14px;
-      color: #1A3A5C;
-      font-weight: 700;
-      margin: 0 0 8px;
-      letter-spacing: 0.3px;
-    }
-    .col-body {
-      font-size: 14px;
-      line-height: 1.75;
-      color: #333333;
-      margin: 0 0 8px;
-    }
-    .col-list {
-      margin: 0;
-      padding: 0 0 0 16px;
-    }
-    .col-list li {
-      font-size: 14px;
-      line-height: 1.75;
-      color: #333333;
-      margin: 0 0 4px;
-    }
-
-    /* ── Risk Notice ── */
-    .risk {
-      border-left: 3px solid #2D5F8A;
-      background: #F4F4F4;
-      padding: 12px 16px;
-      margin-bottom: 22px;
-    }
-    .risk-body {
-      font-size: 14px;
-      line-height: 1.75;
-      color: #333333;
-      margin: 0;
-    }
-
-    /* ── Section Heading ── */
-    .section-head {
-      margin: 30px 0 14px;
-      border-top: 1px solid #E8E8E8;
-      padding-top: 14px;
-    }
-    .section-head h3 {
-      font-size: 18px;
-      color: #1A3A5C;
-      font-weight: 800;
-      margin: 4px 0 0;
-    }
-    .para {
-      font-size: 15px;
-      line-height: 1.8;
-      color: #333333;
-      margin: 0 0 16px;
-      text-align: justify;
-    }
-    .para strong {
-      color: #1A3A5C;
-      font-weight: 700;
-    }
-
-    /* ── Bottom Line ── */
-    .bottom-line {
-      background: #1A3A5C;
-      padding: 18px 18px 16px;
-      margin-bottom: 24px;
-    }
-    .bottom-headline {
-      font-size: 16px;
-      line-height: 1.65;
-      color: #FFFFFF;
-      font-weight: 700;
-      margin: 0 0 10px;
-    }
-    .bottom-body {
-      font-size: 13px;
-      line-height: 1.7;
-      color: #C8D8EA;
-      margin: 0;
-    }
-
-    /* ── Source ── */
-    .source {
-      border-top: 1px solid #E8E8E8;
-      padding-top: 16px;
-      margin-top: 8px;
-    }
-    .source p {
-      font-size: 12px;
-      color: #888888;
-      line-height: 1.7;
-      margin: 0 0 4px;
-    }
-
-    /* ── Footer ── */
-    .preview-footer {
-      text-align: center;
-      padding: 24px 0;
-      border-top: 1px solid #E8E8E8;
-      font-size: 11px;
-      color: #AAAAAA;
-      letter-spacing: 0.5px;
-    }
-
-    /* ── 390px responsive: no overflow ── */
-    @media (max-width: 390px) {
-      .page { padding: 0 12px 40px; }
-      .title-hero { font-size: 22px; }
-      .data-row { gap: 6px; }
-      .data-cell { min-width: 100px; }
-      .data-num { font-size: 24px; }
-      .two-col { flex-direction: column; }
-      .col { border-right: none !important; padding: 12px 0 !important; border-bottom: 1px solid #E8E8E8; }
-      .col:last-child { border-bottom: none; }
-      .decision-box { padding: 14px 14px; }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>bigwhite.wechat · 公众号排版预览</title>
+<style>
+  body{margin:0;background:#eef0f2;font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;-webkit-text-size-adjust:100%;}
+  .gzh-toolbar{position:fixed;top:0;left:0;right:0;height:54px;background:#ffffff;box-shadow:0 1px 10px rgba(0,0,0,.08);display:flex;align-items:center;justify-content:space-between;padding:0 16px;z-index:99;}
+  .gzh-hint{font-size:13px;color:#6b7280;line-height:1.4;}
+  .gzh-hint b{color:#111827;}
+  .gzh-copy{background:#059669;color:#fff;border:0;border-radius:9px;padding:10px 20px;font-size:14px;font-weight:700;cursor:pointer;box-shadow:0 3px 10px rgba(5,150,105,.28);white-space:nowrap;transition:transform .08s,background .15s;}
+  .gzh-copy:hover{background:#047857;}
+  .gzh-copy:active{transform:translateY(1px);}
+  .gzh-toast{position:fixed;top:66px;left:50%;transform:translateX(-50%);background:#111827;color:#fff;padding:11px 20px;border-radius:10px;font-size:14px;font-weight:600;opacity:0;pointer-events:none;transition:opacity .25s;z-index:100;box-shadow:0 6px 20px rgba(0,0,0,.25);max-width:88vw;text-align:center;}
+  .gzh-toast.show{opacity:1;}
+  .gzh-stage{max-width:700px;margin:78px auto 64px;padding:0 8px;}
+  @media(max-width:520px){.gzh-hint{max-width:150px;}}
+</style>
 </head>
 <body>
-  <main class="page">
+<div class="gzh-toolbar">
+  <span class="gzh-hint">👇 公众号兼容样稿 · RefID 已标注</span>
+  <span style="display:flex;gap:8px;align-items:center;"><button class="gzh-copy" style="background:#111827;padding:10px 12px;" id="gzhRefBtn" onclick="gzhCopyRef()">复制 RefID</button><button class="gzh-copy" id="gzhCopyBtn" onclick="gzhCopy()">📋 复制到公众号</button></span>
+</div>
+<div class="gzh-toast" id="gzhToast"></div>
+<div class="gzh-stage">
+  <div id="gzh-content">
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>大白商务风 · 公众号正文样稿</title>
+  <!-- RefID: wx-theme:bigwhite -->
+</head>
+<body style="margin:0;padding:0;background:#FFFFFF;font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif;">
 
-    <!-- ══ COMPONENT 2: Hero ══ -->
-    <section class="hero">
-      <p class="kicker">产品发布 · BIGWHITE</p>
-      <h1 class="title-hero">大模型推理成本降至 1/40：云端部署的新一轮洗牌</h1>
-      <p class="subtitle">从 GPT-4 到国产开源，推理效率的每一次数量级突破，都在重写 AI 应用的经济学。</p>
-      <div class="meta-row">
-        <span class="meta-item"><strong>2026-08-03</strong></span>
-        <span class="meta-item"><strong>阅读约 8 分钟</strong></span>
-      </div>
+<!-- ═══ ROOT CONTAINER ═══ -->
+<section style="width:100%;max-width:677px;margin:0 auto;padding:0 16px 60px;background:#FFFFFF;color:#333333;font-size:15px;line-height:1.8;letter-spacing:0.35px;box-sizing:border-box;">
+
+  <!-- ══ COMPONENT 2: HERO ══ -->
+  <section style="padding:40px 0 24px;margin:0 0 28px;border-bottom:1px solid #E8E8E8;">
+    <p style="font-size:12px;letter-spacing:1.5px;color:#2D5F8A;font-weight:700;margin:0 0 10px;text-transform:uppercase;"><span leaf="">产品发布 · BIGWHITE</span></p>
+    <h3 style="font-size:26px;line-height:1.22;color:#1A3A5C;font-weight:900;letter-spacing:-0.5px;margin:0 0 12px;"><span leaf="">大模型推理成本降至 1/40：云端部署的新一轮洗牌</span></h3>
+    <p style="font-size:15px;line-height:1.7;color:#888888;margin:0 0 14px;"><span leaf="">从 GPT-4 到国产开源，推理效率的每一次数量级突破，都在重写 AI 应用的经济学。</span></p>
+    <section style="display:flex;gap:16px;flex-wrap:wrap;">
+      <span style="font-size:12px;color:#888888;"><strong style="color:#1A3A5C;font-weight:700;"><span leaf="">2026-08-03</span></strong></span>
+      <span style="font-size:12px;color:#888888;"><strong style="color:#1A3A5C;font-weight:700;"><span leaf="">阅读约 8 分钟</span></strong></span>
     </section>
+  </section>
 
-    <!-- ══ COMPONENT 3: Core Data Strip ══ -->
-    <section class="data-strip">
-      <div class="data-row">
-        <div class="data-cell">
-          <p class="data-num">1/40</p>
-          <p class="data-label">推理成本降幅</p>
-        </div>
-        <div class="data-sep"></div>
-        <div class="data-cell">
-          <p class="data-num">3.2s</p>
-          <p class="data-label">平均首次 token</p>
-        </div>
-        <div class="data-sep"></div>
-        <div class="data-cell">
-          <p class="data-num">67%</p>
-          <p class="data-label">企业采纳率</p>
-        </div>
-      </div>
+  <!-- ══ COMPONENT 3: CORE DATA STRIP ══ -->
+  <section style="width:100%;background:#F4F4F4;border-top:1px solid #E8E8E8;border-bottom:1px solid #E8E8E8;margin:0 0 24px;box-sizing:border-box;">
+    <section style="width:100%;padding:12px 13px;border-bottom:1px solid #E8E8E8;box-sizing:border-box;"><span leaf="" style="display:inline-block;min-width:68px;font-size:25px;line-height:1;font-weight:900;color:#1A3A5C;">1/40</span><span leaf="" style="font-size:12px;color:#888888;font-weight:600;letter-spacing:0.5px;">推理成本降幅</span></section>
+    <section style="width:100%;padding:12px 13px;border-bottom:1px solid #E8E8E8;box-sizing:border-box;"><span leaf="" style="display:inline-block;min-width:68px;font-size:25px;line-height:1;font-weight:900;color:#1A3A5C;">3.2s</span><span leaf="" style="font-size:12px;color:#888888;font-weight:600;letter-spacing:0.5px;">平均首次 token</span></section>
+    <section style="width:100%;padding:12px 13px;box-sizing:border-box;"><span leaf="" style="display:inline-block;min-width:68px;font-size:25px;line-height:1;font-weight:900;color:#1A3A5C;">67%</span><span leaf="" style="font-size:12px;color:#888888;font-weight:600;letter-spacing:0.5px;">企业采纳率</span></section>
+  </section>
+
+  <!-- ══ COMPONENT 4: DECISION BOX ══ -->
+  <section style="background:#FFFFFF;border:1.5px solid #1A3A5C;border-top:3px solid #1A3A5C;padding:16px 18px;margin:0 0 22px;">
+    <p style="font-size:11px;letter-spacing:1.5px;color:#1A3A5C;font-weight:700;margin:0 0 8px;text-transform:uppercase;"><span leaf="">KEY DECISION</span></p>
+    <p style="font-size:17px;line-height:1.65;color:#1A3A5C;font-weight:700;margin:0 0 10px;"><span leaf="">推理成本已不是门槛，模型能力才是下一阶段竞争的核心</span></p>
+    <p style="font-size:14px;line-height:1.75;color:#333333;margin:0;"><span leaf="">基于 2026 年 Q2 的成本曲线与 142 家企业采购数据，推理侧的降本战争已基本结束。真正的竞争正在向「推理质量 × 垂直场景适配」转移。</span></p>
+  </section>
+
+  <!-- ══ COMPONENT 5: TWO-COLUMN INFO ══ -->
+  <section style="width:100%;margin:0 0 22px;border:1px solid #E8E8E8;box-sizing:border-box;">
+    <section style="width:100%;padding:16px;border-bottom:1px solid #E8E8E8;box-sizing:border-box;">
+      <h4 style="font-size:14px;color:#1A3A5C;font-weight:700;margin:0 0 8px;letter-spacing:0.3px;"><span leaf="">成本结构变化</span></h4>
+      <p style="font-size:14px;line-height:1.75;color:#333333;margin:0 0 8px;"><span leaf="">2024 年推理成本占大模型总支出 74%，2026 年已降至 31%，存储与工程人力成为新大头。</span></p>
+      <ul style="margin:0;padding:0 0 0 16px;">
+        <li style="font-size:14px;line-height:1.75;color:#333333;margin:0 0 4px;"><span leaf="">推理芯片成本年降 38%</span></li>
+        <li style="font-size:14px;line-height:1.75;color:#333333;margin:0 0 4px;"><span leaf="">长上下文窗口增加 3× 存储</span></li>
+        <li style="font-size:14px;line-height:1.75;color:#333333;margin:0 0 0;"><span leaf="">运维人力成本反超算力</span></li>
+      </ul>
     </section>
-
-    <!-- ══ COMPONENT 4: Decision Box ══ -->
-    <section class="decision-box">
-      <p class="kicker-blue">KEY DECISION</p>
-      <p class="decision-headline">推理成本已不是门槛，模型能力才是下一阶段竞争的核心</p>
-      <p class="decision-body">基于 2026 年 Q2 的成本曲线与 142 家企业采购数据，推理侧的降本战争已基本结束。真正的竞争正在向「推理质量 × 垂直场景适配」转移。</p>
+    <section style="width:100%;padding:16px;box-sizing:border-box;">
+      <h4 style="font-size:14px;color:#1A3A5C;font-weight:700;margin:0 0 8px;letter-spacing:0.3px;"><span leaf="">企业选型逻辑</span></h4>
+      <p style="font-size:14px;line-height:1.75;color:#333333;margin:0 0 8px;"><span leaf="">超过 60% 的采购决策现在由业务部门而非 IT 发起，端到端集成能力优先于参数规模。</span></p>
+      <ul style="margin:0;padding:0 0 0 16px;">
+        <li style="font-size:14px;line-height:1.75;color:#333333;margin:0 0 4px;"><span leaf="">API 稳定性权重上升</span></li>
+        <li style="font-size:14px;line-height:1.75;color:#333333;margin:0 0 4px;"><span leaf="">中文长文本理解受重视</span></li>
+        <li style="font-size:14px;line-height:1.75;color:#333333;margin:0 0 0;"><span leaf="">私有化部署需求反弹</span></li>
+      </ul>
     </section>
+  </section>
 
-    <!-- ══ COMPONENT 5: Two-Column Info ══ -->
-    <section class="two-col">
-      <div class="col">
-        <h4 class="col-title">成本结构变化</h4>
-        <p class="col-body">2024 年推理成本占大模型总支出 74%，2026 年已降至 31%，存储与工程人力成为新大头。</p>
-        <ul class="col-list">
-          <li>推理芯片成本年降 38%</li>
-          <li>长上下文窗口增加 3× 存储</li>
-          <li>运维人力成本反超算力</li>
-        </ul>
-      </div>
-      <div class="col">
-        <h4 class="col-title">企业选型逻辑</h4>
-        <p class="col-body">超过 60% 的采购决策现在由业务部门而非 IT 发起，端到端集成能力优先于参数规模。</p>
-        <ul class="col-list">
-          <li>API 稳定性权重上升</li>
-          <li>中文长文本理解受重视</li>
-          <li>私有化部署需求反弹</li>
-        </ul>
-      </div>
-    </section>
+  <!-- ══ COMPONENT 6: RISK NOTICE ══ -->
+  <section style="border-left:3px solid #2D5F8A;background:#F4F4F4;padding:12px 16px;margin:0 0 22px;">
+    <p style="font-size:11px;font-weight:700;letter-spacing:1px;color:#2D5F8A;margin:0 0 6px;text-transform:uppercase;"><span leaf="">RISK NOTICE</span></p>
+    <p style="font-size:14px;line-height:1.75;color:#333333;margin:0;"><span leaf="">数据基于公开财报与第三方调研，企业样本以华东地区中大型企业为主，未覆盖中小商家。成本预测基于当前芯片迭代速度，若出现工艺瓶颈则结论需要修正。</span></p>
+  </section>
 
-    <!-- ══ COMPONENT 6: Risk Notice ══ -->
-    <section class="risk">
-      <p class="kicker-blue">RISK NOTICE</p>
-      <p class="risk-body">数据基于公开财报与第三方调研，企业样本以华东地区中大型企业为主，未覆盖中小商家。成本预测基于当前芯片迭代速度，若出现工艺瓶颈则结论需要修正。</p>
-    </section>
+  <!-- ══ SECTION HEADING: 推理成本的三次跳变 ══ -->
+  <section style="margin:30px 0 14px;border-top:1px solid #E8E8E8;padding-top:14px;">
+    <h3 style="font-size:18px;color:#1A3A5C;font-weight:800;margin:4px 0 0;"><span leaf="">推理成本的三次跳变</span></h3>
+  </section>
+  <section style="font-size:15px;line-height:1.8;color:#333333;margin:0 0 16px;"><span leaf="">2023 年 ChatGPT 发布时，单次千 token 调用的成本约为 <strong style="color:#1A3A5C;font-weight:700;">0.02 美元</strong>。这个数字在两年内经历了三次数量级压缩：第一次来自 batch 推理优化，第二次来自国产芯片量产，第三次正是本轮长上下文优化带来的 token 压缩。</span></section>
+  <section style="font-size:15px;line-height:1.8;color:#333333;margin:0 0 16px;"><span leaf="">每一次成本下降，都伴随着应用层的「不可能三角」松动——当价格从「可以偶尔用」跌到「可以随便用」，产品设计的边界就被彻底打开。</span></section>
 
-    <!-- ══ Section: Analysis ══ -->
-    <section class="section-head">
-      <h3>推理成本的三次跳变</h3>
-    </section>
-    <p class="para">2023 年 ChatGPT 发布时，单次千 token 调用的成本约为 <strong>0.02 美元</strong>。这个数字在两年内经历了三次数量级压缩：第一次来自 batch 推理优化，第二次来自国产芯片量产，第三次正是本轮长上下文优化带来的 token 压缩。</p>
-    <p class="para">每一次成本下降，都伴随着应用层的「不可能三角」松动——当价格从「可以偶尔用」跌到「可以随便用」，产品设计的边界就被彻底打开。</p>
+  <!-- ══ SECTION HEADING: 谁在受益，谁在出局 ══ -->
+  <section style="margin:30px 0 14px;border-top:1px solid #E8E8E8;padding-top:14px;">
+    <h3 style="font-size:18px;color:#1A3A5C;font-weight:800;margin:4px 0 0;"><span leaf="">谁在受益，谁在出局</span></h3>
+  </section>
+  <section style="font-size:15px;line-height:1.8;color:#333333;margin:0 0 16px;"><span leaf="">受益最明显的是 <strong style="color:#1A3A5C;font-weight:700;">Copilot 类产品</strong>。在 0.001 美元/千 token 的价格下，为每位员工配备 AI 助手的企业成本已低于一杯咖啡的月支出。SaaS 厂商正在加速将 AI 能力嵌入订阅套餐。</span></section>
+  <section style="font-size:15px;line-height:1.8;color:#333333;margin:0 0 16px;"><span leaf="">出局的则是 <strong style="color:#1A3A5C;font-weight:700;">纯算力中间层</strong>——那些不向上做模型、向下做应用、只靠规模优势赚差价的云计算商，正在面临利润率的系统性压缩。</span></section>
 
-    <!-- ══ Section: Implications ══ -->
-    <section class="section-head">
-      <h3>谁在受益，谁在出局</h3>
-    </section>
-    <p class="para">受益最明显的是 <strong>Copilot 类产品</strong>。在 0.001 美元/千 token 的价格下，为每位员工配备 AI 助手的企业成本已低于一杯咖啡的月支出。SaaS 厂商正在加速将 AI 能力嵌入订阅套餐。</p>
-    <p class="para">出局的则是 <strong>纯算力中间层</strong>——那些不向上做模型、向下做应用、只靠规模优势赚差价的云计算商，正在面临利润率的系统性压缩。</p>
+  <!-- ══ COMPONENT 7: BOTTOM LINE ══ -->
+  <section style="background:#1A3A5C;padding:18px 18px 16px;margin:0 0 24px;">
+    <p style="font-size:11px;letter-spacing:1.5px;color:#88B4D8;font-weight:700;margin:0 0 8px;text-transform:uppercase;"><span leaf="">BOTTOM LINE</span></p>
+    <p style="font-size:16px;line-height:1.65;color:#FFFFFF;font-weight:700;margin:0 0 10px;"><span leaf="">推理成本不再是护城河，场景理解深度才是下一张船票</span></p>
+    <p style="font-size:13px;line-height:1.7;color:#C8D8EA;margin:0;"><span leaf="">建议企业采购决策重心从「哪家模型最便宜」转向「哪家在目标场景的评测数据最扎实」，并尽早锁定 1–2 家有垂直语料积累的供应商。</span></p>
+  </section>
 
-    <!-- ══ COMPONENT 7: Bottom Line ══ -->
-    <section class="bottom-line">
-      <p class="kicker-light">BOTTOM LINE</p>
-      <p class="bottom-headline">推理成本不再是护城河，场景理解深度才是下一张船票</p>
-      <p class="bottom-body">建议企业采购决策重心从「哪家模型最便宜」转向「哪家在目标场景的评测数据最扎实」，并尽早锁定 1–2 家有垂直语料积累的供应商。</p>
-    </section>
+  <!-- ══ SOURCE ══ -->
+  <section style="border-top:1px solid #E8E8E8;padding-top:16px;margin-top:8px;">
+    <p style="font-size:12px;color:#888888;line-height:1.7;margin:0 0 4px;"><span leaf="">资料来源：OpenAI 2026 年定价公告、Anthropic 技术白皮书、IDC 中国 AI 支出报告 2026Q2、企业访谈（n=142）</span></p>
+    <p style="font-size:12px;color:#888888;line-height:1.7;margin:0;"><span leaf="">作者：AG 雷达 · 产品分析组</span></p>
+  </section>
 
-    <!-- ══ Source ══ -->
-    <section class="source">
-      <p>资料来源：OpenAI 2026 年定价公告、Anthropic 技术白皮书、IDC 中国 AI 支出报告 2026Q2、企业访谈（n=142）</p>
-      <p>作者：AG 雷达 · 产品分析组</p>
-    </section>
+</section>
+<!-- ═══ END ROOT ═══ -->
 
-  </main>
-
-  <footer class="preview-footer">
-    大白商务风 · 公众号主题预览 · max-width 677px · 390px 无横向溢出
-  </footer>
+</body>
+</html>
+  </div>
+</div>
+<script>
+  function gzhShowToast(msg){
+    var t=document.getElementById('gzhToast');
+    t.textContent=msg;t.classList.add('show');
+    clearTimeout(t._timer);
+    t._timer=setTimeout(function(){t.classList.remove('show');},2800);
+  }
+  function gzhCopyRef(){
+    var ref="wx-theme:bigwhite";
+    var done=function(){gzhShowToast("✅ 已复制主题 RefID："+ref);var btn=document.getElementById("gzhRefBtn");var old=btn.textContent;btn.textContent="✅ RefID 已复制";setTimeout(function(){btn.textContent=old;},2200);};
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(ref).then(done,function(){gzhShowToast("⚠ 请手动复制："+ref);});}
+    else{var t=document.createElement("textarea");t.value=ref;document.body.appendChild(t);t.select();try{document.execCommand("copy");done();}catch(e){gzhShowToast("⚠ 请手动复制："+ref);}document.body.removeChild(t);}
+  }
+  function gzhCopy(){
+    var el=document.getElementById("gzh-content");
+    // 选中渲染后的富文本节点并复制（等价于手动 Ctrl+A / Ctrl+C，保留全部样式）
+    var range=document.createRange();
+    range.selectNodeContents(el);
+    var sel=window.getSelection();
+    sel.removeAllRanges();
+    sel.addRange(range);
+    var ok=false;
+    try{ok=document.execCommand('copy');}catch(e){ok=false;}
+    sel.removeAllRanges();
+    var btn=document.getElementById('gzhCopyBtn');
+    if(ok){
+      gzhShowToast('✅ 已复制！去公众号编辑器按 Ctrl/⌘+V 粘贴即可');
+      var old=btn.textContent;btn.textContent='✅ 已复制';
+      setTimeout(function(){btn.textContent=old;},2200);
+    }else{
+      gzhShowToast('⚠ 自动复制失败，请手动全选(Ctrl/⌘+A)再复制(Ctrl/⌘+C)');
+    }
+  }
+</script>
 </body>
 </html>
