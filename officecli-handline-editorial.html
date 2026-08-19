@@ -1,0 +1,593 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f1ece2">
+  <title>OfficeCLI · 手绘草图风 · 公众号排版 2x</title>
+  <style>
+    :root{
+      --bg:#f1ece2;
+      --paper:#fbf7ef;
+      --paper-2:#fffaf3;
+      --ink:#181614;
+      --ink-body:#2d2926;
+      --muted:#5a5248;
+      --line:#2c2723;
+      --line-mid:#7c6e62;
+      --accent:#a76632;
+      --accent-2:#c9762f;
+      --accent-soft:#f2decb;
+      --blue:#1e5cb5;
+      --blue-soft:#edf3ff;
+      --black:#111111;
+      --green:#355f35;
+      --red:#c8442f;
+      --max:1180px;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;overflow-x:hidden}
+    body{
+      background:var(--bg);
+      color:var(--ink);
+      font-family:Inter,system-ui,-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;
+      font-size:27px;line-height:1.68;
+      text-rendering:optimizeLegibility;
+    }
+    body::before{
+      content:"";position:fixed;inset:0;pointer-events:none;
+      opacity:.14;
+      background-image:
+        repeating-linear-gradient(0deg, rgba(45,41,38,.016) 0 1px, transparent 1px 5px),
+        repeating-linear-gradient(90deg, rgba(255,255,255,.025) 0 1px, transparent 1px 7px);
+      mix-blend-mode:multiply;z-index:0;
+    }
+    a{color:inherit;text-decoration:none}
+    code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+    .page{width:min(var(--max),calc(100% - 34px));margin:0 auto;padding:36px 0 160px;position:relative;z-index:1}
+
+    /* ── topbar ── */
+    .topbar{
+      display:flex;justify-content:space-between;gap:28px;
+      font:800 25px/1.4 ui-monospace,monospace;
+      letter-spacing:.06em;text-transform:uppercase;color:var(--blue);
+      margin-bottom:20px;border-bottom:2px dashed var(--line-mid);
+      padding-bottom:18px;
+    }
+
+    /* ── hero ── */
+    .hero{
+      background:var(--paper);
+      border:3px dashed var(--line);
+      padding:36px 32px;margin-bottom:28px;
+      transform:rotate(-0.12deg);
+    }
+    .hero-title{
+      font-family:Georgia,"Times New Roman","Songti SC",serif;
+      font-size:clamp(60px,11vw,112px);line-height:.95;
+      letter-spacing:-.04em;color:var(--ink);margin:0 0 20px;
+    }
+    .hero-title small{font-size:.48em;color:var(--muted);font-family:system-ui,sans-serif}
+    .hero-lead{font-size:28px;line-height:1.72;color:var(--ink-body);max-width:900px;margin:0 0 20px}
+    .hero-meta{display:flex;flex-wrap:wrap;gap:14px;font-size:24px;color:var(--muted)}
+    .hero-meta span{padding:8px 18px;border:2px solid var(--accent);border-radius:12px;background:var(--accent-soft)}
+    .hero-meta span.blue{background:var(--blue);color:#fff;border-color:var(--blue)}
+    .hero-meta span.green{background:#e8f5e9;border-color:var(--green);color:var(--green)}
+    .hero-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:24px}
+    .stat-card{background:var(--paper-2);border:2px dashed var(--line);padding:20px;border-radius:12px;text-align:center}
+    .stat-card .num{font-size:36px;font-weight:900;color:var(--blue);font-family:ui-monospace,monospace}
+    .stat-card .label{font-size:20px;color:var(--muted);margin-top:6px}
+    .stat-card .desc{font-size:18px;color:var(--ink-body);margin-top:4px}
+
+    /* ── divider ── */
+    .divider{margin:32px 0 20px;padding-top:18px;border-top:2px dashed var(--line-mid);display:flex;align-items:center;gap:14px}
+    .divider span{font:900 20px/1 ui-monospace,monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+
+    /* ── process bar ── */
+    .process{display:flex;gap:0;margin-bottom:24px}
+    .step{flex:1;background:var(--black);padding:24px;color:#fff;min-height:180px;display:flex;flex-direction:column;justify-content:center;border-radius:12px 0 0 12px}
+    .step:last-child{border-radius:12px}
+    .step.n1{transform:rotate(-0.2deg)}
+    .step.n2{transform:rotate(0.15deg)}
+    .step.n3{transform:rotate(-0.1deg)}
+    .step.n4{background:var(--accent-2)}
+    .step-num{font:900 24px/1 ui-monospace,monospace;color:var(--accent-2);letter-spacing:.06em}
+    .step.n4 .step-num{color:#fff}
+    .step-title{font-size:28px;font-weight:700;margin-top:12px}
+    .step-sub{font-size:22px;color:#b0a898;margin-top:8px}
+    .step.n4 .step-sub{color:#fff8f0}
+    .step-arrow{width:40px;display:flex;align-items:center;justify-content:center;font-size:28px;color:var(--accent-2);flex-shrink:0;align-self:center}
+
+    /* ── columns ── */
+    .columns{display:grid;grid-template-columns:1.05fr .95fr .98fr;gap:22px;margin-bottom:24px;align-items:start}
+    .col-card{background:var(--paper-2);padding:26px;border:3px dashed}
+    .col-card.c1{border-color:var(--accent);transform:rotate(-0.18deg)}
+    .col-card.c2{border-color:var(--green);transform:rotate(0.12deg)}
+    .col-card.c3{border-color:var(--blue);transform:rotate(-0.06deg)}
+    .col-header{display:flex;justify-content:space-between;gap:20px;align-items:flex-start;margin-bottom:18px;padding-bottom:16px;border-bottom:3px dashed var(--line)}
+    .col-cn{font:900 34px/1.06 Georgia,serif;letter-spacing:-.02em;color:var(--ink)}
+    .col-en{font:800 20px/1.2 ui-monospace,monospace;letter-spacing:.06em;text-transform:uppercase;max-width:120px;text-align:right}
+    .col-en.c1{color:var(--accent)}
+    .col-en.c2{color:var(--green)}
+    .col-en.c3{color:var(--blue)}
+    ul.col-list{margin:16px 0 0 28px;padding:0;display:grid;gap:10px}
+    ul.col-list li{font-size:24px;line-height:1.6;color:var(--ink-body)}
+
+    /* ── principles ── */
+    .principles{display:grid;gap:18px;margin-bottom:24px}
+    .principle{background:var(--blue-soft);padding:20px 24px;display:grid;grid-template-columns:64px 1fr;gap:20px;align-items:start;border-radius:12px}
+    .principle.n3{background:#fff5ef;border-left:8px solid var(--accent-2)}
+    .principle.n3 .p-num{background:var(--accent-2)}
+    .p-num{width:64px;height:64px;background:var(--blue);color:#fff;display:flex;align-items:center;justify-content:center;font:900 28px/1 ui-monospace,monospace;border-radius:12px;flex-shrink:0}
+    .p-title{display:block;margin-bottom:6px;font-size:26px;line-height:1.28;color:var(--ink);font-weight:700}
+    .p-desc{margin:0;font-size:24px;line-height:1.6;color:var(--ink-body)}
+
+    /* ── agent note ── */
+    .agent-note{background:#fff5ef;padding:24px 28px;border-left:10px solid var(--red);margin-bottom:24px;transform:rotate(-0.1deg);border-radius:0 12px 12px 0}
+    .agent-note-header{display:flex;align-items:center;gap:14px;margin-bottom:14px}
+    .agent-note-header span{font-size:30px}
+    .agent-note-label{font:800 22px/1 ui-monospace,monospace;letter-spacing:.06em;text-transform:uppercase;color:var(--red)}
+    .agent-note p{margin:0;font-size:25px;line-height:1.65;color:#5a2a20}
+    .agent-note p strong{font-weight:700}
+
+    /* ── quote band ── */
+    .quote-band{background:var(--paper-2);border-top:5px solid var(--line);border-bottom:5px solid var(--line);padding:24px 32px;margin-bottom:24px;display:flex;align-items:flex-start;gap:20px}
+    .quote-mark{font-size:56px;line-height:1;flex-shrink:0;color:var(--accent-2);font-family:Georgia,serif}
+    .quote-text{margin:0 0 8px;font-family:Georgia,serif;font-size:30px;line-height:1.55;color:var(--ink);font-style:italic}
+    .quote-source{font-size:22px;color:var(--muted)}
+
+    /* ── code block ── */
+    .code-block{background:#1a1a1a;border:2px dashed var(--line-mid);border-radius:12px;padding:20px;margin-bottom:18px;overflow-x:auto}
+    .code-block pre{margin:0;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:22px;line-height:1.7;color:#e8e8e8;white-space:pre-wrap;word-break:break-all}
+    .code-block .cmd{color:#58c3ff;font-weight:700}
+    .code-block .comment{color:#666;font-style:italic}
+    .code-block .kw{color:#c9762f}
+    .code-block .val{color:#2db36a}
+    .code-block .path{color:#f4c84c}
+
+    /* ── table ── */
+    .table-wrap{margin-bottom:24px;overflow-x:auto}
+    table{width:100%;border-collapse:collapse;font-size:22px}
+    th,td{padding:14px 18px;border:2px dashed var(--line-mid);text-align:left}
+    th{background:var(--blue-soft);color:var(--blue);font-weight:900;font-size:20px}
+    td{background:var(--paper);color:var(--ink-body)}
+    td strong{color:var(--ink)}
+    td .yes{color:var(--green);font-weight:900}
+    td .no{color:var(--red);font-weight:900}
+    td .warn{color:var(--accent-2);font-weight:900}
+
+    /* ── feature cards ── */
+    .feature-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-bottom:24px}
+    .feature-card{background:var(--paper);border:2px dashed var(--line);padding:24px;border-radius:12px}
+    .feature-card h3{font-size:26px;color:var(--ink);margin:0 0 12px;display:flex;align-items:center;gap:12px}
+    .feature-card h3 span{font-size:28px}
+    .feature-card p{font-size:23px;color:var(--ink-body);line-height:1.6;margin:0 0 14px}
+    .feature-card ul{margin:0;padding-left:28px}
+    .feature-card li{font-size:22px;color:var(--ink-body);line-height:1.6;margin-bottom:6px}
+
+    /* ── footer ── */
+    .footer{background:var(--paper);padding:22px 24px;color:var(--muted);font-size:24px;display:flex;justify-content:space-between;gap:24px;align-items:center;border:3px dashed #c0b8a8;margin-bottom:24px;border-radius:12px}
+
+    /* ── use case cards ── */
+    .usecase-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-bottom:24px}
+    .usecase{background:var(--paper-2);border:2px dashed var(--accent);padding:22px;border-radius:12px}
+    .usecase h4{font-size:26px;color:var(--ink);margin:0 0 10px}
+    .usecase p{font-size:22px;color:var(--ink-body);line-height:1.6;margin:0}
+
+    /* ── 390px mobile ── */
+    @media(max-width:780px){
+      .page{width:100%;padding:24px 0 100px}
+      .columns{grid-template-columns:1fr}
+      .col-card{transform:none !important}
+      .process{flex-direction:column}
+      .step-arrow{width:100%;justify-content:center;padding:8px 0}
+      .topbar{flex-direction:column;font-size:22px;gap:10px}
+      .hero-title{font-size:clamp(48px,12vw,80px)}
+      .hero-lead{font-size:24px}
+      .hero-meta{font-size:20px;gap:10px}
+      .hero-stats{grid-template-columns:repeat(2,1fr)}
+      .p-title{font-size:22px}
+      .p-desc{font-size:20px}
+      .p-num{width:52px;height:52px;font-size:24px}
+      .col-cn{font-size:28px}
+      .col-list li{font-size:20px}
+      .quote-text{font-size:24px}
+      .step-title{font-size:22px}
+      .step-sub{font-size:18px}
+      .footer{font-size:20px;flex-direction:column;gap:10px}
+      .feature-grid,.usecase-grid{grid-template-columns:1fr}
+      table{font-size:18px}
+      .code-block pre{font-size:18px}
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <!-- 0. 说明 -->
+    <div style="background:#fff5ef;border:3px dashed var(--accent);padding:24px 28px;margin-bottom:28px;font-size:24px;color:#5a2a20;line-height:1.6;border-radius:12px">
+      <strong>✏️ handline-editorial 2x 内容版</strong> · 所有内容细化扩充至 2x，字号 2x 放大，提升移动端可读性。
+    </div>
+
+    <!-- 1. Topbar -->
+    <div class="divider"><span>01 · TOPBAR</span></div>
+    <div class="topbar">
+      <span>✏️ OFFICECLI · HANDLINE-EDITORIAL</span>
+      <span>2026-08-03 · AI AGENT OFFICE</span>
+    </div>
+
+    <!-- 2. Hero -->
+    <div class="divider"><span>02 · HERO</span></div>
+    <div class="hero">
+      <div class="hero-title">
+        OfficeCLI<br>
+        <small>AI Agent 命令行 Office 套件</small>
+      </div>
+      <p class="hero-lead">
+        首个专为 <span style="color:var(--accent-2);font-weight:700">AI Agent</span> 设计的命令行 Office 工具。一行命令操控 Word / Excel / PowerPoint，把办公文档操作变成 Agent 工具链里的一等公民。
+      </p>
+      <div class="hero-meta">
+        <span class="blue">MCP Server 原生</span>
+        <span class="green">350+ Excel 函数</span>
+        <span>HTML 渲染引擎</span>
+        <span>单二进制 · 零依赖</span>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-card">
+          <div class="num">28k</div>
+          <div class="label">GitHub Stars</div>
+          <div class="desc">Apache-2.0 开源</div>
+        </div>
+        <div class="stat-card">
+          <div class="num">3</div>
+          <div class="label">Office 格式</div>
+          <div class="desc">Word · Excel · PPT</div>
+        </div>
+        <div class="stat-card">
+          <div class="num">350+</div>
+          <div class="label">Excel 函数</div>
+          <div class="desc">本地解析引擎</div>
+        </div>
+        <div class="stat-card">
+          <div class="num">0</div>
+          <div class="label">外部依赖</div>
+          <div class="desc">单二进制跨平台</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. Agent Integration Flow -->
+    <div class="divider"><span>03 · AGENT INTEGRATION FLOW</span></div>
+    <div class="process">
+      <div class="step n1">
+        <span class="step-num">STEP 01</span>
+        <strong class="step-title">Prompt</strong>
+        <span class="step-sub">Agent 描述想要的操作</span>
+      </div>
+      <div class="step-arrow">→</div>
+      <div class="step n2">
+        <span class="step-num">STEP 02</span>
+        <strong class="step-title">Render</strong>
+        <span class="step-sub">OfficeCLI 渲染预览</span>
+      </div>
+      <div class="step-arrow">→</div>
+      <div class="step n3">
+        <span class="step-num">STEP 03</span>
+        <strong class="step-title">Execute</strong>
+        <span class="step-sub">CLI / MCP 执行修改</span>
+      </div>
+      <div class="step-arrow">→</div>
+      <div class="step n4">
+        <span class="step-num">STEP 04</span>
+        <strong class="step-title">Iterate</strong>
+        <span class="step-sub">循环直到满意</span>
+      </div>
+    </div>
+
+    <div class="code-block">
+      <pre><span class="comment"># MCP Server 接入 — 一行配置接入所有 Agent</span>
+<span class="cmd">officecli</span> mcp --stdio
+
+<span class="comment"># settings.json 配置示例</span>
+{
+  <span class="kw">"mcpServers"</span>: {
+    <span class="kw">"officecli"</span>: {
+      <span class="kw">"command"</span>: <span class="val">"officecli"</span>,
+      <span class="kw">"args"</span>: [<span class="val">"mcp"</span>, <span class="val">"--stdio"</span>]
+    }
+  }
+}
+
+<span class="comment"># Direct CLI — Agent 操作 Excel 示例</span>
+<span class="cmd">officecli</span> xlsx read report.xlsx \
+  <span class="kw">--format</span> html \
+  <span class="kw">--sheet</span> Summary
+
+<span class="comment"># → 渲染 HTML 输出，Agent 看见排版效果</span></pre>
+    </div>
+
+    <!-- 4. Supported Agents -->
+    <div class="divider"><span>04 · SUPPORTED AGENTS</span></div>
+    <div class="columns">
+      <div class="col-card c1">
+        <div class="col-header">
+          <strong class="col-cn">🤖 Claude Code</strong>
+          <span class="col-en c1">NATIVE</span>
+        </div>
+        <ul class="col-list">
+          <li>原生 MCP Server 支持</li>
+          <li>直接调用 officecli 命令</li>
+          <li>渲染结果实时预览</li>
+        </ul>
+      </div>
+      <div class="col-card c2">
+        <div class="col-header">
+          <strong class="col-cn">⚡ Codex / Cursor</strong>
+          <span class="col-en c2">NATIVE</span>
+        </div>
+        <ul class="col-list">
+          <li>MCP 协议无缝对接</li>
+          <li>工具链原生集成</li>
+          <li>JSON 结构化输出</li>
+        </ul>
+      </div>
+      <div class="col-card c3">
+        <div class="col-header">
+          <strong class="col-cn">🔧 任意 CLI Agent</strong>
+          <span class="col-en c3">BASH</span>
+        </div>
+        <ul class="col-list">
+          <li>bash / shell / npx</li>
+          <li>标准输入输出</li>
+          <li>灵活自定义集成</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 5. Core Capabilities -->
+    <div class="divider"><span>05 · CORE CAPABILITIES</span></div>
+    <div class="feature-grid">
+      <div class="feature-card">
+        <h3><span>🎨</span> HTML 渲染引擎</h3>
+        <p>将 .docx / .xlsx / .pptx 高保真渲染为 HTML / PNG，无需依赖 COM 接口或 LibreOffice。</p>
+        <ul>
+          <li><strong>原理：</strong>原生 OOXML 解析，保留字体/颜色/布局</li>
+          <li><strong>输出：</strong>HTML 矢量渲染 或 PNG 位图截图</li>
+          <li><strong>优势：</strong>Agent 看到渲染结果后才能精准修改</li>
+          <li><strong>限制：</strong>复杂 VBA 宏和 OLE 对象不渲染</li>
+        </ul>
+      </div>
+      <div class="feature-card">
+        <h3><span>📊</span> 350+ Excel 函数解析</h3>
+        <p>内置公式引擎，覆盖 SUM / VLOOKUP / INDEX / MATCH / XLOOKUP 等 350+ 函数，解析在本地完成。</p>
+        <ul>
+          <li><strong>数学类：</strong>SUM, AVERAGE, COUNT, MAX, MIN, IF, IFS</li>
+          <li><strong>查找类：</strong>VLOOKUP, HLOOKUP, INDEX, MATCH, XLOOKUP</li>
+          <li><strong>文本类：</strong>CONCATENATE, LEFT, RIGHT, MID, TRIM</li>
+          <li><strong>输出：</strong>结构化 JSON，结果可被 Agent 直接使用</li>
+        </ul>
+      </div>
+      <div class="feature-card">
+        <h3><span>🔌</span> MCP Server 原生</h3>
+        <p>内置 MCP Server，原生对接 Claude Code、Codex、Cursor、OpenClaw 等主流 AI Agent。</p>
+        <ul>
+          <li><strong>接入方式：</strong>一行配置 settings.json</li>
+          <li><strong>协议：</strong>标准 MCP over stdio</li>
+          <li><strong>工具：</strong>doc/xlsx/ppt read/write/update/render</li>
+          <li><strong>适用：</strong>需要 Agent 操作 Office 文档的所有场景</li>
+        </ul>
+      </div>
+      <div class="feature-card">
+        <h3><span>📁</span> 路径式元素访问</h3>
+        <p>document.tables[0].rows[2].cells[1] 语法，比操作 XML 直观 10 倍。</p>
+        <ul>
+          <li><strong>语法：</strong>类似 JavaScript 的点号访问</li>
+          <li><strong>模板：</strong>一份模板 + JSON = N 份定制化文档</li>
+          <li><strong>批量：</strong>高效复用上下文，适合大规模文档生产</li>
+          <li><strong>示例：</strong>paragraphs[0].bold = true; cells[2][1].value = "新内容"</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 6. Architecture -->
+    <div class="divider"><span>06 · ARCHITECTURE</span></div>
+    <div class="columns">
+      <div class="col-card c1">
+        <div class="col-header">
+          <strong class="col-cn">🎯 AI Interface</strong>
+          <span class="col-en c1">接口层</span>
+        </div>
+        <ul class="col-list">
+          <li>MCP Server 原生集成</li>
+          <li>Direct CLI 调用</li>
+          <li>JSON 结构化输出</li>
+          <li>标准输入输出流</li>
+        </ul>
+      </div>
+      <div class="col-card c2">
+        <div class="col-header">
+          <strong class="col-cn">⚙️ Core Engine</strong>
+          <span class="col-en c2">核心层</span>
+        </div>
+        <ul class="col-list">
+          <li>HTML Renderer 渲染引擎</li>
+          <li>Formula Engine 公式解析</li>
+          <li>Template Merge 模板合并</li>
+          <li>零外部依赖</li>
+        </ul>
+      </div>
+      <div class="col-card c3">
+        <div class="col-header">
+          <strong class="col-cn">📄 File I/O</strong>
+          <span class="col-en c3">文件层</span>
+        </div>
+        <ul class="col-list">
+          <li>Word (.docx) OOXML</li>
+          <li>Excel (.xlsx) OOXML</li>
+          <li>PowerPoint (.pptx) OOXML</li>
+          <li>无需 Microsoft Office</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="agent-note">
+      <div class="agent-note-header">
+        <span>🤖</span>
+        <span class="agent-note-label">AGENT NOTE</span>
+      </div>
+      <p>
+        <strong>为什么 AI Agent 应该用 OfficeCLI 而不是自己写 Python 脚本？</strong><br><br>
+        传统方式让 AI 写 Python 代码调用 python-docx / openpyxl，改个颜色得重跑一遍。OfficeCLI 让 AI 直接操控文档，看见结果再迭代——所见即所得的 Agent 版本。
+      </p>
+    </div>
+
+    <!-- 7. Comparison -->
+    <div class="divider"><span>07 · COMPARISON</span></div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>对比项</th>
+            <th>python-docx + openpyxl</th>
+            <th>OfficeCLI</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Agent 集成</strong></td>
+            <td>需写 Python 脚本，3 套格式库</td>
+            <td><span class="yes">一行命令，3 种格式统一接口</span></td>
+          </tr>
+          <tr>
+            <td><strong>MCP 支持</strong></td>
+            <td><span class="no">无，需自行封装</span></td>
+            <td><span class="yes">原生 MCP Server，开箱即用</span></td>
+          </tr>
+          <tr>
+            <td><strong>排版预览</strong></td>
+            <td>需 Excel 或 LibreOffice 才能预览</td>
+            <td><span class="yes">内置 HTML 渲染，实时预览</span></td>
+          </tr>
+          <tr>
+            <td><strong>Excel 函数</strong></td>
+            <td>公式原样保留无法计算</td>
+            <td><span class="yes">350+ 函数本地解析，JSON 输出</span></td>
+          </tr>
+          <tr>
+            <td><strong>路径式访问</strong></td>
+            <td>XML 节点操作，繁琐易错</td>
+            <td><span class="yes">document.tables[0]，直观自然</span></td>
+          </tr>
+          <tr>
+            <td><strong>Office 依赖</strong></td>
+            <td>文件层面无依赖</td>
+            <td><span class="yes">零依赖，单二进制</span></td>
+          </tr>
+          <tr>
+            <td><strong>跨平台</strong></td>
+            <td>✅ Linux / macOS / Windows</td>
+            <td>✅ Linux / macOS / Windows WSL</td>
+          </tr>
+          <tr>
+            <td><strong>学习曲线</strong></td>
+            <td><span class="warn">需学习 3 个库各自的 API</span></td>
+            <td><span class="yes">统一 CLI，一套语法走天下</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 8. Use Cases -->
+    <div class="divider"><span>08 · USE CASES</span></div>
+    <div class="usecase-grid">
+      <div class="usecase">
+        <h4>📄 报表自动化</h4>
+        <p>无 GUI 服务器环境，定时生成 Excel 报表、Word 分析报告、PowerPoint 演示文稿，Agent 驱动全流程，零人工干预。</p>
+      </div>
+      <div class="usecase">
+        <h4>📝 合同批量生成</h4>
+        <p>模板 + 数据 JSON = 批量定制化合同、证书、授权书。Resident Mode 高效复用上下文，适合大规模文档生产。</p>
+      </div>
+      <div class="usecase">
+        <h4>🔍 文档分析与学习</h4>
+        <p>Round-trip dump 现有文档为结构化数据（JSON / Markdown），Agent 学习风格后再生成新文档，保持格式一致性。</p>
+      </div>
+      <div class="usecase">
+        <h4>🤖 Agent 工具链集成</h4>
+        <p>MCP Server 对接 Claude Code / Codex / Cursor / OpenClaw，让 AI 在编程任务中直接输出 Word/Excel/PPT。</p>
+      </div>
+    </div>
+
+    <!-- 9. Three Integration Methods -->
+    <div class="divider"><span>09 · INTEGRATION METHODS</span></div>
+    <div class="columns">
+      <div class="col-card c1">
+        <div class="col-header">
+          <strong class="col-cn">🔌 MCP Server（推荐）</strong>
+          <span class="col-en c1">方式一</span>
+        </div>
+        <ul class="col-list">
+          <li>Claude Desktop / Cursor 等</li>
+          <li>一行命令启动</li>
+          <li>officecli mcp --stdio</li>
+        </ul>
+      </div>
+      <div class="col-card c2">
+        <div class="col-header">
+          <strong class="col-cn">⚡ Direct CLI</strong>
+          <span class="col-en c2">方式二</span>
+        </div>
+        <ul class="col-list">
+          <li>任意 Agent 直接调用</li>
+          <li>officecli ppt create ...</li>
+          <li>灵活自定义集成</li>
+        </ul>
+      </div>
+      <div class="col-card c3">
+        <div class="col-header">
+          <strong class="col-cn">📁 路径式 API</strong>
+          <span class="col-en c3">方式三</span>
+        </div>
+        <ul class="col-list">
+          <li>Agent 精准操控元素</li>
+          <li>document.tables[0]...</li>
+          <li>细粒度控制</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="code-block">
+      <pre><span class="comment"># 方式一：MCP Server（推荐）— Claude Desktop / Cursor 等</span>
+<span class="cmd">officecli</span> mcp --stdio
+
+<span class="comment"># 方式二：Direct CLI — 任意 Agent 直接调用</span>
+<span class="cmd">officecli</span> ppt create presentation.pptx \
+  <span class="kw">--template</span> ./template.pptx \
+  <span class="kw">--data</span> ./report-data.json
+
+<span class="comment"># 方式三：路径式 API — Agent 精准操控元素</span>
+<span class="cmd">officecli</span> doc update contract.docx \
+  <span class="kw">--path</span> paragraphs[0] \
+  <span class="kw">--bold</span> \
+  <span class="kw">--color</span> #1a1a1a</pre>
+    </div>
+
+    <!-- 10. Quote -->
+    <div class="quote-band">
+      <span class="quote-mark">"</span>
+      <div>
+        <p class="quote-text">让 AI 直接"看见"文档排版，反复迭代直到满意。</p>
+        <span class="quote-source">— OfficeCLI 设计哲学</span>
+      </div>
+    </div>
+
+    <!-- 11. Footer -->
+    <div class="divider"><span>10 · FOOTER</span></div>
+    <div class="footer">
+      <span>⭐ 28,000+ Stars · Apache-2.0 · 单二进制 · 零依赖</span>
+      <span style="font:800 20px/1 ui-monospace,monospace;letter-spacing:.06em;text-transform:uppercase;color:var(--accent)">github.com/iOfficeAI/OfficeCLI</span>
+    </div>
+
+  </div>
+</body>
+</html>
