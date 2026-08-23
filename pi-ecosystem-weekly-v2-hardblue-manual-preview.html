@@ -26,7 +26,7 @@
 <div class="gzh-toast" id="gzhToast"></div>
 <div class="gzh-stage">
   <div id="gzh-content">
-<section style="max-width:677px;margin:0 auto;padding:10px;background:#ffffff;color:#374151;font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;line-height:1.8;letter-spacing:0.5px;">
+<section style="max-width:677px;margin:0 auto;padding:10px;background:#ffffff;color:#374151;font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;line-height:1.8;letter-spacing:0.5px;text-align:left;">
 
 <!-- 封面图 -->
 <section style="margin:0 0 14px;">
@@ -60,21 +60,21 @@
 <section style="background:#FFF;border:2px solid #111;border-radius:8px;padding:14px 12px;margin:0 0 10px;">
   <span style="display:block;font-size:10px;font-weight:800;color:#1F63FF;margin-bottom:6px;"><span leaf="">0.84.0 · 2026-08-06</span></span>
   <span style="display:block;font-size:14px;font-weight:800;color:#111;margin-bottom:6px;"><span leaf="">Provider API 重构 + 事务性 Context</span></span>
-  <span style="display:block;font-size:12px;color:#374151;line-height:1.7;"><span leaf="">ModelsRequestTransforms 替换 ModelsStreamTransforms，统一请求/响应标准化路径；Fireworks GLM 5.2 缓存修复。context.stored 存储中间状态，context.publish() 提交变更，原子化操作避免状态污染。</span></span>
+  <span style="display:block;font-size:12px;color:#374151;line-height:1.7;text-align:left;"><span leaf="">ModelsRequestTransforms 替换 ModelsStreamTransforms，统一请求/响应标准化路径；Fireworks GLM 5.2 缓存修复。context.stored 存储中间状态，context.publish() 提交变更，原子化操作避免状态污染。</span></span>
 </section>
 
 <!-- 0.84.1 -->
 <section style="background:#FFF;border:2px solid #111;border-radius:8px;padding:14px 12px;margin:0 0 10px;">
   <span style="display:block;font-size:10px;font-weight:800;color:#1F63FF;margin-bottom:6px;"><span leaf="">0.84.1 · 2026-08-07</span></span>
   <span style="display:block;font-size:14px;font-weight:800;color:#111;margin-bottom:6px;"><span leaf="">Qwen 订阅制 + DeepSeek 兼容修复</span></span>
-  <span style="display:block;font-size:12px;color:#374151;line-height:1.7;"><span leaf="">新增订阅制模型目录 Provider，支持 Qwen 全系订阅模型，Token Plan 订阅用户可直接接入。大写 Hostname 兼容问题修复，API 端点解析正确，V4/V3 全系兼容。</span></span>
+  <span style="display:block;font-size:12px;color:#374151;line-height:1.7;text-align:left;"><span leaf="">新增订阅制模型目录 Provider，支持 Qwen 全系订阅模型，Token Plan 订阅用户可直接接入。大写 Hostname 兼容问题修复，API 端点解析正确，V4/V3 全系兼容。</span></span>
 </section>
 
 <!-- 0.84.2 -->
 <section style="background:#FFF;border:2px solid #111;border-radius:8px;padding:14px 12px;margin:0 0 14px;">
   <span style="display:block;font-size:10px;font-weight:800;color:#1F63FF;margin-bottom:6px;"><span leaf="">0.84.2 · 2026-08-14</span></span>
   <span style="display:block;font-size:14px;font-weight:800;color:#111;margin-bottom:6px;"><span leaf="">Kimi UA 修复 + 严格 Tool Schema 兼容</span></span>
-  <span style="display:block;font-size:12px;color:#374151;line-height:1.7;"><span leaf="">Kimi Coding 请求改用 runtime User-Agent，绕过爬虫检测，提升 Kimi 模型可用性。严格工具 schema 自动转 provider 兼容 closed objects，避免 schema 冲突导致的调用失败。</span></span>
+  <span style="display:block;font-size:12px;color:#374151;line-height:1.7;text-align:left;"><span leaf="">Kimi Coding 请求改用 runtime User-Agent，绕过爬虫检测，提升 Kimi 模型可用性。严格工具 schema 自动转 provider 兼容 closed objects，避免 schema 冲突导致的调用失败。</span></span>
 </section>
 
 <!-- 分隔线 -->
@@ -92,7 +92,7 @@
   <section style="flex:1;background:#FEF2F2;border-radius:8px;padding:10px 6px;margin-right:6px;text-align:center;">
     <span style="display:block;font-size:10px;font-weight:800;color:#DC2626;"><span leaf="">🛠️ TOOL 层</span></span>
     <span style="display:block;font-size:10px;color:#333;"><span leaf="">MCP 协议兼容</span></span>
-    <span style="display:block;font-size:9px;color:#666;margin-top:4px;"><span leaf="">Bash/Edit/Glob/Read/WebSearch</span></span>
+    <span style="display:block;font-size:9px;color:#666;margin-top:4px;"><span leaf="">Bash / Edit / WebSearch</span></span>
   </section>
   <section style="flex:1;background:#E8F1FF;border-radius:8px;padding:10px 6px;margin-right:6px;text-align:center;">
     <span style="display:block;font-size:10px;font-weight:800;color:#1F63FF;"><span leaf="">🔌 PROVIDER 层</span></span>
@@ -102,7 +102,7 @@
   <section style="flex:1;background:#111111;border-radius:8px;padding:10px 6px;text-align:center;">
     <span style="display:block;font-size:10px;font-weight:800;color:#FFF;"><span leaf="">🤖 MODEL 层</span></span>
     <span style="display:block;font-size:10px;color:#CCC;"><span leaf="">多模型支持</span></span>
-    <span style="display:block;font-size:9px;color:#888;margin-top:4px;"><span leaf="">Streaming/Tool Call/Context</span></span>
+    <span style="display:block;font-size:9px;color:#888;margin-top:4px;"><span leaf="">Stream / Tool / Context</span></span>
   </section>
 </section>
 
@@ -140,7 +140,7 @@
 <!-- 缓存洞察结论卡 -->
 <section style="background:#111;border-radius:10px;padding:14px;margin:0 0 14px;">
   <span style="display:block;font-size:10px;font-weight:800;color:#E8F1FF;margin-bottom:8px;"><span leaf="">核心洞察</span></span>
-  <span style="display:block;font-size:14px;font-weight:800;color:#FFF;line-height:1.7;"><span leaf="">高频 Agent 场景（代码补全、重复重构）天然产生大量缓存命中。将思考（Thinking）从强制开销变成按需工具调用，可显著降低实际成本。</span></span>
+  <span style="display:block;font-size:14px;font-weight:800;color:#FFF;line-height:1.7;text-align:left;"><span leaf="">高频 Agent 场景（代码补全、重复重构）天然产生大量缓存命中。将思考（Thinking）从强制开销变成按需工具调用，可显著降低实际成本。</span></span>
 </section>
 
 <!-- 分隔线 -->
@@ -153,9 +153,9 @@
   <h3 style="font-size:16px;font-weight:800;color:#111;margin:6px 0 0;"><span leaf="">新插件体系</span></h3>
 </section>
 
-<span style="display:block;font-size:14px;line-height:1.8;margin:0 0 12px;"><span leaf="">Pi 在 0.84.x 周期内同步推进插件体系，支持更多第三方集成。</span></span>
-<span style="display:block;font-size:14px;line-height:1.8;margin:0 0 12px;"><span leaf="">新插件通过统一插件接口注册，自动获得 Tool / Provider / Model 三层能力，无需重复适配。</span></span>
-<span style="display:block;font-size:14px;line-height:1.8;margin:0 0 12px;"><span leaf="">Pi 插件市场正在建设中，预计下周周报将有更完整覆盖。</span></span>
+<span style="display:block;font-size:14px;line-height:1.8;margin:0 0 12px;text-align:left;"><span leaf="">Pi 在 0.84.x 周期内同步推进插件体系，支持更多第三方集成。</span></span>
+<span style="display:block;font-size:14px;line-height:1.8;margin:0 0 12px;text-align:left;"><span leaf="">新插件通过统一插件接口注册，自动获得 Tool / Provider / Model 三层能力，无需重复适配。</span></span>
+<span style="display:block;font-size:14px;line-height:1.8;margin:0 0 12px;text-align:left;"><span leaf="">Pi 插件市场正在建设中，预计下周周报将有更完整覆盖。</span></span>
 
 <!-- 分隔线 -->
 <section style="height:1px;background:#E5E7EB;margin:0 0 14px;"><span leaf=""><br></span></section>
@@ -225,10 +225,10 @@
 </section>
 
 <!-- 资料来源 -->
-<section style="border:1px solid #E5E7EB;border-radius:8px;background:#FAFAFA;padding:10px 12px;margin:0 0 12px;">
-  <span style="display:block;font-size:10px;font-weight:800;color:#5F5950;margin-bottom:4px;"><span leaf="">资料来源</span></span>
-  <span style="display:block;font-size:11px;color:#5F5950;line-height:1.6;"><span leaf="">Pi GitHub: https://github.com/earendil-works/pi</span></span>
-  <span style="display:block;font-size:11px;color:#5F5950;line-height:1.6;"><span leaf="">Pi Release Notes: https://github.com/earendil-works/pi/releases</span></span>
+<section style="border:1px solid #E5E7EB;border-radius:8px;background:#FAFAFA;padding:10px 12px;margin:0 0 12px;text-align:left;">
+  <span style="display:block;font-size:10px;font-weight:800;color:#5F5950;margin-bottom:4px;text-align:left;"><span leaf="">资料来源</span></span>
+  <span style="display:block;font-size:11px;color:#5F5950;line-height:1.6;text-align:left;"><span leaf="">Pi GitHub: https://github.com/earendil-works/pi</span></span>
+  <span style="display:block;font-size:11px;color:#5F5950;line-height:1.6;text-align:left;"><span leaf="">Pi Release Notes: https://github.com/earendil-works/pi/releases</span></span>
 </section>
 
 </section>
