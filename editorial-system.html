@@ -1,0 +1,590 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>编辑系统风 · 移动端公众号主题预览</title>
+<style>
+/* ─── Page-level shell (NOT part of copyable body) ─── */
+*{box-sizing:border-box}
+html,body{margin:0;background:#e9e7e1;color:#171717;font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif}
+body{padding:16px 16px 60px}
+.shell{max-width:520px;margin:0 auto}
+.page-badge{margin:0 0 6px;font:700 10px/1 ui-monospace,Menlo,monospace;letter-spacing:.12em;color:#63bd79}
+.page-title{margin:0 0 14px;font:700 13px/1.4 ui-monospace,Menlo,monospace;color:#17324d}
+.toolbar{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:14px;padding:10px 12px;background:#17324d;color:#fffdf8;font:700 11px/1.2 ui-monospace,Menlo,monospace;letter-spacing:.05em}
+.toolbar button{border:1px solid #dfe9f2;background:#fffdf8;color:#17324d;padding:5px 9px;font:700 11px/1 ui-monospace,Menlo,monospace;cursor:pointer}
+
+/* ─── Phone mockup frame ─── */
+.phone{background:#f5f2eb;border:1px solid #d8d2c8;box-shadow:0 8px 24px rgba(23,23,23,.1);overflow:hidden;border-radius:2px}
+.phone>*{max-width:100%}
+
+/* ─── Masthead ─── */
+.mast{padding:10px 18px;border-top:2px solid #1d1d1b;border-bottom:1px solid #1d1d1b;font:700 10px/1.5 ui-monospace,Menlo,monospace;letter-spacing:.1em;color:#17324d}
+.mast small{display:block;margin-top:4px;color:#6b665e;font-size:10px;letter-spacing:.05em}
+
+/* ─── Hero ─── */
+.hero{padding:18px 18px 22px;border-bottom:1px solid #1d1d1b}
+.hero .section-label{margin:0 0 10px;font:700 10px/1.2 ui-monospace,Menlo,monospace;letter-spacing:.13em;color:#17324d;text-transform:uppercase}
+.hero h1{margin:0 0 13px;font:700 31px/1.08 Georgia,"Songti SC","STSong",serif;letter-spacing:-.02em;color:#171717}
+.hero .sub{margin:0;color:#6b665e;font-size:15px;line-height:1.78}
+
+/* ─── Intro card ─── */
+.intro-card{padding:18px 16px;background:#fffdf8;border-bottom:1px solid #d8d2c8}
+.intro-card .card-label{margin:0 0 9px;font:700 11px/1.2 ui-monospace,Menlo,monospace;letter-spacing:.12em;color:#17324d}
+.intro-card p{margin:0;font-size:15px;line-height:1.88;color:#171717}
+
+/* ─── Section heading ─── */
+.section-hd{margin:28px 18px 16px;padding:0 0 10px;border-bottom:1px solid #d8d2c8}
+.section-hd .num{margin:0 0 6px;font:700 10px/1.2 ui-monospace,Menlo,monospace;letter-spacing:.12em;color:#17324d}
+.section-hd h2{margin:0 0 4px;font:700 22px/1.35 Georgia,"Songti SC",serif;color:#171717}
+.section-hd .tag{margin:0;font:700 10px/1.2 ui-monospace,Menlo,monospace;letter-spacing:.1em;color:#63bd79}
+
+/* ─── Core judgment bar ─── */
+.core-judgment{margin:0 18px 20px;padding:13px 0;border-top:3px solid #17324d;border-bottom:1px solid #1d1d1b;font:700 15px/1.72 Georgia,"Songti SC",serif;color:#17324d}
+
+/* ─── Body paragraph ─── */
+.body-paragraph{padding:0 18px;margin:0 0 16px;font-size:15px;line-height:1.88;color:#171717}
+
+/* ─── Module card green ─── */
+.mod-green{margin:0 18px 14px;padding:15px;background:#e4eee8;border:1px solid #d8d2c8}
+.mod-green .mod-label{margin:0 0 5px;font:700 10px/1.2 ui-monospace,Menlo,monospace;color:#17324d;letter-spacing:.08em}
+.mod-green h3{margin:0 0 6px;font:700 18px/1.3 Georgia,"Songti SC",serif;color:#171717}
+.mod-green p{margin:0;font-size:14px;line-height:1.75;color:#6b665e}
+
+/* ─── Module card blue ─── */
+.mod-blue{margin:0 18px 14px;padding:15px;background:#e5eef4;border:1px solid #d8d2c8}
+.mod-blue .mod-label{margin:0 0 5px;font:700 10px/1.2 ui-monospace,Menlo,monospace;color:#17324d;letter-spacing:.08em}
+.mod-blue h3{margin:0 0 6px;font:700 18px/1.3 Georgia,"Songti SC",serif;color:#171717}
+.mod-blue p{margin:0;font-size:14px;line-height:1.75;color:#6b665e}
+
+/* ─── Left-bar subtitle ─── */
+.left-subtitle{margin:22px 18px 14px;padding-left:12px;border-left:3px solid #17324d;font-size:16px;font-weight:700;line-height:1.5;color:#171717}
+
+/* ─── Quote ─── */
+.quote-block{margin:0 18px 20px;padding:14px 16px;background:#dfe9f2;border-left:4px solid #17324d;font:700 15px/1.8 Georgia,"Songti SC",serif;color:#17324d}
+
+/* ─── Step flow ─── */
+.step-item{display:flex;gap:10px;align-items:flex-start;padding:0 18px 12px;margin:0 0 12px;border-bottom:1px solid #d8d2c8}
+.step-item:last-of-type{margin-bottom:0}
+.step-badge{display:block;flex:0 0 28px;width:28px;height:28px;border-radius:50%;background:#17324d;color:#fffdf8;text-align:center;font:700 12px/28px Arial,sans-serif}
+.step-badge.green{background:#63bd79}
+.step-text{display:block;flex:1;font-size:15px;line-height:1.8;color:#171717}
+
+/* ─── Code dark ─── */
+.code-dark{margin:0 18px 18px;border-radius:5px;overflow:hidden;background:#17324d}
+.code-dark-header{padding:7px 14px;border-bottom:1px solid rgba(255,255,255,.18);font:700 10px/1.2 ui-monospace,Menlo,monospace;letter-spacing:.1em;color:#dfe9f2}
+.code-dark-body{padding:12px 14px}
+.code-line{margin:0;font:12px/1.65 ui-monospace,Menlo,monospace;color:#fffdf8;word-break:break-all;overflow-wrap:anywhere}
+
+/* ─── Code light ─── */
+.code-light{margin:0 18px 18px;padding:11px 14px;background:#e5eef4;border-left:3px solid #17324d}
+.code-light-line{margin:0;font:12px/1.65 ui-monospace,Menlo,monospace;color:#171717;word-break:break-all;overflow-wrap:anywhere}
+
+/* ─── Image placeholder ─── */
+.img-block{margin:0 18px 8px;padding:6px;background:#fffdf8;border:1px solid #d8d2c8}
+.img-block img{max-width:100%;height:auto;display:block;margin:0 auto}
+.img-caption{margin:0 0 18px 18px;font-size:12px;line-height:1.6;color:#6b665e}
+
+/* ─── Pending placeholder ─── */
+.pending{margin:0 18px 18px;padding:22px 16px;border:1px dashed #d8d2c8;background:#fffdf8;text-align:center}
+.pending-emoji{margin:0 0 6px;font-size:22px;line-height:1}
+.pending-text{margin:0;font-size:12px;font-weight:700;color:#6b665e}
+
+/* ─── Checklist ─── */
+.checklist{margin:0 18px 18px;padding:14px 16px;background:#fffdf8;border:1px solid #d8d2c8}
+.checklist-label{margin:0 0 8px;font:700 11px/1.2 ui-monospace,Menlo,monospace;color:#17324d;letter-spacing:.1em}
+.check-item{margin:0 0 7px;font-size:14px;line-height:1.78;color:#6b665e}
+.check-item:last-child{margin-bottom:0}
+
+/* ─── Parameter card ─── */
+.param-card{margin:0 18px 18px;padding:14px;background:#fffdf8;border:1px solid #d8d2c8}
+.param-label{margin:0 0 9px;font:700 11px/1.2 ui-monospace,Menlo,monospace;color:#17324d;letter-spacing:.1em}
+.param-row{margin:0 0 6px;font-size:14px;line-height:1.72;color:#171717}
+.param-row:last-child{margin-bottom:0}
+
+/* ─── Closing ─── */
+.closing{margin:28px 0 0;padding:20px 16px;background:#17324d}
+.closing-label{margin:0 0 7px;font:700 10px/1.2 ui-monospace,Menlo,monospace;letter-spacing:.12em;color:#63bd79}
+.closing h2{margin:0 0 13px;font:700 21px/1.35 Georgia,"Songti SC",serif;color:#fffdf8}
+.closing p{margin:0;font-size:14px;line-height:1.8;color:#dfe9f2}
+
+/* ─── Author & Sources ─── */
+.author-bar{margin:0;padding:14px 18px;border-top:1px solid #1d1d1b;background:#fffdf8}
+.author-row{margin:0 0 7px;font-size:14px;line-height:1.7;color:#171717}
+.author-row:last-child{margin-bottom:0}
+.sources-bar{margin:0;padding:14px 18px;border-top:1px solid #1d1d1b}
+.sources-label{margin:0 0 7px;font:700 11px/1.2 ui-monospace,Menlo,monospace;color:#17324d;letter-spacing:.1em}
+.sources-row{margin:0;font-size:12px;line-height:1.75;color:#6b665e;word-break:break-all;overflow-wrap:anywhere}
+
+/* ─── Gallery ─── */
+.gallery{margin-top:36px;padding-top:24px;border-top:2px solid #d8d2c8}
+.gallery h2{margin:0 0 6px;font:700 16px/1.4 Georgia,"Songti SC",serif;color:#171717}
+.gallery-note{margin:0 0 18px;font-size:13px;line-height:1.7;color:#6b665e}
+.g-section{margin-bottom:26px}
+.g-section-title{margin:0 0 8px;font:700 11px/1.2 ui-monospace,Menlo,monospace;letter-spacing:.12em;color:#17324d}
+.g-row{display:flex;flex-direction:column;gap:8px}
+
+/* ─── Gallery sample cards ─── */
+.g-mast{padding:10px 18px;border-top:2px solid #1d1d1b;border-bottom:1px solid #1d1d1b;font:700 10px/1.5 ui-monospace,Menlo,monospace;letter-spacing:.1em;color:#17324d}
+.g-mast small{display:block;margin-top:4px;color:#6b665e;font-size:10px}
+.g-hero{padding:16px 18px 20px;border-bottom:1px solid #1d1d1b}
+.g-hero .label{margin:0 0 8px;font:700 10px/1.2 ui-monospace,Menlo,monospace;letter-spacing:.12em;color:#17324d}
+.g-hero h1{margin:0 0 10px;font:700 26px/1.1 Georgia,"Songti SC",serif}
+.g-hero p{margin:0;color:#6b665e;font-size:14px;line-height:1.7}
+.g-intro{padding:15px 16px;background:#fffdf8;border-left:4px solid #17324d;border-bottom:1px solid #d8d2c8}
+.g-intro strong{margin:0 0 7px;font:700 11px/1.2 ui-monospace,Menlo,monospace;letter-spacing:.12em;color:#17324d;display:block}
+.g-intro p{margin:0;font-size:14px;line-height:1.8;color:#171717}
+.g-sec-hd{margin:22px 0 14px;padding:0 0 9px;border-bottom:1px solid #d8d2c8}
+.g-sec-hd .num{margin:0 0 5px;font:700 10px/1.2 ui-monospace,Menlo,monospace;letter-spacing:.12em;color:#17324d}
+.g-sec-hd h2{margin:0 0 3px;font:700 20px/1.3 Georgia,"Songti SC",serif}
+.g-sec-hd .tag{margin:0;font:700 10px/1.2 ui-monospace,Menlo,monospace;letter-spacing:.1em;color:#63bd79}
+.g-signal{margin:0;padding:11px 0;border-top:3px solid #17324d;border-bottom:1px solid #1d1d1b;font:700 14px/1.72 Georgia,"Songti SC",serif;color:#17324d}
+.g-mod-green{padding:14px;background:#e4eee8;border:1px solid #d8d2c8}
+.g-mod-green b{display:block;margin-bottom:4px;font:700 10px/1.2 ui-monospace,Menlo,monospace;color:#17324d;letter-spacing:.08em}
+.g-mod-green h3{margin:0 0 5px;font:700 17px/1.3 Georgia,"Songti SC",serif}
+.g-mod-green p{margin:0;font-size:13px;line-height:1.75;color:#6b665e}
+.g-mod-blue{padding:14px;background:#e5eef4;border:1px solid #d8d2c8}
+.g-mod-blue b{display:block;margin-bottom:4px;font:700 10px/1.2 ui-monospace,Menlo,monospace;color:#17324d;letter-spacing:.08em}
+.g-mod-blue h3{margin:0 0 5px;font:700 17px/1.3 Georgia,"Songti SC",serif}
+.g-mod-blue p{margin:0;font-size:13px;line-height:1.75;color:#6b665e}
+.g-left-sub{padding-left:11px;border-left:3px solid #17324d;font-size:15px;font-weight:700;line-height:1.5;color:#171717}
+.g-quote{padding:13px 14px;background:#dfe9f2;border-left:4px solid #17324d;font:700 14px/1.8 Georgia,"Songti SC",serif;color:#17324d}
+.g-step{display:flex;gap:9px;align-items:flex-start;padding:0 0 11px;border-bottom:1px solid #d8d2c8}
+.g-step i{display:block;flex:0 0 26px;width:26px;height:26px;border-radius:50%;background:#17324d;color:#fffdf8;text-align:center;font:700 11px/26px Arial,sans-serif}
+.g-step i.green{background:#63bd79}
+.g-step span{flex:1;font-size:14px;line-height:1.8;color:#171717}
+.g-check{padding:13px 15px;background:#fffdf8;border:1px solid #d8d2c8}
+.g-check b{display:block;margin-bottom:7px;font:700 10px/1.2 ui-monospace,Menlo,monospace;color:#17324d;letter-spacing:.1em}
+.g-check p{margin:0 0 6px;font-size:13px;line-height:1.78;color:#6b665e}
+.g-check p:last-child{margin-bottom:0}
+.g-params{padding:13px;background:#fffdf8;border:1px solid #d8d2c8}
+.g-params b{display:block;margin-bottom:8px;font:700 10px/1.2 ui-monospace,Menlo,monospace;color:#17324d;letter-spacing:.1em}
+.g-params p{margin:0 0 5px;font-size:13px;line-height:1.72;color:#171717}
+.g-params p:last-child{margin-bottom:0}
+.g-code-dark{border-radius:5px;overflow:hidden;background:#17324d}
+.g-code-dark-header{padding:7px 13px;border-bottom:1px solid rgba(255,255,255,.18);font:700 10px/1.2 ui-monospace,Menlo,monospace;letter-spacing:.1em;color:#dfe9f2}
+.g-code-dark-body{padding:10px 13px}
+.g-code-dark-body p{margin:0;font:12px/1.65 ui-monospace,Menlo,monospace;color:#fffdf8;word-break:break-all;overflow-wrap:anywhere}
+.g-code-light{padding:10px 13px;background:#e5eef4;border-left:3px solid #17324d}
+.g-code-light p{margin:0;font:12px/1.65 ui-monospace,Menlo,monospace;color:#171717;word-break:break-all;overflow-wrap:anywhere}
+.g-img{padding:5px;background:#fffdf8;border:1px solid #d8d2c8}
+.g-img img{max-width:100%;height:90px;object-fit:cover;display:block;margin:0 auto;opacity:.6}
+.g-caption{margin:0;font-size:12px;line-height:1.6;color:#6b665e;text-align:center}
+.g-pending{padding:20px 14px;border:1px dashed #d8d2c8;background:#fffdf8;text-align:center}
+.g-pending p{margin:0 0 5px;font-size:20px;line-height:1}
+.g-pending small{margin:0;font-size:12px;font-weight:700;color:#6b665e}
+.g-closing{padding:18px 14px;background:#17324d}
+.g-closing b{display:block;margin-bottom:6px;font:700 10px/1.2 ui-monospace,Menlo,monospace;letter-spacing:.12em;color:#63bd79}
+.g-closing h2{margin:0 0 10px;font:700 20px/1.35 Georgia,"Songti SC",serif;color:#fffdf8}
+.g-closing p{margin:0;font-size:13px;line-height:1.8;color:#dfe9f2}
+.g-author{padding:13px 14px;border-top:1px solid #1d1d1b;background:#fffdf8}
+.g-author p{margin:0 0 6px;font-size:13px;line-height:1.7;color:#171717}
+.g-author p:last-child{margin-bottom:0}
+.g-sources{padding:13px 14px;border-top:1px solid #1d1d1b}
+.g-sources b{display:block;margin-bottom:6px;font:700 10px/1.2 ui-monospace,Menlo,monospace;color:#17324d;letter-spacing:.1em}
+.g-sources p{margin:0;font-size:12px;line-height:1.75;color:#6b665e;word-break:break-all;overflow-wrap:anywhere}
+.g-boundary{margin-top:16px;padding:13px 14px;border:1px solid #d8d2c8;background:#fffdf8;font-size:12px;line-height:1.7;color:#6b665e}
+</style>
+</head>
+<body>
+<div class="shell">
+
+<!-- ═══════════════════════════════════════════
+     MOBILE PREVIEW TOOLBAR
+═══════════════════════════════════════════ -->
+<p class="page-badge">EDITORIAL SYSTEM · MOBILE PREVIEW</p>
+<p class="page-title">预览壳使用页面级 CSS/JS · 被复制正文仅含内联样式与 span leaf</p>
+<div class="toolbar">
+  <span>EDITORIAL SYSTEM / ISSUE 01</span>
+  <button type="button" onclick="copyBody()">复制正文示例</button>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     FULL EXAMPLE ARTICLE
+═══════════════════════════════════════════ -->
+<main class="phone" id="body-preview">
+
+  <!-- Masthead -->
+  <header class="mast">
+    <span>EDITORIAL SYSTEM / ISSUE 01</span>
+    <small>移动端公众号版 · 2026</small>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <p class="section-label">A REUSABLE READING SYSTEM</p>
+    <h1>让复杂内容拥有清晰的版面秩序</h1>
+    <p class="sub">用栏目、编号与规则线，把一组事实编排成可扫描、可引用、可继续编辑的知识页面。</p>
+  </section>
+
+  <!-- Intro card -->
+  <section class="intro-card">
+    <p class="card-label">READING NOTE</p>
+    <p>先看结论，再沿着编号章节进入细节；每一块内容都应能独立被引用。编号体系让文章可以被精准定位，规则线让层次一目了然。</p>
+  </section>
+
+  <!-- Section 01 -->
+  <div class="section-hd">
+    <p class="num">01 · SECTION</p>
+    <h2>核心判断：先建立阅读路径</h2>
+    <p class="tag">CORE JUDGMENT</p>
+  </div>
+
+  <!-- Core judgment bar -->
+  <div class="core-judgment">核心判断：阅读路径本身，就是信息卡最重要的界面。</div>
+
+  <!-- Module cards -->
+  <div class="mod-green">
+    <p class="mod-label">MODULE 01</p>
+    <h3>把视觉 token 写清楚</h3>
+    <p>颜色、字体、间距和组件理由，都应该成为可复用的上下文。</p>
+  </div>
+  <div class="mod-blue">
+    <p class="mod-label">MODULE 02</p>
+    <h3>给边界留下位置</h3>
+    <p>说明哪些场景不要使用，往往比单独列出颜色更有价值。</p>
+  </div>
+
+  <!-- Body text -->
+  <p class="body-paragraph">编辑系统的本质不是装饰，而是建立一种稳定的阅读秩序。当读者打开一篇文章，他不需要猜测接下来是什么——编号、颜色、规则线已经在说话。</p>
+
+  <!-- Left-bar subtitle -->
+  <p class="left-subtitle">适合先解决的三个问题</p>
+
+  <!-- Quote block -->
+  <div class="quote-block">「把视觉决策写成上下文，Agent 才有机会稳定复用。」</div>
+
+  <!-- Section 02 -->
+  <div class="section-hd">
+    <p class="num">02 · SECTION</p>
+    <h2>从判断走向执行</h2>
+    <p class="tag">FROM IDEA TO ACTION</p>
+  </div>
+
+  <!-- Steps -->
+  <div class="step-item">
+    <span class="step-badge">01</span>
+    <span class="step-text">准备环境：建立统一的资料入口和命名规则。</span>
+  </div>
+  <div class="step-item">
+    <span class="step-badge green">02</span>
+    <span class="step-text">初始化：设定栏目、标签与可复用模板。</span>
+  </div>
+  <div class="step-item">
+    <span class="step-badge">03</span>
+    <span class="step-text">运行和定制：按真实需求调整节奏和配色。</span>
+  </div>
+  <div class="step-item" style="margin-bottom:18px">
+    <span class="step-badge green">04</span>
+    <span class="step-text">核验与归档：确保每个模块可被独立引用。</span>
+  </div>
+
+  <!-- Dark code block -->
+  <div class="code-dark">
+    <div class="code-dark-header">BASH</div>
+    <div class="code-dark-body">
+      <p class="code-line">npm run build</p>
+      <p class="code-line">npm run verify</p>
+      <p class="code-line">long-source-url: https://example.com/a-very-long-source-path-that-must-wrap-in-mobile</p>
+    </div>
+  </div>
+
+  <!-- Light code block -->
+  <div class="code-light">
+    <p class="code-light-line">cua-driver doctor</p>
+    <p class="code-light-line">git commit -m "feat: add editorial-system theme"</p>
+  </div>
+
+  <!-- Image + caption -->
+  <div class="img-block">
+    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='240'/%3E%3Crect fill='%23e4eee8' width='600' height='240'/%3E%3Ctext x='300' y='125' text-anchor='middle' font-family='ui-monospace' font-size='14' fill='%2317324d'%3E配图区域 · 600×240px%3C/text%3E%3C/svg%3E" alt="编辑系统示意">
+  </div>
+  <p class="img-caption">— 图：暖白纸张 + 深海军蓝编号体系示意</p>
+
+  <!-- Pending placeholder -->
+  <div class="pending">
+    <p class="pending-emoji">🖼</p>
+    <p class="pending-text">待补素材：成果录屏 / 动态 GIF / 成果图</p>
+  </div>
+
+  <!-- Section 03 -->
+  <div class="section-hd">
+    <p class="num">03 · SECTION</p>
+    <h2>把规则留在版本历史里</h2>
+    <p class="tag">REVIEW &amp; REUSE</p>
+  </div>
+
+  <p class="body-paragraph">编辑系统的价值，不只是好看，而是让内容拥有稳定的阅读顺序、明确的判断锚点和可重复的表达组件。当一个团队在同一套视觉语言下工作，协作摩擦会显著降低。</p>
+
+  <!-- Checklist -->
+  <div class="checklist">
+    <p class="checklist-label">CHECKLIST</p>
+    <p class="check-item">• 是否能被人和 Agent 同时读懂？</p>
+    <p class="check-item">• 是否说明了适用边界？</p>
+    <p class="check-item">• 是否经过真实页面验证？</p>
+    <p class="check-item">• 代码块是否有显式断词属性？</p>
+  </div>
+
+  <!-- Parameter card -->
+  <div class="param-card">
+    <p class="param-label">PARAMETERS</p>
+    <p class="param-row">主色　深海军蓝　#17324d</p>
+    <p class="param-row">纸张　暖白　　　#f5f2eb</p>
+    <p class="param-row">表面　纸白　　　#fffdf8</p>
+    <p class="param-row">模块　浅绿/浅蓝　低饱和</p>
+    <p class="param-row">点缀　绿色　　　#63bd79</p>
+  </div>
+
+  <!-- Closing -->
+  <section class="closing">
+    <p class="closing-label">CLOSING NOTE</p>
+    <h2>先把视觉语言写清楚，再让人和 Agent 协作。</h2>
+    <p>主题不能替代事实核验，但能让判断更容易被复用和引用。</p>
+  </section>
+
+  <!-- Author -->
+  <section class="author-bar">
+    <p class="author-row"><strong>作者：</strong>你的名字 · 一句话简介</p>
+    <p class="author-row">点赞、在看、转发，是最好的支持。</p>
+  </section>
+
+  <!-- Sources -->
+  <section class="sources-bar">
+    <p class="sources-label">SOURCES</p>
+    <p class="sources-row">源主题：infocard-editorial-system-style（仅参考，不复用）</p>
+    <p class="sources-row">公众号主题：editorial-system（移动端独立实现）</p>
+    <p class="sources-row">参考：https://example.com/a-very-long-source-url-that-needs-word-break</p>
+  </section>
+
+</main>
+
+<!-- Copyable WeChat body: inline-only implementation, separate from preview shell -->
+<section id="copy-source" style="margin:28px 0;padding:18px 14px;background:#f5f2eb;border:1px solid #d8d2c8;text-align:left;">
+  <p style="margin:0 0 10px;font:700 10px/1.2 ui-monospace,Menlo,monospace;letter-spacing:.1em;color:#17324d;text-align:left;"><span leaf="">COPYABLE BODY · INLINE ONLY</span></p>
+  <section style="margin:0 0 22px;padding:10px 0;border-top:2px solid #1d1d1b;border-bottom:1px solid #1d1d1b;text-align:left;">
+    <span leaf="" style="font:700 11px/1.2 ui-monospace,Menlo,monospace;letter-spacing:.1em;color:#17324d;">EDITORIAL SYSTEM / ISSUE 01</span>
+    <span leaf="" style="display:block;margin-top:7px;font:11px/1.4 ui-monospace,Menlo,monospace;letter-spacing:.06em;color:#6b665e;">移动端公众号版 · 2026</span>
+  </section>
+  <section style="margin:0 0 24px;padding:0 0 24px;border-bottom:1px solid #1d1d1b;text-align:left;">
+    <p style="margin:0 0 12px;font:700 11px/1.2 ui-monospace,Menlo,monospace;letter-spacing:.13em;color:#17324d;text-align:left;"><span leaf="">A REUSABLE READING SYSTEM</span></p>
+    <p style="margin:0 0 14px;font:700 34px/.98 Georgia,'Times New Roman','Songti SC',serif;letter-spacing:-.02em;color:#171717;text-align:left;"><span leaf="">让复杂内容拥有清晰的版面秩序</span></p>
+    <p style="margin:0;color:#6b665e;font-size:16px;line-height:1.75;text-align:left;"><span leaf="">用栏目、编号与规则线，把一组事实编排成可扫描、可引用、可继续编辑的知识页面。</span></p>
+  </section>
+  <section style="margin:0 0 24px;padding:18px 16px;background:#fffdf8;border:1px solid #d8d2c8;border-left:4px solid #17324d;text-align:left;">
+    <p style="margin:0 0 9px;font:700 11px/1.2 ui-monospace,Menlo,monospace;letter-spacing:.12em;color:#17324d;text-align:left;"><span leaf="">READING NOTE</span></p>
+    <p style="margin:0;font-size:15px;line-height:1.9;color:#171717;text-align:left;"><span leaf="">先看结论，再沿着编号章节进入细节；每一块内容都应能独立被引用。</span></p>
+  </section>
+  <section style="margin:38px 0 18px;padding:0 0 12px;border-bottom:1px solid #d8d2c8;text-align:left;">
+    <p style="margin:0 0 7px;font:700 11px/1.2 ui-monospace,Menlo,monospace;letter-spacing:.12em;color:#17324d;text-align:left;"><span leaf="">01 · SECTION</span></p>
+    <p style="margin:0 0 5px;font:700 24px/1.35 Georgia,'Songti SC',serif;color:#171717;text-align:left;"><span leaf="">核心判断：先建立阅读路径</span></p>
+    <p style="margin:0;font:700 10px/1.3 ui-monospace,Menlo,monospace;letter-spacing:.1em;color:#63bd79;text-align:left;"><span leaf="">CORE JUDGMENT</span></p>
+  </section>
+  <section style="margin:0 0 24px;padding:14px 0;border-top:3px solid #17324d;border-bottom:1px solid #1d1d1b;text-align:left;"><span leaf="" style="display:block;font:700 16px/1.7 Georgia,'Songti SC',serif;color:#17324d;text-align:left;">核心判断：阅读路径本身，就是信息卡最重要的界面。</span></section>
+  <section style="margin:0 0 14px;padding:16px;background:#e4eee8;border:1px solid #d8d2c8;text-align:left;"><p style="margin:0 0 5px;font:700 10px/1.2 ui-monospace,Menlo,monospace;color:#17324d;letter-spacing:.08em;text-align:left;"><span leaf="">MODULE 01</span></p><p style="margin:0 0 6px;font:700 19px/1.3 Georgia,'Songti SC',serif;color:#171717;text-align:left;"><span leaf="">把视觉 token 写清楚</span></p><p style="margin:0;font-size:14px;line-height:1.75;color:#6b665e;text-align:left;"><span leaf="">颜色、字体、间距和组件理由，都应该成为可复用的上下文。</span></p></section>
+  <p style="margin:28px 0 14px;padding-left:12px;border-left:3px solid #17324d;font-size:17px;font-weight:700;line-height:1.5;color:#171717;text-align:left;"><span leaf="">适合先解决的三个问题</span></p>
+  <section style="margin:0 0 24px;padding:15px 16px;background:#dfe9f2;border-left:4px solid #17324d;text-align:left;"><span leaf="" style="font:700 16px/1.8 Georgia,'Songti SC',serif;color:#17324d;text-align:left;">「把视觉决策写成上下文，Agent 才有机会稳定复用。」</span></section>
+  <section style="margin:0 0 12px;padding:0 0 14px;border-bottom:1px solid #d8d2c8;text-align:left;"><span leaf="" style="display:inline-block;width:28px;height:28px;margin-right:9px;border-radius:50%;background:#17324d;color:#fffdf8;text-align:center;font:700 13px/28px Arial,sans-serif;vertical-align:top;">01</span><span leaf="" style="display:inline-block;width:calc(100% - 44px);font-size:15px;line-height:1.8;color:#171717;text-align:left;vertical-align:top;">准备环境：建立统一的资料入口和命名规则。</span></section>
+  <section style="margin:0 0 24px;border-radius:6px;overflow:hidden;background:#17324d;text-align:left;"><section style="padding:8px 14px;border-bottom:1px solid rgba(255,255,255,.18);text-align:left;"><span leaf="" style="font:700 11px/1.2 ui-monospace,Menlo,monospace;letter-spacing:.1em;color:#dfe9f2;text-align:left;">BASH</span></section><section style="padding:12px 14px;text-align:left;"><p style="margin:0;font:13px/1.6 ui-monospace,Menlo,monospace;color:#fffdf8;text-align:left;white-space:normal;word-break:break-all;overflow-wrap:anywhere;"><span leaf="">npm run build</span></p><p style="margin:0;font:13px/1.6 ui-monospace,Menlo,monospace;color:#fffdf8;text-align:left;white-space:normal;word-break:break-all;overflow-wrap:anywhere;"><span leaf="">npm run verify</span></p></section></section>
+  <section style="margin:0 0 24px;padding:24px 16px;border:1px dashed #d8d2c8;background:#fffdf8;text-align:center;"><p style="margin:0 0 7px;font-size:24px;line-height:1;"><span leaf="">🖼</span></p><p style="margin:0;font-size:13px;font-weight:700;color:#6b665e;text-align:center;"><span leaf="">待补素材</span></p></section>
+  <section style="margin:32px 0 24px;padding:22px 16px;background:#17324d;text-align:left;"><p style="margin:0 0 7px;font:700 11px/1.2 ui-monospace,Menlo,monospace;letter-spacing:.12em;color:#63bd79;text-align:left;"><span leaf="">CLOSING NOTE</span></p><p style="margin:0 0 14px;font:700 22px/1.35 Georgia,'Songti SC',serif;color:#fffdf8;text-align:left;"><span leaf="">先把视觉语言写清楚，再让人和 Agent 协作。</span></p><p style="margin:0;font-size:14px;line-height:1.8;color:#dfe9f2;text-align:left;"><span leaf="">作者签名与资料来源应放在结尾，并保留可核验链接。</span></p></section>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     COMPONENT GALLERY
+═══════════════════════════════════════════ -->
+<section class="gallery">
+  <h2>组件画廊 · editorial-system</h2>
+  <p class="gallery-note">以下每个组件均来自 theme-editorial-system.md，可复制到公众号正文。预览壳使用页面级 CSS，正式正文使用内联样式与 span leaf。</p>
+
+  <!-- Masthead -->
+  <div class="g-section">
+    <p class="g-section-title">MASTHEAD 顶部栏</p>
+    <div class="g-mast">
+      <span>EDITORIAL SYSTEM / ISSUE 01</span>
+      <small>移动端公众号版 · 2026</small>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <div class="g-section">
+    <p class="g-section-title">HERO 单列标题区</p>
+    <div class="g-hero">
+      <p class="label">A REUSABLE READING SYSTEM</p>
+      <h1>让复杂内容拥有清晰的版面秩序</h1>
+      <p>用栏目、编号与规则线，把一组事实编排成可扫描、可引用、可继续编辑的知识页面。</p>
+    </div>
+  </div>
+
+  <!-- Intro card -->
+  <div class="g-section">
+    <p class="g-section-title">INTRO CARD 引言 / 导读卡</p>
+    <div class="g-intro">
+      <strong>READING NOTE</strong>
+      <p>先看结论，再沿着编号章节进入细节；每一块内容都应能独立被引用。</p>
+    </div>
+  </div>
+
+  <!-- Section heading -->
+  <div class="g-section">
+    <p class="g-section-title">SECTION HEADING 编号章节标题</p>
+    <div class="g-sec-hd">
+      <p class="num">01 · SECTION</p>
+      <h2>核心判断：先建立阅读路径</h2>
+      <p class="tag">CORE JUDGMENT</p>
+    </div>
+  </div>
+
+  <!-- Core judgment bar -->
+  <div class="g-section">
+    <p class="g-section-title">CORE JUDGMENT BAR 核心判断条</p>
+    <div class="g-signal">核心判断：阅读路径本身，就是信息卡最重要的界面。</div>
+  </div>
+
+  <!-- Module cards -->
+  <div class="g-section">
+    <p class="g-section-title">MODULE CARDS 浅绿 / 浅蓝模块卡</p>
+    <div class="g-row">
+      <div class="g-mod-green">
+        <b>MODULE 01</b>
+        <h3>把视觉 token 写清楚</h3>
+        <p>颜色、字体、间距和组件理由，都应该成为可复用的上下文。</p>
+      </div>
+      <div class="g-mod-blue">
+        <b>MODULE 02</b>
+        <h3>给边界留下位置</h3>
+        <p>说明哪些场景不要使用，往往比单独列出颜色更有价值。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Left subtitle + quote -->
+  <div class="g-section">
+    <p class="g-section-title">LEFT SUBTITLE + QUOTE 左竖条小标题 / 金句</p>
+    <div class="g-row">
+      <p class="g-left-sub">适合先解决的三个问题</p>
+      <div class="g-quote">「把视觉决策写成上下文，Agent 才有机会稳定复用。」</div>
+    </div>
+  </div>
+
+  <!-- Step flow -->
+  <div class="g-section">
+    <p class="g-section-title">STEP FLOW 纵向步骤流</p>
+    <div class="g-step"><i>01</i><span>准备环境：建立统一的资料入口和命名规则。</span></div>
+    <div class="g-step"><i class="green">02</i><span>初始化：设定栏目、标签与可复用模板。</span></div>
+    <div class="g-step"><i>03</i><span>运行和定制：按真实需求调整节奏。</span></div>
+  </div>
+
+  <!-- Checklist -->
+  <div class="g-section">
+    <p class="g-section-title">CHECKLIST 无序列表</p>
+    <div class="g-check">
+      <b>CHECKLIST</b>
+      <p>• 是否能被人和 Agent 同时读懂？</p>
+      <p>• 是否说明了适用边界？</p>
+      <p>• 是否经过真实页面验证？</p>
+    </div>
+  </div>
+
+  <!-- Parameter card -->
+  <div class="g-section">
+    <p class="g-section-title">PARAMETER CARD 表格 / 参数卡</p>
+    <div class="g-params">
+      <b>PARAMETERS</b>
+      <p>主色　深海军蓝　#17324d</p>
+      <p>纸张　暖白　　　#f5f2eb</p>
+      <p>模块　浅绿/浅蓝　低饱和</p>
+    </div>
+  </div>
+
+  <!-- Dark code block -->
+  <div class="g-section">
+    <p class="g-section-title">CODE BLOCK DARK 深色代码块</p>
+    <div class="g-code-dark">
+      <div class="g-code-dark-header">BASH</div>
+      <div class="g-code-dark-body">
+        <p>npm run build</p>
+        <p>npm run verify</p>
+        <p>long-url: https://example.com/a-very-long-source-path-that-must-wrap</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Light code block -->
+  <div class="g-section">
+    <p class="g-section-title">CODE BLOCK LIGHT 浅色代码块</p>
+    <div class="g-code-light">
+      <p>cua-driver doctor</p>
+      <p>git commit -m "feat: add editorial-system"</p>
+    </div>
+  </div>
+
+  <!-- Image + caption + pending -->
+  <div class="g-section">
+    <p class="g-section-title">IMAGE + CAPTION + PENDING IMAGE 图片说明 / 待补素材</p>
+    <div class="g-img">
+      <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='120'/%3E%3Crect fill='%23e4eee8' width='400' height='120'/%3E%3Ctext x='200' y='65' text-anchor='middle' font-family='ui-monospace' font-size='13' fill='%2317324d'%3E配图区域%3C/text%3E%3C/svg%3E" alt="gallery">
+    </div>
+    <p class="g-caption">— 图片说明文字</p>
+    <div class="g-pending">
+      <p>🖼</p>
+      <small>待补素材</small>
+    </div>
+  </div>
+
+  <!-- Closing -->
+  <div class="g-section">
+    <p class="g-section-title">CLOSING 深色结论区</p>
+    <div class="g-closing">
+      <b>CLOSING NOTE</b>
+      <h2>先把视觉语言写清楚，再让人和 Agent 协作。</h2>
+      <p>我是 {{作者名}}，{{一句话简介}}。欢迎点赞、在看、转发。</p>
+    </div>
+  </div>
+
+  <!-- Author -->
+  <div class="g-section">
+    <p class="g-section-title">AUTHOR 作者签名</p>
+    <div class="g-author">
+      <p><strong>作者：</strong>你的名字 · 一句话简介</p>
+      <p>点赞、在看、转发，是最好的支持。</p>
+    </div>
+  </div>
+
+  <!-- Sources -->
+  <div class="g-section">
+    <p class="g-section-title">SOURCES 来源区</p>
+    <div class="g-sources">
+      <b>SOURCES</b>
+      <p>来源名称：https://example.com/a-very-long-source-url-that-needs-word-break</p>
+      <p>信息卡主题参考：infocard-editorial-system-style（仅参考，不复用）</p>
+    </div>
+  </div>
+
+  <!-- Platform boundary note -->
+  <div class="g-boundary">
+    <b>平台边界声明</b>：信息卡主题文件与公众号主题实现完全分离；本页允许页面级 CSS/JS，复制正文不携带预览壳。公众号正文仅使用内联样式与 span leaf，不使用 CSS 变量、Grid、Float、Position 或外部样式表。
+  </div>
+
+</section>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     COPY SCRIPT
+═══════════════════════════════════════════ -->
+<script>
+function copyBody(){
+  var el=document.getElementById('copy-source');
+  var r=document.createRange();
+  r.selectNodeContents(el);
+  var s=window.getSelection();
+  s.removeAllRanges();
+  s.addRange(r);
+  var ok=false;
+  try{ok=document.execCommand('copy')}catch(e){}
+  if(ok){alert('已复制可粘贴的公众号正文')}else if(navigator.clipboard){navigator.clipboard.writeText(el.innerText).then(function(){alert('已复制正文文本，请粘贴后检查样式')}).catch(function(){alert('复制失败，请手动选择正文区域复制')})}else{alert('复制失败，请手动选择正文区域复制')}
+  s.removeAllRanges();
+}
+</script>
+</body>
+</html>
