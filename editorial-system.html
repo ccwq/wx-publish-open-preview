@@ -12,8 +12,7 @@ body{padding:16px 16px 60px}
 .shell{max-width:520px;margin:0 auto}
 .page-badge{margin:0 0 6px;font:700 10px/1 ui-monospace,Menlo,monospace;letter-spacing:.12em;color:#63bd79}
 .page-title{margin:0 0 14px;font:700 13px/1.4 ui-monospace,Menlo,monospace;color:#17324d}
-.toolbar{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:14px;padding:10px 12px;background:#17324d;color:#fffdf8;font:700 11px/1.2 ui-monospace,Menlo,monospace;letter-spacing:.05em}
-.toolbar button{border:1px solid #dfe9f2;background:#fffdf8;color:#17324d;padding:5px 9px;font:700 11px/1 ui-monospace,Menlo,monospace;cursor:pointer}
+.toolbar{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:14px;padding:10px 12px;background:#17324d;color:#fffdf8;font:700 11px/1.2 ui-monospace,Menlo,monospace;letter-spacing:.05em}.toolbar .actions{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}.toolbar button{border:1px solid #dfe9f2;background:#fffdf8;color:#17324d;padding:5px 9px;font:700 11px/1 ui-monospace,Menlo,monospace;cursor:pointer}.toolbar .copy-main{background:#63bd79;color:#17324d;border-color:#63bd79}
 
 /* ─── Phone mockup frame ─── */
 .phone{background:#f5f2eb;border:1px solid #d8d2c8;box-shadow:0 8px 24px rgba(23,23,23,.1);overflow:hidden;border-radius:2px}
@@ -196,8 +195,11 @@ body{padding:16px 16px 60px}
 <p class="page-badge">EDITORIAL SYSTEM · MOBILE PREVIEW</p>
 <p class="page-title">预览壳使用页面级 CSS/JS · 被复制正文仅含内联样式与 span leaf</p>
 <div class="toolbar">
-  <span>EDITORIAL SYSTEM / ISSUE 01</span>
-  <button type="button" onclick="copyBody()">复制正文示例</button>
+  <span>公众号样稿 · RefID</span>
+  <div class="actions">
+    <button type="button" onclick="copyRef()">复制 RefID</button>
+    <button type="button" class="copy-main" onclick="copyBody()">复制到公众号</button>
+  </div>
 </div>
 
 <!-- ═══════════════════════════════════════════
@@ -573,6 +575,10 @@ body{padding:16px 16px 60px}
      COPY SCRIPT
 ═══════════════════════════════════════════ -->
 <script>
+function copyRef(){
+  var ref='wx-theme:editorial-system';
+  if(navigator.clipboard){navigator.clipboard.writeText(ref).then(function(){alert('已复制 '+ref)}).catch(function(){alert(ref)})}else{alert(ref)}
+}
 function copyBody(){
   var el=document.getElementById('copy-source');
   var r=document.createRange();
