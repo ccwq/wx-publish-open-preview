@@ -1,120 +1,24 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-CN">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>paper-editorial.wechat · 公众号排版预览</title>
 <style>
-  body{margin:0;background:#eef0f2;font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;-webkit-text-size-adjust:100%;}
-  .gzh-toolbar{position:fixed;top:0;left:0;right:0;height:54px;background:#ffffff;box-shadow:0 1px 10px rgba(0,0,0,.08);display:flex;align-items:center;justify-content:space-between;padding:0 16px;z-index:99;}
-  .gzh-hint{font-size:13px;color:#6b7280;line-height:1.4;}
-  .gzh-hint b{color:#111827;}
-  .gzh-copy{background:#059669;color:#fff;border:0;border-radius:9px;padding:10px 20px;font-size:14px;font-weight:700;cursor:pointer;box-shadow:0 3px 10px rgba(5,150,105,.28);white-space:nowrap;transition:transform .08s,background .15s;}
-  .gzh-copy:hover{background:#047857;}
-  .gzh-copy:active{transform:translateY(1px);}
-  .gzh-toast{position:fixed;top:66px;left:50%;transform:translateX(-50%);background:#111827;color:#fff;padding:11px 20px;border-radius:10px;font-size:14px;font-weight:600;opacity:0;pointer-events:none;transition:opacity .25s;z-index:100;box-shadow:0 6px 20px rgba(0,0,0,.25);max-width:88vw;text-align:center;}
-  .gzh-toast.show{opacity:1;}
-  .gzh-stage{max-width:700px;margin:78px auto 64px;padding:0 8px;}
-  @media(max-width:520px){.gzh-hint{max-width:150px;}}
+:root{--bg:#eef0f2;--paper:#fffefa;--ink:#292725;--muted:#706b65;--line:#8b857d;--soft:#e7e4df;--accent:#8b5e3c;--accent-soft:#eee6dc;--blue:#587d9a;--sans:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;--mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+*{box-sizing:border-box}html,body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans)}body{padding-top:62px}.toolbar{position:fixed;top:0;left:0;right:0;height:62px;background:#fff;box-shadow:0 1px 10px rgba(0,0,0,.08);display:flex;align-items:center;justify-content:space-between;padding:0 18px;z-index:10}.hint{font-size:13px;color:var(--muted)}.hint strong{color:var(--ink)}.actions{display:flex;gap:8px}.button{border:0;background:var(--accent);color:#fff;border-radius:5px;padding:10px 14px;font-size:13px;font-weight:700;cursor:pointer}.button.dark{background:var(--ink)}.toast{position:fixed;top:74px;left:50%;transform:translateX(-50%);background:var(--ink);color:#fff;padding:10px 16px;border-radius:4px;opacity:0;pointer-events:none;transition:opacity .2s;z-index:11}.toast.show{opacity:1}.stage{max-width:720px;margin:0 auto 48px;padding:0 10px}.preview{background:var(--paper);border:1px solid #d5d1ca;box-shadow:0 8px 20px rgba(41,39,37,.08)}.preview-head{border-top:4px solid var(--accent);border-bottom:1px solid var(--line);padding:20px 22px 16px}.eyebrow{font:700 11px/1.4 var(--mono);letter-spacing:1.4px;color:var(--accent);margin:0 0 8px}.preview h1{font-size:29px;line-height:1.2;margin:0 0 7px;letter-spacing:-.035em}.subtitle{color:var(--muted);font-size:14px;margin:0}.stats{display:grid;grid-template-columns:repeat(3,1fr);border-bottom:1px solid var(--line);margin:0 22px}.stat{text-align:center;padding:16px 8px;border-left:1px solid var(--line)}.stat:first-child{border-left:0}.stat b{display:block;font:700 28px/1 var(--mono);margin-bottom:6px}.stat span{font-size:11px;color:var(--muted)}.flash{margin:18px 22px 0;border-left:3px solid var(--accent);background:var(--accent-soft);padding:12px 14px;font-size:13px;line-height:1.6}.flash strong{color:var(--accent)}.section{padding:24px 22px 0}.section-label{font:700 11px/1.4 var(--mono);letter-spacing:1.3px;color:var(--accent);margin:0 0 8px}.section h2{font-size:22px;line-height:1.3;margin:0 0 9px}.section p{font-size:14px;line-height:1.75;color:var(--muted);margin:0}.pick{margin-top:15px;background:var(--soft);border-left:3px solid var(--blue);padding:13px 15px}.pick strong{display:block;font-size:12px;color:var(--blue);margin-bottom:5px}.pick span{font-size:15px;line-height:1.55}.numbered{list-style:none;padding:0;margin:14px 0 0}.numbered li{display:flex;gap:12px;padding:11px 0;border-top:1px dashed var(--line);font-size:14px;line-height:1.55}.numbered li:first-child{border-top:0}.number{font:700 12px/1.6 var(--mono);color:var(--accent)}.source{margin-top:16px;border-top:1px solid var(--line);padding:13px 0 0;font-size:12px;line-height:1.7;color:var(--muted)}.closing{margin:24px 22px 22px;border-top:1px solid var(--line);padding-top:15px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:12px;color:var(--muted)}.closing strong{color:var(--ink)}.copy-source{position:absolute;left:-100000px;top:0;width:677px;background:#fff}
+@media(max-width:520px){body{padding-top:58px}.toolbar{height:58px;padding:0 10px}.hint{font-size:11px;max-width:145px}.button{padding:8px 9px;font-size:11px}.stage{padding:0 8px}.preview-head{padding:17px 16px 14px}.preview h1{font-size:25px}.stats{grid-template-columns:1fr;margin:0 16px}.stat{display:flex;justify-content:space-between;align-items:center;border-left:0;border-top:1px solid var(--line);padding:10px 8px}.stat:first-child{border-top:0}.stat b{font-size:23px;margin:0}.flash{margin-left:16px;margin-right:16px}.section{padding:22px 16px 0}.closing{margin-left:16px;margin-right:16px}}
 </style>
 </head>
 <body>
-<div class="gzh-toolbar">
-  <span class="gzh-hint">👇 公众号兼容样稿 · RefID 已标注</span>
-  <span style="display:flex;gap:8px;align-items:center;"><button class="gzh-copy" style="background:#111827;padding:10px 12px;" id="gzhRefBtn" onclick="gzhCopyRef()">复制 RefID</button><button class="gzh-copy" id="gzhCopyBtn" onclick="gzhCopy()">📋 复制到公众号</button></span>
-</div>
-<div class="gzh-toast" id="gzhToast"></div>
-<div class="gzh-stage">
-  <div id="gzh-content">
-<section style="width:100%;max-width:677px;margin:0 auto;padding:18px 12px 60px;background:#F8EFD9;color:#3D3A32;font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif;font-size:15px;line-height:1.8;box-sizing:border-box;">
-  <section style="height:7px;margin:0 0 14px;background:#C8102E;border-radius:4px;"><span leaf="" style="display:block;height:7px;"></span></section>
-  <section style="background:#FFFDF9;border:2px solid #1D1B16;border-radius:9px;padding:16px;margin:0 0 14px;box-shadow:4px 4px 0 #C9BDA7;box-sizing:border-box;">
-    <section style="margin:0 0 10px;">
-      <span style="display:inline-block;background:#FFB3C6;border:1.5px solid #1D1B16;border-radius:15px;padding:2px 8px;font-size:11px;font-weight:800;margin:0 4px 4px 0;"><span leaf="">调查复盘</span></span>
-      <span style="display:inline-block;background:#9BDC77;border:1.5px solid #1D1B16;border-radius:15px;padding:2px 8px;font-size:11px;font-weight:800;margin:0 4px 4px 0;"><span leaf="">纸感编辑</span></span>
-    </section>
-    <h3 style="font-size:26px;line-height:1.25;color:#1D1B16;margin:10px 0;font-weight:800;"><span leaf="">一场行业风暴，应该如何被拆开讲清楚？</span></h3>
-    <section style="font-size:14px;line-height:1.75;margin:0;color:#625D56;"><span leaf="">暖米纸、粗黑线与贴纸标签，把复杂事实组织成读者可以跟着走的证据链。</span></section>
-  </section>
-  <section style="margin:0 0 22px;">
-    <section style="background:#FFFDF9;border:2px solid #1D1B16;border-radius:8px;padding:10px;margin:0 0 7px;text-align:center;box-sizing:border-box;">
-      <strong style="display:block;color:#C8102E;font-size:22px;line-height:1.2;"><span leaf="">47天</span></strong>
-      <span style="display:block;font-size:11px;font-weight:700;color:#625D56;"><span leaf="">平均周期</span></span>
-    </section>
-    <section style="background:#FFFDF9;border:2px solid #1D1B16;border-radius:8px;padding:10px;margin:0 0 7px;text-align:center;box-sizing:border-box;">
-      <strong style="display:block;color:#1D1B16;font-size:22px;line-height:1.2;"><span leaf="">3层</span></strong>
-      <span style="display:block;font-size:11px;font-weight:700;color:#625D56;"><span leaf="">证据结构</span></span>
-    </section>
-    <section style="background:#FFFDF9;border:2px solid #1D1B16;border-radius:8px;padding:10px;text-align:center;box-sizing:border-box;">
-      <strong style="display:block;color:#C8102E;font-size:22px;line-height:1.2;"><span leaf="">01</span></strong>
-      <span style="display:block;font-size:11px;font-weight:700;color:#625D56;"><span leaf="">核心结论</span></span>
-    </section>
-  </section>
-  <section style="margin:30px 0 14px;border-bottom:2px solid #1D1B16;padding-bottom:8px;">
-    <span style="display:block;font-size:11px;font-weight:800;letter-spacing:1.8px;color:#C8102E;margin:0 0 4px;"><span leaf="">01 · EVIDENCE</span></span>
-    <h3 style="font-size:20px;line-height:1.35;color:#1D1B16;margin:0;font-weight:800;"><span leaf="">先把事实与判断分开</span></h3>
-  </section>
-  <section style="font-size:15px;line-height:1.8;text-align:justify;margin:0 0 18px;color:#3D3A32;">
-    <span leaf="">正文以</span><span style="border-bottom:2px solid #FFC45C;font-weight:700;"><span leaf="">黄色下划线</span></span><span leaf="">标出关键事实；标签只负责导航，不假装承担可信度判断。</span>
-  </section>
-  <section style="background:#FFFDF9;border:2px solid #1D1B16;border-left:5px solid #7CC8FF;border-radius:8px;padding:13px 14px;margin:0 0 16px;box-sizing:border-box;">
-    <span style="display:inline-block;background:#7CC8FF;border:1.5px solid #1D1B16;border-radius:4px;padding:2px 7px;font-size:10px;font-weight:800;margin:0 0 7px;"><span leaf="">公开资料</span></span>
-    <h4 style="font-size:16px;font-weight:800;color:#1D1B16;line-height:1.55;margin:0 0 6px;"><span leaf="">证据卡：一条可追溯的事实</span></h4>
-    <section style="font-size:12px;color:#625D56;line-height:1.65;margin:0;"><span leaf="">在这里写来源、时间、口径，以及这个事实不能证明什么。</span></section>
-  </section>
-  <section style="margin:30px 0 14px;border-bottom:2px solid #1D1B16;padding-bottom:8px;">
-    <span style="display:block;font-size:11px;font-weight:800;letter-spacing:1.8px;color:#C8102E;margin:0 0 4px;"><span leaf="">02 · TIMELINE</span></span>
-    <h3 style="font-size:20px;line-height:1.35;color:#1D1B16;margin:0;font-weight:800;"><span leaf="">把事件放回时间里</span></h3>
-  </section>
-  <section style="border-left:5px solid #FFC45C;padding:0 0 12px 14px;margin:0 0 12px;box-sizing:border-box;">
-    <span style="display:block;font-size:11px;font-weight:800;color:#C8102E;margin:0 0 3px;"><span leaf="">2026.04</span></span>
-    <h4 style="font-size:16px;font-weight:800;color:#1D1B16;margin:0 0 4px;line-height:1.55;"><span leaf="">关键政策与市场信号出现</span></h4>
-    <section style="font-size:13px;line-height:1.65;color:#625D56;margin:0;"><span leaf="">流式时间线适合公众号窄屏，不依赖网页端的固定多列布局。</span></section>
-  </section>
-  <section style="border-left:5px solid #C8102E;background:#FFF5F5;padding:12px 14px;margin:0 0 18px;box-sizing:border-box;">
-    <strong style="display:block;font-size:12px;font-weight:900;color:#C8102E;letter-spacing:1px;margin:0 0 5px;"><span leaf="">王记者注</span></strong>
-    <section style="font-size:14px;color:#3D3A32;line-height:1.75;margin:0;"><span leaf="">这是分析判断，不是新增事实；它解释证据之间的关系，也公开它的边界。</span></section>
-  </section>
-  <section style="background:#1D1B16;border:2px solid #1D1B16;border-radius:8px;padding:14px 15px;margin:0 0 24px;box-sizing:border-box;">
-    <span style="display:block;font-size:11px;font-weight:800;letter-spacing:1.6px;color:#FFC45C;margin:0 0 7px;"><span leaf="">BOTTOM LINE</span></span>
-    <strong style="display:block;font-size:17px;font-weight:800;line-height:1.6;color:#FFFFFF;margin:0;"><span leaf="">结论先给，证据随后；贴纸可以轻，判断必须重。</span></strong>
-  </section>
-</section>
-  </div>
-</div>
+<header class="toolbar"><span class="hint">公众号兼容样稿 · <strong>纸感编辑风</strong></span><span class="actions"><button class="button dark" id="gzhRefBtn" onclick="gzhCopyRef()">复制 RefID</button><button class="button" id="gzhCopyBtn" onclick="gzhCopy()">复制到公众号</button></span></header>
+<div class="toast" id="toast"></div>
+<main class="stage"><article class="preview"><header class="preview-head"><p class="eyebrow">新闻资讯 · WEEK 47</p><h1>AI 领域周报 · 第47期</h1><p class="subtitle">本周要闻速览与深度点评</p></header><section class="stats"><div class="stat"><b>3</b><span>大事件</span></div><div class="stat"><b>12</b><span>新产品</span></div><div class="stat"><b>7</b><span>值得读</span></div></section><div class="flash"><strong>快讯</strong> · GPT-5 今日正式开放 API 申请</div><section class="section"><p class="section-label">01 · 本周观察</p><h2>先看范围，再看重点</h2><p>统计格负责导航，快讯负责更新，编辑精选负责解释。周报不把信息堆在一起，而是用轻量层级帮助读者快速判断阅读顺序。</p><div class="pick"><strong>编辑精选</strong><span>深度：为什么 AI 助手的上下文窗口不是越大越好</span></div></section><section class="section"><p class="section-label">02 · 编辑精选</p><h2>本周值得读的三个切口</h2><ol class="numbered"><li><span class="number">01</span><span>产品发布：能力变化与读者影响</span></li><li><span class="number">02</span><span>工具速览：本周值得试用的新产品</span></li><li><span class="number">03</span><span>深度阅读：上下文长度之外的组织能力</span></li></ol></section><section class="section"><p class="section-label">03 · 资料来源</p><h2>把信息留在可追溯的位置</h2><p>本周数据、产品链接和编辑判断按文章实际来源逐条登记；状态色只标记栏目与重点，不替代事实核验。</p><div class="source">来源登记：官方公告、产品文档、项目仓库与编辑复核记录。</div></section><footer class="closing"><span><strong>PAPER EDITORIAL</strong> · light paper / thin rules / flat brief</span><span>wx-theme:paper-editorial</span></footer></article></main>
+<section class="copy-source" id="copy-source"><section style="width:100%;max-width:677px;margin:0 auto;padding:0 8px 48px;background:#fffefa;color:#292725;font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif;line-height:1.75;text-align:left;"><section style="border-top:4px solid #8b5e3c;border-bottom:1px solid #8b857d;padding:16px 0 14px;margin:0 0 18px;"><span style="display:block;font-size:11px;letter-spacing:1.4px;color:#8b5e3c;font-weight:700;margin:0 0 7px;"><span leaf="">新闻资讯 · WEEK 47</span></span><span style="display:block;font-size:26px;line-height:1.25;font-weight:800;color:#292725;margin:0 0 7px;"><span leaf="">AI 领域周报 · 第47期</span></span><span style="display:block;font-size:14px;color:#706b65;"><span leaf="">本周要闻速览与深度点评</span></span></section><section style="border-top:1px solid #8b857d;border-bottom:1px solid #8b857d;padding:10px 0;margin:0 0 18px;"><section style="display:block;border-bottom:1px solid #e7e4df;padding:8px 0;"><span leaf="">3 大事件</span></section><section style="display:block;border-bottom:1px solid #e7e4df;padding:8px 0;"><span leaf="">12 新产品</span></section><section style="display:block;padding:8px 0;"><span leaf="">7 值得读</span></section></section><section style="border-left:3px solid #8b5e3c;background:#eee6dc;padding:11px 13px;margin:0 0 18px;"><span style="font-weight:700;color:#8b5e3c;"><span leaf="">快讯</span></span><span leaf=""> · GPT-5 今日正式开放 API 申请</span></section><section style="border-bottom:1px solid #8b857d;padding:0 0 16px;margin:0 0 18px;"><span style="display:block;font-size:11px;letter-spacing:1.2px;color:#587d9a;font-weight:700;margin:0 0 6px;"><span leaf="">编辑精选</span></span><span style="display:block;font-size:18px;line-height:1.45;font-weight:700;color:#292725;margin:0 0 7px;"><span leaf="">深度：为什么 AI 助手的上下文窗口不是越大越好</span></span><span style="display:block;font-size:13px;color:#706b65;line-height:1.7;"><span leaf="">上下文不是越长越好，关键在于信息是否被正确组织、检索和使用。</span></span></section><section style="padding:0 0 16px;margin:0 0 18px;border-bottom:1px solid #8b857d;"><span style="display:block;font-size:11px;color:#8b5e3c;font-weight:700;letter-spacing:1.2px;margin:0 0 8px;"><span leaf="">01 · 本周观察</span></span><span style="display:block;font-size:15px;line-height:1.8;color:#292725;"><span leaf="">先看范围，再看重点；统计格负责导航，快讯负责更新，编辑精选负责解释。</span></span></section><section style="padding:0 0 16px;margin:0 0 18px;border-bottom:1px solid #8b857d;"><span style="display:block;font-size:11px;color:#8b5e3c;font-weight:700;letter-spacing:1.2px;margin:0 0 8px;"><span leaf="">02 · 资料来源</span></span><span style="display:block;font-size:13px;line-height:1.75;color:#706b65;"><span leaf="">本周数据、产品链接和编辑判断应按文章实际来源逐条登记。</span></span></section><section style="padding:12px 0 0;"><span style="display:block;font-size:11px;letter-spacing:1px;color:#8b5e3c;font-weight:700;margin:0 0 6px;"><span leaf="">PAPER EDITORIAL</span></span><span style="display:block;font-size:12px;color:#706b65;"><span leaf="">纸感编辑风 · wx-theme:paper-editorial</span></span></section></section></section>
 <script>
-  function gzhShowToast(msg){
-    var t=document.getElementById('gzhToast');
-    t.textContent=msg;t.classList.add('show');
-    clearTimeout(t._timer);
-    t._timer=setTimeout(function(){t.classList.remove('show');},2800);
-  }
-  function gzhCopyRef(){
-    var ref='wx-theme:paper-editorial';
-    var done=function(){gzhShowToast('✅ 已复制主题 RefID：'+ref);var btn=document.getElementById('gzhRefBtn');var old=btn.textContent;btn.textContent='✅ RefID 已复制';setTimeout(function(){btn.textContent=old;},2200);};
-    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(ref).then(done,function(){gzhShowToast('⚠ 请手动复制：'+ref);});}
-    else{var x=document.createElement('textarea');x.value=ref;document.body.appendChild(x);x.select();try{document.execCommand('copy');done();}catch(e){gzhShowToast('⚠ 请手动复制：'+ref);}document.body.removeChild(x);}
-  }
-  function gzhCopy(){
-    var el=document.getElementById('gzh-content');
-    // 选中渲染后的富文本节点并复制（等价于手动 Ctrl+A / Ctrl+C，保留全部样式）
-    var range=document.createRange();
-    range.selectNodeContents(el);
-    var sel=window.getSelection();
-    sel.removeAllRanges();
-    sel.addRange(range);
-    var ok=false;
-    try{ok=document.execCommand('copy');}catch(e){ok=false;}
-    sel.removeAllRanges();
-    var btn=document.getElementById('gzhCopyBtn');
-    if(ok){
-      gzhShowToast('✅ 已复制！去公众号编辑器按 Ctrl/⌘+V 粘贴即可');
-      var old=btn.textContent;btn.textContent='✅ 已复制';
-      setTimeout(function(){btn.textContent=old;},2200);
-    }else{
-      gzhShowToast('⚠ 自动复制失败，请手动全选(Ctrl/⌘+A)再复制(Ctrl/⌘+C)');
-    }
-  }
+function show(msg){var t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(function(){t.classList.remove('show')},2400)}
+function gzhCopyRef(){var ref='wx-theme:paper-editorial';if(navigator.clipboard){navigator.clipboard.writeText(ref).then(function(){show('已复制 RefID：'+ref)},function(){show('请手动复制：'+ref)})}else{show('请手动复制：'+ref)}}
+function gzhCopy(){var el=document.getElementById('copy-source'),r=document.createRange(),s=window.getSelection();r.selectNodeContents(el);s.removeAllRanges();s.addRange(r);var ok=false;try{ok=document.execCommand('copy')}catch(e){}s.removeAllRanges();show(ok?'已复制公众号正文':'请手动全选正文后复制')}
 </script>
 </body>
 </html>
