@@ -1,154 +1,64 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-CN">
 <head>
-<meta charset="UTF-8">
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>color-material-editorial.wechat · 公众号排版预览</title>
 <style>
-  body{margin:0;background:#eef0f2;font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;-webkit-text-size-adjust:100%;}
-  .gzh-toolbar{position:fixed;top:0;left:0;right:0;height:54px;background:#ffffff;box-shadow:0 1px 10px rgba(0,0,0,.08);display:flex;align-items:center;justify-content:space-between;padding:0 16px;z-index:99;}
-  .gzh-hint{font-size:13px;color:#6b7280;line-height:1.4;}
-  .gzh-hint b{color:#111827;}
-  .gzh-copy{background:#059669;color:#fff;border:0;border-radius:9px;padding:10px 20px;font-size:14px;font-weight:700;cursor:pointer;box-shadow:0 3px 10px rgba(5,150,105,.28);white-space:nowrap;transition:transform .08s,background .15s;}
-  .gzh-copy:hover{background:#047857;}
-  .gzh-copy:active{transform:translateY(1px);}
-  .gzh-toast{position:fixed;top:66px;left:50%;transform:translateX(-50%);background:#111827;color:#fff;padding:11px 20px;border-radius:10px;font-size:14px;font-weight:600;opacity:0;pointer-events:none;transition:opacity .25s;z-index:100;box-shadow:0 6px 20px rgba(0,0,0,.25);max-width:88vw;text-align:center;}
-  .gzh-toast.show{opacity:1;}
-  .gzh-stage{max-width:700px;margin:78px auto 64px;padding:0 8px;}
-  @media(max-width:520px){.gzh-hint{max-width:150px;}}
+*{box-sizing:border-box}
+body{margin:0;background:#e9e7e2;color:#0c1220;font:15px/1.75 -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif}
+.toolbar{position:fixed;z-index:10;top:0;left:0;right:0;height:58px;background:#111;color:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 16px;box-shadow:0 3px 12px rgba(0,0,0,.22)}
+.hint{font-size:12px;color:#f5d46b}.actions{display:flex;gap:8px}.btn{border:0;border-radius:4px;padding:9px 12px;font-weight:800;cursor:pointer}.ref{background:#fff;color:#111}.copy{background:#6e3fd6;color:#fff}
+.stage{max-width:720px;margin:86px auto 60px;padding:0 10px}.paper{background:#f7f2e8;border:3px solid #111;box-shadow:8px 8px 0 rgba(17,17,17,.14);padding:14px}
+.hero{background:#fffdf8;border:3px solid #111;box-shadow:6px 6px 0 rgba(17,17,17,.14);padding:20px 16px;margin-bottom:22px}.eyebrow{color:#6e3fd6;font-weight:900;font-size:11px;letter-spacing:1.6px}.hero h1{font-size:32px;line-height:1.1;margin:8px 0;color:#0c1220}.hero p{color:#5d6472;margin:0 0 14px}.tags{display:flex;flex-wrap:wrap;gap:6px}.tag{border:2px solid #111;padding:4px 9px;font-size:11px;font-weight:900}.purple{background:#6e3fd6;color:#fff}.blue{background:#eef4ff;color:#2e6be6}.green{background:#eefbf1;color:#2e9b4b}.orange{background:#fff4e6;color:#b26a00}
+.section-title{border-top:3px solid #111;padding-top:12px;margin:28px 0 12px}.section-title small{display:block;color:#6e3fd6;font-weight:900;letter-spacing:1.4px}.section-title h2{font-size:23px;line-height:1.25;margin:3px 0}.section-title p{margin:0;color:#5d6472;font-size:13px}.panel{background:#111;color:#fff;border:3px solid #111;box-shadow:5px 5px 0 rgba(17,17,17,.14);padding:15px;margin-bottom:20px}.panel .label{color:#f5d46b;font-size:11px;font-weight:900;letter-spacing:1.3px}.panel strong{display:block;font-size:19px;line-height:1.45;margin:6px 0}.panel span{color:#f0ebe0;font-size:13px}.node{background:#fffdf8;border:2px solid #111;box-shadow:4px 4px 0 rgba(17,17,17,.1);padding:13px;margin-bottom:12px}.node h3{margin:0 0 4px;font-size:18px}.node p{margin:0;color:#2d3748;font-size:13px}.node.purple{border-left:6px solid #6e3fd6}.node.blue{border-left:6px solid #2e6be6}.node.green{border-left:6px solid #2e9b4b}.node.orange{border-left:6px solid #f59e0b}.life{background:#fffdf8;border:2px solid #111;box-shadow:5px 5px 0 rgba(17,17,17,.12);padding:14px}.life .bar{height:10px;background:#e5dafa;border:2px solid #111;margin:8px 0}.life .fill{height:6px;width:60%;background:#6e3fd6}.levels{background:#f2ecff;border:2px solid #111;padding:14px}.level{background:#fffdf8;border:2px solid #111;padding:10px;margin-bottom:8px}.level:last-child{margin-bottom:0}.level b{font-size:18px}.level p{margin:3px 0 0;color:#5d6472;font-size:13px}.evidence,.risk,.action{border:2px solid #111;padding:13px;margin-bottom:12px}.evidence{background:#eef4ff;border-left:6px solid #2e6be6}.risk{background:#fff4e6;border-left:6px solid #f59e0b}.action{background:#eefbf1;border-left:6px solid #2e9b4b}.evidence b,.risk b,.action b{display:block;font-size:11px;letter-spacing:1px;margin-bottom:4px}.closing{background:#111;color:#fff;border:3px solid #111;box-shadow:6px 6px 0 rgba(17,17,17,.14);padding:18px 16px;margin-top:28px}.closing small{color:#f5d46b;font-weight:900;letter-spacing:1px}.closing h2{font-size:22px;line-height:1.4;margin:7px 0}.closing p{color:#f0ebe0;margin:0}.sources{border-top:2px solid #111;margin-top:20px;padding-top:12px;color:#5d6472;font-size:12px;word-break:break-all}.gallery{margin-top:30px;background:#fffdf8;border:3px solid #111;padding:16px;box-shadow:6px 6px 0 rgba(17,17,17,.12)}.gallery h2{margin:0 0 8px}.gallery p{color:#5d6472;font-size:13px}.gallery .sample{border-left:5px solid #6e3fd6;padding:10px 12px;background:#f2ecff;margin:10px 0}.gallery .sample b{display:block;color:#6e3fd6}.copyable{margin-top:26px;padding:16px;background:#f7f2e8;border:2px dashed #111}.copyable h3{margin:0 0 8px;font-size:14px}.copyable p{font-size:12px;color:#5d6472;margin:0}
+@media(max-width:520px){.toolbar{height:64px;padding:0 10px}.hint{max-width:135px;line-height:1.25}.btn{padding:8px 8px;font-size:11px}.stage{margin-top:86px;padding:0 6px}.paper{padding:10px}.hero h1{font-size:28px}.gallery{padding:12px}}
 </style>
 </head>
 <body>
-<div class="gzh-toolbar">
-  <span class="gzh-hint">👇 公众号兼容样稿 · RefID 已标注</span>
-  <span style="display:flex;gap:8px;align-items:center;"><button class="gzh-copy" style="background:#111827;padding:10px 12px;" id="gzhRefBtn" onclick="gzhCopyRef()">复制 RefID</button><button class="gzh-copy" id="gzhCopyBtn" onclick="gzhCopy()">📋 复制到公众号</button></span>
-</div>
-<div class="gzh-toast" id="gzhToast"></div>
-<div class="gzh-stage">
-  <div id="gzh-content">
-<section style="width:100%;max-width:677px;margin:0 auto;padding:18px 14px 40px;background:#FAF7F2;color:#2D3748;font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif;line-height:1.8;box-sizing:border-box;">
-  <section style="margin:0 0 18px;padding:20px 18px;background:#1A1625;border-radius:12px;box-sizing:border-box;">
-    <span leaf="" style="display:block;margin:0 0 7px;font-size:11px;line-height:1.4;font-weight:800;letter-spacing:1.5px;color:#00B5D8;"><span leaf="">AGENT CAPABILITIES · 技术解析</span></span>
-    <h3 style="margin:0 0 10px;font-size:25px;line-height:1.3;font-weight:800;color:#F7FAFC;"><span leaf="">MiniMax MCP 全能力解析</span></h3>
-    <span leaf="" style="display:block;margin:0 0 15px;font-size:14px;line-height:1.75;color:#F7FAFC;"><span leaf="">六项核心能力覆盖图文生成、多模态推理、长程记忆与工具编排，一文拆透技术边界与真实局限。</span></span>
-    <span leaf="" style="display:inline-block;margin:0 5px 5px 0;padding:3px 10px;background:#E53E3E;border-radius:12px;font-size:11px;line-height:1.5;font-weight:700;color:#FFFFFF;"><span leaf="">多模态</span></span>
-    <span leaf="" style="display:inline-block;margin:0 5px 5px 0;padding:3px 10px;background:#3182CE;border-radius:12px;font-size:11px;line-height:1.5;font-weight:700;color:#FFFFFF;"><span leaf="">MCP协议</span></span>
-    <span leaf="" style="display:inline-block;margin:0 5px 5px 0;padding:3px 10px;background:#38A169;border-radius:12px;font-size:11px;line-height:1.5;font-weight:700;color:#FFFFFF;"><span leaf="">工具编排</span></span>
+<div class="toolbar"><span class="hint">公众号兼容样稿 · RefID 已标注</span><div class="actions"><button class="btn ref" id="gzhRefBtn" onclick="gzhCopyRef()">复制 RefID</button><button class="btn copy" id="gzhCopyBtn" onclick="gzhCopy()">复制到公众号</button></div></div>
+<div class="stage"><main class="paper" id="gzh-content">
+<section class="hero"><div class="eyebrow">COLOR MATERIAL · CAPABILITY MAP</div><h1>AI 时代的产品能力矩阵</h1><p>从感知到认知到行动的完整架构。把中心对象、分区逻辑、能力节点与成熟度放在同一张可复核的地图上。</p><div class="tags"><span class="tag purple">中心对象</span><span class="tag blue">分区逻辑</span><span class="tag green">节点关系</span><span class="tag orange">行动路径</span></div></section>
+<div class="section-title"><small>01 · CENTRAL OBJECT</small><h2>先确定中心对象，再展开能力分区</h2><p>信息卡的重点不是把页面做满，而是让读者知道每个模块围绕什么问题组织。</p></div>
+<section class="panel"><div class="label">CENTRAL OBJECT · 中央对象</div><strong>产品能力不是功能清单，而是从输入到行动的连续链路。</strong><span>公众号端将信息卡的横向架构海报降级为纵向阅读链：先给结论，再按分区进入节点细节。</span></section>
+<div class="section-title"><small>02 · CAPABILITY MAP</small><h2>能力地图：感知 → 推理 → 生成 → 执行</h2><p>四个阶段不是孤立功能，而是同一条产品能力链上的不同位置。</p></div>
+<section class="node purple"><h3>感知 · PERCEIVE</h3><p>接收文本、图像、声音和环境信号，建立后续推理可使用的输入。</p></section>
+<section class="node blue"><h3>推理 · REASON</h3><p>拆解问题、比较约束，形成可验证的中间结论和行动计划。</p></section>
+<section class="node green"><h3>生成 · GENERATE</h3><p>将推理结果变成文字、代码、图像、方案或结构化输出。</p></section>
+<section class="node orange"><h3>执行 · EXECUTE</h3><p>调用工具、写入系统、交付结果，并留下可追踪的执行证据。</p></section>
+<div class="section-title"><small>03 · LIFECYCLE</small><h2>生命周期阶段：能力如何进入系统</h2><p>用阶段而不是口号判断产品距离真实可用还有多远。</p></div>
+<section class="life"><b>Phase 3/5 · 推理引擎集成</b><div class="bar"><div class="fill"></div></div><span>当前已从单点原型进入系统集成；下一步应验证工具调用、失败回退和真实用户路径。</span></section>
+<div class="section-title"><small>04 · MATURITY LEVELS</small><h2>能力等级：从能运行到可持续</h2></div>
+<section class="levels"><div class="level"><b style="color:#6e3fd6">L1 · 基础</b><p>单点能力可运行，依赖人工检查。</p></div><div class="level"><b style="color:#2e6be6">L2 · 进阶</b><p>多个能力可以编排，开始形成稳定流程。</p></div><div class="level"><b style="color:#2e9b4b">L3 · 专家</b><p>能在真实约束下持续运行，并有监控、回退和治理。</p></div></section>
+<div class="section-title"><small>05 · EVIDENCE / RISK / ACTION</small><h2>分区逻辑：证据、风险与行动</h2></div>
+<section class="evidence"><b style="color:#2e6be6">EVIDENCE · 证据</b><span>记录数据来源、测试口径、观察时间和可复现步骤，避免把演示效果当成产品能力。</span></section>
+<section class="risk"><b style="color:#b26a00">RISK BOUNDARY · 风险边界</b><span>检查权限、失败处理、退出条件和成本上限；没有边界就不能称为生产就绪。</span></section>
+<section class="action"><b style="color:#2e9b4b">ACTION · 行动</b><span>选择一个真实任务，记录输入、输出、耗时、失败和人工返工，再决定是否升级能力等级。</span></section>
+<section class="closing"><small>BOTTOM LINE · 最终判断</small><h2>先画出能力地图，再决定产品要走到哪一个成熟度。</h2><p>Color Material 用色彩标记语义，用结构承载判断，用模块化路径把复杂系统讲清楚。</p></section>
+<section class="sources"><b>来源与边界</b><br>公众号主题迁移自 Color Material 信息卡主题；本页是移动端公众号预览，不是信息卡原始网页模板。</section>
+</main>
+<section id="copy-source" style="margin-top:24px;padding:14px;background:#f7f2e8;border:2px dashed #111;text-align:left;">
+  <p style="margin:0 0 10px;font:900 11px/1.4 ui-monospace,Menlo,monospace;letter-spacing:1px;color:#6e3fd6;"><span leaf="">COPYABLE WECHAT BODY · INLINE ONLY</span></p>
+  <section style="margin:0 0 16px;padding:16px;background:#fffdf8;border:3px solid #111;box-shadow:5px 5px 0 rgba(17,17,17,.14);text-align:left;">
+    <span leaf="" style="display:block;margin:0 0 7px;font-size:11px;font-weight:900;letter-spacing:1.4px;color:#6e3fd6;">CAPABILITY MAP · 能力地图</span>
+    <span leaf="" style="display:block;margin:0 0 9px;font-size:28px;line-height:1.15;font-weight:900;color:#0c1220;">AI 时代的产品能力矩阵</span>
+    <span leaf="" style="display:block;margin:0 0 12px;font-size:14px;line-height:1.8;color:#5d6472;">从感知到认知到行动的完整架构：把中心对象、分区逻辑、能力节点与成熟度放在同一张可复核的地图上。</span>
+    <span leaf="" style="display:inline-block;margin:0 5px 5px 0;padding:4px 8px;background:#6e3fd6;border:2px solid #111;color:#fff;font-size:11px;font-weight:900;">中心对象</span><span leaf="" style="display:inline-block;margin:0 5px 5px 0;padding:4px 8px;background:#eef4ff;border:2px solid #2e6be6;color:#2e6be6;font-size:11px;font-weight:900;">分区逻辑</span><span leaf="" style="display:inline-block;padding:4px 8px;background:#eefbf1;border:2px solid #2e9b4b;color:#2e9b4b;font-size:11px;font-weight:900;">节点关系</span>
   </section>
-
-  <section style="margin:0 0 20px;">
-    <h4 style="margin:0 0 10px;padding:0 0 7px;border-bottom:2px solid #1A202C;font-size:13px;line-height:1.4;font-weight:800;letter-spacing:1px;color:#1A202C;"><span leaf="">CAPABILITY MAP · 能力节点</span></h4>
-    <section style="margin:0 0 9px;padding:14px 13px;background:#FFFFFF;border-top:4px solid #E53E3E;border-radius:12px;box-shadow:0 2px 10px rgba(0,0,0,.07);box-sizing:border-box;">
-      <span leaf="" style="display:block;margin:0 0 5px;font-size:20px;line-height:1.2;"><span leaf="">🖼️</span></span>
-      <strong style="display:block;margin:0 0 4px;font-size:15px;line-height:1.5;color:#1A202C;"><span leaf="">图像理解</span></strong>
-      <span leaf="" style="display:block;font-size:12px;line-height:1.7;color:#2D3748;"><span leaf="">支持截图、图表、流程图、结构化图片的语义解析与文字提取。</span></span>
-    </section>
-    <section style="margin:0 0 9px;padding:14px 13px;background:#FFFFFF;border-top:4px solid #DD6B20;border-radius:12px;box-shadow:0 2px 10px rgba(0,0,0,.07);box-sizing:border-box;">
-      <span leaf="" style="display:block;margin:0 0 5px;font-size:20px;line-height:1.2;"><span leaf="">✍️</span></span>
-      <strong style="display:block;margin:0 0 4px;font-size:15px;line-height:1.5;color:#1A202C;"><span leaf="">内容生成</span></strong>
-      <span leaf="" style="display:block;font-size:12px;line-height:1.7;color:#2D3748;"><span leaf="">文字、列表、摘要、问答、对比表格等结构化文本输出。</span></span>
-    </section>
-    <section style="margin:0 0 9px;padding:14px 13px;background:#FFFFFF;border-top:4px solid #38A169;border-radius:12px;box-shadow:0 2px 10px rgba(0,0,0,.07);box-sizing:border-box;">
-      <span leaf="" style="display:block;margin:0 0 5px;font-size:20px;line-height:1.2;"><span leaf="">🧠</span></span>
-      <strong style="display:block;margin:0 0 4px;font-size:15px;line-height:1.5;color:#1A202C;"><span leaf="">长程记忆</span></strong>
-      <span leaf="" style="display:block;font-size:12px;line-height:1.7;color:#2D3748;"><span leaf="">会话状态持久化，支持跨会话上下文召回。</span></span>
-    </section>
-    <section style="margin:0 0 9px;padding:14px 13px;background:#FFFFFF;border-top:4px solid #3182CE;border-radius:12px;box-shadow:0 2px 10px rgba(0,0,0,.07);box-sizing:border-box;">
-      <span leaf="" style="display:block;margin:0 0 5px;font-size:20px;line-height:1.2;"><span leaf="">🔧</span></span>
-      <strong style="display:block;margin:0 0 4px;font-size:15px;line-height:1.5;color:#1A202C;"><span leaf="">工具编排</span></strong>
-      <span leaf="" style="display:block;font-size:12px;line-height:1.7;color:#2D3748;"><span leaf="">MCP 标准接口调用，动态挂载与下线工具节点。</span></span>
-    </section>
-    <section style="margin:0 0 9px;padding:14px 13px;background:#FFFFFF;border-top:4px solid #805AD5;border-radius:12px;box-shadow:0 2px 10px rgba(0,0,0,.07);box-sizing:border-box;">
-      <span leaf="" style="display:block;margin:0 0 5px;font-size:20px;line-height:1.2;"><span leaf="">🔍</span></span>
-      <strong style="display:block;margin:0 0 4px;font-size:15px;line-height:1.5;color:#1A202C;"><span leaf="">深度推理</span></strong>
-      <span leaf="" style="display:block;font-size:12px;line-height:1.7;color:#2D3748;"><span leaf="">支持多跳问题分解、验证与复杂任务的链式处理。</span></span>
-    </section>
-    <section style="margin:0;padding:14px 13px;background:#FFFFFF;border-top:4px solid #00B5D8;border-radius:12px;box-shadow:0 2px 10px rgba(0,0,0,.07);box-sizing:border-box;">
-      <span leaf="" style="display:block;margin:0 0 5px;font-size:20px;line-height:1.2;"><span leaf="">📡</span></span>
-      <strong style="display:block;margin:0 0 4px;font-size:15px;line-height:1.5;color:#1A202C;"><span leaf="">实时信息</span></strong>
-      <span leaf="" style="display:block;font-size:12px;line-height:1.7;color:#2D3748;"><span leaf="">联网检索与新闻抓取，支持时间窗口与来源过滤。</span></span>
-    </section>
-  </section>
-
-  <section style="margin:0 0 22px;">
-    <span leaf="" style="display:block;margin:0 0 9px;font-size:12px;line-height:1.4;font-weight:800;letter-spacing:.5px;color:#718096;"><span leaf="">TOOL LIFECYCLE · 工具编排生命周期</span></span>
-    <section style="padding:13px 14px;background:#1A1625;border-radius:12px;box-sizing:border-box;">
-      <section style="margin:0 0 10px;padding:9px 11px;background:#E53E3E;border-radius:8px;box-sizing:border-box;"><strong style="display:inline-block;margin-right:7px;font-size:19px;line-height:1.2;color:#FFFFFF;"><span leaf="">1</span></strong><span leaf="" style="font-size:12px;font-weight:700;color:#FFFFFF;"><span leaf="">注册</span></span></section>
-      <section style="margin:0 0 10px;padding:9px 11px;background:#DD6B20;border-radius:8px;box-sizing:border-box;"><strong style="display:inline-block;margin-right:7px;font-size:19px;line-height:1.2;color:#FFFFFF;"><span leaf="">2</span></strong><span leaf="" style="font-size:12px;font-weight:700;color:#FFFFFF;"><span leaf="">挂载</span></span></section>
-      <section style="margin:0 0 10px;padding:9px 11px;background:#38A169;border-radius:8px;box-sizing:border-box;"><strong style="display:inline-block;margin-right:7px;font-size:19px;line-height:1.2;color:#FFFFFF;"><span leaf="">3</span></strong><span leaf="" style="font-size:12px;font-weight:700;color:#FFFFFF;"><span leaf="">调用</span></span></section>
-      <section style="padding:9px 11px;background:#3182CE;border-radius:8px;box-sizing:border-box;"><strong style="display:inline-block;margin-right:7px;font-size:19px;line-height:1.2;color:#FFFFFF;"><span leaf="">4</span></strong><span leaf="" style="font-size:12px;font-weight:700;color:#FFFFFF;"><span leaf="">回收</span></span></section>
-    </section>
-  </section>
-
-  <section style="margin:28px 0 13px;padding:0 0 0 12px;border-left:5px solid #805AD5;box-sizing:border-box;">
-    <span leaf="" style="display:block;margin:0 0 4px;font-size:11px;line-height:1.4;font-weight:800;letter-spacing:1.4px;color:#805AD5;"><span leaf="">01 · CAPABILITY</span></span>
-    <h3 style="margin:0;font-size:20px;line-height:1.4;font-weight:800;color:#1A202C;"><span leaf="">图像理解：从像素到语义的跨越</span></h3>
-  </section>
-  <span leaf="" style="display:block;margin:0 0 17px;font-size:15px;line-height:1.85;text-align:justify;color:#2D3748;"><span leaf="">MiniMax MCP 的图像理解层采用双通道架构：视觉编码器提取空间特征，大语言模型负责语义对齐。相比纯 CV 方案，这套架构在</span> <strong style="color:#E53E3E;"><span leaf="">流程图和技术截图</span></strong> <span leaf="">上表现尤为突出，能直接输出结构化的文字描述。</span></span>
-  <span leaf="" style="display:block;margin:0 0 17px;font-size:15px;line-height:1.85;text-align:justify;color:#2D3748;"><span leaf="">实测边界：当图片内含超过</span> <strong style="color:#E53E3E;"><span leaf="">三种以上颜色分区</span></strong> <span leaf="">时，识别准确率下降约 15%；复杂网络架构图建议配合额外文字标注。</span></span>
-
-  <section style="margin:0 0 14px;padding:15px 17px;background:#FFFFFF;border-left:5px solid #DD6B20;border-radius:12px;box-shadow:0 2px 10px rgba(0,0,0,.07);box-sizing:border-box;">
-    <strong style="display:block;margin:0 0 6px;font-size:14px;line-height:1.5;color:#1A202C;"><span leaf="">视觉编码器规格</span></strong>
-    <span leaf="" style="display:block;margin:0 0 8px;font-size:13px;line-height:1.75;color:#2D3748;"><span leaf="">ViT-Large backbone，分辨率支持 1024×1024，原生 16:9 横版与 9:16 竖版自适应裁切。</span></span>
-    <span leaf="" style="display:inline-block;padding:2px 8px;background:#EDF2F7;border-radius:12px;font-size:11px;line-height:1.5;font-weight:700;color:#3182CE;"><span leaf="">Vision Transformer</span></span>
-  </section>
-
-  <section style="margin:0 0 22px;padding:14px 16px;background:#FFFFFF;border-radius:12px;box-shadow:0 2px 10px rgba(0,0,0,.07);box-sizing:border-box;">
-    <section style="margin:0 0 7px;overflow:hidden;box-sizing:border-box;"><strong style="display:inline-block;width:72%;vertical-align:top;font-size:13px;line-height:1.5;color:#1A202C;"><span leaf="">流程图识别准确率</span></strong><strong style="display:inline-block;width:28%;vertical-align:top;text-align:right;font-size:13px;line-height:1.5;color:#E53E3E;"><span leaf="">94.2%</span></strong></section>
-    <section style="height:7px;background:#EDF2F7;border-radius:10px;overflow:hidden;box-sizing:border-box;"><span leaf="" style="display:block;width:94.2%;height:7px;background:#E53E3E;border-radius:10px;"></span></section>
-  </section>
-
-  <section style="margin:28px 0 13px;padding:0 0 0 12px;border-left:5px solid #805AD5;box-sizing:border-box;">
-    <span leaf="" style="display:block;margin:0 0 4px;font-size:11px;line-height:1.4;font-weight:800;letter-spacing:1.4px;color:#805AD5;"><span leaf="">02 · LIMITATION</span></span>
-    <h3 style="margin:0;font-size:20px;line-height:1.4;font-weight:800;color:#1A202C;"><span leaf="">真实局限：不能做什么</span></h3>
-  </section>
-  <span leaf="" style="display:block;margin:0 0 22px;font-size:15px;line-height:1.85;text-align:justify;color:#2D3748;"><span leaf="">当前版本（v2.1）的</span> <strong style="color:#DD6B20;"><span leaf="">长程记忆有 7 天 TTL 上限</span></strong> <span leaf="">，超过后自动过期清理；不支持指定记忆优先级。工具编排层面，单次会话最多挂载</span> <strong style="color:#DD6B20;"><span leaf="">12 个 MCP 节点</span></strong> <span leaf="">，超出后需主动下线。</span></span>
-
-  <section style="margin:0 0 22px;padding:17px 18px;background:#1A1625;border-radius:12px;box-sizing:border-box;">
-    <span leaf="" style="display:block;margin:0 0 8px;font-size:11px;line-height:1.4;font-weight:800;letter-spacing:1.5px;color:#00B5D8;"><span leaf="">SUMMARY · EDITORIAL RAIL</span></span>
-    <strong style="display:block;font-size:16px;line-height:1.7;color:#F7FAFC;"><span leaf="">MiniMax MCP 在多模态理解与工具编排上具备生产级可用性；主要局限集中在记忆生命周期与节点数量上限，选型时需结合具体业务场景评估。</span></strong>
-  </section>
-
-  <section style="padding:13px 14px;background:#FFF4E6;border-left:4px solid #DD6B20;border-radius:8px;box-sizing:border-box;">
-    <span leaf="" style="display:block;margin:0 0 5px;font-size:11px;line-height:1.4;font-weight:800;letter-spacing:1px;color:#DD6B20;"><span leaf="">EDITORIAL NOTE · 编辑提示</span></span>
-    <span leaf="" style="display:block;font-size:13px;line-height:1.75;color:#2D3748;"><span leaf="">颜色承担语义：红色提示重点能力，橙色标记约束，绿色表示可落地链路，蓝色连接工具与系统层。</span></span>
-  </section>
+  <section style="margin:0 0 12px;padding:12px;background:#f2ecff;border:2px solid #111;box-shadow:4px 4px 0 rgba(17,17,17,.1);text-align:left;"><span leaf="" style="display:block;margin:0 0 5px;font-size:11px;font-weight:900;color:#6e3fd6;">CAPABILITY MAP · 能力节点</span><span leaf="" style="display:block;font-size:15px;line-height:1.8;color:#0c1220;">感知 → 推理 → 生成 → 执行：每个节点承担不同的输入、判断、输出与行动职责。</span></section>
+  <section style="margin:0 0 12px;padding:12px;background:#fffdf8;border:2px solid #111;box-shadow:4px 4px 0 rgba(17,17,17,.1);border-left:6px solid #6e3fd6;text-align:left;"><span leaf="" style="display:block;margin:0 0 4px;font-size:18px;font-weight:900;color:#6e3fd6;">L1 / L2 / L3 · 能力等级</span><span leaf="" style="display:block;font-size:13px;line-height:1.75;color:#2d3748;">L1 基础：单点能力可运行；L2 进阶：多个能力可以编排；L3 专家：在真实约束下持续运行，并有监控、回退和治理。</span></section>
+  <section style="margin:0 0 12px;padding:12px;background:#fffdf8;border:2px solid #111;box-shadow:4px 4px 0 rgba(17,17,17,.1);text-align:left;"><span leaf="" style="display:block;margin:0 0 5px;font-size:11px;font-weight:900;color:#5d6472;">LIFECYCLE · 生命周期阶段</span><span leaf="" style="display:block;margin:0 0 7px;font-size:21px;font-weight:900;color:#6e3fd6;">Phase 3/5 · 推理引擎集成</span><span leaf="" style="display:block;height:8px;margin:0 0 7px;background:#e5dafa;border:2px solid #111;"><span leaf="" style="display:block;width:60%;height:4px;background:#6e3fd6;">&nbsp;</span></span><span leaf="" style="display:block;font-size:13px;line-height:1.75;color:#5d6472;">下一步验证工具调用、失败回退和真实用户路径。</span></section>
+  <section style="margin:0 0 12px;padding:12px;background:#eef4ff;border:2px solid #111;border-left:6px solid #2e6be6;text-align:left;"><span leaf="" style="display:block;margin:0 0 4px;font-size:11px;font-weight:900;color:#2e6be6;">EVIDENCE · 证据</span><span leaf="" style="font-size:14px;line-height:1.8;color:#2d3748;">记录数据来源、测试口径、观察时间和可复现步骤。</span></section>
+  <section style="margin:0 0 12px;padding:12px;background:#fff4e6;border:2px solid #111;border-left:6px solid #f59e0b;text-align:left;"><span leaf="" style="display:block;margin:0 0 4px;font-size:11px;font-weight:900;color:#b26a00;">RISK BOUNDARY · 风险边界</span><span leaf="" style="font-size:14px;line-height:1.8;color:#2d3748;">检查权限、失败处理、退出条件和成本上限。</span></section>
+  <section style="margin:0 0 16px;padding:12px;background:#eefbf1;border:2px solid #111;border-left:6px solid #2e9b4b;text-align:left;"><span leaf="" style="display:block;margin:0 0 4px;font-size:11px;font-weight:900;color:#2e9b4b;">ACTION · 行动</span><span leaf="" style="font-size:14px;line-height:1.8;color:#2d3748;">选择一个真实任务，记录输入、输出、耗时、失败和人工返工。</span></section>
+  <section style="margin:0;padding:16px;background:#111;border:3px solid #111;box-shadow:5px 5px 0 rgba(17,17,17,.14);text-align:left;"><span leaf="" style="display:block;margin:0 0 6px;font-size:11px;font-weight:900;color:#f5d46b;">BOTTOM LINE · 最终判断</span><span leaf="" style="display:block;font-size:20px;line-height:1.45;font-weight:900;color:#fff;">先画出能力地图，再决定产品要走到哪一个成熟度。</span></section>
 </section>
-  </div>
+<section class="gallery"><h2>组件画廊 · Color Material 编辑风</h2><p>以下组件与上方主样张共享同一套信息卡迁移 DNA：纸张画布、粗黑结构线、硬阴影、紫色主锚点和彩色语义分区。</p><div class="sample"><b>能力节点</b>紫色代表主能力锚点，蓝色代表证据与路径，绿色代表可执行链路，橙色代表风险与边界。</div><div class="sample"><b>公众号降级原则</b>信息卡的 Grid、伪元素和横向架构在公众号中改成单列自然流，不改变中心对象、分区逻辑和内容顺序。</div></section>
+<section class="copyable"><h3>公众号正文复制说明</h3><p>点击“复制到公众号”复制主样张内容；预览壳的页面级 CSS、按钮和脚本不会作为正文主题组件使用。</p></section>
 </div>
 <script>
-  function gzhShowToast(msg){
-    var t=document.getElementById('gzhToast');
-    t.textContent=msg;t.classList.add('show');
-    clearTimeout(t._timer);
-    t._timer=setTimeout(function(){t.classList.remove('show');},2800);
-  }
-  function gzhCopyRef(){
-    var ref='wx-theme:color-material-editorial';
-    var done=function(){gzhShowToast('✅ 已复制主题 RefID：'+ref);var btn=document.getElementById('gzhRefBtn');var old=btn.textContent;btn.textContent='✅ RefID 已复制';setTimeout(function(){btn.textContent=old;},2200);};
-    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(ref).then(done,function(){gzhShowToast('⚠ 请手动复制：'+ref);});}
-    else{var t=document.createElement('textarea');t.value=ref;document.body.appendChild(t);t.select();try{document.execCommand('copy');done();}catch(e){gzhShowToast('⚠ 请手动复制：'+ref);}document.body.removeChild(t);}
-  }
-  function gzhCopy(){
-    var el=document.getElementById('gzh-content');
-    // 选中渲染后的富文本节点并复制（等价于手动 Ctrl+A / Ctrl+C，保留全部样式）
-    var range=document.createRange();
-    range.selectNodeContents(el);
-    var sel=window.getSelection();
-    sel.removeAllRanges();
-    sel.addRange(range);
-    var ok=false;
-    try{ok=document.execCommand('copy');}catch(e){ok=false;}
-    sel.removeAllRanges();
-    var btn=document.getElementById('gzhCopyBtn');
-    if(ok){
-      gzhShowToast('✅ 已复制！去公众号编辑器按 Ctrl/⌘+V 粘贴即可');
-      var old=btn.textContent;btn.textContent='✅ 已复制';
-      setTimeout(function(){btn.textContent=old;},2200);
-    }else{
-      gzhShowToast('⚠ 自动复制失败，请手动全选(Ctrl/⌘+A)再复制(Ctrl/⌘+C)');
-    }
-  }
+function gzhShow(msg){var x=document.createElement('div');x.textContent=msg;x.style='position:fixed;top:72px;left:50%;transform:translateX(-50%);padding:10px 14px;background:#111;color:#fff;z-index:20;border:2px solid #f5d46b';document.body.appendChild(x);setTimeout(function(){x.remove()},2200)}
+function gzhCopyRef(){var ref='wx-theme:color-material-editorial';if(navigator.clipboard){navigator.clipboard.writeText(ref).then(function(){gzhShow('已复制 '+ref)})}else{gzhShow(ref)}}
+function gzhCopy(){var el=document.getElementById('copy-source'),r=document.createRange(),s=window.getSelection();r.selectNodeContents(el);s.removeAllRanges();s.addRange(r);var ok=false;try{ok=document.execCommand('copy')}catch(e){}s.removeAllRanges();gzhShow(ok?'已复制公众号正文':'请手动选择主样张复制')}
 </script>
-</body>
-</html>
+</body></html>
