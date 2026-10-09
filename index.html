@@ -17,10 +17,15 @@ h1{font-size:34px;margin:0 0 4px;font-weight:900}
 .preview-link{display:block;text-decoration:none;color:inherit}
 .preview-link-text{display:inline-block;margin-top:10px;color:#18181b;font-weight:800;text-decoration:none;font-size:13px}
 a.preview-link-text:hover{color:#3b82f6}
+.ref-copy{display:inline-block;margin-left:6px;padding:1px 8px;font-size:9px;font-weight:800;color:#18181b;background:#fafafa;border:1px solid #d4d4d8;border-radius:10px;cursor:pointer;vertical-align:1px}
+.ref-copy:hover{background:#e4e4e7}
+.gzh-toast{position:fixed;top:16px;left:50%;transform:translateX(-50%);background:#111827;color:#fff;padding:11px 20px;border-radius:10px;font-size:14px;font-weight:600;opacity:0;pointer-events:none;transition:opacity .25s;z-index:100;box-shadow:0 6px 20px rgba(0,0,0,.25);max-width:88vw;text-align:center}
+.gzh-toast.show{opacity:1}
 @media(max-width:420px){main{padding:18px 10px 40px}h1{font-size:26px}.grid{grid-template-columns:1fr;gap:10px}}
 </style>
 </head>
 <body>
+<div class="gzh-toast" id="gzhToast"></div>
 <main>
 <h1>公众号主题总览</h1>
 <p class="sub">28 套正式主题 · 固定样张用于横向对比；具体组件和使用边界以主题组件库为准</p>
@@ -43,7 +48,7 @@ a.preview-link-text:hover{color:#3b82f6}
 </a>
 <div style="padding:11px 13px 13px;">
 <p class="status">OFFICIAL · 微信兼容样稿</p>
-<p style="margin:4px 0 0;font-size:10px;font-weight:900;color:#059669;letter-spacing:0.5px;">REFID · wx-theme:moyu-green</p>
+<p style="margin:4px 0 0;font-size:10px;font-weight:900;color:#059669;letter-spacing:0.5px;">REFID · wx-theme:moyu-green<button class="ref-copy" onclick="copyIdxRef('wx-theme:moyu-green')">复制</button></p>
 <h2 style="font-size:17px;margin:4px 0 0;font-weight:800;">摸鱼绿</h2>
 <p style="font-size:12px;color:#6B7280;margin:3px 0 7px;">教程、测评、清单、工具盘点</p>
 <small style="display:block;color:#a1a1aa;font-size:10px;line-height:1.5;min-height:36px;margin-bottom:4px;">引言卡 · 绿色提示 · 流程卡 · 表格</small>
@@ -68,7 +73,7 @@ a.preview-link-text:hover{color:#3b82f6}
 </a>
 <div style="padding:11px 13px 13px;">
 <p class="status">OFFICIAL · 微信兼容样稿</p>
-<p style="margin:4px 0 0;font-size:10px;font-weight:900;color:#C80018;letter-spacing:0.5px;">REFID · wx-theme:red-white</p>
+<p style="margin:4px 0 0;font-size:10px;font-weight:900;color:#C80018;letter-spacing:0.5px;">REFID · wx-theme:red-white<button class="ref-copy" onclick="copyIdxRef('wx-theme:red-white')">复制</button></p>
 <h2 style="font-size:17px;margin:4px 0 0;font-weight:800;">红白色系</h2>
 <p style="font-size:12px;color:#6B7280;margin:3px 0 7px;">深度分析、观点、力量感话题</p>
 <small style="display:block;color:#a1a1aa;font-size:10px;line-height:1.5;min-height:36px;margin-bottom:4px;">引言卡 · 编号章节 · 淡粉下划线 · 引用块</small>
@@ -92,6 +97,7 @@ a.preview-link-text:hover{color:#3b82f6}
 </a>
 <div style="padding:11px 13px 13px;">
 <p class="status">OFFICIAL · 信息卡 graphite-minimal.html</p>
+<p style="margin:4px 0 0;font-size:10px;font-weight:900;color:#52525B;letter-spacing:0.5px;">REFID · wx-theme:graphite-minimal<button class="ref-copy" onclick="copyIdxRef('wx-theme:graphite-minimal')">复制</button></p>
 <h2 style="font-size:17px;margin:4px 0 0;font-weight:800;">石墨极简风</h2>
 <p style="font-size:12px;color:#6B7280;margin:3px 0 7px;">设计、科技评论、专业观点</p>
 <small style="display:block;color:#a1a1aa;font-size:10px;line-height:1.5;min-height:36px;margin-bottom:4px;">极简Hero · 石墨标题 · 观点块 · 图文区</small>
@@ -115,7 +121,7 @@ a.preview-link-text:hover{color:#3b82f6}
 </a>
 <div style="padding:11px 13px 13px;">
 <p class="status">OFFICIAL · 微信兼容样稿</p>
-<p style="margin:4px 0 0;font-size:10px;font-weight:900;color:#78716C;letter-spacing:0.5px;">REFID · wx-theme:zen-whitespace</p>
+<p style="margin:4px 0 0;font-size:10px;font-weight:900;color:#78716C;letter-spacing:0.5px;">REFID · wx-theme:zen-whitespace<button class="ref-copy" onclick="copyIdxRef('wx-theme:zen-whitespace')">复制</button></p>
 <h2 style="font-size:17px;margin:4px 0 0;font-weight:800;">留白禅意风</h2>
 <p style="font-size:12px;color:#6B7280;margin:3px 0 7px;">深度随笔、艺术留白、极简生活</p>
 <small style="display:block;color:#a1a1aa;font-size:10px;line-height:1.5;min-height:36px;margin-bottom:4px;">留白Hero · 呼吸段落 · 静思引用 · 轻分隔</small>
@@ -139,7 +145,7 @@ a.preview-link-text:hover{color:#3b82f6}
 </a>
 <div style="padding:11px 13px 13px;">
 <p class="status">OFFICIAL · 微信兼容样稿</p>
-<p style="margin:4px 0 0;font-size:10px;font-weight:900;color:#8B5E3C;letter-spacing:0.5px;">REFID · wx-theme:paper-editorial</p>
+<p style="margin:4px 0 0;font-size:10px;font-weight:900;color:#8B5E3C;letter-spacing:0.5px;">REFID · wx-theme:paper-editorial<button class="ref-copy" onclick="copyIdxRef('wx-theme:paper-editorial')">复制</button></p>
 <h2 style="font-size:17px;margin:4px 0 0;font-weight:800;">纸感编辑风</h2>
 <p style="font-size:12px;color:#6B7280;margin:3px 0 7px;">周报、资讯摘要、产品速览、轻量知识解释</p>
 <small style="display:block;color:#a1a1aa;font-size:10px;line-height:1.5;min-height:36px;margin-bottom:4px;">浅纸面 · 统计格 · 快讯条 · 编辑精选</small>
@@ -163,7 +169,7 @@ a.preview-link-text:hover{color:#3b82f6}
 </a>
 <div style="padding:11px 13px 13px;">
 <p class="status">OFFICIAL · 微信兼容样稿</p>
-<p style="margin:4px 0 0;font-size:10px;font-weight:900;color:#8A5CF5;letter-spacing:0.5px;">REFID · wx-theme:white-purple-workbench</p>
+<p style="margin:4px 0 0;font-size:10px;font-weight:900;color:#8A5CF5;letter-spacing:0.5px;">REFID · wx-theme:white-purple-workbench<button class="ref-copy" onclick="copyIdxRef('wx-theme:white-purple-workbench')">复制</button></p>
 <h2 style="font-size:17px;margin:4px 0 0;font-weight:800;">白紫轻科技工作台风</h2>
 <p style="font-size:12px;color:#6B7280;margin:3px 0 7px;">AI驱动开发、流程方法论、阶段拆解、产品/工程工作流</p>
 <small style="display:block;color:#a1a1aa;font-size:10px;line-height:1.5;min-height:36px;margin-bottom:4px;">渐变Hero · 流程步骤 · 状态面板 · 多栏布局</small>
@@ -187,7 +193,7 @@ a.preview-link-text:hover{color:#3b82f6}
 </a>
 <div style="padding:11px 13px 13px;">
 <p class="status">OFFICIAL · 微信兼容样稿</p>
-<p style="margin:4px 0 0;font-size:10px;font-weight:900;color:#1F63FF;letter-spacing:0.5px;">REFID · wx-theme:hardblue-manual</p>
+<p style="margin:4px 0 0;font-size:10px;font-weight:900;color:#1F63FF;letter-spacing:0.5px;">REFID · wx-theme:hardblue-manual<button class="ref-copy" onclick="copyIdxRef('wx-theme:hardblue-manual')">复制</button></p>
 <h2 style="font-size:17px;margin:4px 0 0;font-weight:800;">硬核蓝手册风</h2>
 <p style="font-size:12px;color:#6B7280;margin:3px 0 7px;">技术手册、调查、观点拆解、高密度多章节</p>
 <small style="display:block;color:#a1a1aa;font-size:10px;line-height:1.5;min-height:36px;margin-bottom:4px;">蓝色Hero · 技术编号 · 引用块 · 命令块</small>
@@ -211,7 +217,7 @@ a.preview-link-text:hover{color:#3b82f6}
 </a>
 <div style="padding:11px 13px 13px;">
 <p class="status">OFFICIAL · 微信兼容样稿</p>
-<p style="margin:4px 0 0;font-size:10px;font-weight:900;color:#C8102E;letter-spacing:0.5px;">REFID · wx-theme:redswiss-editorial</p>
+<p style="margin:4px 0 0;font-size:10px;font-weight:900;color:#C8102E;letter-spacing:0.5px;">REFID · wx-theme:redswiss-editorial<button class="ref-copy" onclick="copyIdxRef('wx-theme:redswiss-editorial')">复制</button></p>
 <h2 style="font-size:17px;margin:4px 0 0;font-weight:800;">红黑瑞士风</h2>
 <p style="font-size:12px;color:#6B7280;margin:3px 0 7px;">开源工具图鉴、重型CLI生态对比、AI工具集合</p>
 <small style="display:block;color:#a1a1aa;font-size:10px;line-height:1.5;min-height:36px;margin-bottom:4px;">红色斜切Hero · 排名列表 · 红色强调 · 结论栏</small>
@@ -235,7 +241,7 @@ a.preview-link-text:hover{color:#3b82f6}
 </a>
 <div style="padding:11px 13px 13px;">
 <p class="status">OFFICIAL · 微信兼容样稿</p>
-<p style="margin:4px 0 0;font-size:10px;font-weight:900;color:#58C3FF;letter-spacing:0.5px;">REFID · wx-theme:deepblue-editorial</p>
+<p style="margin:4px 0 0;font-size:10px;font-weight:900;color:#58C3FF;letter-spacing:0.5px;">REFID · wx-theme:deepblue-editorial<button class="ref-copy" onclick="copyIdxRef('wx-theme:deepblue-editorial')">复制</button></p>
 <h2 style="font-size:17px;margin:4px 0 0;font-weight:800;">深蓝工作台编辑风</h2>
 <p style="font-size:12px;color:#6B7280;margin:3px 0 7px;">Agent IDE、技术架构、并行任务、开发者工具</p>
 <small style="display:block;color:#a1a1aa;font-size:10px;line-height:1.5;min-height:36px;margin-bottom:4px;">深色工作台 · 状态面板 · Agent节点 · 进度指示</small>
@@ -259,7 +265,7 @@ a.preview-link-text:hover{color:#3b82f6}
 </a>
 <div style="padding:11px 13px 13px;">
 <p class="status">OFFICIAL · 微信兼容样稿</p>
-<p style="margin:4px 0 0;font-size:10px;font-weight:900;color:#00E676;letter-spacing:0.5px;">REFID · wx-theme:darkgreen-monitor</p>
+<p style="margin:4px 0 0;font-size:10px;font-weight:900;color:#00E676;letter-spacing:0.5px;">REFID · wx-theme:darkgreen-monitor<button class="ref-copy" onclick="copyIdxRef('wx-theme:darkgreen-monitor')">复制</button></p>
 <h2 style="font-size:17px;margin:4px 0 0;font-weight:800;">深绿监控工作台</h2>
 <p style="font-size:12px;color:#6B7280;margin:3px 0 7px;">终端状态总览、绿色安全感、本地运行、健康度监测</p>
 <small style="display:block;color:#a1a1aa;font-size:10px;line-height:1.5;min-height:36px;margin-bottom:4px;">监控面板 · 绿色进度条 · 状态指示 · 指标卡</small>
@@ -283,7 +289,7 @@ a.preview-link-text:hover{color:#3b82f6}
 </a>
 <div style="padding:11px 13px 13px;">
 <p class="status">OFFICIAL · 微信兼容样稿</p>
-<p style="margin:4px 0 0;font-size:10px;font-weight:900;color:#2563EB;letter-spacing:0.5px;">REFID · wx-theme:pixelstack-editorial</p>
+<p style="margin:4px 0 0;font-size:10px;font-weight:900;color:#2563EB;letter-spacing:0.5px;">REFID · wx-theme:pixelstack-editorial<button class="ref-copy" onclick="copyIdxRef('wx-theme:pixelstack-editorial')">复制</button></p>
 <h2 style="font-size:17px;margin:4px 0 0;font-weight:800;">像素堆叠编辑风</h2>
 <p style="font-size:12px;color:#6B7280;margin:3px 0 7px;">方法论层级、工程演进、能力栈、AI工作流</p>
 <small style="display:block;color:#a1a1aa;font-size:10px;line-height:1.5;min-height:36px;margin-bottom:4px;">像素金字塔 · 思考者小人 · 消散箭头 · 金句</small>
@@ -307,6 +313,7 @@ a.preview-link-text:hover{color:#3b82f6}
 </a>
 <div style="padding:11px 13px 13px;">
 <p class="status">OFFICIAL · 信息卡 scrapbook-notebook.html</p>
+<p style="margin:4px 0 0;font-size:10px;font-weight:900;color:#E24B3B;letter-spacing:0.5px;">REFID · wx-theme:scrapbook-notebook<button class="ref-copy" onclick="copyIdxRef('wx-theme:scrapbook-notebook')">复制</button></p>
 <h2 style="font-size:17px;margin:4px 0 0;font-weight:800;">手账拼贴风</h2>
 <p style="font-size:12px;color:#6B7280;margin:3px 0 7px;">资料封面、教程手册、课程介绍、工具指南</p>
 <small style="display:block;color:#a1a1aa;font-size:10px;line-height:1.5;min-height:36px;margin-bottom:4px;">便签卡 · 票据撕边 · 拼贴素材 · 标签</small>
@@ -333,7 +340,7 @@ a.preview-link-text:hover{color:#3b82f6}
 </a>
 <div style="padding:11px 13px 13px;">
 <p class="status">OFFICIAL · 微信兼容样稿 · V3</p>
-<p style="margin:4px 0 0;font-size:10px;font-weight:900;color:#A76632;letter-spacing:0.5px;">REFID · wx-theme:handline-editorial</p>
+<p style="margin:4px 0 0;font-size:10px;font-weight:900;color:#A76632;letter-spacing:0.5px;">REFID · wx-theme:handline-editorial<button class="ref-copy" onclick="copyIdxRef('wx-theme:handline-editorial')">复制</button></p>
 <h2 style="font-size:17px;margin:4px 0 0;font-weight:800;">手绘草图编辑风</h2>
 <p style="font-size:12px;color:#6B7280;margin:3px 0 7px;">工作流图、方法论拆解、长文信息卡、知识讲解</p>
 <small style="display:block;color:#a1a1aa;font-size:10px;line-height:1.5;min-height:36px;margin-bottom:4px;">深墨 Hero 锚点 · 编号章节 · 统一白卡 · 双阶条形图</small>
@@ -358,7 +365,7 @@ a.preview-link-text:hover{color:#3b82f6}
 </a>
 <div style="padding:11px 13px 13px;">
 <p class="status">OFFICIAL · 微信兼容样稿</p>
-<p style="margin:4px 0 0;font-size:10px;font-weight:900;color:#C8102E;letter-spacing:0.5px;">REFID · wx-theme:main-editorial</p>
+<p style="margin:4px 0 0;font-size:10px;font-weight:900;color:#C8102E;letter-spacing:0.5px;">REFID · wx-theme:main-editorial<button class="ref-copy" onclick="copyIdxRef('wx-theme:main-editorial')">复制</button></p>
 <h2 style="font-size:17px;margin:4px 0 0;font-weight:800;">主编辑风</h2>
 <p style="font-size:12px;color:#6B7280;margin:3px 0 7px;">开源项目总览、高密度手册、工具说明、实施指南</p>
 <small style="display:block;color:#a1a1aa;font-size:10px;line-height:1.5;min-height:36px;margin-bottom:4px;">红色统计条 · 模块矩阵 · 结论栏 · 排名列表</small>
@@ -382,7 +389,7 @@ a.preview-link-text:hover{color:#3b82f6}
 </a>
 <div style="padding:11px 13px 13px;">
 <p class="status">OFFICIAL · 微信兼容样稿</p>
-<p style="margin:4px 0 0;font-size:10px;font-weight:900;color:#D97706;letter-spacing:0.5px;">REFID · wx-theme:crayon-editorial</p>
+<p style="margin:4px 0 0;font-size:10px;font-weight:900;color:#D97706;letter-spacing:0.5px;">REFID · wx-theme:crayon-editorial<button class="ref-copy" onclick="copyIdxRef('wx-theme:crayon-editorial')">复制</button></p>
 <h2 style="font-size:17px;margin:4px 0 0;font-weight:800;">蜡笔编辑风</h2>
 <p style="font-size:12px;color:#6B7280;margin:3px 0 7px;">人物方法论、教育科普、内容策略、角色介绍</p>
 <small style="display:block;color:#a1a1aa;font-size:10px;line-height:1.5;min-height:36px;margin-bottom:4px;">纵向编号 · 五色导轨 · 金句卡 · 人物卡片</small>
@@ -406,6 +413,7 @@ a.preview-link-text:hover{color:#3b82f6}
 </a>
 <div style="padding:11px 13px 13px;">
 <p class="status">OFFICIAL · 信息卡 color-material-editorial.html</p>
+<p style="margin:4px 0 0;font-size:10px;font-weight:900;color:#6E3FD6;letter-spacing:0.5px;">REFID · wx-theme:color-material-editorial<button class="ref-copy" onclick="copyIdxRef('wx-theme:color-material-editorial')">复制</button></p>
 <h2 style="font-size:17px;margin:4px 0 0;font-weight:800;">Color Material 编辑风</h2>
 <p style="font-size:12px;color:#6B7280;margin:3px 0 7px;">能力地图、技术架构、协议接入、控制平面</p>
 <small style="display:block;color:#a1a1aa;font-size:10px;line-height:1.5;min-height:36px;margin-bottom:4px;">彩色节点 · 生命周期条 · 能力等级 · 深色控制台</small>
@@ -429,7 +437,7 @@ a.preview-link-text:hover{color:#3b82f6}
 </a>
 <div style="padding:11px 13px 13px;">
 <p class="status">OFFICIAL · 微信兼容样稿</p>
-<p style="margin:4px 0 0;font-size:10px;font-weight:900;color:#8B5E3C;letter-spacing:0.5px;">REFID · wx-theme:wood-editorial</p>
+<p style="margin:4px 0 0;font-size:10px;font-weight:900;color:#8B5E3C;letter-spacing:0.5px;">REFID · wx-theme:wood-editorial<button class="ref-copy" onclick="copyIdxRef('wx-theme:wood-editorial')">复制</button></p>
 <h2 style="font-size:17px;margin:4px 0 0;font-weight:800;">木感编辑风</h2>
 <p style="font-size:12px;color:#6B7280;margin:3px 0 7px;">技术手册、Agent工程、Simon Willison式分析</p>
 <small style="display:block;color:#a1a1aa;font-size:10px;line-height:1.5;min-height:36px;margin-bottom:4px;">木感备注 · 木纹日志 · 深木底栏 · 引用条</small>
@@ -453,7 +461,7 @@ a.preview-link-text:hover{color:#3b82f6}
 </a>
 <div style="padding:11px 13px 13px;">
 <p class="status">OFFICIAL · 微信兼容样稿</p>
-<p style="margin:4px 0 0;font-size:10px;font-weight:900;color:#52525B;letter-spacing:0.5px;">REFID · wx-theme:graph-paper-manual</p>
+<p style="margin:4px 0 0;font-size:10px;font-weight:900;color:#52525B;letter-spacing:0.5px;">REFID · wx-theme:graph-paper-manual<button class="ref-copy" onclick="copyIdxRef('wx-theme:graph-paper-manual')">复制</button></p>
 <h2 style="font-size:17px;margin:4px 0 0;font-weight:800;">纸感图谱手册风</h2>
 <p style="font-size:12px;color:#6B7280;margin:3px 0 7px;">代码图谱、知识网络、依赖关系、结构拆解</p>
 <small style="display:block;color:#a1a1aa;font-size:10px;line-height:1.5;min-height:36px;margin-bottom:4px;">米白底 · 等宽字体 · 图谱节点 · 细线</small>
@@ -477,6 +485,7 @@ a.preview-link-text:hover{color:#3b82f6}
 </a>
 <div style="padding:11px 13px 13px;">
 <p class="status">OFFICIAL · 信息卡 blackhead-editorial.html</p>
+<p style="margin:4px 0 0;font-size:10px;font-weight:900;color:#D51F32;letter-spacing:0.5px;">REFID · wx-theme:blackhead-editorial<button class="ref-copy" onclick="copyIdxRef('wx-theme:blackhead-editorial')">复制</button></p>
 <h2 style="font-size:17px;margin:4px 0 0;font-weight:800;">黑头编辑风</h2>
 <p style="font-size:12px;color:#6B7280;margin:3px 0 7px;">技术论证、调查复盘、工作流说明</p>
 <small style="display:block;color:#a1a1aa;font-size:10px;line-height:1.5;min-height:36px;margin-bottom:4px;">黑色页眉 · 红色判断锚点 · 步骤链路 · 红黑对比</small>
@@ -500,6 +509,7 @@ a.preview-link-text:hover{color:#3b82f6}
 </a>
 <div style="padding:11px 13px 13px;">
 <p class="status">OFFICIAL · 公众号原生主题</p>
+<p style="margin:4px 0 0;font-size:10px;font-weight:900;color:#059669;letter-spacing:0.5px;">REFID · wx-theme:moyu-ticket<button class="ref-copy" onclick="copyIdxRef('wx-theme:moyu-ticket')">复制</button></p>
 <h2 style="font-size:17px;margin:4px 0 0;font-weight:800;">摸鱼票据风</h2>
 <p style="font-size:12px;color:#6B7280;margin:3px 0 7px;">工具横评、打卡、购物指南、好物推荐</p>
 <small style="display:block;color:#a1a1aa;font-size:10px;line-height:1.5;min-height:36px;margin-bottom:4px;">票据便签 · 评分标签 · 对比卡 · 票据底栏</small>
@@ -523,7 +533,7 @@ a.preview-link-text:hover{color:#3b82f6}
 </a>
 <div style="padding:11px 13px 13px;">
 <p class="status">OFFICIAL · 微信兼容样稿</p>
-<p style="margin:4px 0 0;font-size:10px;font-weight:900;color:#6B7B3A;letter-spacing:0.5px;">REFID · wx-theme:olive-journal</p>
+<p style="margin:4px 0 0;font-size:10px;font-weight:900;color:#6B7B3A;letter-spacing:0.5px;">REFID · wx-theme:olive-journal<button class="ref-copy" onclick="copyIdxRef('wx-theme:olive-journal')">复制</button></p>
 <h2 style="font-size:17px;margin:4px 0 0;font-weight:800;">橄榄日记风</h2>
 <p style="font-size:12px;color:#6B7280;margin:3px 0 7px;">效率清单、周计划、日程管理、生活记录</p>
 <small style="display:block;color:#a1a1aa;font-size:10px;line-height:1.5;min-height:36px;margin-bottom:4px;">橄榄引用 · 橄榄数据 · 清单 · 标签</small>
@@ -547,7 +557,7 @@ a.preview-link-text:hover{color:#3b82f6}
 </a>
 <div style="padding:11px 13px 13px;">
 <p class="status">OFFICIAL · 微信兼容样稿</p>
-<p style="margin:4px 0 0;font-size:10px;font-weight:900;color:#1A3A5C;letter-spacing:0.5px;">REFID · wx-theme:bigwhite</p>
+<p style="margin:4px 0 0;font-size:10px;font-weight:900;color:#1A3A5C;letter-spacing:0.5px;">REFID · wx-theme:bigwhite<button class="ref-copy" onclick="copyIdxRef('wx-theme:bigwhite')">复制</button></p>
 <h2 style="font-size:17px;margin:4px 0 0;font-weight:800;">大白商务风</h2>
 <p style="font-size:12px;color:#6B7280;margin:3px 0 7px;">技术报告、产品发布、商业分析、数据简报</p>
 <small style="display:block;color:#a1a1aa;font-size:10px;line-height:1.5;min-height:36px;margin-bottom:4px;">纯白Hero · 决策框 · 大字报 · 底部说明</small>
@@ -571,7 +581,7 @@ a.preview-link-text:hover{color:#3b82f6}
 </a>
 <div style="padding:11px 13px 13px;">
 <p class="status">OFFICIAL · 微信兼容样稿</p>
-<p style="margin:4px 0 0;font-size:10px;font-weight:900;color:#1D4ED8;letter-spacing:0.5px;">REFID · wx-theme:blue-technical-manual</p>
+<p style="margin:4px 0 0;font-size:10px;font-weight:900;color:#1D4ED8;letter-spacing:0.5px;">REFID · wx-theme:blue<button class="ref-copy" onclick="copyIdxRef('wx-theme:blue')">复制</button></p>
 <h2 style="font-size:17px;margin:4px 0 0;font-weight:800;">蓝色技术手册风</h2>
 <p style="font-size:12px;color:#6B7280;margin:3px 0 7px;">Claude Code手册、Skill手册、Agent workflow、CLI指南</p>
 <small style="display:block;color:#a1a1aa;font-size:10px;line-height:1.5;min-height:36px;margin-bottom:4px;">蓝色斜切Hero · 命令块 · 技术编号章节 · 引用块</small>
@@ -595,7 +605,7 @@ a.preview-link-text:hover{color:#3b82f6}
 </a>
 <div style="padding:11px 13px 13px;">
 <p class="status">OFFICIAL · 微信兼容样稿</p>
-<p style="margin:4px 0 0;font-size:10px;font-weight:900;color:#39D353;letter-spacing:0.5px;">REFID · wx-theme:codex-notebook</p>
+<p style="margin:4px 0 0;font-size:10px;font-weight:900;color:#39D353;letter-spacing:0.5px;">REFID · wx-theme:codex-notebook<button class="ref-copy" onclick="copyIdxRef('wx-theme:codex-notebook')">复制</button></p>
 <h2 style="font-size:17px;margin:4px 0 0;font-weight:800;">Codex笔记本风</h2>
 <p style="font-size:12px;color:#6B7280;margin:3px 0 7px;">CLI指南、工作流笔记、代码教程、DevLog</p>
 <small style="display:block;color:#a1a1aa;font-size:10px;line-height:1.5;min-height:36px;margin-bottom:4px;">命令行Hero · 终端输出块 · 进度指示 · 状态条</small>
@@ -619,7 +629,7 @@ a.preview-link-text:hover{color:#3b82f6}
 </a>
 <div style="padding:11px 13px 13px;">
 <p class="status">OFFICIAL · 微信兼容样稿</p>
-<p style="margin:4px 0 0;font-size:10px;font-weight:900;color:#64748B;letter-spacing:0.5px;">REFID · wx-theme:sage-swiss</p>
+<p style="margin:4px 0 0;font-size:10px;font-weight:900;color:#64748B;letter-spacing:0.5px;">REFID · wx-theme:sage-swiss<button class="ref-copy" onclick="copyIdxRef('wx-theme:sage-swiss')">复制</button></p>
 <h2 style="font-size:17px;margin:4px 0 0;font-weight:800;">鼠尾草瑞士风</h2>
 <p style="font-size:12px;color:#6B7280;margin:3px 0 7px;">环保主题、健康生活、植物养护、科学报告</p>
 <small style="display:block;color:#a1a1aa;font-size:10px;line-height:1.5;min-height:36px;margin-bottom:4px;">草绿渐变Hero · 绿色节点关系 · 鼠尾草引用 · 数据格</small>
@@ -643,6 +653,7 @@ a.preview-link-text:hover{color:#3b82f6}
 </a>
 <div style="padding:11px 13px 13px;">
 <p class="status">OFFICIAL · 信息卡 archive-green.html</p>
+<p style="margin:4px 0 0;font-size:10px;font-weight:900;color:#2F6B4F;letter-spacing:0.5px;">REFID · wx-theme:archive-green<button class="ref-copy" onclick="copyIdxRef('wx-theme:archive-green')">复制</button></p>
 <h2 style="font-size:17px;margin:4px 0 0;font-weight:800;">档案绿风</h2>
 <p style="font-size:12px;color:#6B7280;margin:3px 0 7px;">旧档案整理、文献回顾、历史资料、档案馆指南</p>
 <small style="display:block;color:#a1a1aa;font-size:10px;line-height:1.5;min-height:36px;margin-bottom:4px;">档案编号 · 绿色时间线 · 分类标签 · 档案摘要</small>
@@ -665,7 +676,7 @@ a.preview-link-text:hover{color:#3b82f6}
 </a>
 <div style="padding:11px 13px 13px;">
 <p class="status">OFFICIAL · 微信兼容样稿</p>
-<p style="margin:4px 0 0;font-size:10px;font-weight:900;color:#17324d;letter-spacing:0.5px;">REFID · wx-theme:editorial-system</p>
+<p style="margin:4px 0 0;font-size:10px;font-weight:900;color:#17324d;letter-spacing:0.5px;">REFID · wx-theme:editorial-system<button class="ref-copy" onclick="copyIdxRef('wx-theme:editorial-system')">复制</button></p>
 <h2 style="font-size:17px;margin:4px 0 0;font-weight:800;">编辑系统风</h2>
 <p style="font-size:12px;color:#6B7280;margin:3px 0 7px;">研究摘要、方法论、产品说明、项目复盘</p>
 <small style="display:block;color:#a1a1aa;font-size:10px;line-height:1.5;min-height:36px;margin-bottom:4px;">杂志式Hero · 编号章节 · 浅色模块 · 纵向步骤</small>
@@ -689,7 +700,7 @@ a.preview-link-text:hover{color:#3b82f6}
 </a>
 <div style="padding:11px 13px 13px;">
 <p class="status">OFFICIAL · 微信兼容样稿</p>
-<p style="margin:4px 0 0;font-size:10px;font-weight:900;color:#059669;letter-spacing:0.5px;">REFID · wx-theme:green</p>
+<p style="margin:4px 0 0;font-size:10px;font-weight:900;color:#059669;letter-spacing:0.5px;">REFID · wx-theme:green<button class="ref-copy" onclick="copyIdxRef('wx-theme:green')">复制</button></p>
 <h2 style="font-size:17px;margin:4px 0 0;font-weight:800;">青绿编辑风</h2>
 <p style="font-size:12px;color:#6B7280;margin:3px 0 7px;">Agent实践、效率工具、健康生活、绿色科技</p>
 <small style="display:block;color:#a1a1aa;font-size:10px;line-height:1.5;min-height:36px;margin-bottom:4px;">效率数据块 · 青绿步骤卡 · 任务清单 · 进度指示</small>
@@ -700,5 +711,19 @@ a.preview-link-text:hover{color:#3b82f6}
 
 </section>
 </main>
+<script>
+    function gzhShowToast(msg){
+    var t=document.getElementById('gzhToast');
+    t.textContent=msg;t.classList.add('show');
+    clearTimeout(t._timer);
+    t._timer=setTimeout(function(){t.classList.remove('show');},2800);
+  }
+
+  function copyIdxRef(ref){
+    var done=function(){gzhShowToast('✅ 已复制主题 RefID：'+ref);};
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(ref).then(done,function(){gzhShowToast('⚠ 请手动复制：'+ref);});}
+    else{var x=document.createElement('textarea');x.value=ref;document.body.appendChild(x);x.select();try{document.execCommand('copy');done();}catch(e){gzhShowToast('⚠ 请手动复制：'+ref);}document.body.removeChild(x);}
+  }
+</script>
 </body>
 </html>

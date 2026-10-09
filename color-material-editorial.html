@@ -12,11 +12,25 @@ body{margin:0;background:#e9e7e2;color:#0c1220;font:15px/1.75 -apple-system,Blin
 .stage{max-width:720px;margin:86px auto 60px;padding:0 10px}.paper{background:#f7f2e8;border:3px solid #111;box-shadow:8px 8px 0 rgba(17,17,17,.14);padding:14px}
 .hero{background:#fffdf8;border:3px solid #111;box-shadow:6px 6px 0 rgba(17,17,17,.14);padding:20px 16px;margin-bottom:22px}.eyebrow{color:#6e3fd6;font-weight:900;font-size:11px;letter-spacing:1.6px}.hero h1{font-size:32px;line-height:1.1;margin:8px 0;color:#0c1220}.hero p{color:#5d6472;margin:0 0 14px}.tags{display:flex;flex-wrap:wrap;gap:6px}.tag{border:2px solid #111;padding:4px 9px;font-size:11px;font-weight:900}.purple{background:#6e3fd6;color:#fff}.blue{background:#eef4ff;color:#2e6be6}.green{background:#eefbf1;color:#2e9b4b}.orange{background:#fff4e6;color:#b26a00}
 .section-title{border-top:3px solid #111;padding-top:12px;margin:28px 0 12px}.section-title small{display:block;color:#6e3fd6;font-weight:900;letter-spacing:1.4px}.section-title h2{font-size:23px;line-height:1.25;margin:3px 0}.section-title p{margin:0;color:#5d6472;font-size:13px}.panel{background:#111;color:#fff;border:3px solid #111;box-shadow:5px 5px 0 rgba(17,17,17,.14);padding:15px;margin-bottom:20px}.panel .label{color:#f5d46b;font-size:11px;font-weight:900;letter-spacing:1.3px}.panel strong{display:block;font-size:19px;line-height:1.45;margin:6px 0}.panel span{color:#f0ebe0;font-size:13px}.node{background:#fffdf8;border:2px solid #111;box-shadow:4px 4px 0 rgba(17,17,17,.1);padding:13px;margin-bottom:12px}.node h3{margin:0 0 4px;font-size:18px}.node p{margin:0;color:#2d3748;font-size:13px}.node.purple{border-left:6px solid #6e3fd6}.node.blue{border-left:6px solid #2e6be6}.node.green{border-left:6px solid #2e9b4b}.node.orange{border-left:6px solid #f59e0b}.life{background:#fffdf8;border:2px solid #111;box-shadow:5px 5px 0 rgba(17,17,17,.12);padding:14px}.life .bar{height:10px;background:#e5dafa;border:2px solid #111;margin:8px 0}.life .fill{height:6px;width:60%;background:#6e3fd6}.levels{background:#f2ecff;border:2px solid #111;padding:14px}.level{background:#fffdf8;border:2px solid #111;padding:10px;margin-bottom:8px}.level:last-child{margin-bottom:0}.level b{font-size:18px}.level p{margin:3px 0 0;color:#5d6472;font-size:13px}.evidence,.risk,.action{border:2px solid #111;padding:13px;margin-bottom:12px}.evidence{background:#eef4ff;border-left:6px solid #2e6be6}.risk{background:#fff4e6;border-left:6px solid #f59e0b}.action{background:#eefbf1;border-left:6px solid #2e9b4b}.evidence b,.risk b,.action b{display:block;font-size:11px;letter-spacing:1px;margin-bottom:4px}.closing{background:#111;color:#fff;border:3px solid #111;box-shadow:6px 6px 0 rgba(17,17,17,.14);padding:18px 16px;margin-top:28px}.closing small{color:#f5d46b;font-weight:900;letter-spacing:1px}.closing h2{font-size:22px;line-height:1.4;margin:7px 0}.closing p{color:#f0ebe0;margin:0}.sources{border-top:2px solid #111;margin-top:20px;padding-top:12px;color:#5d6472;font-size:12px;word-break:break-all}.gallery{margin-top:30px;background:#fffdf8;border:3px solid #111;padding:16px;box-shadow:6px 6px 0 rgba(17,17,17,.12)}.gallery h2{margin:0 0 8px}.gallery p{color:#5d6472;font-size:13px}.gallery .sample{border-left:5px solid #6e3fd6;padding:10px 12px;background:#f2ecff;margin:10px 0}.gallery .sample b{display:block;color:#6e3fd6}.copyable{margin-top:26px;padding:16px;background:#f7f2e8;border:2px dashed #111}.copyable h3{margin:0 0 8px;font-size:14px}.copyable p{font-size:12px;color:#5d6472;margin:0}
-@media(max-width:520px){.toolbar{height:64px;padding:0 10px}.hint{max-width:135px;line-height:1.25}.btn{padding:8px 8px;font-size:11px}.stage{margin-top:86px;padding:0 6px}.paper{padding:10px}.hero h1{font-size:28px}.gallery{padding:12px}}
+  .gzh-toolbar{position:fixed;top:0;left:0;right:0;height:54px;background:#ffffff;box-shadow:0 1px 10px rgba(0,0,0,.08);display:flex;align-items:center;justify-content:space-between;padding:0 16px;z-index:99;}
+  .gzh-hint{font-size:13px;color:#6b7280;line-height:1.4;}
+  .gzh-hint b{color:#111827;}
+  .gzh-copy{background:#059669;color:#fff;border:0;border-radius:9px;padding:10px 20px;font-size:14px;font-weight:700;cursor:pointer;box-shadow:0 3px 10px rgba(5,150,105,.28);white-space:nowrap;transition:transform .08s,background .15s;}
+  .gzh-copy:hover{background:#047857;}
+  .gzh-copy:active{transform:translateY(1px);}
+  .gzh-toast{position:fixed;top:66px;left:50%;transform:translateX(-50%);background:#111827;color:#fff;padding:11px 20px;border-radius:10px;font-size:14px;font-weight:600;opacity:0;pointer-events:none;transition:opacity .25s;z-index:100;box-shadow:0 6px 20px rgba(0,0,0,.25);max-width:88vw;text-align:center;}
+  .gzh-toast.show{opacity:1;}
+  .gzh-toolbar{height:58px}
+  .gzh-toast{top:70px}
+  @media(max-width:520px){.toolbar{height:64px;padding:0 10px}.hint{max-width:135px;line-height:1.25}.btn{padding:8px 8px;font-size:11px}.stage{margin-top:86px;padding:0 6px}.paper{padding:10px}.hero h1{font-size:28px}.gallery{padding:12px}}
 </style>
 </head>
 <body>
-<div class="toolbar"><span class="hint">公众号兼容样稿 · RefID 已标注</span><div class="actions"><button class="btn ref" id="gzhRefBtn" onclick="gzhCopyRef()">复制 RefID</button><button class="btn copy" id="gzhCopyBtn" onclick="gzhCopy()">复制到公众号</button></div></div>
+<div class="gzh-toolbar">
+  <span class="gzh-hint">👇 公众号兼容样稿 · RefID 一键复制</span>
+  <span style="display:flex;gap:8px;align-items:center;"><button class="gzh-copy" style="background:#111827;padding:10px 12px;" id="gzhRefBtn" onclick="gzhCopyRef()">复制 RefID</button><button class="gzh-copy" id="gzhCopyBtn" onclick="gzhCopy()">📋 复制到公众号</button></span>
+</div>
+<div class="gzh-toast" id="gzhToast"></div>
 <div class="stage"><main class="paper" id="gzh-content">
 <section class="hero"><div class="eyebrow">COLOR MATERIAL · CAPABILITY MAP</div><h1>AI 时代的产品能力矩阵</h1><p>从感知到认知到行动的完整架构。把中心对象、分区逻辑、能力节点与成熟度放在同一张可复核的地图上。</p><div class="tags"><span class="tag purple">中心对象</span><span class="tag blue">分区逻辑</span><span class="tag green">节点关系</span><span class="tag orange">行动路径</span></div></section>
 <div class="section-title"><small>01 · CENTRAL OBJECT</small><h2>先确定中心对象，再展开能力分区</h2><p>信息卡的重点不是把页面做满，而是让读者知道每个模块围绕什么问题组织。</p></div>
@@ -57,8 +71,18 @@ body{margin:0;background:#e9e7e2;color:#0c1220;font:15px/1.75 -apple-system,Blin
 <section class="copyable"><h3>公众号正文复制说明</h3><p>点击“复制到公众号”复制主样张内容；预览壳的页面级 CSS、按钮和脚本不会作为正文主题组件使用。</p></section>
 </div>
 <script>
-function gzhShow(msg){var x=document.createElement('div');x.textContent=msg;x.style='position:fixed;top:72px;left:50%;transform:translateX(-50%);padding:10px 14px;background:#111;color:#fff;z-index:20;border:2px solid #f5d46b';document.body.appendChild(x);setTimeout(function(){x.remove()},2200)}
-function gzhCopyRef(){var ref='wx-theme:color-material-editorial';if(navigator.clipboard){navigator.clipboard.writeText(ref).then(function(){gzhShow('已复制 '+ref)})}else{gzhShow(ref)}}
-function gzhCopy(){var el=document.getElementById('copy-source'),r=document.createRange(),s=window.getSelection();r.selectNodeContents(el);s.removeAllRanges();s.addRange(r);var ok=false;try{ok=document.execCommand('copy')}catch(e){}s.removeAllRanges();gzhShow(ok?'已复制公众号正文':'请手动选择主样张复制')}
+  function gzhShowToast(msg){
+    var t=document.getElementById('gzhToast');
+    t.textContent=msg;t.classList.add('show');
+    clearTimeout(t._timer);
+    t._timer=setTimeout(function(){t.classList.remove('show');},2800);
+  }
+  function gzhCopyRef(){
+    var ref='wx-theme:color-material-editorial';
+    var done=function(){gzhShowToast('✅ 已复制主题 RefID：'+ref);var btn=document.getElementById('gzhRefBtn');var old=btn.textContent;btn.textContent='✅ RefID 已复制';setTimeout(function(){btn.textContent=old;},2200);};
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(ref).then(done,function(){gzhShowToast('⚠ 请手动复制：'+ref);});}
+    else{var x=document.createElement('textarea');x.value=ref;document.body.appendChild(x);x.select();try{document.execCommand('copy');done();}catch(e){gzhShowToast('⚠ 请手动复制：'+ref);}document.body.removeChild(x);}
+  }
+function gzhCopy(){var el=document.getElementById('copy-source'),r=document.createRange(),s=window.getSelection();r.selectNodeContents(el);s.removeAllRanges();s.addRange(r);var ok=false;try{ok=document.execCommand('copy')}catch(e){}s.removeAllRanges();gzhShowToast(ok?'已复制公众号正文':'请手动选择主样张复制')}
 </script>
 </body></html>

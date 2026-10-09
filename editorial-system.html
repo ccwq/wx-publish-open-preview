@@ -184,6 +184,15 @@ body{padding:16px 16px 60px}
 .g-sources b{display:block;margin-bottom:6px;font:700 10px/1.2 ui-monospace,Menlo,monospace;color:#17324d;letter-spacing:.1em}
 .g-sources p{margin:0;font-size:12px;line-height:1.75;color:#6b665e;word-break:break-all;overflow-wrap:anywhere}
 .g-boundary{margin-top:16px;padding:13px 14px;border:1px solid #d8d2c8;background:#fffdf8;font-size:12px;line-height:1.7;color:#6b665e}
+  .gzh-toolbar{position:fixed;top:0;left:0;right:0;height:54px;background:#ffffff;box-shadow:0 1px 10px rgba(0,0,0,.08);display:flex;align-items:center;justify-content:space-between;padding:0 16px;z-index:99;}
+  .gzh-hint{font-size:13px;color:#6b7280;line-height:1.4;}
+  .gzh-hint b{color:#111827;}
+  .gzh-copy{background:#059669;color:#fff;border:0;border-radius:9px;padding:10px 20px;font-size:14px;font-weight:700;cursor:pointer;box-shadow:0 3px 10px rgba(5,150,105,.28);white-space:nowrap;transition:transform .08s,background .15s;}
+  .gzh-copy:hover{background:#047857;}
+  .gzh-copy:active{transform:translateY(1px);}
+  .gzh-toast{position:fixed;top:66px;left:50%;transform:translateX(-50%);background:#111827;color:#fff;padding:11px 20px;border-radius:10px;font-size:14px;font-weight:600;opacity:0;pointer-events:none;transition:opacity .25s;z-index:100;box-shadow:0 6px 20px rgba(0,0,0,.25);max-width:88vw;text-align:center;}
+  .gzh-toast.show{opacity:1;}
+  .gzh-toolbar{position:sticky;}
 </style>
 </head>
 <body>
@@ -194,13 +203,11 @@ body{padding:16px 16px 60px}
 ═══════════════════════════════════════════ -->
 <p class="page-badge">EDITORIAL SYSTEM · MOBILE PREVIEW</p>
 <p class="page-title">预览壳使用页面级 CSS/JS · 被复制正文仅含内联样式与 span leaf</p>
-<div class="toolbar">
-  <span>公众号样稿 · RefID</span>
-  <div class="actions">
-    <button type="button" onclick="copyRef()">复制 RefID</button>
-    <button type="button" class="copy-main" onclick="copyBody()">复制到公众号</button>
-  </div>
+<div class="gzh-toolbar">
+  <span class="gzh-hint">👇 公众号兼容样稿 · RefID 一键复制</span>
+  <span style="display:flex;gap:8px;align-items:center;"><button class="gzh-copy" style="background:#111827;padding:10px 12px;" id="gzhRefBtn" onclick="gzhCopyRef()">复制 RefID</button><button class="gzh-copy" id="gzhCopyBtn" onclick="gzhCopy()">📋 复制到公众号</button></span>
 </div>
+<div class="gzh-toast" id="gzhToast"></div>
 
 <!-- ═══════════════════════════════════════════
      FULL EXAMPLE ARTICLE
@@ -575,11 +582,19 @@ body{padding:16px 16px 60px}
      COPY SCRIPT
 ═══════════════════════════════════════════ -->
 <script>
-function copyRef(){
-  var ref='wx-theme:editorial-system';
-  if(navigator.clipboard){navigator.clipboard.writeText(ref).then(function(){alert('已复制 '+ref)}).catch(function(){alert(ref)})}else{alert(ref)}
-}
-function copyBody(){
+  function gzhShowToast(msg){
+    var t=document.getElementById('gzhToast');
+    t.textContent=msg;t.classList.add('show');
+    clearTimeout(t._timer);
+    t._timer=setTimeout(function(){t.classList.remove('show');},2800);
+  }
+  function gzhCopyRef(){
+    var ref='wx-theme:editorial-system';
+    var done=function(){gzhShowToast('✅ 已复制主题 RefID：'+ref);var btn=document.getElementById('gzhRefBtn');var old=btn.textContent;btn.textContent='✅ RefID 已复制';setTimeout(function(){btn.textContent=old;},2200);};
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(ref).then(done,function(){gzhShowToast('⚠ 请手动复制：'+ref);});}
+    else{var x=document.createElement('textarea');x.value=ref;document.body.appendChild(x);x.select();try{document.execCommand('copy');done();}catch(e){gzhShowToast('⚠ 请手动复制：'+ref);}document.body.removeChild(x);}
+  }
+function gzhCopy(){
   var el=document.getElementById('copy-source');
   var r=document.createRange();
   r.selectNodeContents(el);
@@ -588,7 +603,7 @@ function copyBody(){
   s.addRange(r);
   var ok=false;
   try{ok=document.execCommand('copy')}catch(e){}
-  if(ok){alert('已复制可粘贴的公众号正文')}else if(navigator.clipboard){navigator.clipboard.writeText(el.innerText).then(function(){alert('已复制正文文本，请粘贴后检查样式')}).catch(function(){alert('复制失败，请手动选择正文区域复制')})}else{alert('复制失败，请手动选择正文区域复制')}
+  if(ok){gzhShowToast('✅ 已复制公众号正文')}else if(navigator.clipboard){navigator.clipboard.writeText(el.innerText).then(function(){gzhShowToast('✅ 已复制正文文本，请粘贴后检查样式')}).catch(function(){gzhShowToast('⚠ 请手动选择正文区域复制')})}else{gzhShowToast('⚠ 请手动选择正文区域复制')}
   s.removeAllRanges();
 }
 </script>
