@@ -15,7 +15,14 @@
   .gzh-toast{position:fixed;top:66px;left:50%;transform:translateX(-50%);background:#111827;color:#fff;padding:11px 20px;border-radius:10px;font-size:14px;font-weight:600;opacity:0;pointer-events:none;transition:opacity .25s;z-index:100;box-shadow:0 6px 20px rgba(0,0,0,.25);max-width:88vw;text-align:center;}
   .gzh-toast.show{opacity:1;}
   .gzh-stage{max-width:700px;margin:78px auto 64px;padding:0 8px;}
-  @media(max-width:520px){.gzh-hint{max-width:150px;}}
+  @media(max-width:520px){
+    .gzh-toolbar{height:auto;min-height:54px;flex-wrap:wrap;align-content:center;padding:8px 12px;gap:2px 10px;}
+    .gzh-hint{max-width:100%;font-size:12px;flex:1 1 100%;white-space:normal;}
+    .gzh-toolbar>span{flex:1 1 100%;}
+    .gzh-copy{padding:8px 14px;font-size:13px;}
+    .gzh-toast{top:84px;}
+    .gzh-stage{margin-top:96px;}
+  }
 </style>
 </head>
 <body>
@@ -30,7 +37,11 @@
   <section style="margin:0 0 22px;padding:20px 16px 18px;background:#F0FDF4;border-radius:10px;border-bottom:4px solid #059669;box-sizing:border-box;">
     <span style="display:block;font-size:12px;font-weight:700;color:#059669;margin:0 0 8px;text-transform:uppercase;letter-spacing:1.5px;"><span leaf="">Agent 实践 · 效率工具</span></span>
     <h3 style="font-size:24px;line-height:1.3;color:#047857;margin:0 0 10px;font-weight:800;"><span leaf="">用 AI Agent 把重复任务自动化</span></h3>
-    <span style="display:block;font-size:14px;line-height:1.75;margin:0;color:#6B7280;"><span leaf="">告别手动操作——三步搭建属于你的自动化工作流，每天节省 2 小时。</span></span>
+    <span style="display:block;font-size:14px;line-height:1.75;margin:0;color:#6B7280;"><span leaf="">告别手动操作——三步搭建属于你的自动化工作流，把时间还给真正重要的事。</span></span>
+  </section>
+
+  <section style="margin:0 0 22px;padding:0;box-sizing:border-box;">
+    <span style="display:block;font-size:15px;line-height:1.8;color:#374151;margin:0;"><span leaf="">每天被邮件归类、数据录入这类机械操作占据的时间，远比想象中多。本文用一套可复制的三步方法，带你把最常见的重复任务交给 AI Agent 处理。文中所有数据、任务与进度均为演示样例，实际效果以你自己的任务复杂度为准。</span></span>
   </section>
 
   <section style="display:flex;gap:8px;margin:0 0 22px;box-sizing:border-box;">
@@ -51,13 +62,19 @@
   <section style="margin:0 0 22px;padding:14px 16px;background:#F0FDF4;border-radius:10px;border-left:4px solid #059669;box-sizing:border-box;">
     <span style="display:block;font-size:12px;font-weight:700;color:#059669;margin:0 0 8px;text-transform:uppercase;letter-spacing:1px;"><span leaf="">STEP 01</span></span>
     <h4 style="font-size:17px;font-weight:800;color:#047857;margin:0 0 8px;line-height:1.3;"><span leaf="">定义任务边界</span></h4>
-    <span style="display:block;font-size:14px;line-height:1.75;color:#374151;margin:0;"><span leaf="">把每天重复的机械操作列出来：邮件归类、数据录入、报表生成。明确输入和期望输出。</span></span>
+    <span style="display:block;font-size:14px;line-height:1.75;color:#374151;margin:0;"><span leaf="">把每天重复的机械操作列出来：邮件归类、数据录入、报表生成。为每个任务写清楚输入来源、处理规则和期望输出——边界写得越清晰，Agent 的执行就越稳定。</span></span>
   </section>
 
   <section style="margin:0 0 22px;padding:14px 16px;background:#F0FDF4;border-radius:10px;border-left:4px solid #059669;box-sizing:border-box;">
     <span style="display:block;font-size:12px;font-weight:700;color:#059669;margin:0 0 8px;text-transform:uppercase;letter-spacing:1px;"><span leaf="">STEP 02</span></span>
     <h4 style="font-size:17px;font-weight:800;color:#047857;margin:0 0 8px;line-height:1.3;"><span leaf="">选择合适的 Agent</span></h4>
-    <span style="display:block;font-size:14px;line-height:1.75;color:#374151;margin:0;"><span leaf="">邮件类选对话 Agent，API 类选结构化输出 Agent，数据处理选代码生成 Agent。</span></span>
+    <span style="display:block;font-size:14px;line-height:1.75;color:#374151;margin:0;"><span leaf="">邮件类任务选对话型 Agent，API 调用选结构化输出 Agent，数据处理选代码生成 Agent。先在小范围内试运行，确认输出格式和准确度符合预期，再正式接入工作流。</span></span>
+  </section>
+
+  <section style="margin:0 0 22px;padding:14px 16px;background:#F0FDF4;border-radius:10px;border-left:4px solid #059669;box-sizing:border-box;">
+    <span style="display:block;font-size:12px;font-weight:700;color:#059669;margin:0 0 8px;text-transform:uppercase;letter-spacing:1px;"><span leaf="">STEP 03</span></span>
+    <h4 style="font-size:17px;font-weight:800;color:#047857;margin:0 0 8px;line-height:1.3;"><span leaf="">试运行、复盘与迭代</span></h4>
+    <span style="display:block;font-size:14px;line-height:1.75;color:#374151;margin:0;"><span leaf="">让 Agent 完整跑一遍任务，人工核对关键结果是否可靠。把踩过的坑写进提示词或规则里，每周固定复盘一次，逐步把更多环节交给自动化。</span></span>
   </section>
 
   <section style="margin:0 0 22px;padding:14px 16px;background:#FFFFFF;border:1px solid #A7F3D0;border-radius:10px;box-sizing:border-box;">
@@ -72,7 +89,7 @@
   <section style="margin:0 0 22px;padding:14px 16px;background:#F0FDF4;border-radius:10px;box-sizing:border-box;">
     <span style="display:block;font-size:12px;font-weight:700;color:#059669;margin:0 0 10px;text-transform:uppercase;letter-spacing:1px;"><span leaf="">本周目标进度</span></span>
     <section style="height:8px;background:#A7F3D0;border-radius:4px;overflow:hidden;margin-bottom:8px;box-sizing:border-box;">
-      <section style="height:100%;width:65%;background:#10B981;border-radius:4px;box-sizing:border-box;"><span leaf="">&nbsp;</span></section>
+      <section style="height:100%;width:60%;background:#10B981;border-radius:4px;box-sizing:border-box;"><span leaf="">&nbsp;</span></section>
     </section>
     <span style="display:block;font-size:13px;color:#6B7280;margin:0;"><span leaf="">3/5 个自动化任务已配置</span></span>
   </section>
@@ -80,6 +97,7 @@
   <section style="margin:0;padding:16px;background:#059669;border-radius:10px;text-align:center;box-sizing:border-box;">
     <h4 style="font-size:16px;font-weight:800;color:#FFFFFF;margin:0 0 6px;"><span leaf="">立即开始你的自动化之旅</span></h4>
     <span style="display:block;font-size:14px;color:#A7F3D0;margin:0;"><span leaf="">最小的第一步：选一个重复任务，让 Agent 试着完成它。</span></span>
+    <span style="display:block;font-size:11px;color:rgba(255,255,255,0.75);margin:10px 0 0;"><span leaf="">本文为公众号排版演示样稿，内容与数据均为示例，非真实新闻或实测结果。</span></span>
   </section>
 </section>
   </div>
