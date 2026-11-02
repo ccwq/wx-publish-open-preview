@@ -16,6 +16,12 @@
   .gzh-toast.show{opacity:1;}
   .gzh-stage{max-width:700px;margin:78px auto 64px;padding:0 8px;}
   @media(max-width:520px){.gzh-hint{max-width:150px;}}
+  @media(max-width:360px){
+    .gzh-toolbar{flex-wrap:wrap;height:auto;min-height:54px;padding:8px 12px;row-gap:2px;}
+    .gzh-hint{max-width:none;flex:1 1 100%;text-align:center;}
+    .gzh-stage{margin-top:112px;}
+    .gzh-toast{top:96px;}
+  }
 </style>
 </head>
 <body>
@@ -26,102 +32,112 @@
 <div class="gzh-toast" id="gzhToast"></div>
 <div class="gzh-stage">
   <div id="gzh-content">
-<section style="width:100%;max-width:677px;margin:0 auto;padding:8px;box-sizing:border-box;background:#fdfdf8;color:#4d4f46;font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif;line-height:1.75;">
+<section style="width:100%;max-width:677px;margin:0 auto;padding:8px;box-sizing:border-box;background:#fdfdf8;color:#4d4f46;font-family:'IBM Plex Sans',-apple-system,BlinkMacSystemFont,system-ui,'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;line-height:1.75;">
   <section style="background:#fdfdf8;border:1px solid #bfc1b7;border-radius:6px;overflow:hidden;">
-    <section style="padding:24px 18px 20px;">
-      <section style="display:flex;align-items:center;gap:8px;margin-bottom:18px;">
-        <span style="width:8px;height:8px;background:#1e1f23;border-radius:50%;display:inline-block;font-size:0;line-height:0;"><span leaf="">·</span></span>
-        <span style="font-size:10px;font-weight:700;letter-spacing:3px;color:#65675e;"><span leaf="">THEME SAMPLE · OFFICIAL</span></span>
-        <span style="flex:1;height:1px;background:#bfc1b7;display:inline-block;font-size:0;line-height:0;"><span leaf="">&nbsp;</span></span>
-        <span style="font-size:10px;color:#9ea096;"><span leaf="">VOL. 01</span></span>
+    <section style="padding:28px 24px 22px;">
+      <section style="margin-bottom:22px;">
+        <span style="width:8px;height:8px;background:#1e1f23;border-radius:50%;display:inline-block;font-size:0;line-height:0;vertical-align:middle;margin-right:8px;"><span leaf="">·</span></span>
+        <span style="font-size:10px;font-weight:700;letter-spacing:3px;color:#65675e;vertical-align:middle;"><span leaf="">THEME SAMPLE · OFFICIAL</span></span>
+        <span style="display:inline-block;width:16px;height:1px;background:#bfc1b7;font-size:0;line-height:0;vertical-align:middle;overflow:hidden;"><span leaf="">&nbsp;</span></span>
+        <span style="font-size:10px;color:#9ea096;font-weight:500;vertical-align:middle;"><span leaf="">VOL. 01</span></span>
       </section>
-      <section style="display:flex;align-items:stretch;gap:14px;">
-        <section style="flex:1;">
-          <span style="font-size:11px;color:#9ea096;letter-spacing:1px;text-decoration:line-through;"><span leaf="">普通模板</span></span>
-          <h3 style="font-size:24px;font-weight:800;color:#23251d;line-height:1.2;margin:6px 0 10px;letter-spacing:-0.5px;"><span leaf="">橄榄手记</span><span style="color:#65675e;"><span leaf=""> · </span></span><span style="border-bottom:3px solid #ed7b2f;"><span leaf="">把内容写得更耐看</span></span></h3>
-          <span style="display:inline-block;width:28px;height:3px;background:#1e1f23;border-radius:2px;font-size:0;line-height:0;"><span leaf="">&nbsp;</span></span>
-          <span style="display:inline-block;width:9px;height:3px;background:#bfc1b7;border-radius:2px;margin-left:4px;font-size:0;line-height:0;"><span leaf="">&nbsp;</span></span>
+      <section>
+        <section>
+          <span style="font-size:14px;color:#9ea096;letter-spacing:0.3px;text-decoration:line-through;display:block;margin-bottom:8px;"><span leaf="">普通模板</span></span>
+          <h3 style="font-size:24px;font-weight:800;color:#23251d;line-height:1.15;margin:0 0 10px;letter-spacing:-0.75px;"><span leaf="">橄榄手记</span><span style="color:#4d4f46;"><span leaf=""> · </span></span><span style="border-bottom:3px solid #e5e7e0;"><span leaf="">把内容写得更耐看</span></span></h3>
+          <span style="display:inline-block;width:22px;height:3px;background:#1e1f23;border-radius:2px;font-size:0;line-height:0;"><span leaf="">&nbsp;</span></span>
+          <span style="display:inline-block;width:8px;height:3px;background:#bfc1b7;border-radius:2px;margin-left:4px;font-size:0;line-height:0;"><span leaf="">&nbsp;</span></span>
           <section style="margin-top:12px;color:#65675e;font-size:13px;line-height:1.7;"><span leaf="">米白纸感、墨黑锚点与橙色细节，构成一套克制而有编辑部气质的公众号排版。</span></section>
         </section>
-        <section style="width:82px;flex-shrink:0;background:#eeefe9;border:1px dashed #bfc1b7;border-radius:6px;padding:8px;display:flex;align-items:center;justify-content:center;text-align:center;">
-          <span style="font-size:11px;font-weight:800;letter-spacing:1px;color:#65675e;"><span leaf="">DOODLE / NOTE</span></span>
+        <section style="width:112px;margin:14px auto 0;background:#eeefe9;border:1px dashed #bfc1b7;border-radius:6px;padding:8px;text-align:center;">
+          <span style="display:block;">
+            <span style="display:inline-block;width:6px;height:6px;border-radius:50%;background:#4d4f46;font-size:0;line-height:0;margin:0 10px;vertical-align:middle;overflow:hidden;"><span leaf="">&nbsp;</span></span>
+            <span style="display:inline-block;width:6px;height:6px;border-radius:50%;background:#4d4f46;font-size:0;line-height:0;margin:0 10px;vertical-align:middle;overflow:hidden;"><span leaf="">&nbsp;</span></span>
+          </span>
+          <span style="display:block;margin:6px auto 0;width:18px;height:9px;border:2px solid #4d4f46;border-top:0;border-radius:0 0 18px 18px;font-size:0;line-height:0;overflow:hidden;"><span leaf="">&nbsp;</span></span>
+          <span style="display:block;font-size:8px;font-weight:700;color:#9ea096;letter-spacing:1px;margin-top:6px;"><span leaf="">DOODLE</span></span>
         </section>
       </section>
     </section>
-    <section style="background:#1e1f23;padding:11px 18px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
-      <span style="font-size:12px;color:#fff;font-weight:600;flex:1;"><span leaf="">适合内刊手记、案例复盘与深度评测</span></span>
-      <span style="background:#e5e7e0;color:#23251d;padding:3px 7px;border-radius:4px;font-size:9px;font-weight:700;border:1px solid #bfc1b7;"><span leaf="">编辑部感</span></span>
-      <span style="background:#e5e7e0;color:#23251d;padding:3px 7px;border-radius:4px;font-size:9px;font-weight:700;border:1px solid #bfc1b7;"><span leaf="">窄屏友好</span></span>
+    <section style="background:#1e1f23;padding:11px 24px;">
+      <span style="font-size:12px;color:rgba(255,255,255,0.92);font-weight:600;"><span leaf="">适合内刊手记、案例复盘与深度评测</span></span>
+      <span style="display:inline-block;background:#e5e7e0;color:#23251d;padding:3px 8px;border-radius:4px;font-size:8px;font-weight:700;border:1px solid #bfc1b7;margin-left:8px;vertical-align:middle;"><span leaf="">编辑部感</span></span>
+      <span style="display:inline-block;background:#e5e7e0;color:#23251d;padding:3px 8px;border-radius:4px;font-size:8px;font-weight:700;border:1px solid #bfc1b7;margin-left:8px;margin-top:4px;vertical-align:middle;"><span leaf="">窄屏友好</span></span>
     </section>
   </section>
 
   <section style="margin-top:24px;">
-    <section style="display:flex;align-items:center;gap:12px;">
-      <section style="text-align:center;flex-shrink:0;">
+    <section style="border-left:1px solid #bfc1b7;padding-left:12px;">
+      <section style="display:block;">
         <span style="display:block;font-size:24px;font-weight:800;color:#23251d;line-height:1;letter-spacing:-2px;"><span leaf="">01</span></span>
         <span style="display:block;font-size:8px;font-weight:700;color:#9ea096;letter-spacing:2px;"><span leaf="">PART</span></span>
       </section>
-      <span style="width:1px;height:36px;background:#bfc1b7;display:inline-block;font-size:0;line-height:0;"><span leaf="">&nbsp;</span></span>
-      <section>
-        <h3 style="margin:0 0 2px;font-size:17px;font-weight:800;color:#23251d;"><span leaf="">主题应该服务内容</span></h3>
-        <span style="font-size:11px;font-weight:600;color:#65675e;letter-spacing:1px;"><span leaf="">STRUCTURE FIRST</span></span>
+      <section style="display:block;margin-top:6px;">
+        <h3 style="margin:0 0 4px;font-size:17px;font-weight:800;color:#23251d;letter-spacing:0.2px;"><span leaf="">主题应该服务内容</span></h3>
+        <span style="display:block;font-size:11px;font-weight:600;color:#65675e;letter-spacing:1.2px;"><span leaf="">STRUCTURE FIRST</span></span>
       </section>
     </section>
   </section>
   <section style="margin-top:16px;">
-    <span style="font-size:14px;line-height:1.9;text-align:justify;color:#4d4f46;display:block;"><span leaf="">一套好的公众号主题，不应该先让读者注意到颜色和装饰，而应该先让读者顺利读懂文章。橄榄手记把视觉重点放在章节节奏、信息分组和重点句上：米白底负责呼吸，墨黑负责定锚，橙色只在真正需要被看见的地方出现。</span></span>
+    <span style="font-size:14px;line-height:1.9;text-align:justify;color:#4d4f46;display:block;"><span leaf="">一套好的公众号主题，不应该先让读者注意到颜色和装饰，而应该</span><span style="border-bottom:2px solid #ed7b2f;font-weight:600;color:#23251d;"><span leaf="">先让读者顺利读懂文章</span></span><span leaf="">。橄榄手记把视觉重点放在章节节奏、信息分组和重点句上：米白底负责呼吸，墨黑负责定锚，橙色只在真正需要被看见的地方出现。</span></span>
   </section>
   <section style="margin-top:16px;background:#fdfdf8;border:1px solid #bfc1b7;border-radius:6px;padding:14px 16px;">
     <span style="font-size:14px;line-height:1.8;color:#4d4f46;display:block;"><strong style="color:#23251d;border-bottom:3px solid #ed7b2f;"><span leaf="">先建立阅读秩序</span></strong><span leaf="">，再添加风格记忆点。这样即使在手机窄屏上，内容仍然是主角。</span></span>
   </section>
 
-  <section style="margin-top:24px;background:#eeefe9;border:1px solid #bfc1b7;border-radius:6px;padding:12px 16px;display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;">
-    <span style="font-size:10px;font-weight:800;letter-spacing:3px;color:#23251d;"><span leaf="">SIGNATURE COMPONENTS</span></span>
-    <span style="font-size:10px;color:#65675e;"><span leaf="">5 个可复用锚点</span></span>
+  <section style="margin-top:24px;background:#eeefe9;border:1px solid #bfc1b7;border-radius:6px;padding:12px 16px;">
+    <span style="display:block;font-size:10px;font-weight:800;letter-spacing:4px;color:#23251d;"><span leaf="">SIGNATURE COMPONENTS</span></span>
+    <span style="display:block;margin:6px 0 0;">
+      <span style="font-size:10px;color:#65675e;font-weight:700;margin-right:10px;"><span leaf="">5 个可复用锚点</span></span>
+      <span style="font-size:10px;color:#9ea096;"><span leaf="">头图卡 / 章节标题 / 观点卡 / 路线胶囊 / 暗色摘要</span></span>
+    </span>
   </section>
 
   <section style="margin-top:24px;">
     <h4 style="font-size:18px;font-weight:700;color:#23251d;margin:0 0 10px;padding:0 2px;display:block;"><span style="border-bottom:3px solid #ed7b2f;"><span leaf="">五个让版面更耐看的组件</span></span></h4>
-    <ul style="margin:0;padding-left:22px;line-height:1.8;">
-      <li style="margin-bottom:8px;font-size:14px;color:#4d4f46;"><span leaf="">内刊头图：用期号、标签和一句摘要建立第一印象。</span></li>
-      <li style="margin-bottom:8px;font-size:14px;color:#4d4f46;"><span leaf="">章节标题：用编号与短副标题让长文有路可循。</span></li>
-      <li style="margin-bottom:8px;font-size:14px;color:#4d4f46;"><span leaf="">重点观点卡：把最值得记住的一句话从正文中托出来。</span></li>
-      <li style="margin-bottom:8px;font-size:14px;color:#4d4f46;"><span leaf="">路线胶囊：用浅底、陶土棕和墨黑区分阶段状态。</span></li>
-      <li style="font-size:14px;color:#4d4f46;"><span leaf="">暗色摘要：在结尾给出一条明确、克制的结论。</span></li>
+    <ul style="margin:0;padding-left:22px;line-height:1.8;list-style-position:outside;">
+      <li style="margin-bottom:8px;font-size:15px;color:#4d4f46;list-style-type:disc;"><span leaf="">内刊头图：用期号、标签和一句摘要建立第一印象。</span></li>
+      <li style="margin-bottom:8px;font-size:15px;color:#4d4f46;list-style-type:disc;"><span leaf="">章节标题：用编号与短副标题让长文有路可循。</span></li>
+      <li style="margin-bottom:8px;font-size:15px;color:#4d4f46;list-style-type:disc;"><span leaf="">重点观点卡：把最值得记住的一句话从正文中托出来。</span></li>
+      <li style="margin-bottom:8px;font-size:15px;color:#4d4f46;list-style-type:disc;"><span leaf="">路线胶囊：用浅底、陶土棕和墨黑区分阶段状态。</span></li>
+      <li style="font-size:15px;color:#4d4f46;list-style-type:disc;"><span leaf="">暗色摘要：在结尾给出一条明确、克制的结论。</span></li>
     </ul>
   </section>
 
   <section style="margin-top:24px;">
-    <section style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;border-bottom:1px solid #bfc1b7;padding-bottom:10px;">
-      <span style="font-size:10px;font-weight:800;letter-spacing:3px;color:#ed7b2f;"><span leaf="">EDITORIAL NOTE</span></span>
-      <span style="font-size:18px;font-weight:800;color:#23251d;line-height:1.2;"><span leaf="">窄屏也要保持呼吸感</span></span>
+    <section style="border-bottom:1px solid #bfc1b7;padding-bottom:10px;">
+      <span style="display:block;">
+        <span style="font-size:10px;font-weight:800;letter-spacing:3px;color:#ed7b2f;text-transform:uppercase;"><span leaf="">EDITORIAL NOTE</span></span>
+        <span style="margin-left:10px;font-size:10px;color:#9ea096;font-variant-numeric:tabular-nums;"><span leaf="">02 / 05</span></span>
+      </span>
+      <span style="display:block;font-size:18px;font-weight:800;color:#23251d;line-height:1.2;margin-top:4px;"><span leaf="">窄屏也要保持呼吸感</span></span>
     </section>
   </section>
   <section style="margin-top:16px;">
-    <span style="font-size:14px;line-height:1.9;text-align:justify;color:#4d4f46;display:block;"><span leaf="">在手机阅读场景里，真正影响体验的不是装饰够不够多，而是文字有没有被合理分组。橄榄手记尽量使用纵向卡片、可换行标签和百分比宽度，避免把桌面网页的复杂布局硬搬进公众号。</span></span>
+    <span style="font-size:14px;line-height:1.9;text-align:justify;color:#4d4f46;display:block;"><span leaf="">在手机阅读场景里，真正影响体验的不是装饰够不够多，而是</span><span style="border-bottom:2px solid #ed7b2f;font-weight:600;color:#23251d;"><span leaf="">文字有没有被合理分组</span></span><span leaf="">。橄榄手记尽量使用纵向卡片、可换行标签和百分比宽度，避免把桌面网页的复杂布局硬搬进公众号。</span></span>
   </section>
 
   <section style="margin-top:24px;background:#1e1f23;border:1px solid #23251d;border-radius:6px;padding:8px;">
-    <section style="border:1px solid rgba(255,255,255,0.16);border-radius:4px;padding:18px;">
+    <section style="border:1px solid rgba(255,255,255,0.16);border-radius:4px;padding:20px 22px;">
       <span style="display:block;font-size:10px;line-height:1.6;color:#a3a3a3;letter-spacing:4px;font-weight:800;margin-bottom:8px;"><span leaf="">BOTTOM LINE</span></span>
       <span style="display:block;font-size:16px;line-height:1.9;color:#fafafa;font-weight:700;"><span leaf="">橄榄手记的核心，不是把文章装饰成杂志，而是让每一个重点都拥有恰到好处的停顿。</span></span>
     </section>
   </section>
 
-  <section style="margin-top:24px;background:#fdfdf8;border:1px solid #bfc1b7;border-radius:6px;padding:18px 16px;text-align:center;">
+  <section style="margin-top:24px;background:#fdfdf8;border:1px solid #bfc1b7;border-radius:6px;padding:22px 16px;text-align:center;">
     <span style="display:block;font-size:13px;font-weight:700;color:#23251d;line-height:1.6;margin-bottom:14px;"><span leaf="">如果你喜欢这种克制、清晰、带一点编辑部气质的排版，欢迎把它收藏起来，下次写长文时再见。</span></span>
-    <section style="display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin-bottom:14px;">
-      <section style="text-align:center;color:#4d4f46;">
-        <span style="width:40px;height:40px;display:flex;align-items:center;justify-content:center;margin:0 auto 6px;background:#eeefe9;border-radius:6px;border:1px solid #bfc1b7;font-size:18px;"><span leaf="">赞</span></span>
-        <span style="font-size:11px;font-weight:600;"><span leaf="">赞</span></span>
+    <section style="text-align:center;margin-bottom:14px;">
+      <section style="display:inline-block;vertical-align:top;margin:0 7px;text-align:center;color:#4d4f46;">
+        <span style="display:inline-block;width:40px;height:40px;line-height:38px;text-align:center;margin:0 0 6px;background:#eeefe9;border-radius:6px;border:1px solid #bfc1b7;font-size:18px;color:#4d4f46;"><span leaf="">♥</span></span>
+        <span style="display:block;font-size:11px;font-weight:600;"><span leaf="">赞</span></span>
       </section>
-      <section style="text-align:center;color:#4d4f46;">
-        <span style="width:40px;height:40px;display:flex;align-items:center;justify-content:center;margin:0 auto 6px;background:#eeefe9;border-radius:6px;border:1px solid #bfc1b7;font-size:18px;"><span leaf="">看</span></span>
-        <span style="font-size:11px;font-weight:600;"><span leaf="">在看</span></span>
+      <section style="display:inline-block;vertical-align:top;margin:0 7px;text-align:center;color:#4d4f46;">
+        <span style="display:inline-block;width:40px;height:40px;line-height:38px;text-align:center;margin:0 0 6px;background:#eeefe9;border-radius:6px;border:1px solid #bfc1b7;font-size:18px;color:#4d4f46;"><span leaf="">◉</span></span>
+        <span style="display:block;font-size:11px;font-weight:600;"><span leaf="">在看</span></span>
       </section>
-      <section style="text-align:center;color:#23251d;">
-        <span style="width:40px;height:40px;display:flex;align-items:center;justify-content:center;margin:0 auto 6px;background:#d4c9b8;border-radius:6px;border:1px solid #b17816;font-size:18px;"><span leaf="">★</span></span>
-        <span style="font-size:11px;font-weight:700;"><span leaf="">收藏</span></span>
+      <section style="display:inline-block;vertical-align:top;margin:0 7px;text-align:center;color:#23251d;">
+        <span style="display:inline-block;width:40px;height:40px;line-height:38px;text-align:center;margin:0 0 6px;background:#d4c9b8;border-radius:6px;border:1px solid #b17816;font-size:18px;color:#23251d;"><span leaf="">★</span></span>
+        <span style="display:block;font-size:11px;font-weight:700;"><span leaf="">收藏</span></span>
       </section>
     </section>
     <span style="display:block;line-height:1.6;font-size:10px;color:#9ea096;letter-spacing:2px;font-weight:500;"><span leaf="">THANKS FOR READING</span></span>
