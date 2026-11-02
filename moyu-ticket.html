@@ -15,7 +15,13 @@
   .gzh-toast{position:fixed;top:66px;left:50%;transform:translateX(-50%);background:#111827;color:#fff;padding:11px 20px;border-radius:10px;font-size:14px;font-weight:600;opacity:0;pointer-events:none;transition:opacity .25s;z-index:100;box-shadow:0 6px 20px rgba(0,0,0,.25);max-width:88vw;text-align:center;}
   .gzh-toast.show{opacity:1;}
   .gzh-stage{max-width:700px;margin:78px auto 64px;padding:0 8px;}
-  @media(max-width:520px){.gzh-hint{max-width:150px;}}
+  @media(max-width:520px){
+    .gzh-toolbar{height:auto;min-height:54px;flex-wrap:wrap;padding:8px 12px;row-gap:6px;}
+    .gzh-hint{max-width:none;flex:1 1 100%;}
+    .gzh-toolbar>span{width:100%;}
+    .gzh-toast{top:96px;}
+    .gzh-stage{margin-top:96px;}
+  }
 </style>
 </head>
 <body>
@@ -26,126 +32,122 @@
 <div class="gzh-toast" id="gzhToast"></div>
 <div class="gzh-stage">
   <div id="gzh-content">
-<section style="width:100%;max-width:677px;margin:0 auto;background:#ffffff;font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;color:#374151;line-height:1.75;letter-spacing:0.5px;">
-  <section style="background:#fffef8;border:2px solid #1a1a1a;box-shadow:4px 4px 0 #1a1a1a;margin:0 20px 32px 20px;">
-    <section style="background:#059669;padding:12px 20px;display:flex;justify-content:space-between;align-items:center;">
-      <span style="color:#fffef8;font-size:11px;letter-spacing:4px;font-weight:600;"><span leaf="">THEME SAMPLE · OFFICIAL</span></span>
-      <span style="color:#fffef8;font-size:11px;letter-spacing:2px;"><span leaf="">★★★★★</span></span>
-    </section>
-    <section style="display:flex;">
-      <section style="flex:1;padding:24px 20px;border-right:2px dashed #A7F3D0;">
-        <h3 style="font-size:24px;font-weight:900;color:#1a1a1a;letter-spacing:0.5px;margin:0 0 4px 0;text-shadow:0.5px 0 0 #1a1a1a;"><span leaf="">摸鱼票据风</span></h3>
-        <span style="display:block;font-size:14px;color:#666;letter-spacing:1px;margin:0 0 20px 0;"><span leaf="">一张值得收藏的公众号主题凭证</span></span>
-        <section style="border-top:1px dashed #A7F3D0;margin:0 0 16px 0;"><span leaf=""><br></span></section>
-        <section style="font-size:13px;color:#555;line-height:1.8;padding:12px;background:#F0FDF4;border:1px solid #A7F3D0;">
-          <span leaf="">用票据、收据和清单的视觉隐喻，把测评、工具对比与创意评测整理成一张清楚、耐读、可复核的内容凭证。</span>
-        </section>
-        <section style="display:flex;gap:8px;margin:16px 0 0 0;">
-          <span style="font-size:10px;color:#059669;border:1px solid #059669;padding:4px 10px;"><span leaf="">测评</span></span>
-          <span style="font-size:10px;color:#059669;border:1px solid #059669;padding:4px 10px;"><span leaf="">工具对比</span></span>
-          <span style="font-size:10px;color:#059669;border:1px solid #059669;padding:4px 10px;"><span leaf="">创意评测</span></span>
-        </section>
+<section style="max-width:677px;margin:0 auto;background:#fffef8;font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;color:#374151;line-height:1.75;letter-spacing:0.3px;text-align:left;padding:0 8px 60px;">
+
+  <!-- 安全票据封面（单列：票据头 → 主题名 → 价值主张 → 定位卡 → 标签 → 撕票线 → 凭证底栏） -->
+  <section style="display:block;background:#fffef8;border:2px solid #1a1a1a;box-shadow:4px 4px 0 #1a1a1a;margin:0 0 24px;padding:0;text-align:left;">
+    <p style="font-size:11px;color:#fffef8;background:#059669;font-weight:700;letter-spacing:2px;margin:0;padding:11px 14px;text-align:left;"><span leaf="">THEME SAMPLE · 摸鱼票据风</span><span leaf=""> ★★★★★</span></p>
+    <section style="display:block;padding:16px 14px 14px;border-bottom:2px dashed #A7F3D0;">
+      <p style="font-size:25px;font-weight:900;color:#1a1a1a;line-height:1.2;margin:0 0 4px;text-align:left;"><span leaf="">摸鱼票据风</span></p>
+      <p style="font-size:15px;color:#666;line-height:1.6;margin:0 0 12px;text-align:left;"><span leaf="">一张值得收藏的公众号主题凭证</span></p>
+      <section style="display:block;background:#F0FDF4;border:1px solid #A7F3D0;border-left:3px solid #059669;padding:12px 14px;margin:0 0 18px;text-align:left;">
+        <p style="font-size:11px;color:#059669;margin:0 0 6px;text-align:left;"><span leaf="">主题定位</span></p>
+        <p style="font-size:14px;color:#555;line-height:1.9;margin:0;text-align:left;"><span leaf="">用票据、收据和清单的视觉隐喻，把测评、工具对比与创意评测整理成一张清楚、耐读、可复核的内容凭证。</span></p>
       </section>
-      <section style="width:48px;padding:14px 4px;display:flex;flex-direction:column;align-items:center;justify-content:space-between;background:#F0FDF4;">
-        <span style="display:block;text-align:center;"><span style="display:block;font-size:7px;color:#999;letter-spacing:1px;"><span leaf="">NO.</span></span><span style="display:block;font-size:18px;font-weight:900;color:#059669;"><span leaf="">001</span></span></span>
-        <span style="writing-mode:vertical-rl;font-size:9px;color:#888;letter-spacing:2px;"><span leaf="">主题样稿</span></span>
-        <span style="display:block;text-align:center;"><span style="display:block;font-size:7px;color:#999;letter-spacing:1px;"><span leaf="">GRADE</span></span><span style="display:block;font-size:14px;font-weight:900;color:#059669;"><span leaf="">A</span></span></span>
+      <section style="display:block;width:100%;text-align:left;">
+        <span style="display:inline-block;font-size:10px;color:#059669;border:1px solid #059669;padding:4px 10px;margin:0 8px 6px 0;"><span leaf="">#测评</span></span>
+        <span style="display:inline-block;font-size:10px;color:#059669;border:1px solid #059669;padding:4px 10px;margin:0 8px 6px 0;"><span leaf="">#工具对比</span></span>
+        <span style="display:inline-block;font-size:10px;color:#059669;border:1px solid #059669;padding:4px 10px;margin:0 8px 6px 0;"><span leaf="">#创意评测</span></span>
       </section>
     </section>
-    <section style="display:flex;justify-content:space-between;align-items:center;padding:0 8px;">
-      <section style="flex:1;border-top:2px dashed #A7F3D0;"><span leaf=""><br></span></section>
-      <span style="padding:0 8px;font-size:10px;color:#A7F3D0;"><span leaf="">✂</span></span>
-      <section style="flex:1;border-top:2px dashed #A7F3D0;"><span leaf=""><br></span></section>
+    <section style="display:block;padding:0 8px;text-align:center;">
+      <span style="display:inline-block;width:30%;border-top:2px dashed #A7F3D0;vertical-align:middle;"><span leaf=""> </span></span>
+      <span style="display:inline-block;padding:0 8px;font-size:10px;color:#A7F3D0;vertical-align:middle;"><span leaf="">✂</span></span>
+      <span style="display:inline-block;width:30%;border-top:2px dashed #A7F3D0;vertical-align:middle;"><span leaf=""> </span></span>
     </section>
-    <section style="padding:10px 20px;display:flex;justify-content:space-between;align-items:center;">
-      <span style="font-size:10px;color:#999;letter-spacing:1px;"><span leaf="">VALID FOR ONE READ</span></span>
-      <span style="font-size:10px;color:#999;letter-spacing:1px;"><span leaf="">ADMIT ONE 🎫</span></span>
-    </section>
+    <p style="font-size:10px;color:#888;letter-spacing:1px;margin:0;padding:9px 14px;text-align:left;"><span leaf="">VALID FOR ONE READ</span><span leaf=""> · ADMIT ONE 🎫</span></p>
   </section>
 
-  <section style="margin:0 20px 32px 20px;padding:0;">
-    <section style="display:flex;align-items:center;gap:12px;margin:0 0 24px 0;padding:0 0 12px 0;border-bottom:2px solid #1a1a1a;">
-      <span style="background:#059669;color:#fff;font-size:12px;font-weight:800;padding:6px 12px;letter-spacing:2px;"><span leaf="">01</span></span>
-      <h3 style="font-size:18px;font-weight:800;color:#1a1a1a;letter-spacing:1px;margin:0;"><span leaf="">主题应该服务内容</span></h3>
-      <span style="font-size:12px;color:#888;"><span leaf="">/ STRUCTURE</span></span>
+  <!-- 安全章节标题 01：编号块在上、标题在下 -->
+  <section style="display:block;width:100%;margin:0 0 18px;padding:0 0 10px;border-bottom:2px solid #1a1a1a;text-align:left;">
+    <p style="font-size:12px;color:#fffef8;background:#059669;font-weight:800;letter-spacing:2px;margin:0 0 8px;padding:5px 10px;text-align:left;display:inline-block;"><span leaf="">01</span></p>
+    <p style="font-size:19px;font-weight:800;color:#1a1a1a;line-height:1.45;margin:0;text-align:left;"><span leaf="">主题应该服务内容</span></p>
+    <p style="font-size:12px;color:#888;margin:4px 0 0;text-align:left;"><span leaf="">结构 / STRUCTURE</span></p>
+  </section>
+  <section style="display:block;width:100%;margin:0 0 18px;padding:0;text-align:left;">
+    <p style="font-size:14px;color:#555;line-height:1.9;margin:0 0 16px;text-align:justify;"><span leaf="">好的公众号主题不会盖住文章，它只负责把信息分层。</span><span style="border-bottom:2px solid #A7F3D0;font-weight:600;"><span leaf="">强调色是结构锚点</span></span><span leaf="">，票据边框负责建立阅读秩序，米黄纸感则让内容多一点收藏感。</span></p>
+    <section style="display:block;width:100%;margin:0 0 16px;padding:0;text-align:left;">
+      <p style="font-size:15px;font-weight:700;color:#1a1a1a;margin:0;padding:0 0 0 10px;border-left:4px solid #059669;"><span leaf="">视觉签名</span></p>
     </section>
-    <span style="display:block;font-size:14px;color:#555;line-height:1.9;margin:0 0 16px 0;text-align:justify;"><span leaf="">好的公众号主题不会盖住文章，它只负责把信息分层。<span style="border-bottom:2px solid #A7F3D0;font-weight:600;"><span leaf="">强调色是结构锚点</span></span>，票据边框负责建立阅读秩序，米黄纸感则让内容多一点收藏感。</span></span>
-    <section style="display:flex;align-items:center;gap:8px;margin:0 0 16px 0;">
-      <span style="width:4px;height:16px;background:#059669;"><span leaf=""><br></span></span>
-      <h4 style="font-size:15px;font-weight:700;color:#1a1a1a;margin:0;"><span leaf="">视觉签名</span></h4>
-    </section>
-    <span style="display:block;font-size:14px;color:#555;line-height:1.9;margin:0 0 16px 0;text-align:justify;"><span leaf="">黑色实边框、硬阴影与绿色虚线共同组成“撕票线”。它们不制造复杂装饰，而是提醒读者：这是一份可以快速扫读，也值得完整读完的内容收据。</span></span>
+    <p style="font-size:14px;color:#555;line-height:1.9;margin:0;text-align:justify;"><span leaf="">黑色实边框、硬阴影与绿色虚线共同组成“撕票线”。它们不制造复杂装饰，而是提醒读者：这是一份可以快速扫读，也值得完整读完的内容收据。</span></p>
   </section>
 
-  <section style="margin:0 20px 32px 20px;padding:0;">
-    <section style="display:flex;align-items:center;gap:12px;margin:0 0 24px 0;padding:0 0 12px 0;border-bottom:2px solid #1a1a1a;">
-      <span style="background:#059669;color:#fff;font-size:12px;font-weight:800;padding:6px 12px;letter-spacing:2px;"><span leaf="">02</span></span>
-      <h3 style="font-size:18px;font-weight:800;color:#1a1a1a;letter-spacing:1px;margin:0;"><span leaf="">工具盘点要有凭据</span></h3>
-      <span style="font-size:12px;color:#888;"><span leaf="">/ CHECKLIST</span></span>
-    </section>
-    <span style="display:block;font-size:14px;color:#555;line-height:1.9;margin:0 0 16px 0;text-align:justify;"><span leaf="">面对一组工具或产品，读者更关心“为什么选它”。因此，清单需要同时交代定位、优点和适用边界，让每一项都像收据上的明细一样可对照。</span></span>
-    <section style="background:#fffef8;border:1px solid #eee;margin:0 0 12px 0;">
+  <!-- 安全章节标题 02 -->
+  <section style="display:block;width:100%;margin:0 0 18px;padding:0 0 10px;border-bottom:2px solid #1a1a1a;text-align:left;">
+    <p style="font-size:12px;color:#fffef8;background:#059669;font-weight:800;letter-spacing:2px;margin:0 0 8px;padding:5px 10px;text-align:left;display:inline-block;"><span leaf="">02</span></p>
+    <p style="font-size:19px;font-weight:800;color:#1a1a1a;line-height:1.45;margin:0;text-align:left;"><span leaf="">工具盘点要有凭据</span></p>
+    <p style="font-size:12px;color:#888;margin:4px 0 0;text-align:left;"><span leaf="">清单 / CHECKLIST</span></p>
+  </section>
+  <section style="display:block;width:100%;margin:0 0 18px;padding:0;text-align:left;">
+    <p style="font-size:14px;color:#555;line-height:1.9;margin:0 0 16px;text-align:justify;"><span leaf="">面对一组工具或产品，读者更关心“为什么选它”。因此，清单需要同时交代定位、优点和适用边界，让每一项都像收据上的明细一样可对照。</span></p>
+    <section style="display:block;background:#fffef8;border:1px solid #eee;margin:0 0 12px;">
       <section style="display:flex;align-items:stretch;">
         <span style="width:36px;background:#059669;display:flex;align-items:center;justify-content:center;color:#fff;font-size:12px;font-weight:800;"><span leaf="">01</span></span>
         <span style="flex:1;padding:12px 16px;font-size:13px;color:#555;line-height:1.7;border-left:1px dashed #A7F3D0;"><strong style="font-weight:600;color:#1a1a1a;"><span leaf="">先看用途</span></strong><span leaf="">：它解决什么问题，适合谁使用。</span></span>
       </section>
     </section>
-    <section style="background:#fffef8;border:1px solid #eee;margin:0 0 12px 0;">
+    <section style="display:block;background:#fffef8;border:1px solid #eee;margin:0 0 12px;">
       <section style="display:flex;align-items:stretch;">
         <span style="width:36px;background:#059669;display:flex;align-items:center;justify-content:center;color:#fff;font-size:12px;font-weight:800;"><span leaf="">02</span></span>
-        <span style="flex:1;padding:12px 16px;font-size:13px;color:#555;line-height:1.7;border-left:1px dashed #A7F3D0;"><strong style="font-weight:600;color:#1a1a1a;"><span leaf="">再看差异</span></strong><span leaf="”：相较同类工具，真正省下了哪一步。</span></span>
+        <span style="flex:1;padding:12px 16px;font-size:13px;color:#555;line-height:1.7;border-left:1px dashed #A7F3D0;"><strong style="font-weight:600;color:#1a1a1a;"><span leaf="">再看差异</span></strong><span leaf="">：相较同类工具，真正省下了哪一步。</span></span>
       </section>
     </section>
-    <section style="background:#fffef8;border:1px solid #eee;margin:0 0 12px 0;">
+    <section style="display:block;background:#fffef8;border:1px solid #eee;margin:0 0 12px;">
       <section style="display:flex;align-items:stretch;">
         <span style="width:36px;background:#059669;display:flex;align-items:center;justify-content:center;color:#fff;font-size:12px;font-weight:800;"><span leaf="">03</span></span>
-        <span style="flex:1;padding:12px 16px;font-size:13px;color:#555;line-height:1.7;border-left:1px dashed #A7F3D0;"><strong style="font-weight:600;color:#1a1a1a;"><span leaf="">最后看边界</span></strong><span leaf="”：哪些场景不建议使用，避免把推荐写成万能答案。</span></span>
+        <span style="flex:1;padding:12px 16px;font-size:13px;color:#555;line-height:1.7;border-left:1px dashed #A7F3D0;"><strong style="font-weight:600;color:#1a1a1a;"><span leaf="">最后看边界</span></strong><span leaf="">：哪些场景不建议使用，避免把推荐写成万能答案。</span></span>
       </section>
     </section>
   </section>
 
-  <section style="margin:0 20px 32px 20px;padding:0;">
-    <section style="background:#fffef8;border:2px solid #1a1a1a;box-shadow:3px 3px 0 #1a1a1a;padding:20px;margin:0;">
-      <span style="display:block;font-size:15px;color:#1a1a1a;font-weight:700;line-height:1.8;margin:0 0 12px 0;text-align:center;"><span leaf="">一张好票据，至少要让读者带走<span style="color:#059669;font-size:24px;"><span leaf="">3</span></span>件事</span></span>
-      <span style="display:block;font-size:14px;color:#555;line-height:1.8;margin:0;text-align:justify;"><span leaf="">看懂主题想表达什么，知道清单如何比较，也能在最后一眼确认这套风格适合哪类内容。</span></span>
+  <!-- 核心观点卡片（硬阴影锚点） -->
+  <section style="display:block;width:100%;margin:0 0 18px;padding:0;text-align:left;">
+    <section style="background:#fffef8;border:2px solid #1a1a1a;box-shadow:3px 3px 0 #1a1a1a;padding:20px;">
+      <p style="font-size:15px;color:#1a1a1a;font-weight:700;line-height:1.8;margin:0 0 12px;text-align:center;"><span leaf="">一张好票据，至少要让读者带走</span><span style="color:#059669;font-size:24px;"><span leaf="">3</span></span><span leaf="">件事</span></p>
+      <p style="font-size:14px;color:#555;line-height:1.8;margin:0;text-align:justify;"><span leaf="">看懂主题想表达什么，知道清单如何比较，也能在最后一眼确认这套风格适合哪类内容。</span></p>
     </section>
   </section>
 
-  <section style="margin:0 20px 32px 20px;padding:0;">
-    <section style="display:flex;gap:8px;flex-wrap:wrap;">
-      <span style="font-size:10px;color:#059669;border:1px solid #059669;padding:4px 10px;"><span leaf="">#票据视觉</span></span>
-      <span style="font-size:10px;color:#059669;border:1px solid #059669;padding:4px 10px;"><span leaf="">#清单表达</span></span>
-      <span style="font-size:10px;color:#059669;border:1px solid #059669;padding:4px 10px;"><span leaf="">#工具盘点</span></span>
-    </section>
+  <!-- 标签组 -->
+  <section style="display:block;width:100%;margin:0 0 18px;padding:0;text-align:left;">
+    <span style="display:inline-block;font-size:10px;color:#059669;border:1px solid #059669;padding:4px 10px;margin:0 8px 6px 0;"><span leaf="">#票据视觉</span></span>
+    <span style="display:inline-block;font-size:10px;color:#059669;border:1px solid #059669;padding:4px 10px;margin:0 8px 6px 0;"><span leaf="">#清单表达</span></span>
+    <span style="display:inline-block;font-size:10px;color:#059669;border:1px solid #059669;padding:4px 10px;margin:0 8px 6px 0;"><span leaf="">#工具盘点</span></span>
   </section>
 
-  <section style="margin:0 20px 32px 20px;padding:0;">
-    <span style="display:block;font-size:14px;color:#555;line-height:1.9;margin:0 0 16px 0;text-align:justify;"><span leaf="">我是内容整理者，负责把复杂信息拆成清楚的票据、收据和清单。如果你觉得今天这篇有收获，欢迎点个赞、在看或星标，我们下篇见。</span></span>
+  <!-- 固定签名段落（footer-cta 之前） -->
+  <section style="display:block;width:100%;margin:0 0 18px;padding:0;text-align:left;">
+    <p style="font-size:14px;color:#555;line-height:1.9;margin:0;text-align:justify;"><span leaf="">我是内容整理者，负责把复杂信息拆成清楚的票据、收据和清单。如果你觉得今天这篇有收获，欢迎点个赞、在看或星标，我们下篇见。</span></p>
   </section>
 
-  <section style="padding:0 20px 32px 20px;">
+  <!-- 结尾互动区 footer-cta -->
+  <section style="display:block;width:100%;padding:0 0 32px;">
     <section style="background:#fffef8;border:2px solid #1a1a1a;box-shadow:4px 4px 0 #1a1a1a;padding:24px 20px;text-align:center;">
-      <span style="display:block;font-size:13px;font-weight:700;color:#1a1a1a;margin:0 0 20px 0;line-height:1.6;"><span leaf="">如果这张内容票据对你有用，欢迎留下三连，我们下篇见</span></span>
-      <section style="display:flex;justify-content:center;gap:24px;margin:0 0 16px 0;">
+      <p style="font-size:13px;font-weight:700;color:#1a1a1a;margin:0 0 20px;line-height:1.6;"><span leaf="">如果这张内容票据对你有用，欢迎留下三连，我们下篇见</span></p>
+      <section style="display:flex;justify-content:center;gap:24px;margin:0 0 16px;">
         <section style="text-align:center;color:#555;">
-          <section style="width:40px;height:40px;display:flex;align-items:center;justify-content:center;margin:0 auto 6px auto;background:#fff;border:1px solid #1a1a1a;"><span style="font-size:18px;"><span leaf="">赞</span></span></section>
+          <section style="width:40px;height:40px;display:flex;align-items:center;justify-content:center;margin:0 auto 6px;background:#fff;border:1px solid #1a1a1a;"><span style="font-size:18px;"><span leaf="">赞</span></span></section>
           <span style="font-size:10px;font-weight:600;"><span leaf="">点赞</span></span>
         </section>
         <section style="text-align:center;color:#555;">
-          <section style="width:40px;height:40px;display:flex;align-items:center;justify-content:center;margin:0 auto 6px auto;background:#fff;border:1px solid #1a1a1a;"><span style="font-size:18px;"><span leaf="">看</span></span></section>
+          <section style="width:40px;height:40px;display:flex;align-items:center;justify-content:center;margin:0 auto 6px;background:#fff;border:1px solid #1a1a1a;"><span style="font-size:18px;"><span leaf="">看</span></span></section>
           <span style="font-size:10px;font-weight:600;"><span leaf="">在看</span></span>
         </section>
         <section style="text-align:center;color:#059669;">
-          <section style="width:40px;height:40px;display:flex;align-items:center;justify-content:center;margin:0 auto 6px auto;background:#F0FDF4;border:2px solid #059669;"><span style="font-size:18px;"><span leaf="">★</span></span></section>
+          <section style="width:40px;height:40px;display:flex;align-items:center;justify-content:center;margin:0 auto 6px;background:#F0FDF4;border:2px solid #059669;"><span style="font-size:18px;"><span leaf="">★</span></span></section>
           <span style="font-size:10px;font-weight:600;"><span leaf="">星标</span></span>
         </section>
       </section>
       <section style="border-top:1px dashed #ccc;padding-top:12px;">
-        <span style="font-size:10px;color:#999;letter-spacing:2px;"><span leaf="">THANKS FOR READING ✂</span></span>
+        <p style="font-size:10px;color:#999;letter-spacing:2px;margin:0;"><span leaf="">THANKS FOR READING ✂</span></p>
       </section>
     </section>
   </section>
-  <span style="display:block;text-align:center;color:#D1D5DB;font-size:14px;margin:24px 0 0 0;"><span leaf="">/</span></span>
+
+  <!-- 结束符 end-mark -->
+  <p style="text-align:center;color:#D1D5DB;font-size:14px;margin:24px 0 0 0;">
+    <span leaf="">/</span>
+  </p>
 </section>
 <p style="display:none;"><span leaf=""><mp-style-type data-value="3"></mp-style-type></span></p>
   </div>
