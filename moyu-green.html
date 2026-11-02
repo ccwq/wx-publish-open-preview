@@ -15,7 +15,13 @@
   .gzh-toast{position:fixed;top:66px;left:50%;transform:translateX(-50%);background:#111827;color:#fff;padding:11px 20px;border-radius:10px;font-size:14px;font-weight:600;opacity:0;pointer-events:none;transition:opacity .25s;z-index:100;box-shadow:0 6px 20px rgba(0,0,0,.25);max-width:88vw;text-align:center;}
   .gzh-toast.show{opacity:1;}
   .gzh-stage{max-width:700px;margin:78px auto 64px;padding:0 8px;}
-  @media(max-width:520px){.gzh-hint{max-width:150px;}}
+  @media(max-width:520px){
+    .gzh-toolbar{height:auto;min-height:54px;flex-direction:column;align-items:center;gap:8px;padding:10px 16px;}
+    .gzh-hint{max-width:100%;}
+    .gzh-copy{padding:9px 14px;font-size:13px;}
+    .gzh-stage{margin-top:104px;}
+    .gzh-toast{top:104px;}
+  }
 </style>
 </head>
 <body>
