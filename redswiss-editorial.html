@@ -15,7 +15,14 @@
   .gzh-toast{position:fixed;top:66px;left:50%;transform:translateX(-50%);background:#111827;color:#fff;padding:11px 20px;border-radius:10px;font-size:14px;font-weight:600;opacity:0;pointer-events:none;transition:opacity .25s;z-index:100;box-shadow:0 6px 20px rgba(0,0,0,.25);max-width:88vw;text-align:center;}
   .gzh-toast.show{opacity:1;}
   .gzh-stage{max-width:700px;margin:78px auto 64px;padding:0 8px;}
-  @media(max-width:520px){.gzh-hint{max-width:150px;}}
+  @media(max-width:520px){
+    .gzh-toolbar{height:auto;min-height:54px;flex-wrap:wrap;align-content:center;padding:8px 12px;gap:2px 10px;}
+    .gzh-hint{max-width:100%;font-size:12px;flex:1 1 100%;white-space:normal;}
+    .gzh-toolbar>span{flex:1 1 100%;justify-content:center;}
+    .gzh-copy{padding:8px 14px;font-size:13px;}
+    .gzh-toast{top:84px;}
+    .gzh-stage{margin-top:96px;}
+  }
 </style>
 </head>
 <body>
@@ -26,14 +33,14 @@
 <div class="gzh-toast" id="gzhToast"></div>
 <div class="gzh-stage">
   <div id="gzh-content">
-<section style="width:100%;max-width:677px;margin:0 auto;padding:12px 10px 36px;box-sizing:border-box;background:#F5F2EC;color:#333333;font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif;line-height:1.8;letter-spacing:0.35px;">
+<section style="width:100%;max-width:677px;margin:0 auto;padding:10px;box-sizing:border-box;background:#F5F2EC;color:#333333;font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif;line-height:1.8;letter-spacing:0.35px;">
   <section style="width:100%;margin:0 0 18px;border:2px solid #0A0A0A;box-sizing:border-box;background:#FFFDF9;">
     <section style="width:100%;padding:0;background:#0A0A0A;box-sizing:border-box;">
       <section style="padding:7px 12px;background:#C8102E;box-sizing:border-box;">
-        <span leaf="" style="font-size:10px;font-weight:900;letter-spacing:1.4px;color:#FFFFFF;">SWISS EDITORIAL · CLI GUIDE</span>
+        <span leaf="" style="font-size:10px;font-weight:900;letter-spacing:1.8px;color:#FFFFFF;">SWISS EDITORIAL · CLI GUIDE</span>
       </section>
-      <section style="padding:15px 14px 16px;box-sizing:border-box;">
-        <h3 style="margin:0 0 8px;font-size:24px;line-height:1.28;font-weight:900;letter-spacing:-0.4px;color:#FFFFFF;"><span leaf="">把本地模型服务从“能跑”变成“可复用”</span></h3>
+      <section style="padding:18px 15px;box-sizing:border-box;">
+        <h3 style="margin:0 0 9px;font-size:24px;line-height:1.25;font-weight:900;letter-spacing:-0.4px;color:#FFFFFF;"><span leaf="">把本地模型服务从“能跑”变成“可复用”</span></h3>
         <span leaf="" style="font-size:14px;line-height:1.7;color:#FFF8F8;">红黑瑞士风的公众号兼容样稿：保留高对比、硬边框、事实优先与编辑节奏，但不依赖渐变、网格或绝对定位。</span>
       </section>
     </section>
@@ -46,24 +53,24 @@
 
   <section style="width:100%;margin:0 0 18px;border:2px solid #0A0A0A;background:#FFFFFF;box-sizing:border-box;">
     <section style="display:inline-block;width:32%;min-width:140px;padding:10px 7px;margin:0 -4px 0 0;vertical-align:top;text-align:center;border-right:1.5px solid #0A0A0A;box-sizing:border-box;">
-      <span leaf="" style="display:block;margin:0 0 3px;font-size:21px;line-height:1;font-weight:900;color:#0A0A0A;">100%</span>
-      <span leaf="" style="font-size:10px;font-weight:800;letter-spacing:0.6px;color:#666666;">宽度响应式</span>
+      <span leaf="" style="display:block;margin:0 0 3px;font-size:22px;line-height:1;font-weight:900;color:#0A0A0A;">100%</span>
+      <span leaf="" style="font-size:10px;font-weight:800;letter-spacing:0.7px;color:#666666;">宽度响应式</span>
     </section>
     <section style="display:inline-block;width:34%;min-width:140px;padding:10px 7px;margin:0 -4px 0 0;vertical-align:top;text-align:center;border-right:1.5px solid #0A0A0A;box-sizing:border-box;">
-      <span leaf="" style="display:block;margin:0 0 3px;font-size:21px;line-height:1;font-weight:900;color:#C8102E;">677px</span>
-      <span leaf="" style="font-size:10px;font-weight:800;letter-spacing:0.6px;color:#666666;">桌面最大参考</span>
+      <span leaf="" style="display:block;margin:0 0 3px;font-size:22px;line-height:1;font-weight:900;color:#C8102E;">677px</span>
+      <span leaf="" style="font-size:10px;font-weight:800;letter-spacing:0.7px;color:#666666;">桌面最大参考</span>
     </section>
     <section style="display:inline-block;width:34%;min-width:140px;padding:10px 7px;margin:0 -4px 0 0;vertical-align:top;text-align:center;box-sizing:border-box;">
-      <span leaf="" style="display:block;margin:0 0 3px;font-size:21px;line-height:1;font-weight:900;color:#0A0A0A;">0</span>
-      <span leaf="" style="font-size:10px;font-weight:800;letter-spacing:0.6px;color:#666666;">网页专属依赖</span>
+      <span leaf="" style="display:block;margin:0 0 3px;font-size:22px;line-height:1;font-weight:900;color:#0A0A0A;">0</span>
+      <span leaf="" style="font-size:10px;font-weight:800;letter-spacing:0.7px;color:#666666;">网页专属依赖</span>
     </section>
   </section>
 
-  <section style="width:100%;margin:0 0 14px;padding:8px 11px;background:#0A0A0A;border:2px solid #0A0A0A;box-sizing:border-box;">
-    <span leaf="" style="font-size:13px;font-weight:900;color:#C8102E;">01</span><span leaf="" style="margin-left:9px;font-size:11px;font-weight:800;letter-spacing:1.2px;color:#FFFFFF;">DESIGN CONTRACT</span>
+  <section style="width:100%;margin:30px 0 14px;padding:8px 11px;background:#0A0A0A;border:2px solid #0A0A0A;box-sizing:border-box;">
+    <span leaf="" style="font-size:13px;font-weight:900;color:#C8102E;">01</span><span leaf="" style="margin-left:10px;font-size:11px;font-weight:800;letter-spacing:1.4px;color:#FFFFFF;">DESIGN CONTRACT</span>
   </section>
   <h3 style="margin:0 0 10px;font-size:20px;line-height:1.35;font-weight:900;color:#0A0A0A;"><span leaf="">把“视觉风格”与“网页实现”拆开</span></h3>
-  <p style="margin:0 0 16px;font-size:15px;line-height:1.8;color:#333333;text-align:justify;"><span leaf="">公众号正文以手机为主，容器随可用宽度收缩；在宽屏编辑环境中，</span><span style="font-weight:800;color:#0A0A0A;border-bottom:2px solid #FECACA;"><span leaf="">677px 仅作为最大阅读参考，而不是固定画布</span></span><span leaf="">。因此所有背景、边框和正文模块都采用宽度 100% 的自然文档流。</span></p>
+  <p style="margin:0 0 16px;font-size:15px;line-height:1.8;color:#333333;text-align:left;"><span leaf="">公众号正文以手机为主，容器随可用宽度收缩；在宽屏编辑环境中，</span><span style="font-weight:750;color:#0A0A0A;border-bottom:2px solid #FECACA;"><span leaf="">677px 仅作为最大阅读参考，而不是固定画布</span></span><span leaf="">。因此所有背景、边框和正文模块都采用宽度 100% 的自然文档流。</span></p>
 
   <section style="width:100%;margin:0 0 12px;padding:12px 13px;background:#FFFFFF;border:2px solid #0A0A0A;border-left:5px solid #C8102E;box-sizing:border-box;">
     <span leaf="" style="display:block;margin:0 0 4px;font-size:10px;font-weight:900;letter-spacing:1.1px;color:#C8102E;">FACT CHECK</span>
@@ -82,11 +89,11 @@
     </section>
   </section>
 
-  <section style="width:100%;margin:0 0 14px;padding:8px 11px;background:#0A0A0A;border:2px solid #0A0A0A;box-sizing:border-box;">
-    <span leaf="" style="font-size:13px;font-weight:900;color:#C8102E;">02</span><span leaf="" style="margin-left:9px;font-size:11px;font-weight:800;letter-spacing:1.2px;color:#FFFFFF;">CONTENT RHYTHM</span>
+  <section style="width:100%;margin:30px 0 14px;padding:8px 11px;background:#0A0A0A;border:2px solid #0A0A0A;box-sizing:border-box;">
+    <span leaf="" style="font-size:13px;font-weight:900;color:#C8102E;">02</span><span leaf="" style="margin-left:10px;font-size:11px;font-weight:800;letter-spacing:1.4px;color:#FFFFFF;">CONTENT RHYTHM</span>
   </section>
   <h3 style="margin:0 0 10px;font-size:20px;line-height:1.35;font-weight:900;color:#0A0A0A;"><span leaf="">高密度，不等于复杂布局</span></h3>
-  <p style="margin:0 0 12px;font-size:15px;line-height:1.8;color:#333333;text-align:justify;"><span leaf="">红黑瑞士风的识别点不在“桌面双栏”，而在判断先行、边界清楚、信息块之间有明确切换。公众号中应让每一块在窄屏上完整落地，再由颜色和边框承担节奏。</span></p>
+  <p style="margin:0 0 12px;font-size:15px;line-height:1.8;color:#333333;text-align:left;"><span leaf="">红黑瑞士风的识别点不在“桌面双栏”，而在判断先行、边界清楚、信息块之间有明确切换。公众号中应让每一块在窄屏上完整落地，再由颜色和边框承担节奏。</span></p>
   <section style="width:100%;height:10px;margin:0 0 6px;border:2px solid #0A0A0A;box-sizing:border-box;background:#0A0A0A;">
     <span leaf="" style="display:inline-block;width:62%;height:6px;margin:0;background:#C8102E;vertical-align:top;"><br></span>
   </section>
