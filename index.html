@@ -486,24 +486,47 @@ a.preview-link-text:hover{color:#3b82f6}
 <!-- wood-editorial -->
 <article class="card">
 <a href="wood-editorial.html" class="preview-link">
-<div style="background:#FDF8F3;padding:14px 12px 12px;border-radius:6px 6px 0 0;min-height:220px;">
-<div style="height:4px;background:#92400E;margin:-14px -12px 10px;border-radius:6px 6px 0 0;"></div>
+<div style="background:#FEFCF5;border:2px solid #1C1917;border-bottom:0;padding:14px 12px 12px;border-radius:6px 6px 0 0;min-height:220px;font-family:'Noto Serif SC','Songti SC',SimSun,-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif;">
+<div style="height:4px;margin:-14px -12px 10px;border-radius:4px 4px 0 0;display:flex;overflow:hidden;">
+<span style="flex:1;background:#5B8DB8;"></span><span style="flex:1;background:#1C1917;"></span><span style="flex:1;background:#C4A882;"></span><span style="flex:1;background:#5B8DB8;"></span>
+</div>
 <div style="min-height:185px;">
-<p style="font-size:10px;font-weight:700;color:#78350F;text-transform:uppercase;letter-spacing:1.2px;margin:0 0 6px;opacity:0.85;">技术手册</p>
-<p style="font-size:15px;font-weight:700;color:#78350F;margin:0 0 5px;line-height:1.3;">Simon Willison 式 Agent 工程学</p>
-<p style="font-size:11px;color:#B45309;margin:0;opacity:0.75;line-height:1.5;">用可观测性思维构建可靠的 AI 应用</p>
-<div style="margin-bottom:5px;"><section style="padding:8px 12px;background:#FEF3C7;border-radius:6px;border:1px solid #FDE68A;margin-bottom:8px;"><p style="font-size:12px;font-weight:700;color:#92400E;margin:0 0 5px;">📌 核心原则</p><p style="font-size:11px;color:#78350F;margin:0;line-height:1.6;">日志即文档。每个 Agent 操作都应留下可追溯的痕迹。</p></section></div>
-<div style="margin-bottom:5px;"><section style="padding:6px 10px;border-left:3px solid #92400E;background:#FDF8F3;"><p style="font-size:11px;font-family:monospace;color:#78350F;margin:0;">INFO · 14:32 · Agent invoked tool: search</p></section></div>
-<div style="margin-bottom:5px;"><section style="padding:5px 10px;background:#78350F;border-radius:4px;text-align:center;margin-top:8px;"><p style="font-size:10px;font-weight:700;color:#FEF3C7;margin:0;">Simon Willison 观察法 × Agent 工程</p></section></div>
+<p style="margin:0 0 7px;"><span style="display:inline-block;background:#5B8DB8;color:#fff;padding:2px 8px;border-radius:3px;font-size:9px;font-weight:800;letter-spacing:1px;">工具图鉴 · FIELD GUIDE</span></p>
+<p style="margin:0 0 7px;font-size:15px;font-weight:800;color:#1C1917;line-height:1.3;letter-spacing:-0.3px;">LLM Agent 工具链如何设计最合理？</p>
+<div style="display:flex;align-items:center;flex-wrap:nowrap;margin:0 0 8px;">
+<span style="display:inline-flex;align-items:center;background:#F2EAE0;border:1px solid #C4A882;border-radius:3px;padding:2px 5px;font-size:8px;line-height:1.25;color:#78716C;white-space:nowrap;"><span style="display:inline-block;width:5px;height:5px;background:#5B8DB8;border-radius:50%;flex-shrink:0;margin-right:3px;"></span>核心框架</span>
+<span style="color:#78716C;font-size:8px;line-height:1;padding:0 2px;flex-shrink:0;">→</span>
+<span style="display:inline-flex;align-items:center;background:#F2EAE0;border:1px solid #C4A882;border-radius:3px;padding:2px 5px;font-size:8px;line-height:1.25;color:#78716C;white-space:nowrap;"><span style="display:inline-block;width:5px;height:5px;background:#C4A882;border-radius:50%;flex-shrink:0;margin-right:3px;"></span>工具分类</span>
+<span style="color:#78716C;font-size:8px;line-height:1;padding:0 2px;flex-shrink:0;">→</span>
+<span style="display:inline-flex;align-items:center;background:#F2EAE0;border:1px solid #C4A882;border-radius:3px;padding:2px 5px;font-size:8px;line-height:1.25;color:#78716C;white-space:nowrap;"><span style="display:inline-block;width:5px;height:5px;background:#1C1917;border-radius:50%;flex-shrink:0;margin-right:3px;"></span>落地实践</span>
+</div>
+<div style="background:#F2EAE0;border-left:3px solid #C4A882;border-radius:0 4px 4px 0;padding:6px 8px;margin:0 0 8px;">
+<p style="margin:0 0 2px;font-size:9px;font-weight:700;color:#1C1917;line-height:1.6;">好的工具链设计不是让 Agent 多做事，而是做对事。</p>
+<p style="margin:0;font-size:8px;color:#78716C;letter-spacing:0.3px;">— Simon Willison，2024</p>
+</div>
+<div style="background:#1C1917;border-radius:4px;padding:6px 8px;margin:0 0 8px;">
+<div style="display:flex;align-items:flex-start;">
+<span style="display:inline-flex;align-items:center;justify-content:center;width:14px;height:14px;background:#FEFCF5;color:#1C1917;font-size:9px;font-weight:900;flex-shrink:0;border-radius:50%;margin-right:6px;margin-top:1px;">1</span>
+<div style="min-width:0;">
+<p style="margin:0 0 2px;font-size:9px;font-weight:800;color:#FEFCF5;line-height:1.3;">定义工具边界</p>
+<p style="margin:0;font-size:8px;color:#A8A29E;line-height:1.5;">明确输入输出格式，避免模糊调用。</p>
+</div>
+</div>
+</div>
+<p style="margin:0;">
+<span style="display:inline-block;background:#EBF3FB;border:1px solid #5B8DB8;border-radius:3px;padding:1px 6px;font-size:8px;color:#5B8DB8;font-weight:700;margin-right:4px;">工具链</span>
+<span style="display:inline-block;background:#EBF3FB;border:1px solid #5B8DB8;border-radius:3px;padding:1px 6px;font-size:8px;color:#5B8DB8;font-weight:700;margin-right:4px;">记忆</span>
+<span style="display:inline-block;background:#EBF3FB;border:1px solid #5B8DB8;border-radius:3px;padding:1px 6px;font-size:8px;color:#5B8DB8;font-weight:700;">RAG</span>
+</p>
 </div>
 </div>
 </a>
 <div style="padding:11px 13px 13px;">
 <p class="status">OFFICIAL · 微信兼容样稿</p>
-<p style="margin:4px 0 0;font-size:10px;font-weight:900;color:#8B5E3C;letter-spacing:0.5px;">REFID · wx-theme:wood-editorial<button class="ref-copy" onclick="copyIdxRef('wx-theme:wood-editorial')">复制</button></p>
+<p style="margin:4px 0 0;font-size:10px;font-weight:900;color:#8A5A3C;letter-spacing:0.5px;">REFID · wx-theme:wood-editorial<button class="ref-copy" onclick="copyIdxRef('wx-theme:wood-editorial')">复制</button></p>
 <h2 style="font-size:17px;margin:4px 0 0;font-weight:800;">木感编辑风</h2>
-<p style="font-size:12px;color:#6B7280;margin:3px 0 7px;">技术手册、Agent工程、Simon Willison式分析</p>
-<small style="display:block;color:#a1a1aa;font-size:10px;line-height:1.5;min-height:36px;margin-bottom:4px;">木感备注 · 木纹日志 · 深木底栏 · 引用条</small>
+<p style="font-size:12px;color:#6B7280;margin:3px 0 7px;">工程方法论、技术指南、Agent实践</p>
+<small style="display:block;color:#a1a1aa;font-size:10px;line-height:1.5;min-height:36px;margin-bottom:4px;">暖米纸 · 四色导轨 · 蓝灰路径 · 棕金引用 · 黑色流程条</small>
 </div>
 </article>
 
