@@ -16,6 +16,8 @@
   .gzh-toast.show{opacity:1;}
   .gzh-stage{max-width:700px;margin:78px auto 64px;padding:0 8px;}
   @media(max-width:520px){.gzh-hint{max-width:150px;}}
+  @media(max-width:430px){.gzh-hint{font-size:11px;line-height:1.35;}}
+  @media(max-width:360px){.gzh-toolbar{height:auto;min-height:54px;flex-wrap:wrap;row-gap:4px;padding:6px 10px;}.gzh-hint{font-size:10px;line-height:1.35;width:100%;max-width:none;}.gzh-copy{padding:10px 12px;font-size:13px;}}
 </style>
 </head>
 <body>
@@ -35,79 +37,172 @@
 </head>
 <body style="margin:0;background:#FFFFFF;color:#52525B;font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;font-size:15px;line-height:1.8;letter-spacing:0.3px;">
 <section style="width:100%;max-width:677px;margin:0 auto;background:#FFFFFF;overflow-x:hidden;">
-  <section style="margin:10px 10px 36px;padding:28px 0 24px;border-top:1px solid #E4E4E7;border-bottom:1px solid #E4E4E7;background:#FFFFFF;">
-    <span style="display:block;font-size:11px;color:#A1A1AA;letter-spacing:2px;margin:0 0 16px;font-weight:400;"><span leaf="">THEME SAMPLE · OFFICIAL</span></span>
-    <h3 style="font-size:24px;line-height:1.35;font-weight:800;color:#27272A;margin:0 0 12px;letter-spacing:0.5px;"><span leaf="">石墨极简风</span></h3>
-    <span style="display:block;font-size:15px;line-height:1.8;color:#52525B;margin:0;"><span leaf="">以黑、白、灰和一条细线，建立清晰的阅读秩序；重点数字负责证明，结论负责收束。</span></span>
+  <!-- 组件 2 开头引言卡：纯白 + 上下细线 + 大字金句 + 石墨下划线 -->
+  <section style="margin:10px 10px 40px;padding:32px 0 24px;border-top:1px solid #E4E4E7;border-bottom:1px solid #E4E4E7;background:#FFFFFF;">
+    <p style="font-size:11px;color:#A1A1AA;letter-spacing:2px;margin:0 0 18px;font-weight:400;"><span leaf="">QUOTE</span></p>
+    <p style="font-size:18px;font-weight:700;color:#27272A;margin:0 0 8px;line-height:1.7;letter-spacing:0.5px;">
+      <span leaf="">排版不替观点说话，它只让</span><span style="border-bottom:2px solid #52525B;"><span leaf="">观点更容易被看见</span></span><span leaf="">。</span>
+    </p>
+    <p style="text-align:right;font-size:12px;color:#A1A1AA;margin:16px 0 0;letter-spacing:1px;"><span leaf="">—— 石墨极简样张</span></p>
   </section>
 
-  <section style="padding:0 10px 34px;">
-    <span style="display:block;font-size:11px;color:#A1A1AA;margin:0 0 14px;letter-spacing:2px;"><span leaf="">本文看点</span></span>
-    <section style="display:flex;flex-wrap:wrap;">
-      <section style="width:31%;box-sizing:border-box;background:#FAFAFA;border-top:1px solid #E4E4E7;padding:16px 10px 14px;margin-right:3.5%;">
-        <span style="display:block;font-size:11px;color:#A1A1AA;font-weight:500;margin:0 0 7px;letter-spacing:1px;"><span leaf="">01</span></span>
-        <span style="display:block;font-size:13px;font-weight:700;color:#27272A;line-height:1.5;"><span leaf="">黑白灰</span></span>
-      </section>
-      <section style="width:31%;box-sizing:border-box;background:#FAFAFA;border-top:1px solid #E4E4E7;padding:16px 10px 14px;margin-right:3.5%;">
-        <span style="display:block;font-size:11px;color:#A1A1AA;font-weight:500;margin:0 0 7px;letter-spacing:1px;"><span leaf="">02</span></span>
-        <span style="display:block;font-size:13px;font-weight:700;color:#27272A;line-height:1.5;"><span leaf="">细线条</span></span>
-      </section>
-      <section style="width:31%;box-sizing:border-box;background:#FAFAFA;border-top:1px solid #E4E4E7;padding:16px 10px 14px;">
-        <span style="display:block;font-size:11px;color:#A1A1AA;font-weight:500;margin:0 0 7px;letter-spacing:1px;"><span leaf="">03</span></span>
-        <span style="display:block;font-size:13px;font-weight:700;color:#27272A;line-height:1.5;"><span leaf="">结论先行</span></span>
-      </section>
-    </section>
-  </section>
-
-  <section style="padding:0 10px;margin-top:16px;margin-bottom:28px;">
-    <section style="padding-bottom:18px;border-bottom:1px solid #E4E4E7;">
-      <span style="display:block;font-size:46px;font-weight:900;color:#E4E4E7;margin:0;line-height:1;letter-spacing:-2px;"><span leaf="">01</span></span>
-      <span style="display:block;font-size:10px;color:#A1A1AA;font-weight:500;letter-spacing:3px;margin:5px 0 5px;text-transform:uppercase;"><span leaf="">STRUCTURE</span></span>
-      <h3 style="font-size:20px;font-weight:800;color:#27272A;margin:0;letter-spacing:0.5px;line-height:1.4;"><span leaf="">主题应该服务内容，而不是盖住内容</span></h3>
-    </section>
-  </section>
+  <!-- 前言正文（组件 6） -->
   <section style="padding:0 10px;">
-    <span style="display:block;font-size:15px;line-height:1.8;text-align:justify;color:#52525B;margin:0 0 20px;"><span leaf="">极简不是把信息删薄，而是把视觉噪音删掉，让读者先看见</span><span style="border-bottom:2px solid #52525B;font-weight:600;color:#27272A;"><span leaf="">真正重要的判断</span></span><span leaf="">。黑白灰提供稳定背景，细线负责分区，字号负责建立远近。</span></span>
-    <h4 style="font-size:15px;font-weight:800;color:#27272A;margin:26px 0 12px;padding-left:12px;border-left:3px solid #52525B;line-height:1.4;"><span leaf="">重点数字要能回答问题</span></h4>
-    <span style="display:block;font-size:15px;line-height:1.8;text-align:justify;color:#52525B;margin:0 0 20px;"><span leaf="">数字不是装饰。它应当说明规模、时间或变化，并且紧跟口径。只有这样，</span><strong style="color:#27272A;"><span leaf="">重点数字才会转化为可信结论</span></strong><span leaf="">。</span></span>
+    <p style="margin:0 0 22px;font-size:15px;line-height:1.8;text-align:justify;color:#52525B;letter-spacing:0.3px;"><span leaf="">黑、白、灰和一条细线，就可以建立清晰的阅读秩序。重点数字负责证明，结论负责收束，其余的</span><span style="border-bottom:2px solid #52525B;font-weight:600;color:#27272A;"><span leaf="">视觉噪音全部让位</span></span><span leaf="">。</span></p>
   </section>
 
-  <section style="display:flex;margin:0 10px 28px;">
-    <section style="width:50%;box-sizing:border-box;border:1px solid #E4E4E7;padding:20px 12px;text-align:center;margin-right:8px;">
-      <span style="display:block;font-size:30px;font-weight:900;color:#27272A;margin:0 0 5px;line-height:1;letter-spacing:-1px;"><span leaf="">03</span></span>
-      <span style="display:block;font-size:11px;color:#A1A1AA;margin:0;letter-spacing:1px;"><span leaf="">三层视觉层级</span></span>
-    </section>
-    <section style="width:50%;box-sizing:border-box;border:1px solid #E4E4E7;padding:20px 12px;text-align:center;">
-      <span style="display:block;font-size:30px;font-weight:900;color:#27272A;margin:0 0 5px;line-height:1;letter-spacing:-1px;"><span leaf="">1px</span></span>
-      <span style="display:block;font-size:11px;color:#A1A1AA;margin:0;letter-spacing:1px;"><span leaf="">细线分区</span></span>
+  <!-- 组件 3 前言导读：三列极简线框目录卡 -->
+  <section style="padding:0 10px 40px;">
+    <p style="font-size:11px;color:#A1A1AA;margin:0 0 16px;letter-spacing:2px;"><span leaf="">本文看点</span></p>
+    <section style="display:flex;justify-content:space-between;">
+      <section style="flex:1;background:#FAFAFA;border-top:1px solid #E4E4E7;padding:18px 12px 16px;margin-right:8px;box-sizing:border-box;">
+        <p style="font-size:11px;color:#A1A1AA;font-weight:500;margin:0 0 8px;letter-spacing:1px;"><span leaf="">01</span></p>
+        <p style="font-size:13px;font-weight:700;color:#27272A;margin:0;line-height:1.5;"><span leaf="">黑白灰</span></p>
+      </section>
+      <section style="flex:1;background:#FAFAFA;border-top:1px solid #E4E4E7;padding:18px 12px 16px;margin-right:8px;box-sizing:border-box;">
+        <p style="font-size:11px;color:#A1A1AA;font-weight:500;margin:0 0 8px;letter-spacing:1px;"><span leaf="">02</span></p>
+        <p style="font-size:13px;font-weight:700;color:#27272A;margin:0;line-height:1.5;"><span leaf="">细线条</span></p>
+      </section>
+      <section style="flex:1;background:#FAFAFA;border-top:1px solid #E4E4E7;padding:18px 12px 16px;box-sizing:border-box;">
+        <p style="font-size:11px;color:#A1A1AA;font-weight:500;margin:0 0 8px;letter-spacing:1px;"><span leaf="">03</span></p>
+        <p style="font-size:13px;font-weight:700;color:#27272A;margin:0;line-height:1.5;"><span leaf="">结论先行</span></p>
+      </section>
     </section>
   </section>
 
-  <section style="padding:0 10px;margin-top:56px;margin-bottom:28px;">
-    <section style="padding-bottom:18px;border-bottom:1px solid #E4E4E7;">
-      <span style="display:block;font-size:46px;font-weight:900;color:#E4E4E7;margin:0;line-height:1;letter-spacing:-2px;"><span leaf="">02</span></span>
-      <span style="display:block;font-size:10px;color:#A1A1AA;font-weight:500;letter-spacing:3px;margin:5px 0 5px;text-transform:uppercase;"><span leaf="">BOTTOM LINE</span></span>
-      <h3 style="font-size:20px;font-weight:800;color:#27272A;margin:0;letter-spacing:0.5px;line-height:1.4;"><span leaf="">结论要短，边界要清楚</span></h3>
+  <!-- 组件 5 章节标题：超大水印编号（第一章 margin-top:16px） -->
+  <section style="margin-top:16px;margin-bottom:32px;padding:0 10px;">
+    <section style="position:relative;padding-bottom:20px;border-bottom:1px solid #E4E4E7;">
+      <p style="font-size:48px;font-weight:900;color:#E4E4E7;margin:0;line-height:1;letter-spacing:-2px;"><span leaf="">01</span></p>
+      <section style="margin-top:-8px;">
+        <p style="font-size:10px;color:#A1A1AA;font-weight:500;letter-spacing:3px;margin:0 0 6px;text-transform:uppercase;"><span leaf="">STRUCTURE</span></p>
+        <h3 style="font-size:20px;font-weight:800;color:#27272A;margin:0;letter-spacing:0.5px;line-height:1.4;"><span leaf="">主题应该服务内容，而不是盖住内容</span></h3>
+      </section>
     </section>
-  </section>
-  <section style="border-left:3px solid #52525B;padding:16px 0 16px 22px;margin:0 10px 24px;">
-    <span style="display:block;font-size:16px;font-weight:700;color:#27272A;margin:0;line-height:1.7;letter-spacing:0.5px;"><span leaf="">「好的排版，不替观点说话；它只让观点更容易被看见。」</span></span>
-  </section>
-  <section style="background:#FAFAFA;border-top:2px solid #27272A;padding:16px 20px;margin:0 10px 26px;">
-    <span style="display:block;font-size:11px;color:#A1A1AA;margin:0 0 8px;letter-spacing:2px;font-weight:500;"><span leaf="">NOTE</span></span>
-    <span style="display:block;font-size:14px;color:#52525B;margin:0;line-height:1.8;"><span leaf="">适合设计、科技评论、专业观点与高端品牌类文章。减少色块与装饰，保留事实、数字和判断的语义重量。</span></span>
   </section>
 
-  <section style="padding:0 10px;margin-bottom:34px;">
-    <section style="display:flex;align-items:center;justify-content:center;">
-      <span style="height:1px;width:48px;background:#E4E4E7;margin-right:14px;"><span leaf=""><br></span></span>
-      <span style="font-size:10px;color:#A1A1AA;letter-spacing:4px;font-weight:500;"><span leaf="">END</span></span>
-      <span style="height:1px;width:48px;background:#E4E4E7;margin-left:14px;"><span leaf=""><br></span></span>
+  <section style="padding:0 10px;">
+    <p style="margin:0 0 22px;font-size:15px;line-height:1.8;text-align:justify;color:#52525B;letter-spacing:0.3px;"><span leaf="">极简不是把信息删薄，而是把视觉噪音删掉，让读者先看见</span><span style="border-bottom:2px solid #52525B;font-weight:600;color:#27272A;"><span leaf="">真正重要的判断</span></span><span leaf="">。黑白灰提供稳定背景，细线负责分区，字号负责建立远近。</span></p>
+    <!-- 组件 6b 子标题：石墨左竖条 -->
+    <p style="font-size:15px;font-weight:800;color:#27272A;margin:28px 0 14px;padding-left:12px;border-left:3px solid #52525B;line-height:1.4;"><span leaf="">重点数字要能回答问题</span></p>
+    <p style="margin:0 0 22px;font-size:15px;line-height:1.8;text-align:justify;color:#52525B;letter-spacing:0.3px;"><span leaf="">数字不是装饰。它应当说明规模、时间或变化，并且</span><span style="border-bottom:2px solid #52525B;font-weight:600;color:#27272A;"><span leaf="">紧跟统计口径</span></span><span leaf="">。只有这样，重点数字才会转化为</span><strong style="color:#27272A;"><span leaf="">可信结论</span></strong><span leaf="">。</span></p>
+  </section>
+
+  <!-- 组件 12 表格：深炭表头 + 偶数行极浅灰底 -->
+  <section style="margin:0 10px 24px;overflow-x:auto;">
+    <table style="width:100%;border-collapse:collapse;font-size:14px;">
+      <thead>
+        <tr>
+          <th style="background:#27272A;color:#fff;font-weight:700;padding:8px 12px;text-align:left;"><span leaf="">指标</span></th>
+          <th style="background:#27272A;color:#fff;font-weight:700;padding:8px 12px;text-align:left;"><span leaf="">数值</span></th>
+          <th style="background:#27272A;color:#fff;font-weight:700;padding:8px 12px;text-align:left;"><span leaf="">口径</span></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="padding:8px 12px;border-bottom:1px solid #E4E4E7;color:#52525B;"><span leaf="">视觉层级</span></td>
+          <td style="padding:8px 12px;border-bottom:1px solid #E4E4E7;color:#52525B;"><span leaf="">3 层</span></td>
+          <td style="padding:8px 12px;border-bottom:1px solid #E4E4E7;color:#52525B;"><span leaf="">锚点 / 标记 / 容器</span></td>
+        </tr>
+        <tr>
+          <td style="padding:8px 12px;border-bottom:1px solid #E4E4E7;color:#52525B;background:#FAFAFA;"><span leaf="">橙色配额</span></td>
+          <td style="padding:8px 12px;border-bottom:1px solid #E4E4E7;color:#52525B;background:#FAFAFA;"><span leaf="">≤ 3 处</span></td>
+          <td style="padding:8px 12px;border-bottom:1px solid #E4E4E7;color:#52525B;background:#FAFAFA;"><span leaf="">全篇共享，含引言卡</span></td>
+        </tr>
+        <tr>
+          <td style="padding:8px 12px;border-bottom:1px solid #E4E4E7;color:#52525B;"><span leaf="">分区细线</span></td>
+          <td style="padding:8px 12px;border-bottom:1px solid #E4E4E7;color:#52525B;"><span leaf="">1px</span></td>
+          <td style="padding:8px 12px;border-bottom:1px solid #E4E4E7;color:#52525B;"><span leaf="">#E4E4E7 专用</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- 组件 11b pill-list：石墨圆点胶囊要点 -->
+  <section style="margin:0 10px 14px;">
+    <p style="margin:0 0 6px;">
+      <span style="display:inline-block;font-size:14px;font-weight:700;color:#27272A;background:#F4F4F5;padding:3px 10px;border-radius:999px;"><span style="display:inline-block;width:6px;height:6px;background:#52525B;border-radius:50%;margin-right:5px;vertical-align:middle;"><span leaf=""><br></span></span><span leaf="">黑白灰</span></span>
+    </p>
+    <p style="font-size:14px;color:#71717A;margin:0;line-height:1.7;text-align:left;"><span leaf="">稳定的背景与正文色</span></p>
+  </section>
+  <section style="margin:0 10px 14px;">
+    <p style="margin:0 0 6px;">
+      <span style="display:inline-block;font-size:14px;font-weight:700;color:#27272A;background:#F4F4F5;padding:3px 10px;border-radius:999px;"><span style="display:inline-block;width:6px;height:6px;background:#52525B;border-radius:50%;margin-right:5px;vertical-align:middle;"><span leaf=""><br></span></span><span leaf="">细线</span></span>
+    </p>
+    <p style="font-size:14px;color:#71717A;margin:0;line-height:1.7;text-align:left;"><span leaf="">唯一的结构装饰</span></p>
+  </section>
+  <section style="margin:0 10px 24px;">
+    <p style="margin:0 0 6px;">
+      <span style="display:inline-block;font-size:14px;font-weight:700;color:#27272A;background:#F4F4F5;padding:3px 10px;border-radius:999px;"><span style="display:inline-block;width:6px;height:6px;background:#52525B;border-radius:50%;margin-right:5px;vertical-align:middle;"><span leaf=""><br></span></span><span leaf="">大字水印</span></span>
+    </p>
+    <p style="font-size:14px;color:#71717A;margin:0;line-height:1.7;text-align:left;"><span leaf="">章节的几何锚点</span></p>
+  </section>
+
+  <!-- 组件 9a 石墨竖条提示条 -->
+  <section style="border-left:3px solid #27272A;padding:14px 0 14px 22px;margin:0 10px 24px;">
+    <p style="font-size:14px;font-weight:700;color:#27272A;margin:0;line-height:1.8;"><span leaf="">装饰性空元素内部必须保留 leaf 占位，否则微信会剥掉细线样式。</span></p>
+  </section>
+
+  <!-- 组件 12 两列数据卡：按行封装，48% + 48%，线框版 -->
+  <section style="display:flex;justify-content:space-between;align-items:flex-start;margin:0 10px 28px;">
+    <section style="width:48%;box-sizing:border-box;border:1px solid #E4E4E7;padding:22px 16px;text-align:center;">
+      <p style="font-size:32px;font-weight:900;color:#27272A;margin:0 0 6px;line-height:1;letter-spacing:-1px;"><span leaf="">03</span></p>
+      <p style="font-size:11px;color:#A1A1AA;margin:0;letter-spacing:1px;"><span leaf="">三层视觉层级</span></p>
+    </section>
+    <section style="width:48%;box-sizing:border-box;border:1px solid #E4E4E7;padding:22px 16px;text-align:center;">
+      <p style="font-size:32px;font-weight:900;color:#27272A;margin:0 0 6px;line-height:1;letter-spacing:-1px;"><span leaf="">1px</span></p>
+      <p style="font-size:11px;color:#A1A1AA;margin:0;letter-spacing:1px;"><span leaf="">细线分区</span></p>
     </section>
   </section>
+
+  <!-- 组件 5 第二章（后续章节 margin-top:56px） -->
+  <section style="margin-top:56px;margin-bottom:32px;padding:0 10px;">
+    <section style="position:relative;padding-bottom:20px;border-bottom:1px solid #E4E4E7;">
+      <p style="font-size:48px;font-weight:900;color:#E4E4E7;margin:0;line-height:1;letter-spacing:-2px;"><span leaf="">02</span></p>
+      <section style="margin-top:-8px;">
+        <p style="font-size:10px;color:#A1A1AA;font-weight:500;letter-spacing:3px;margin:0 0 6px;text-transform:uppercase;"><span leaf="">BOTTOM LINE</span></p>
+        <h3 style="font-size:20px;font-weight:800;color:#27272A;margin:0;letter-spacing:0.5px;line-height:1.4;"><span leaf="">结论要短，边界要清楚</span></h3>
+      </section>
+    </section>
+  </section>
+
+  <!-- 组件 8a 石墨竖条金句引用 -->
+  <section style="border-left:3px solid #52525B;padding:16px 0 16px 24px;margin:0 10px 28px;">
+    <p style="font-size:16px;font-weight:700;color:#27272A;margin:0;line-height:1.7;letter-spacing:0.5px;"><span leaf="">「好的排版，不替观点说话；它只让观点更容易被看见。」</span></p>
+  </section>
+
+  <section style="padding:0 10px;">
+    <p style="margin:0 0 22px;font-size:15px;line-height:1.8;text-align:justify;color:#52525B;letter-spacing:0.3px;"><span leaf="">适合设计、科技评论、专业观点与高端品牌类文章。减少色块与装饰，保留事实、数字和判断的</span><span style="border-bottom:2px solid #52525B;font-weight:600;color:#27272A;"><span leaf="">语义重量</span></span><span leaf="">。</span></p>
+  </section>
+
+  <!-- 组件 9c 踩坑提示：极浅灰底 + 顶部深炭细线（依规范 border-top，非渲染器左竖线） -->
+  <section style="background:#FAFAFA;border-top:2px solid #27272A;padding:18px 22px;margin:0 10px 24px;">
+    <p style="font-size:11px;color:#A1A1AA;margin:0 0 10px;letter-spacing:2px;font-weight:500;"><span leaf="">NOTE</span></p>
+    <p style="font-size:14px;color:#52525B;margin:0;line-height:1.8;"><span leaf="">橙色（#F97316）全篇不超过 3 处，所有锚点共享配额；极浅灰底只用于目录卡、引用块与提示块，正文底色保持纯白。</span></p>
+  </section>
+
+  <!-- 组件 15 END 结尾分割线 -->
+  <section style="padding:0 10px;">
+    <section style="text-align:center;margin:0 0 36px;">
+      <section style="display:flex;align-items:center;justify-content:center;">
+        <span style="height:1px;width:48px;background:#E4E4E7;margin-right:16px;"><span leaf=""><br></span></span>
+        <span style="font-size:10px;color:#A1A1AA;letter-spacing:4px;font-weight:500;"><span leaf="">END</span></span>
+        <span style="height:1px;width:48px;background:#E4E4E7;margin-left:16px;"><span leaf=""><br></span></span>
+      </section>
+    </section>
+  </section>
+
+  <!-- 组件 16 尾部作者签名区 -->
   <section style="padding:0 10px 24px;">
-    <section style="border-top:1px solid #E4E4E7;padding-top:22px;">
-      <span style="display:block;font-size:13px;line-height:1.8;color:#71717A;text-align:center;margin:0;"><span leaf="">石墨极简风 · 结构先于装饰 · 结论重于噪音</span></span>
+    <section style="border-top:1px solid #E4E4E7;padding-top:28px;">
+      <p style="margin-bottom:16px;font-size:15px;line-height:1.8;color:#52525B;text-align:justify;">
+        <span leaf="">我是石墨极简样张，热衷于用黑白灰和细线建立清晰的阅读秩序。</span>
+      </p>
+      <p style="margin-bottom:0;font-size:15px;line-height:1.8;color:#52525B;text-align:justify;">
+        <span leaf="">如果你觉得今天这篇有收获，欢迎</span>
+        <strong style="color:#27272A;"><span leaf="">点赞、在看、转发</span></strong>
+        <span leaf="">三连，我们下篇见。</span>
+      </p>
     </section>
   </section>
 </section>
