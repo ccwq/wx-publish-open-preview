@@ -16,6 +16,8 @@
   .gzh-toast.show{opacity:1;}
   .gzh-stage{max-width:700px;margin:78px auto 64px;padding:0 8px;}
   @media(max-width:520px){.gzh-hint{max-width:150px;}}
+  @media(max-width:430px){.gzh-hint{font-size:11px;line-height:1.35;}}
+  @media(max-width:360px){.gzh-toolbar{height:auto;min-height:54px;flex-wrap:wrap;row-gap:4px;padding:6px 10px;}.gzh-hint{font-size:10px;line-height:1.35;width:100%;max-width:none;}.gzh-copy{padding:10px 12px;font-size:13px;}}
 </style>
 </head>
 <body>
@@ -26,62 +28,94 @@
 <div class="gzh-toast" id="gzhToast"></div>
 <div class="gzh-stage">
   <div id="gzh-content">
-<section style="width:100%;max-width:677px;margin:0 auto;padding:12px 10px 36px;box-sizing:border-box;background:#F6F4EF;color:#333333;font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif;line-height:1.8;letter-spacing:0.25px;">
-  <section style="width:100%;margin:0 0 18px;border:2px solid #111111;background:#FFFDF8;box-sizing:border-box;">
-    <section style="height:8px;background:#1F63FF;border-bottom:2px solid #111111;box-sizing:border-box;"><span leaf=""><br></span></section>
-    <section style="padding:15px 14px 16px;background:#E8F1FF;border-bottom:2px solid #111111;box-sizing:border-box;">
-      <span leaf="" style="display:inline-block;margin:0 5px 7px 0;padding:3px 7px;border:1.5px solid #111111;background:#111111;color:#FFFFFF;font-size:10px;font-weight:900;letter-spacing:1px;">TECHNICAL BRIEF</span>
-      <span leaf="" style="display:inline-block;margin:0 0 7px;padding:3px 7px;border:1.5px solid #111111;background:#FFFFFF;color:#1F63FF;font-size:10px;font-weight:900;letter-spacing:1px;">WX-READY</span>
-      <h3 style="margin:4px 0 8px;font-size:24px;line-height:1.28;font-weight:900;letter-spacing:-0.4px;color:#111111;"><span leaf="">复杂系统，必须有一份能翻到结论的手册</span></h3>
-      <span leaf="" style="font-size:14px;line-height:1.7;color:#2C3E5B;">硬核蓝手册风的公众号兼容样稿：保留蓝黑白的技术秩序、编号推进与证据导向，但所有模块均在自然文档流中工作。</span>
+<section style="max-width:677px;margin:0 auto;padding:10px;background:#FFFFFF;color:#374151;font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;line-height:1.8;letter-spacing:0.5px;text-align:left;">
+
+  <!-- 组件2 Hero 头部：浅蓝底 + 黑描边标签 + 主标题 + 副标题 -->
+  <section style="margin:0 0 20px;padding:16px 14px;background:#E8F1FF;border-radius:10px;">
+    <span style="display:inline-block;font-size:9px;font-weight:900;border:1px solid #111111;background:#FFFFFF;color:#111111;padding:2px 6px;margin:0 6px 8px 0;letter-spacing:1px;">TECHNICAL BRIEF</span>
+    <span style="display:inline-block;font-size:9px;font-weight:900;border:1px solid #111111;background:#111111;color:#FFFFFF;padding:2px 6px;margin:0 0 8px;letter-spacing:1px;">WX-READY</span>
+    <h2 style="font-size:20px;font-weight:900;color:#111111;margin:0 0 8px;line-height:1.4;text-align:left;"><span leaf="">复杂系统，必须有一份能翻到结论的手册</span></h2>
+    <span style="display:block;font-size:13px;line-height:1.6;color:#2C3E5B;text-align:left;"><span leaf="">硬核蓝手册风：蓝黑主调 + 红色锚点，编号章节推进、证据卡片承载技术信息，全部模块工作在自然文档流中。</span></span>
+  </section>
+
+  <!-- 组件3 核心观点：红色高亮 -->
+  <section style="margin:0 0 14px;">
+    <span style="display:block;font-size:14px;font-weight:800;color:#D80018;line-height:1.7;text-align:left;"><span leaf="">手册类文章最容易写成桌面控制台，而读者七成以上来自手机。</span></span>
+  </section>
+
+  <!-- 组件4 正文段落 -->
+  <span style="display:block;font-size:14px;line-height:1.8;margin:0 0 12px;text-align:left;color:#374151;"><span leaf="">公众号正文是响应式阅读容器，</span><span style="font-weight:800;color:#111111;border-bottom:2px solid #D80018;"><span leaf="">最大宽度只负责限制宽屏行长</span></span><span leaf="">；真正的布局责任由宽度 100% 的区块、可换行标签和手机优先的信息顺序承担，任何视觉效果都不依赖桌面网格。</span></span>
+
+  <!-- 组件7 分隔线 -->
+  <section style="height:1px;background:#E5E7EB;margin:0 0 14px;"><span leaf=""><br></span></section>
+
+  <!-- 组件8 章节标题：红色编号徽章 + 红色底线 -->
+  <section style="margin:0 0 14px;padding-bottom:10px;border-bottom:2px solid #D80018;">
+    <span style="display:inline-block;background:#D80018;color:#FFFFFF;font-size:14px;font-weight:900;padding:3px 10px;border-radius:4px;margin-right:10px;">01</span>
+    <span style="font-size:10px;font-weight:700;color:#D80018;letter-spacing:2px;">LAYOUT CONTRACT</span>
+    <h3 style="font-size:16px;font-weight:800;color:#111111;margin:6px 0 0;text-align:left;"><span leaf="">阅读容器先于桌面画布</span></h3>
+  </section>
+
+  <!-- 组件9 STEP 卡片：纵向堆叠，第二张起 margin-top:14px -->
+  <section style="display:block;margin:0 0 14px;">
+    <section style="background:#FFFFFF;border:2px solid #111111;border-radius:8px;padding:12px 8px;">
+      <span style="display:inline-block;background:#1F63FF;color:#FFFFFF;font-size:9px;font-weight:800;padding:2px 6px;border-radius:3px;margin-bottom:6px;">STEP 1</span>
+      <span style="display:block;font-size:12px;font-weight:800;color:#111111;margin-bottom:4px;text-align:left;"><span leaf="">确认阅读容器</span></span>
+      <span style="display:block;font-size:11px;color:#5F5950;line-height:1.5;text-align:left;"><span leaf="">所有区块宽度 100%，手机优先排列信息顺序。</span></span>
     </section>
-    <section style="padding:9px 10px;background:#FFFFFF;box-sizing:border-box;">
-      <span style="display:inline-block;margin:2px 6px 2px 0;padding:3px 7px;border:1.5px solid #111111;background:#FFFFFF;box-sizing:border-box;"><span leaf="" style="font-size:10px;font-weight:900;color:#111111;">技术手册</span></span>
-      <span style="display:inline-block;margin:2px 6px 2px 0;padding:3px 7px;border-left:4px solid #1F63FF;border-top:1.5px solid #111111;border-right:1.5px solid #111111;border-bottom:1.5px solid #111111;background:#FFFFFF;box-sizing:border-box;"><span leaf="" style="font-size:10px;font-weight:900;color:#111111;">证据优先</span></span>
-      <span style="display:inline-block;margin:2px 0;padding:3px 7px;border:1.5px solid #1F63FF;background:#E8F1FF;box-sizing:border-box;"><span leaf="" style="font-size:10px;font-weight:900;color:#1F63FF;">RefID · wx-theme:hardblue-manual</span></span>
+    <section style="background:#FFFFFF;border:2px solid #111111;border-radius:8px;padding:12px 8px;margin-top:14px;">
+      <span style="display:inline-block;background:#1F63FF;color:#FFFFFF;font-size:9px;font-weight:800;padding:2px 6px;border-radius:3px;margin-bottom:6px;">STEP 2</span>
+      <span style="display:block;font-size:12px;font-weight:800;color:#111111;margin-bottom:4px;text-align:left;"><span leaf="">用证据块承载技术信息</span></span>
+      <span style="display:block;font-size:11px;color:#5F5950;line-height:1.5;text-align:left;"><span leaf="">蓝色编号定位章节，黑色容器承载命令与结论。</span></span>
+    </section>
+    <section style="background:#FFFFFF;border:2px solid #111111;border-radius:8px;padding:12px 8px;margin-top:14px;">
+      <span style="display:inline-block;background:#1F63FF;color:#FFFFFF;font-size:9px;font-weight:800;padding:2px 6px;border-radius:3px;margin-bottom:6px;">STEP 3</span>
+      <span style="display:block;font-size:12px;font-weight:800;color:#111111;margin-bottom:4px;text-align:left;"><span leaf="">窄屏验证视觉规则</span></span>
+      <span style="display:block;font-size:11px;color:#5F5950;line-height:1.5;text-align:left;"><span leaf="">任何蓝色面板都不能以固定列数或媒体查询为存在条件。</span></span>
     </section>
   </section>
 
-  <section style="width:100%;margin:0 0 18px;padding:12px 0;border-top:2px solid #111111;border-bottom:2px solid #111111;box-sizing:border-box;">
-    <span leaf="" style="display:block;margin:0 0 6px;font-size:15px;line-height:1.45;font-weight:900;color:#1F63FF;">一句话概览：手机端优先；宽屏以约 677px 作为最大阅读参考；模块与图片始终跟随可用容器宽度。</span>
-    <span leaf="" style="font-size:12px;line-height:1.7;color:#555555;">原始风格中的三色轨道、粗黑边框、蓝色编号和证据分块被保留；Grid、媒体查询、绝对定位与渐变均替换为真实区块和内联具体色值。</span>
+  <!-- 组件10 机制卡片（单列） -->
+  <section style="background:#FFFFFF;border:2px solid #111111;border-radius:8px;padding:14px 12px;margin:0 0 14px;">
+    <span style="display:block;font-size:10px;font-weight:800;color:#1F63FF;margin-bottom:6px;text-align:left;">EVIDENCE NOTE</span>
+    <span style="display:block;font-size:14px;font-weight:800;color:#111111;margin-bottom:6px;text-align:left;"><span leaf="">视觉规则必须能经受窄屏验证</span></span>
+    <span style="display:block;font-size:12px;color:#374151;line-height:1.7;text-align:left;"><span leaf="">蓝色左边框负责标注证据，黑底命令块负责承载技术信息，二者都是普通文档流元素，在窄屏下不会重叠或跑位。</span></span>
   </section>
 
-  <section style="width:100%;margin:0 0 14px;box-sizing:border-box;">
-    <section style="width:100%;margin:0 0 6px;padding:10px 11px;background:#FFFFFF;border:2px solid #111111;border-left:5px solid #1F63FF;box-sizing:border-box;"><span leaf="" style="display:inline-block;min-width:64px;font-size:21px;line-height:1;font-weight:900;color:#1F63FF;">100%</span><span leaf="" style="font-size:11px;font-weight:800;letter-spacing:0.5px;color:#666666;">响应式容器</span></section>
-    <section style="width:100%;margin:0 0 6px;padding:10px 11px;background:#FFFFFF;border:2px solid #111111;border-left:5px solid #111111;box-sizing:border-box;"><span leaf="" style="display:inline-block;min-width:64px;font-size:21px;line-height:1;font-weight:900;color:#111111;">677px</span><span leaf="" style="font-size:11px;font-weight:800;letter-spacing:0.5px;color:#666666;">最大阅读参考</span></section>
-    <section style="width:100%;padding:10px 11px;background:#FFFFFF;border:2px solid #111111;border-left:5px solid #1F63FF;box-sizing:border-box;"><span leaf="" style="display:inline-block;min-width:64px;font-size:21px;line-height:1;font-weight:900;color:#1F63FF;">0</span><span leaf="" style="font-size:11px;font-weight:800;letter-spacing:0.5px;color:#666666;">网页布局依赖</span></section>
+  <!-- 组件5 标签组：红/蓝/黑三色信息卡纵向堆叠 -->
+  <section style="margin:0 0 14px;">
+    <section style="background:#FEF2F2;border-radius:8px;padding:10px 6px;text-align:left;">
+      <span style="display:block;font-size:10px;font-weight:800;color:#DC2626;text-align:left;"><span leaf="">写作立场</span></span>
+      <span style="display:block;font-size:10px;color:#333333;text-align:left;"><span leaf="">证据优先，结论可复核</span></span>
+    </section>
+    <section style="background:#E8F1FF;border-radius:8px;padding:10px 6px;margin-top:14px;text-align:left;">
+      <span style="display:block;font-size:10px;font-weight:800;color:#1F63FF;text-align:left;"><span leaf="">适用题材</span></span>
+      <span style="display:block;font-size:10px;color:#333333;text-align:left;"><span leaf="">技术手册 / 工具观察 / 调查分析</span></span>
+    </section>
+    <section style="background:#111111;border-radius:8px;padding:10px 6px;margin-top:14px;text-align:left;">
+      <span style="display:block;font-size:10px;font-weight:800;color:#FFFFFF;text-align:left;"><span leaf="">平台契约</span></span>
+      <span style="display:block;font-size:10px;color:#CCCCCC;text-align:left;"><span leaf="">不用 Grid、媒体查询、绝对定位与 gap</span></span>
+    </section>
   </section>
 
-  <section style="width:100%;margin:0 0 14px;box-sizing:border-box;">
-    <section style="display:inline-block;width:54px;height:54px;margin:0 10px 0 0;vertical-align:top;padding-top:10px;text-align:center;background:#1F63FF;border:2px solid #111111;box-sizing:border-box;"><span leaf="" style="font-size:25px;font-weight:900;line-height:1;color:#FFFFFF;">01</span></section>
-    <section style="display:inline-block;width:calc(100% - 68px);min-width:210px;vertical-align:top;padding-top:1px;box-sizing:border-box;"><span leaf="" style="display:block;margin:0 0 3px;font-size:10px;font-weight:900;letter-spacing:1.2px;color:#1F63FF;">LAYOUT CONTRACT</span><h3 style="margin:0;font-size:20px;line-height:1.35;font-weight:900;color:#111111;"><span leaf="">阅读容器先于桌面画布</span></h3></section>
-  </section>
-  <p style="margin:0 0 14px;font-size:15px;line-height:1.8;text-align:justify;color:#333333;"><span leaf="">手册类文章容易被做成桌面控制台，但公众号并不会把每位读者锁在固定宽度中。</span><span style="font-weight:800;color:#111111;border-bottom:2px solid #1F63FF;"><span leaf="">最大宽度只负责限制宽屏阅读行长</span></span><span leaf="">；真正的布局责任由宽度 100% 的区块、可换行标签和手机优先的信息顺序承担。</span></p>
-
-  <section style="width:100%;margin:0 0 12px;padding:12px 13px;background:#FFFFFF;border:2px solid #111111;border-left:5px solid #1F63FF;box-sizing:border-box;">
-    <span leaf="" style="display:block;margin:0 0 4px;font-size:10px;font-weight:900;letter-spacing:1.1px;color:#1F63FF;">EVIDENCE NOTE</span>
-    <span leaf="" style="display:block;margin:0 0 3px;font-size:15px;font-weight:850;color:#111111;">视觉规则必须能经受窄屏验证</span>
-    <span leaf="" style="font-size:12px;line-height:1.65;color:#666666;">任何蓝色面板、编号或命令区，都不能以固定桌面列数、负定位或 CSS 媒体查询作为存在条件。</span>
+  <!-- 组件11 结论卡片（深色背景） -->
+  <section style="background:#111111;border-radius:10px;padding:14px;margin:0 0 14px;">
+    <span style="display:block;font-size:10px;font-weight:800;color:#E8F1FF;margin-bottom:8px;letter-spacing:1px;text-align:left;">MANUAL CONCLUSION</span>
+    <span style="display:block;font-size:14px;font-weight:800;color:#FFFFFF;line-height:1.7;text-align:left;"><span leaf="">硬核蓝手册风保留"蓝色技术锚点 + 黑色证据容器 + 白底阅读区"，所有间距显式内联，粘贴到公众号编辑器后依然稳定。</span></span>
   </section>
 
-  <section style="width:100%;margin:0 0 14px;padding:8px 11px;background:#111111;border:2px solid #111111;box-sizing:border-box;"><span leaf="" style="font-size:13px;font-weight:900;color:#1F63FF;">02</span><span leaf="" style="margin-left:9px;font-size:11px;font-weight:800;letter-spacing:1.2px;color:#FFFFFF;">MANUAL COMPONENTS</span></section>
-  <h3 style="margin:0 0 10px;font-size:20px;line-height:1.35;font-weight:900;color:#111111;"><span leaf="">用“证据块”替代复杂面板</span></h3>
-  <section style="width:100%;margin:0 0 12px;padding:12px 13px;background:#111111;border:2px solid #111111;box-sizing:border-box;">
-    <span leaf="" style="display:block;margin:0 0 6px;font-family:monospace;font-size:11px;line-height:1.7;color:#93C5FD;">$ verify layout --viewport 390</span>
-    <span leaf="" style="display:block;font-family:monospace;font-size:11px;line-height:1.7;color:#E8F1FF;">PASS · no horizontal overflow</span>
-    <span leaf="" style="display:block;font-family:monospace;font-size:11px;line-height:1.7;color:#E8F1FF;">PASS · sections remain readable</span>
-  </section>
-  <section style="width:100%;margin:0 0 18px;padding:12px 13px;background:#FFFFFF;border:2px solid #111111;box-sizing:border-box;">
-    <span leaf="" style="font-size:13px;line-height:1.7;color:#333333;">蓝色编号负责定位章节；黑底命令块负责承载技术信息；蓝色左边框负责标注证据。三者全部是普通文档流元素，因此在窄屏下不会重叠、跑位或失效。</span>
+  <!-- 组件12 资料来源 -->
+  <section style="border:1px solid #E5E7EB;border-radius:8px;background:#FAFAFA;padding:10px 12px;margin:0 0 12px;text-align:left;">
+    <span style="display:block;font-size:10px;font-weight:800;color:#5F5950;margin-bottom:4px;text-align:left;"><span leaf="">资料来源</span></span>
+    <span style="display:block;font-size:11px;color:#5F5950;line-height:1.6;text-align:left;"><span leaf="">设计依据：微信公众号正文为响应式阅读容器；本样稿仅用于组件兼容验收。</span></span>
   </section>
 
-  <section style="width:100%;margin:0 0 20px;padding:14px 15px;background:#111111;border:2px solid #111111;box-sizing:border-box;">
-    <span leaf="" style="display:block;margin:0 0 6px;font-size:10px;font-weight:900;letter-spacing:1.4px;color:#93C5FD;">MANUAL CONCLUSION</span>
-    <span leaf="" style="font-size:16px;line-height:1.6;font-weight:850;color:#FFFFFF;">硬核蓝手册风保留“蓝色技术锚点 + 黑色证据容器 + 白底阅读区”，但不再让视觉效果依赖桌面网格或平台不支持的 CSS。</span>
+  <!-- 组件13 签名 -->
+  <section style="text-align:center;padding:4px 0 20px;">
+    <span style="display:inline-block;height:2px;width:40px;background:#1F63FF;margin-right:8px;vertical-align:middle;"></span>
+    <span style="font-size:11px;color:#1F63FF;letter-spacing:2px;font-weight:700;vertical-align:middle;"><span leaf="">AG 雷达 · 工具观察</span></span>
+    <span style="display:inline-block;height:2px;width:40px;background:#1F63FF;margin-left:8px;vertical-align:middle;"></span>
   </section>
-
-  <section style="width:100%;padding-top:10px;border-top:2px solid #111111;box-sizing:border-box;"><span leaf="" style="display:block;margin:0 0 5px;font-size:10px;font-weight:900;letter-spacing:1.2px;color:#666666;">SOURCES / NOTES</span><span leaf="" style="font-size:12px;line-height:1.7;color:#666666;">设计依据：微信公众号正文为响应式阅读容器；手机优先，约 677px 仅是宽屏环境的常见最大阅读参考。此样稿仅用于组件兼容验收。</span></section>
 </section>
   </div>
 </div>
