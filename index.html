@@ -3,6 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#18181b">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
 <title>gzh-design · 主题总览</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
@@ -1057,6 +1061,17 @@ a.preview-link-text:hover{color:#3b82f6}
     window.addEventListener('popstate',render);
     render();
   })();
+</script>
+<script>
+  /* PWA: register service worker. Relative './sw.js' keeps scope/start_url
+     correct on GitHub Pages subpath deployments (no leading slash). */
+  if('serviceWorker' in navigator){
+    window.addEventListener('load',function(){
+      navigator.serviceWorker.register('./sw.js').catch(function(err){
+        console.warn('Service worker registration failed:',err);
+      });
+    });
+  }
 </script>
 </body>
 </html>
