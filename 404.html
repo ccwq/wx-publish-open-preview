@@ -19,6 +19,7 @@ a{color:#3b82f6}
   var dir=location.pathname.replace(/[^/]+$/,'');
   if(dir==='')dir='/';
   document.getElementById('spa404Home').href=dir;
+  if(dir===location.pathname)return; /* already at a directory URL: nothing left to climb, stay to avoid a reload loop */
   location.replace(dir+location.search+location.hash);
 })();
 </script>

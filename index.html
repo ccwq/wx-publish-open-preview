@@ -1013,7 +1013,7 @@ a.preview-link-text:hover{color:#3b82f6}
       return Object.prototype.hasOwnProperty.call(PAGES,name)?name:'';
     }
     function load(page){
-      fetch(page,{cache:'force-cache'}).then(function(r){return r.text();}).then(function(html){
+      fetch(page,{cache:'force-cache'}).then(function(r){ if(!r.ok)throw new Error('HTTP '+r.status); return r.text(); }).then(function(html){
         if(frame.getAttribute('data-page')!==page)return;
         frame.removeAttribute('src');
         var doc=frame.contentDocument;
