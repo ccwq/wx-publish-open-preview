@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>main-editorial.wechat · 公众号排版预览</title>
+<title>main-editorial.wechat · 公众号排版预览（完整演示）</title>
 <style>
   body{margin:0;background:#eef0f2;font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;-webkit-text-size-adjust:100%;}
   .gzh-toolbar{position:fixed;top:0;left:0;right:0;height:54px;background:#ffffff;box-shadow:0 1px 10px rgba(0,0,0,.08);display:flex;align-items:center;justify-content:space-between;padding:0 16px;z-index:99;}
@@ -15,7 +15,12 @@
   .gzh-toast{position:fixed;top:66px;left:50%;transform:translateX(-50%);background:#111827;color:#fff;padding:11px 20px;border-radius:10px;font-size:14px;font-weight:600;opacity:0;pointer-events:none;transition:opacity .25s;z-index:100;box-shadow:0 6px 20px rgba(0,0,0,.25);max-width:88vw;text-align:center;}
   .gzh-toast.show{opacity:1;}
   .gzh-stage{max-width:700px;margin:78px auto 64px;padding:0 8px;}
-  @media(max-width:520px){.gzh-hint{max-width:150px;}}
+  @media(max-width:520px){
+    .gzh-hint{max-width:96px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+    .gzh-copy{font-size:12px;}
+    .gzh-toolbar .gzh-copy{padding:10px 10px !important;}
+  }
+  @media(max-width:360px){.gzh-hint{display:none;}}
 </style>
 </head>
 <body>
@@ -26,206 +31,56 @@
 <div class="gzh-toast" id="gzhToast"></div>
 <div class="gzh-stage">
   <div id="gzh-content">
-<section style="width:100%;max-width:677px;margin:0 auto;padding:12px 10px 36px;box-sizing:border-box;background:#F5F2EC;color:#333333;font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif;line-height:1.8;letter-spacing:0.35px;">
+<section style="text-align:left;max-width:677px;margin:0 auto;padding:12px 12px 12px 12px;background:#F5F2EC;color:#333333;font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;line-height:1.75;box-sizing:border-box;text-align:left;"><section style="text-align:left;margin:0 0 12px;"><p style="text-align:left;margin:0 0 10px;font-size:11px;line-height:1.5;color:#555555;"><span style="color:#C8102E;font-weight:900;"><span leaf="">━━</span></span><span leaf="">　AG 雷达 · 工具观察</span></p><p style="text-align:left;margin:0 0 8px;font-size:23px;font-weight:900;letter-spacing:-0.02em;color:#0A0A0A;line-height:1.4;overflow-wrap:anywhere;"><span leaf="">说明书风工具观察：把一台虚构工具拆成五章</span></p><p style="text-align:left;margin:0;font-size:15px;line-height:1;color:#C8102E;font-weight:900;"><span leaf="">━━━</span></p></section><p style="text-align:left;margin:0 0 10px;font-size:13px;line-height:1.75;color:#333333;overflow-wrap:anywhere;margin:0 0 14px;border-left:2px solid #C8102E;padding:2px 0 2px 10px;font-size:12px;line-height:1.75;color:#555555;"><span leaf="">主编辑风完整演示：编号章节、统计行、Pill、模块矩阵、记录卡与流程结论；全部数值为演示口径。</span></p><p style="text-align:left;margin:0 0 10px;font-size:13px;line-height:1.75;color:#333333;overflow-wrap:anywhere;"><span leaf="">这是一份「主编辑风」主题的完整演示样稿，用于逐个展示组件语义：红黑编号章节条、纵向统计行、状态 Pill、模块矩阵、记录卡与流程结论块。文中出现的工具、数值与结论全部是演示口径，不指向任何真实项目。</span></p>
 
-  <!-- HERO CARD -->
-  <section style="width:100%;margin:0 0 18px;border:2px solid #0A0A0A;box-sizing:border-box;background:#FFFDF9;">
-    <!-- Topbar: badge + title + meta -->
-    <section style="padding:10px 12px 12px;border-bottom:2px solid #0A0A0A;box-sizing:border-box;">
-      <span style="display:inline-block;margin:0 0 8px;padding:2px 8px;background:#0A0A0A;border:1.5px solid #0A0A0A;box-sizing:border-box;"><span leaf="" style="font-size:10px;font-weight:700;letter-spacing:.08em;color:#FFFFFF;text-transform:uppercase;">MAIN EDITORIAL</span></span>
-      <h3 style="margin:0 0 5px;font-size:18px;font-weight:700;letter-spacing:-.02em;line-height:1.3;color:#0A0A0A;"><span leaf="">主骨架 · 默认主题 · 高密度</span></h3>
-      <span leaf="" style="font-size:10px;color:#777777;">红黑白 · 蓝黄绿辅助 · 说明书感</span>
-      <span style="display:block;margin-top:5px;font-size:10px;color:#777777;text-align:right;">2026-08-03</span>
-    </section>
-    <!-- Pills Row -->
-    <section style="padding:9px 10px;border-bottom:2px solid #0A0A0A;background:#FFFDF9;box-sizing:border-box;">
-      <span style="display:inline-block;margin:2px 4px 2px 0;padding:3px 8px;border:1.5px solid #0A0A0A;background:#FFFFFF;box-sizing:border-box;"><span leaf="" style="font-size:10px;font-weight:700;color:#0A0A0A;">高密度</span></span>
-      <span style="display:inline-block;margin:2px 4px 2px 0;padding:3px 8px;border:1.5px solid #0036A3;background:#EEF4FF;box-sizing:border-box;"><span leaf="" style="font-size:10px;font-weight:700;color:#0036A3;">蓝辅助</span></span>
-      <span style="display:inline-block;margin:2px 4px 2px 0;padding:3px 8px;border:1.5px solid #E8C200;background:#FFF1B0;box-sizing:border-box;"><span leaf="" style="font-size:10px;font-weight:700;color:#6B4E00;">黄状态</span></span>
-      <span style="display:inline-block;margin:2px 4px 2px 0;padding:3px 8px;border:1.5px solid #15803D;background:#DCFCE7;box-sizing:border-box;"><span leaf="" style="font-size:10px;font-weight:700;color:#14532D;">绿确认</span></span>
-      <span style="display:inline-block;margin:2px 4px 2px 0;padding:3px 8px;border:1.5px solid #C8102E;background:#FFF5F6;box-sizing:border-box;"><span leaf="" style="font-size:10px;font-weight:700;color:#C8102E;">红警示</span></span>
-      <span style="display:inline-block;margin:2px 4px 2px 0;padding:3px 8px;border:1.5px solid #0A0A0A;background:#0A0A0A;box-sizing:border-box;"><span leaf="" style="font-size:10px;font-weight:700;color:#FFFFFF;">默认</span></span>
-    </section>
-    <!-- RefID pill -->
-    <section style="padding:8px 10px;background:#FFF5F6;box-sizing:border-box;">
-      <span style="display:inline-block;padding:2px 7px;border:1.5px solid #C8102E;box-sizing:border-box;"><span leaf="" style="font-size:10px;font-weight:700;color:#C8102E;">RefID · wx-theme:main-editorial</span></span>
-    </section>
-  </section>
+<section style="text-align:left;margin:14px 0 12px;border:1px solid #0A0A0A;"><section style="text-align:left;background:#0A0A0A;padding:6px 10px;"><span style="display:inline-block;color:#C8102E;font-size:12px;font-weight:900;"><span leaf="">01</span></span><span style="display:inline-block;font-size:11px;font-weight:700;color:#FFFFFF;letter-spacing:0.06em;"><span leaf=""> TOOL OVERVIEW</span></span></section><h3 style="text-align:left;margin:0;padding:10px 12px;font-size:17px;line-height:1.4;font-weight:900;color:#0A0A0A;"><span leaf="">工具速览</span></h3></section>
+<p style="text-align:left;margin:0 0 10px;font-size:13px;line-height:1.75;color:#333333;overflow-wrap:anywhere;"><span leaf="">主编辑风把一次工具观察压成一本「说明书」：黑框章节、红色编号、暖白纸底。演示对象是虚构命令行工具 </span><span leaf="" style="background:#EFEAE0;color:#0A0A0A;padding:1px 4px;font-family:'SF Mono',Consolas,monospace;font-size:12px;border:1px solid #D8D2C4;">shelfkit</span><span leaf="">，它的定位是「把散落的本地文档收拢成可检索书架」。演示口径下，它有四个核心数字：</span></p>
 
-  <!-- STATS BAR -->
-  <section style="width:100%;margin:0 0 10px;border:1.5px solid #0A0A0A;background:#FFFFFF;box-sizing:border-box;overflow:hidden;">
-    <section style="display:inline-block;width:25%;padding:8px 6px;text-align:center;vertical-align:top;border-right:1.5px solid #0A0A0A;box-sizing:border-box;">
-      <strong style="display:block;font-size:15px;font-weight:700;line-height:1;color:#0A0A0A;">13k</strong>
-      <span leaf="" style="font-size:10px;color:#555555;font-weight:600;">Stars</span>
-    </section>
-    <section style="display:inline-block;width:25%;padding:8px 6px;text-align:center;vertical-align:top;border-right:1.5px solid #0A0A0A;box-sizing:border-box;">
-      <strong style="display:block;font-size:15px;font-weight:700;line-height:1;color:#0A0A0A;">2k</strong>
-      <span leaf="" style="font-size:10px;color:#555555;font-weight:600;">Forks</span>
-    </section>
-    <section style="display:inline-block;width:25%;padding:8px 6px;text-align:center;vertical-align:top;border-right:1.5px solid #0A0A0A;box-sizing:border-box;">
-      <strong style="display:block;font-size:15px;font-weight:700;line-height:1;color:#0036A3;">100%</strong>
-      <span leaf="" style="font-size:10px;color:#555555;font-weight:600;">离线</span>
-    </section>
-    <section style="display:inline-block;width:24.9%;padding:8px 6px;text-align:center;vertical-align:top;box-sizing:border-box;">
-      <strong style="display:block;font-size:15px;font-weight:700;line-height:1;color:#15803D;">8</strong>
-      <span leaf="" style="font-size:10px;color:#555555;font-weight:600;">语言</span>
-    </section>
-  </section>
+<section style="text-align:left;border:1px solid #0A0A0A;margin:0 0 12px;background:#FFFDF9;"><section style="text-align:left;padding:8px 10px;"><span style="display:inline-block;width:64px;text-align:left;font-size:15px;font-weight:700;line-height:1;color:#0A0A0A;vertical-align:middle;"><span leaf="">12k</span></span><span style="display:inline-block;font-size:10px;color:#555555;font-weight:600;vertical-align:middle;"><span leaf="">演示星标</span></span></section><section style="text-align:left;padding:8px 10px;border-top:1px solid #0A0A0A;"><span style="display:inline-block;width:64px;text-align:left;font-size:15px;font-weight:700;line-height:1;color:#0036A3;vertical-align:middle;"><span leaf="">340</span></span><span style="display:inline-block;font-size:10px;color:#555555;font-weight:600;vertical-align:middle;"><span leaf="">演示插件</span></span></section><section style="text-align:left;padding:8px 10px;border-top:1px solid #0A0A0A;"><span style="display:inline-block;width:64px;text-align:left;font-size:15px;font-weight:700;line-height:1;color:#0A0A0A;vertical-align:middle;"><span leaf="">100%</span></span><span style="display:inline-block;font-size:10px;color:#555555;font-weight:600;vertical-align:middle;"><span leaf="">离线可用</span></span></section><section style="text-align:left;padding:8px 10px;border-top:1px solid #0A0A0A;"><span style="display:inline-block;width:64px;text-align:left;font-size:15px;font-weight:700;line-height:1;color:#0A0A0A;vertical-align:middle;"><span leaf="">9</span></span><span style="display:inline-block;font-size:10px;color:#555555;font-weight:600;vertical-align:middle;"><span leaf="">演示语言</span></span></section></section>
 
-  <!-- SECTION 01: CORE FEATURES -->
-  <section style="width:100%;margin:0 0 14px;padding:7px 11px;background:#0A0A0A;border:2px solid #0A0A0A;box-sizing:border-box;">
-    <span leaf="" style="font-size:13px;font-weight:900;color:#C8102E;">01</span>
-    <span leaf="" style="margin-left:9px;font-size:11px;font-weight:800;letter-spacing:1.2px;color:#FFFFFF;">核心特征</span>
-  </section>
-  <h3 style="margin:0 0 10px;font-size:17px;font-weight:700;color:#0A0A0A;line-height:1.35;"><span leaf="">它是什么</span></h3>
-  <p style="margin:0 0 12px;font-size:14px;line-height:1.75;color:#333333;"><span leaf="">红黑白主骨架，蓝黄绿辅助状态色，</span><strong>stats</strong><span leaf=""> / </span><strong>grid</strong><span leaf=""> / </span><strong>pill</strong><span leaf=""> / </span><strong>flow</strong><span leaf=""> / </span><strong>section</strong><span leaf=""> 齐全。高密度、模块化、说明书感强。</span></p>
-  <section style="width:100%;margin:0 0 14px;border:1.5px solid #0A0A0A;background:#FFFDF9;box-sizing:border-box;">
-    <section style="padding:7px 10px;background:#0A0A0A;box-sizing:border-box;">
-      <span leaf="" style="font-size:11px;font-weight:700;color:#FFFFFF;">核心特征</span>
-      <span leaf="" style="margin-left:8px;font-size:11px;font-weight:700;color:#C8102E;">01</span>
-    </section>
-    <section style="padding:10px 11px;box-sizing:border-box;">
-      <section style="margin:0 0 9px;box-sizing:border-box;">
-        <span style="display:inline-block;margin:0 4px 4px 0;padding:2px 7px;border:1.5px solid #C8102E;background:#FFF5F6;box-sizing:border-box;"><span leaf="" style="font-size:10px;font-weight:700;color:#C8102E;">高密度</span></span>
-        <span style="display:inline-block;margin:0 4px 4px 0;padding:2px 7px;border:1.5px solid #0036A3;background:#EEF4FF;box-sizing:border-box;"><span leaf="" style="font-size:10px;font-weight:700;color:#0036A3;">模块化</span></span>
-        <span style="display:inline-block;margin:0 0 4px;padding:2px 7px;border:1.5px solid #0A0A0A;background:#FFFFFF;box-sizing:border-box;"><span leaf="" style="font-size:10px;font-weight:700;color:#0A0A0A;">说明书感</span></span>
-      </section>
-    </section>
-  </section>
+<p style="text-align:left;margin:0 0 10px;font-size:13px;line-height:1.75;color:#333333;overflow-wrap:anywhere;"><span leaf="">状态信号用彩色 Pill 表达，红黑白之外只允许蓝黄绿三种辅助色，其余装饰一律不上：</span></p>
 
-  <!-- SECTION 02: TABLE -->
-  <section style="width:100%;margin:0 0 14px;padding:7px 11px;background:#0A0A0A;border:2px solid #0A0A0A;box-sizing:border-box;">
-    <span leaf="" style="font-size:13px;font-weight:900;color:#C8102E;">02</span>
-    <span leaf="" style="margin-left:9px;font-size:11px;font-weight:800;letter-spacing:1.2px;color:#FFFFFF;">参数表</span>
-  </section>
-  <section style="width:100%;margin:0 0 14px;border:1.5px solid #0A0A0A;background:#FFFFFF;box-sizing:border-box;overflow:hidden;">
-    <section style="width:100%;padding:0;box-sizing:border-box;">
-      <section style="display:inline-block;width:34%;padding:5px 8px;background:#0A0A0A;border-right:1.5px solid #0A0A0A;vertical-align:top;box-sizing:border-box;">
-        <span leaf="" style="font-size:11px;font-weight:700;color:#FFFFFF;">特征</span>
-      </section>
-      <section style="display:inline-block;width:33%;padding:5px 8px;background:#0A0A0A;border-right:1.5px solid #0A0A0A;vertical-align:top;box-sizing:border-box;">
-        <span leaf="" style="font-size:11px;font-weight:700;color:#FFFFFF;">值</span>
-      </section>
-      <section style="display:inline-block;width:33%;padding:5px 8px;background:#0A0A0A;vertical-align:top;box-sizing:border-box;">
-        <span leaf="" style="font-size:11px;font-weight:700;color:#FFFFFF;">说明</span>
-      </section>
-    </section>
-    <section style="width:100%;padding:0;box-sizing:border-box;border-top:1.5px solid #0A0A0A;">
-      <section style="display:inline-block;width:34%;padding:5px 8px;border-right:1.5px solid #0A0A0A;vertical-align:top;box-sizing:border-box;">
-        <span leaf="" style="font-size:11px;color:#333333;">星标</span>
-      </section>
-      <section style="display:inline-block;width:33%;padding:5px 8px;border-right:1.5px solid #0A0A0A;vertical-align:top;box-sizing:border-box;">
-        <span leaf="" style="font-size:11px;font-weight:700;color:#0036A3;">13k+</span>
-      </section>
-      <section style="display:inline-block;width:33%;padding:5px 8px;vertical-align:top;box-sizing:border-box;">
-        <span leaf="" style="font-size:11px;color:#333333;">活跃开源</span>
-      </section>
-    </section>
-    <section style="width:100%;padding:0;box-sizing:border-box;border-top:1.5px solid #0A0A0A;background:#FFFDF9;">
-      <section style="display:inline-block;width:34%;padding:5px 8px;border-right:1.5px solid #0A0A0A;vertical-align:top;box-sizing:border-box;">
-        <span leaf="" style="font-size:11px;color:#333333;">许可证</span>
-      </section>
-      <section style="display:inline-block;width:33%;padding:5px 8px;border-right:1.5px solid #0A0A0A;vertical-align:top;box-sizing:border-box;">
-        <span leaf="" style="font-size:11px;font-weight:700;color:#0036A3;">MIT</span>
-      </section>
-      <section style="display:inline-block;width:33%;padding:5px 8px;vertical-align:top;box-sizing:border-box;">
-        <span leaf="" style="font-size:11px;color:#333333;">免费商用</span>
-      </section>
-    </section>
-    <section style="width:100%;padding:0;box-sizing:border-box;border-top:1.5px solid #0A0A0A;">
-      <section style="display:inline-block;width:34%;padding:5px 8px;border-right:1.5px solid #0A0A0A;vertical-align:top;box-sizing:border-box;">
-        <span leaf="" style="font-size:11px;color:#333333;">最新版本</span>
-      </section>
-      <section style="display:inline-block;width:33%;padding:5px 8px;border-right:1.5px solid #0A0A0A;vertical-align:top;box-sizing:border-box;">
-        <span leaf="" style="font-size:11px;font-weight:700;color:#15803D;">v1.2</span>
-      </section>
-      <section style="display:inline-block;width:33%;padding:5px 8px;vertical-align:top;box-sizing:border-box;">
-        <span leaf="" style="font-size:11px;color:#333333;">2026-05</span>
-      </section>
-    </section>
-  </section>
+<section style="text-align:left;margin:0 0 12px;"><p style="text-align:left;margin:0;"><span style="display:inline-block;margin:0 6px 6px 0;padding:2px 7px;border:1px solid #0A0A0A;color:#0A0A0A;background:#FFFFFF;font-size:10px;font-weight:700;"><span leaf="">高密度</span></span><span style="display:inline-block;margin:0 6px 6px 0;padding:2px 7px;border:1px solid #0036A3;color:#0036A3;background:#EEF4FF;font-size:10px;font-weight:700;"><span leaf="">模块化</span></span><span style="display:inline-block;margin:0 6px 6px 0;padding:2px 7px;border:1px solid #6B4E00;color:#6B4E00;background:#FFF1B0;font-size:10px;font-weight:700;"><span leaf="">实验特性</span></span><span style="display:inline-block;margin:0 6px 6px 0;padding:2px 7px;border:1px solid #14532D;color:#14532D;background:#DCFCE7;font-size:10px;font-weight:700;"><span leaf="">已验证</span></span></p></section>
 
-  <!-- SECTION 03: FLOW STEPS -->
-  <section style="width:100%;margin:0 0 14px;padding:7px 11px;background:#0A0A0A;border:2px solid #0A0A0A;box-sizing:border-box;">
-    <span leaf="" style="font-size:13px;font-weight:900;color:#C8102E;">03</span>
-    <span leaf="" style="margin-left:9px;font-size:11px;font-weight:800;letter-spacing:1.2px;color:#FFFFFF;">流程步骤</span>
-  </section>
-  <section style="width:100%;margin:0 0 6px;box-sizing:border-box;">
-    <section style="display:inline-block;width:23%;padding:7px 4px;text-align:center;vertical-align:top;background:#FFFDF9;border:1.5px solid #0A0A0A;box-sizing:border-box;">
-      <span leaf="" style="font-size:12px;font-weight:700;color:#0A0A0A;">接收</span><br>
-      <span leaf="" style="font-size:10px;color:#0036A3;">输入</span>
-    </section>
-    <section style="display:inline-block;width:4%;padding:7px 0;text-align:center;vertical-align:top;box-sizing:border-box;">
-      <span leaf="" style="font-size:14px;font-weight:700;color:#C8102E;">→</span>
-    </section>
-    <section style="display:inline-block;width:23%;padding:7px 4px;text-align:center;vertical-align:top;background:#FFFDF9;border:1.5px solid #0A0A0A;box-sizing:border-box;">
-      <span leaf="" style="font-size:12px;font-weight:700;color:#0A0A0A;">解析</span><br>
-      <span leaf="" style="font-size:10px;color:#0036A3;">意图</span>
-    </section>
-    <section style="display:inline-block;width:4%;padding:7px 0;text-align:center;vertical-align:top;box-sizing:border-box;">
-      <span leaf="" style="font-size:14px;font-weight:700;color:#C8102E;">→</span>
-    </section>
-    <section style="display:inline-block;width:23%;padding:7px 4px;text-align:center;vertical-align:top;background:#FFFDF9;border:1.5px solid #0A0A0A;box-sizing:border-box;">
-      <span leaf="" style="font-size:12px;font-weight:700;color:#0A0A0A;">调度</span><br>
-      <span leaf="" style="font-size:10px;color:#6B4E00;">插件</span>
-    </section>
-    <section style="display:inline-block;width:4%;padding:7px 0;text-align:center;vertical-align:top;box-sizing:border-box;">
-      <span leaf="" style="font-size:14px;font-weight:700;color:#C8102E;">→</span>
-    </section>
-    <section style="display:inline-block;width:19%;padding:7px 4px;text-align:center;vertical-align:top;background:#DCFCE7;border:1.5px solid #15803D;box-sizing:border-box;">
-      <span leaf="" style="font-size:12px;font-weight:700;color:#14532D;">输出</span><br>
-      <span leaf="" style="font-size:10px;color:#15803D;">交付</span>
-    </section>
-  </section>
+<p style="text-align:left;margin:0 0 10px;font-size:13px;line-height:1.75;color:#333333;overflow-wrap:anywhere;"><span leaf="">Pill 行之后补一句正文，说明颜色语义：蓝色是信息，黄色是等待，绿色是确认，红色是警示。这套语义在全文保持一致，读者不需要重新学习。</span></p>
 
-  <!-- SECTION 04: GRID CARDS -->
-  <section style="width:100%;margin:0 0 14px;padding:7px 11px;background:#0A0A0A;border:2px solid #0A0A0A;box-sizing:border-box;">
-    <span leaf="" style="font-size:13px;font-weight:900;color:#C8102E;">04</span>
-    <span leaf="" style="margin-left:9px;font-size:11px;font-weight:800;letter-spacing:1.2px;color:#FFFFFF;">网格卡片</span>
-  </section>
-  <section style="width:100%;margin:0 0 10px;border:1.5px solid #0A0A0A;background:#FFFFFF;box-sizing:border-box;overflow:hidden;">
-    <section style="display:inline-block;width:33.3%;padding:10px 8px;vertical-align:top;text-align:center;border-right:1.5px solid #0A0A0A;box-sizing:border-box;">
-      <strong style="display:block;font-size:22px;font-weight:700;line-height:1;color:#C8102E;">10×</strong>
-      <span leaf="" style="font-size:10px;color:#555555;font-weight:600;">速度提升</span>
-      <p style="margin:4px 0 0;font-size:11px;line-height:1.5;color:#333333;text-align:center;"><span leaf="">并行任务处理时间压缩</span></p>
-    </section>
-    <section style="display:inline-block;width:33.3%;padding:10px 8px;vertical-align:top;text-align:center;border-right:1.5px solid #0A0A0A;box-sizing:border-box;">
-      <strong style="display:block;font-size:22px;font-weight:700;line-height:1;color:#0036A3;">50+</strong>
-      <span leaf="" style="font-size:10px;color:#555555;font-weight:600;">技能数量</span>
-      <p style="margin:4px 0 0;font-size:11px;line-height:1.5;color:#333333;text-align:center;"><span leaf="">可复用 Skill 资产库</span></p>
-    </section>
-    <section style="display:inline-block;width:33.4%;padding:10px 8px;vertical-align:top;text-align:center;box-sizing:border-box;">
-      <strong style="display:block;font-size:22px;font-weight:700;line-height:1;color:#15803D;">99.9%</strong>
-      <span leaf="" style="font-size:10px;color:#555555;font-weight:600;">可用率</span>
-      <p style="margin:4px 0 0;font-size:11px;line-height:1.5;color:#333333;text-align:center;"><span leaf="">SLA 保障稳定运行</span></p>
-    </section>
-  </section>
+<section style="text-align:left;border:1px solid #0036A3;background:#FFFDF9;padding:10px 12px;margin:0 0 12px;"><p style="text-align:left;margin:0 0 10px;font-size:13px;line-height:1.75;color:#333333;overflow-wrap:anywhere;margin:0 0 6px;font-size:10px;font-weight:700;letter-spacing:0.08em;color:#0036A3;"><span leaf="">特征 · FEATURE</span></p><p style="text-align:left;margin:0 0 10px;font-size:13px;line-height:1.75;color:#333333;overflow-wrap:anywhere;"><span leaf="">所有容器都是纵向单列自然流，窄屏按百分比收缩，不依赖固定像素宽度。</span></p></section>
 
-  <!-- SECTION 05: BUTTONS -->
-  <section style="width:100%;margin:0 0 14px;padding:7px 11px;background:#0A0A0A;border:2px solid #0A0A0A;box-sizing:border-box;">
-    <span leaf="" style="font-size:13px;font-weight:900;color:#C8102E;">05</span>
-    <span leaf="" style="margin-left:9px;font-size:11px;font-weight:800;letter-spacing:1.2px;color:#FFFFFF;">按钮样式</span>
-  </section>
-  <section style="width:100%;margin:0 0 14px;box-sizing:border-box;">
-    <span style="display:inline-block;margin:0 6px 6px 0;padding:6px 14px;border:2px solid #0A0A0A;background:#0A0A0A;box-sizing:border-box;"><span leaf="" style="font-size:11px;font-weight:700;color:#FFFFFF;">默认按钮</span></span>
-    <span style="display:inline-block;margin:0 6px 6px 0;padding:6px 14px;border:2px solid #C8102E;background:#C8102E;box-sizing:border-box;"><span leaf="" style="font-size:11px;font-weight:700;color:#FFFFFF;">红色按钮</span></span>
-    <span style="display:inline-block;margin:0 6px 6px 0;padding:6px 14px;border:2px solid #0036A3;background:#EEF4FF;box-sizing:border-box;"><span leaf="" style="font-size:11px;font-weight:700;color:#0036A3;">蓝色按钮</span></span>
-    <span style="display:inline-block;margin:0 0 6px;padding:6px 14px;border:2px solid #15803D;background:#DCFCE7;box-sizing:border-box;"><span leaf="" style="font-size:11px;font-weight:700;color:#14532D;">绿色按钮</span></span>
-  </section>
+<section style="text-align:left;margin:24px 0 12px;border:1px solid #0A0A0A;"><section style="text-align:left;background:#0A0A0A;padding:6px 10px;"><span style="display:inline-block;color:#C8102E;font-size:12px;font-weight:900;"><span leaf="">02</span></span><span style="display:inline-block;font-size:11px;font-weight:700;color:#FFFFFF;letter-spacing:0.06em;"><span leaf=""> SETUP</span></span></section><h3 style="text-align:left;margin:0;padding:10px 12px;font-size:17px;line-height:1.4;font-weight:900;color:#0A0A0A;"><span leaf="">安装与上手</span></h3></section>
+<p style="text-align:left;margin:0 0 10px;font-size:13px;line-height:1.75;color:#333333;overflow-wrap:anywhere;"><span leaf="">安装只有一行命令（演示口径）：</span></p>
 
-  <!-- VERDICT BLOCK -->
-  <section style="width:100%;margin:0 0 16px;padding:12px 14px;background:#C8102E;border:2px solid #C8102E;box-sizing:border-box;">
-    <span leaf="" style="display:block;margin:0 0 5px;font-size:10px;font-weight:900;letter-spacing:1.4px;color:#FFFFFF;">EDITORIAL VERDICT</span>
-    <span leaf="" style="font-size:14px;line-height:1.65;font-weight:700;color:#FFFFFF;">主编辑风格（main-editorial）完成公众号兼容改造：保留红黑白骨架 + 蓝黄绿辅助信号 + 高密度模块布局，所有组件在手机端可自然换行，无固定宽度溢出风险。</span>
-  </section>
+<section style="text-align:left;border:1px solid #0A0A0A;margin:0 0 12px;"><section style="text-align:left;background:#0A0A0A;border-bottom:1px solid #0A0A0A;padding:5px 10px;"><p style="text-align:left;margin:0 0 10px;font-size:13px;line-height:1.75;color:#333333;overflow-wrap:anywhere;margin:0;font-size:10px;"><span style="color:#E8C200;font-weight:700;"><span leaf="">$</span></span> <span style="font-size:10px;"><span leaf="">bash</span></span></p></section><section style="text-align:left;background:#0A0A0A;padding:10px 12px;"><p style="text-align:left;margin:0 0 10px;font-size:13px;line-height:1.75;color:#333333;overflow-wrap:anywhere;margin:0;font-size:12px;line-height:1.7;color:#FFFDF9;text-align:left;white-space:pre-wrap;overflow-wrap:anywhere;word-break:break-all;font-family:'SF Mono',Consolas,'Courier New',monospace;"><span leaf="">npm install -g shelfkit</span></p><p style="text-align:left;margin:0 0 10px;font-size:13px;line-height:1.75;color:#333333;overflow-wrap:anywhere;margin:0;font-size:12px;line-height:1.7;color:#FFFDF9;text-align:left;white-space:pre-wrap;overflow-wrap:anywhere;word-break:break-all;font-family:'SF Mono',Consolas,'Courier New',monospace;"><span leaf="">shelfkit init ~/docs</span></p></section></section>
 
-  <!-- SOURCES -->
-  <section style="width:100%;padding-top:10px;border-top:2px solid #0A0A0A;box-sizing:border-box;">
-    <span leaf="" style="display:block;margin:0 0 5px;font-size:10px;font-weight:900;letter-spacing:1.2px;color:#777777;">SOURCES / NOTES</span>
-    <span leaf="" style="font-size:11px;line-height:1.7;color:#777777;">设计依据：红黑白主骨架 + 蓝黄绿辅助信号 + 高密度模块。公众号版直接迁移，无需降级。所有组件均为纵向单列自然流，无固定宽度溢出风险。</span>
-  </section>
-</section>
-  </div>
+<p style="text-align:left;margin:0 0 10px;font-size:13px;line-height:1.75;color:#333333;overflow-wrap:anywhere;"><span leaf="">上手路径被压成四步，每步一行，编号用红色两位数字：</span></p>
+
+<section style="text-align:left;margin:0 0 12px;"><section style="text-align:left;padding:7px 0;border-bottom:1px solid #D8D2C4;"><p style="text-align:left;margin:0 0 10px;font-size:13px;line-height:1.75;color:#333333;overflow-wrap:anywhere;margin:0;"><span leaf="" style="font-size:11px;font-weight:900;color:#C8102E;">01</span><span leaf=""> </span><span leaf="">扫描指定目录，建立文档索引</span></p></section><section style="text-align:left;padding:7px 0;border-bottom:1px solid #D8D2C4;"><p style="text-align:left;margin:0 0 10px;font-size:13px;line-height:1.75;color:#333333;overflow-wrap:anywhere;margin:0;"><span leaf="" style="font-size:11px;font-weight:900;color:#C8102E;">02</span><span leaf=""> </span><span leaf="">生成默认书架视图与检索入口</span></p></section><section style="text-align:left;padding:7px 0;border-bottom:1px solid #D8D2C4;"><p style="text-align:left;margin:0 0 10px;font-size:13px;line-height:1.75;color:#333333;overflow-wrap:anywhere;margin:0;"><span leaf="" style="font-size:11px;font-weight:900;color:#C8102E;">03</span><span leaf=""> </span><span leaf="">挂接插件，扩展格式支持</span></p></section><section style="text-align:left;padding:7px 0;border-bottom:1px solid #D8D2C4;"><p style="text-align:left;margin:0 0 10px;font-size:13px;line-height:1.75;color:#333333;overflow-wrap:anywhere;margin:0;"><span leaf="" style="font-size:11px;font-weight:900;color:#C8102E;">04</span><span leaf=""> </span><span leaf="">导出只读书架，交给读者</span></p></section></section>
+
+<section style="text-align:left;margin:24px 0 12px;border:1px solid #0A0A0A;"><section style="text-align:left;background:#0A0A0A;padding:6px 10px;"><span style="display:inline-block;color:#C8102E;font-size:12px;font-weight:900;"><span leaf="">03</span></span><span style="display:inline-block;font-size:11px;font-weight:700;color:#FFFFFF;letter-spacing:0.06em;"><span leaf=""> MODULE MATRIX</span></span></section><h3 style="text-align:left;margin:0;padding:10px 12px;font-size:17px;line-height:1.4;font-weight:900;color:#0A0A0A;"><span leaf="">模块矩阵</span></h3></section>
+<p style="text-align:left;margin:0 0 10px;font-size:13px;line-height:1.75;color:#333333;overflow-wrap:anywhere;"><span leaf="">模块矩阵是本主题的骨干组件：一行一个模块，名称加状态 Pill，行间用浅棕细线分隔。演示口径下，三个模块的状态分布如下：</span></p>
+
+<section style="text-align:left;padding:9px 10px;border-top:1px solid #D8D2C4;"><p style="text-align:left;margin:0 0 10px;font-size:13px;line-height:1.75;color:#333333;overflow-wrap:anywhere;margin:0;"><span style="font-size:13px;font-weight:800;color:#0A0A0A;"><span leaf="">核心索引</span></span><span style="display:inline-block;margin:0 6px 6px 0;padding:2px 7px;border:1px solid #15803D;color:#14532D;background:#DCFCE7;font-size:10px;font-weight:700;"><span leaf="">stable</span></span></p></section>
+
+<section style="text-align:left;padding:9px 10px;border-top:1px solid #D8D2C4;"><p style="text-align:left;margin:0 0 10px;font-size:13px;line-height:1.75;color:#333333;overflow-wrap:anywhere;margin:0;"><span style="font-size:13px;font-weight:800;color:#0A0A0A;"><span leaf="">格式插件</span></span><span style="display:inline-block;margin:0 6px 6px 0;padding:2px 7px;border:1px solid #E8C200;color:#6B4E00;background:#FFF1B0;font-size:10px;font-weight:700;"><span leaf="">beta</span></span></p></section>
+
+<section style="text-align:left;padding:9px 10px;border-top:1px solid #D8D2C4;"><p style="text-align:left;margin:0 0 10px;font-size:13px;line-height:1.75;color:#333333;overflow-wrap:anywhere;margin:0;"><span style="font-size:13px;font-weight:800;color:#0A0A0A;"><span leaf="">云同步</span></span><span style="display:inline-block;margin:0 6px 6px 0;padding:2px 7px;border:1px solid #C8102E;color:#C8102E;background:#FFF5F6;font-size:10px;font-weight:700;"><span leaf="">wip</span></span></p></section>
+
+<p style="text-align:left;margin:0 0 10px;font-size:13px;line-height:1.75;color:#333333;overflow-wrap:anywhere;margin:14px 0 8px;font-size:14px;font-weight:800;color:#0A0A0A;"><span leaf="">阅读规则</span></p>
+<section style="text-align:left;margin:0 0 12px;"><section style="text-align:left;padding:7px 0;border-bottom:1px solid #D8D2C4;"><p style="text-align:left;margin:0 0 10px;font-size:13px;line-height:1.75;color:#333333;overflow-wrap:anywhere;margin:0;"><span style="color:#C8102E;font-weight:900;">▪</span><span leaf=""> </span><span leaf="">「稳定」模块可直接进入生产流程</span></p></section><section style="text-align:left;padding:7px 0;border-bottom:1px solid #D8D2C4;"><p style="text-align:left;margin:0 0 10px;font-size:13px;line-height:1.75;color:#333333;overflow-wrap:anywhere;margin:0;"><span style="color:#C8102E;font-weight:900;">▪</span><span leaf=""> </span><span leaf="">「测试」模块需双人在场执行</span></p></section><section style="text-align:left;padding:7px 0;border-bottom:1px solid #D8D2C4;"><p style="text-align:left;margin:0 0 10px;font-size:13px;line-height:1.75;color:#333333;overflow-wrap:anywhere;margin:0;"><span style="color:#C8102E;font-weight:900;">▪</span><span leaf=""> </span><span leaf="">「进行中」模块只出现在路线图</span></p></section></section>
+
+<section style="text-align:left;margin:24px 0 12px;border:1px solid #0A0A0A;"><section style="text-align:left;background:#0A0A0A;padding:6px 10px;"><span style="display:inline-block;color:#C8102E;font-size:12px;font-weight:900;"><span leaf="">04</span></span><span style="display:inline-block;font-size:11px;font-weight:700;color:#FFFFFF;letter-spacing:0.06em;"><span leaf=""> SPEC SHEET</span></span></section><h3 style="text-align:left;margin:0;padding:10px 12px;font-size:17px;line-height:1.4;font-weight:900;color:#0A0A0A;"><span leaf="">参数规格</span></h3></section>
+<p style="text-align:left;margin:0 0 10px;font-size:13px;line-height:1.75;color:#333333;overflow-wrap:anywhere;"><span leaf="">参数规格用记录卡表达：每行一张卡，卡首是参数名，字段按「表头： 值」对齐，左缘四像素红色竖线是每张卡的视觉签名。</span></p>
+
+<section style="text-align:left;margin:0 0 12px;"><section data-rc="record-card" style="text-align:left;margin:0 0 10px;background:#FFFDF9;border:1px solid #0A0A0A;border-left:4px solid #C8102E;padding:10px 12px;"><p style="text-align:left;margin:0 0 10px;font-size:13px;line-height:1.75;color:#333333;overflow-wrap:anywhere;margin:0 0 6px;font-size:13px;font-weight:800;color:#0A0A0A;line-height:1.5;"><span leaf="">索引延迟</span></p><p style="text-align:left;margin:0 0 10px;font-size:13px;line-height:1.75;color:#333333;overflow-wrap:anywhere;margin:0 0 3px;font-size:12px;line-height:1.65;color:#333333;"><span style="font-size:11px;font-weight:700;color:#0036A3;"><span leaf="">数值</span></span><span leaf="">： </span><span leaf="">80 毫秒</span></p><p style="text-align:left;margin:0 0 10px;font-size:13px;line-height:1.75;color:#333333;overflow-wrap:anywhere;margin:0 0 3px;font-size:12px;line-height:1.65;color:#333333;"><span style="font-size:11px;font-weight:700;color:#0036A3;"><span leaf="">说明</span></span><span leaf="">： </span><span leaf="">千篇文档以内的演示取值</span></p></section><section data-rc="record-card" style="text-align:left;margin:0 0 10px;background:#FFFDF9;border:1px solid #0A0A0A;border-left:4px solid #C8102E;padding:10px 12px;"><p style="text-align:left;margin:0 0 10px;font-size:13px;line-height:1.75;color:#333333;overflow-wrap:anywhere;margin:0 0 6px;font-size:13px;font-weight:800;color:#0A0A0A;line-height:1.5;"><span leaf="">离线能力</span></p><p style="text-align:left;margin:0 0 10px;font-size:13px;line-height:1.75;color:#333333;overflow-wrap:anywhere;margin:0 0 3px;font-size:12px;line-height:1.65;color:#333333;"><span style="font-size:11px;font-weight:700;color:#0036A3;"><span leaf="">数值</span></span><span leaf="">： </span><span leaf="">完整</span></p><p style="text-align:left;margin:0 0 10px;font-size:13px;line-height:1.75;color:#333333;overflow-wrap:anywhere;margin:0 0 3px;font-size:12px;line-height:1.65;color:#333333;"><span style="font-size:11px;font-weight:700;color:#0036A3;"><span leaf="">说明</span></span><span leaf="">： </span><span leaf="">断网时检索与导出不受影响</span></p></section><section data-rc="record-card" style="text-align:left;margin:0 0 10px;background:#FFFDF9;border:1px solid #0A0A0A;border-left:4px solid #C8102E;padding:10px 12px;"><p style="text-align:left;margin:0 0 10px;font-size:13px;line-height:1.75;color:#333333;overflow-wrap:anywhere;margin:0 0 6px;font-size:13px;font-weight:800;color:#0A0A0A;line-height:1.5;"><span leaf="">插件协议</span></p><p style="text-align:left;margin:0 0 10px;font-size:13px;line-height:1.75;color:#333333;overflow-wrap:anywhere;margin:0 0 3px;font-size:12px;line-height:1.65;color:#333333;"><span style="font-size:11px;font-weight:700;color:#0036A3;"><span leaf="">数值</span></span><span leaf="">： </span><span leaf="">v2</span></p><p style="text-align:left;margin:0 0 10px;font-size:13px;line-height:1.75;color:#333333;overflow-wrap:anywhere;margin:0 0 3px;font-size:12px;line-height:1.65;color:#333333;"><span style="font-size:11px;font-weight:700;color:#0036A3;"><span leaf="">说明</span></span><span leaf="">： </span><span leaf="">向后兼容 v1 的只读插件</span></p></section></section>
+<section style="text-align:left;margin:24px 0 12px;border:1px solid #0A0A0A;"><section style="text-align:left;background:#0A0A0A;padding:6px 10px;"><span style="display:inline-block;color:#C8102E;font-size:12px;font-weight:900;"><span leaf="">05</span></span><span style="display:inline-block;font-size:11px;font-weight:700;color:#FFFFFF;letter-spacing:0.06em;"><span leaf=""> RISKS</span></span></section><h3 style="text-align:left;margin:0;padding:10px 12px;font-size:17px;line-height:1.4;font-weight:900;color:#0A0A0A;"><span leaf="">风险与备注</span></h3></section>
+<section style="text-align:left;border:1px solid #C8102E;background:#FFF5F6;padding:10px 12px;margin:0 0 12px;"><p style="text-align:left;margin:0 0 10px;font-size:13px;line-height:1.75;color:#333333;overflow-wrap:anywhere;margin:0 0 6px;font-size:10px;font-weight:700;letter-spacing:0.08em;color:#C8102E;"><span leaf="">警示 · WARNING</span></p><p style="text-align:left;margin:0 0 10px;font-size:13px;line-height:1.75;color:#333333;overflow-wrap:anywhere;"><span leaf="">本样稿的全部数值与结论都是演示口径，仅用于验证版式，不构成对任何真实工具的评价。</span></p></section>
+
+<section style="text-align:left;border:1px solid #0A0A0A;background:#FFFDF9;padding:10px 12px;margin:0 0 12px;"><p style="text-align:left;margin:0 0 10px;font-size:13px;line-height:1.75;color:#333333;overflow-wrap:anywhere;margin:0 0 6px;font-size:10px;font-weight:700;letter-spacing:0.08em;color:#0A0A0A;"><span leaf="">备注 · NOTE</span></p><p style="text-align:left;margin:0 0 10px;font-size:13px;line-height:1.75;color:#333333;overflow-wrap:anywhere;"><span leaf="">记录卡的「表头： 值」格式是逐字符合同，改动冒号或空格会导致校验失败。</span></p></section>
+
+<section style="text-align:left;border:1px solid #0A0A0A;background:#FFFDF9;padding:10px 12px;margin:0 0 12px;"><p style="text-align:left;margin:0 0 10px;font-size:13px;line-height:1.75;color:#333333;overflow-wrap:anywhere;margin:0 0 6px;font-size:10px;font-weight:700;letter-spacing:0.08em;color:#0A0A0A;"><span leaf="">备注 · NOTE</span></p><p style="text-align:left;margin:0 0 10px;font-size:13px;line-height:1.75;color:#333333;overflow-wrap:anywhere;"><span leaf="">章节编号由渲染器统一累计，流程结论之后不再出现编号章节。</span></p></section>
+
+<section style="text-align:left;margin:24px 0 12px;background:#DCFCE7;border:1px solid #15803D;padding:12px 14px;"><p style="text-align:left;margin:0 0 6px;font-size:10px;font-weight:700;letter-spacing:0.08em;color:#14532D;"><span leaf="">流程结论 · CONCLUSION</span></p><p style="text-align:left;margin:0;font-size:15px;font-weight:800;line-height:1.7;color:#14532D;"><span leaf="">流程结论</span></p></section>
+<p style="text-align:left;margin:0 0 10px;font-size:13px;line-height:1.75;color:#333333;overflow-wrap:anywhere;"><span leaf="">把五章连起来，主编辑风的阅读动线是一条单向流程：速览给全景，安装给路径，矩阵给边界，规格给证据，风险给护栏。结论块用绿底表达「确认」，是全文唯一的大面积绿色容器。</span></p><section style="text-align:left;margin:24px 0 0;"><section style="text-align:left;border-top:2px solid #0A0A0A;padding-top:10px;"><span style="display:inline-block;padding:2px 8px;border:1px solid #0A0A0A;background:#0A0A0A;color:#FFFFFF;font-size:10px;font-weight:700;letter-spacing:0.08em;"><span leaf="">END OF MANUAL</span></span></section><p style="text-align:left;margin:0 0 10px;font-size:13px;line-height:1.75;color:#333333;overflow-wrap:anywhere;margin:10px 0 0;font-size:12px;color:#555555;"><span leaf="">AG 雷达 · 高密度手册 · 完</span></p></section></section>
+</div>
 </div>
 <script>
   function gzhShowToast(msg){
