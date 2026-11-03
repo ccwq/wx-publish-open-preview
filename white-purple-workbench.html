@@ -15,7 +15,13 @@
   .gzh-toast{position:fixed;top:66px;left:50%;transform:translateX(-50%);background:#111827;color:#fff;padding:11px 20px;border-radius:10px;font-size:14px;font-weight:600;opacity:0;pointer-events:none;transition:opacity .25s;z-index:100;box-shadow:0 6px 20px rgba(0,0,0,.25);max-width:88vw;text-align:center;}
   .gzh-toast.show{opacity:1;}
   .gzh-stage{max-width:700px;margin:78px auto 64px;padding:0 8px;}
-  @media(max-width:520px){.gzh-hint{max-width:150px;}}
+  @media(max-width:520px){
+    .gzh-toolbar{height:auto;min-height:54px;flex-direction:column;align-items:center;gap:8px;padding:10px 16px;}
+    .gzh-hint{max-width:100%;}
+    .gzh-copy{padding:9px 14px;font-size:13px;}
+    .gzh-stage{margin-top:130px;}
+    .gzh-toast{top:130px;}
+  }
 </style>
 </head>
 <body>
@@ -26,42 +32,119 @@
 <div class="gzh-toast" id="gzhToast"></div>
 <div class="gzh-stage">
   <div id="gzh-content">
-<section style="width:100%;max-width:677px;margin:0 auto;padding:12px 10px 36px;box-sizing:border-box;background:#F7F7FB;color:#4F4F61;font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif;line-height:1.8;letter-spacing:0.25px;">
-  <section style="width:100%;margin:0 0 18px;padding:16px 14px;background:#FFFFFF;border:1px solid #DCD4FA;border-top:4px solid #8A5CF5;border-radius:8px;box-sizing:border-box;">
-    <span leaf="" style="display:block;margin:0 0 7px;font-size:10px;font-weight:900;letter-spacing:1.7px;color:#5B49FF;">AGENT WORKBENCH · METHOD</span>
-    <h3 style="margin:0 0 8px;font-size:24px;line-height:1.28;font-weight:850;letter-spacing:-0.4px;color:#111111;"><span leaf="">把 AI 工作流拆成可以验证的阶段</span></h3>
-    <span leaf="" style="display:block;margin:0 0 12px;font-size:14px;line-height:1.72;color:#68687B;">白紫轻科技风保留工作台的秩序感、阶段感和判断块；公众号端以自然流动的卡片顺序承接，不依赖桌面多栏或媒体查询。</span>
-    <section style="padding-top:9px;border-top:1px solid #DCD4FA;box-sizing:border-box;">
-      <span style="display:inline-block;margin:2px 5px 2px 0;padding:4px 8px;background:#F2EEFF;border:1px solid #DCD4FA;border-radius:4px;box-sizing:border-box;"><span leaf="" style="font-size:10px;font-weight:800;color:#5B49FF;">Agent 工作流</span></span>
-      <span style="display:inline-block;margin:2px 5px 2px 0;padding:4px 8px;background:#F2EEFF;border:1px solid #DCD4FA;border-radius:4px;box-sizing:border-box;"><span leaf="" style="font-size:10px;font-weight:800;color:#5B49FF;">阶段拆解</span></span>
-      <span style="display:inline-block;margin:2px 0;padding:4px 8px;background:#FFFFFF;border:1px solid #8A5CF5;border-radius:4px;box-sizing:border-box;"><span leaf="" style="font-size:10px;font-weight:900;color:#5B49FF;">RefID · wx-theme:white-purple-workbench</span></span>
-    </section>
+<section style="max-width:677px;margin:0 auto;padding:8px 8px 40px;background:#F4F0FD;color:#4B5563;font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue',Helvetica,Arial,sans-serif;line-height:1.65;text-align:left;">
+
+  <!-- Hero（组件2） -->
+  <section style="background:#FFFFFF;border-top:3px solid #5B42F3;border-left:1px solid #E2E8F0;border-right:1px solid #E2E8F0;border-bottom:1px solid #E2E8F0;border-radius:8px;padding:24px 14px 12px;margin:0;">
+    <p style="text-align:left;font-size:11px;font-weight:700;color:#5B42F3;letter-spacing:0.08em;text-transform:uppercase;margin:0 0 10px;padding:0;"><span leaf="">AGENT WORKBENCH · 深度调查</span></p>
+    <h1 style="text-align:left;font-size:20px;font-weight:800;color:#111827;line-height:1.35;margin:0 0 14px;"><span leaf="">把 AI 工作流拆成可以验证的阶段</span></h1>
+    <p style="text-align:left;font-size:13px;font-weight:400;line-height:1.65;color:#4B5563;margin:0 0 12px;padding:0;"><span leaf="">白紫轻科技风保留工作台的秩序感、阶段感和判断块：白底正文卡、品牌紫结构锚点、深色决策块。本文为该主题的完整演示样稿，公众号端单列自然流动，粘贴后样式完整保留。</span></p>
+    <p style="text-align:left;font-size:11px;font-weight:600;color:#5B42F3;margin:0;padding:0;"><span style="background:#EEF0FE;border-radius:4px;padding:3px 8px;margin-right:6px;color:#5B42F3;font-size:11px;font-weight:700;"><span leaf="">Agent 工作流</span></span><span style="background:#EEF0FE;border-radius:4px;padding:3px 8px;color:#5B42F3;font-size:11px;font-weight:700;"><span leaf="">方法论演示</span></span></p>
+    <p style="text-align:left;font-size:11px;font-weight:600;color:#5B42F3;margin:8px 0 0;padding:0;"><span style="background:#FFFFFF;border:1px solid #5B42F3;border-radius:4px;padding:3px 8px;color:#5B42F3;font-size:11px;font-weight:700;font-family:Consolas,monospace;word-break:break-all;"><span leaf="">RefID · wx-theme:white-purple-workbench</span></span></p>
   </section>
 
-  <section style="width:100%;margin:0 0 18px;padding:12px 13px;background:#F2EEFF;border:1px solid #DCD4FA;border-radius:8px;box-sizing:border-box;">
-    <span leaf="" style="display:block;margin:0 0 4px;font-size:10px;font-weight:900;letter-spacing:1.2px;color:#5B49FF;">WORKBENCH CONTRACT</span>
-    <span leaf="" style="font-size:14px;font-weight:800;line-height:1.65;color:#111111;">手机是主要阅读环境；宽屏的约 677px 只限制最大阅读行长，不定义文章的实际显示宽度。</span>
+  <!-- 阶段导航 01/02/03（组件3） -->
+  <section style="background:#FFFFFF;border:1px solid #E2E8F0;border-left:4px solid #5B42F3;border-radius:8px;padding:10px;margin:14px 0 0;">
+    <p style="text-align:left;margin:0;"><span style="font-size:12px;font-weight:700;color:#5B42F3;font-family:Consolas,monospace;"><span leaf="">01</span></span><span style="font-size:12px;font-weight:700;color:#5B42F3;margin:0 4px;"><span leaf=""> · </span></span><span style="font-size:12px;font-weight:700;color:#5B42F3;"><span leaf="">ALIGN</span></span><span style="font-size:13px;font-weight:600;color:#111827;margin-left:8px;"><span leaf="">参数对齐</span></span></p>
+  </section>
+  <section style="background:#FFFFFF;border:1px solid #E2E8F0;border-left:4px solid #5B42F3;border-radius:8px;padding:10px;margin:14px 0 0;">
+    <p style="text-align:left;margin:0;"><span style="font-size:12px;font-weight:700;color:#5B42F3;font-family:Consolas,monospace;"><span leaf="">02</span></span><span style="font-size:12px;font-weight:700;color:#5B42F3;margin:0 4px;"><span leaf=""> · </span></span><span style="font-size:12px;font-weight:700;color:#5B42F3;"><span leaf="">BUILD</span></span><span style="font-size:13px;font-weight:600;color:#111827;margin-left:8px;"><span leaf="">能力拆解</span></span></p>
+  </section>
+  <section style="background:#FFFFFF;border:1px solid #E2E8F0;border-left:4px solid #5B42F3;border-radius:8px;padding:10px;margin:14px 0 0;">
+    <p style="text-align:left;margin:0;"><span style="font-size:12px;font-weight:700;color:#5B42F3;font-family:Consolas,monospace;"><span leaf="">03</span></span><span style="font-size:12px;font-weight:700;color:#5B42F3;margin:0 4px;"><span leaf=""> · </span></span><span style="font-size:12px;font-weight:700;color:#5B42F3;"><span leaf="">LOOP</span></span><span style="font-size:13px;font-weight:600;color:#111827;margin-left:8px;"><span leaf="">决策建议</span></span></p>
   </section>
 
-  <section style="width:100%;margin:0 0 18px;box-sizing:border-box;">
-    <section style="width:100%;margin:0 0 6px;padding:10px 11px;background:#F2EEFF;border:1px solid #8A5CF5;border-left:5px solid #8A5CF5;border-radius:6px;box-sizing:border-box;"><span leaf="" style="display:inline-block;min-width:74px;font-size:11px;font-weight:900;color:#5B49FF;">01 · ALIGN</span><span leaf="" style="font-size:13px;font-weight:800;color:#111111;">对齐问题与读者收益</span></section>
-    <section style="width:100%;margin:0 0 6px;padding:10px 11px;background:#FFFFFF;border:1px solid #DCD4FA;border-left:5px solid #C8B8FF;border-radius:6px;box-sizing:border-box;"><span leaf="" style="display:inline-block;min-width:74px;font-size:11px;font-weight:900;color:#5B49FF;">02 · BUILD</span><span leaf="" style="font-size:13px;font-weight:800;color:#111111;">建立可执行的路径</span></section>
-    <section style="width:100%;padding:10px 11px;background:#FFFFFF;border:1px solid #DCD4FA;border-left:5px solid #C8B8FF;border-radius:6px;box-sizing:border-box;"><span leaf="" style="display:inline-block;min-width:74px;font-size:11px;font-weight:900;color:#5B49FF;">03 · LOOP</span><span leaf="" style="font-size:13px;font-weight:800;color:#111111;">回读证据并继续迭代</span></section>
+  <!-- Section 标题卡（组件4） -->
+  <section style="background:#F4F0FD;border:1px solid #EDE9FE;border-radius:8px;padding:10px;margin:14px 0 0;">
+    <p style="text-align:left;font-size:11px;font-weight:700;color:#5B42F3;letter-spacing:0.08em;text-transform:uppercase;margin:0;padding:0;"><span leaf="">01 · ALIGN · 参数对齐</span></p>
   </section>
 
-  <section style="width:100%;margin:0 0 14px;padding:0 0 9px;border-bottom:2px solid #8A5CF5;box-sizing:border-box;"><span leaf="" style="display:block;margin:0 0 3px;font-size:10px;font-weight:900;letter-spacing:1.5px;color:#5B49FF;">01 · RESPONSIVE READING</span><h3 style="margin:0;font-size:20px;line-height:1.35;font-weight:850;color:#111111;"><span leaf="">先让内容流动，再谈工作台感</span></h3></section>
-  <p style="margin:0 0 14px;font-size:15px;line-height:1.8;text-align:justify;color:#4F4F61;"><span leaf="">白紫主题的核心不是把桌面看板缩小到手机，而是把“阶段—动作—回读”这一工作台逻辑保留下来。</span><span style="font-weight:700;color:#111111;border-bottom:2px solid #C8B8FF;"><span leaf="">每个模块都以宽度 100% 的卡片自然堆叠</span></span><span leaf="">，使不同手机、横竖屏与宽屏阅读环境都能获得稳定层级。</span></p>
+  <!-- 内容正文卡：对齐问题（组件5） -->
+  <section style="background:#FFFFFF;border:1px solid #EDE9FE;border-radius:8px;padding:14px 10px;margin:14px 0 0;">
+    <p style="text-align:left;font-size:15px;font-weight:700;color:#111827;margin:0 0 12px;padding:0;"><span leaf="">先对齐问题，再对齐参数</span></p>
+    <p style="text-align:left;font-size:13px;line-height:1.65;color:#4B5563;margin:0 0 10px;padding:0;"><span leaf="">工作台感的第一步不是选工具，而是把要验证的问题写清楚：输入是什么、动作是什么、输出能在哪里被读取和复核。</span></p>
+    <p style="text-align:left;font-size:13px;line-height:1.65;color:#4B5563;margin:0 0 10px;padding:0;"><span leaf="">这一步决定了后面所有阶段的验收口径——问题没对齐，参数再精确也只是精确地跑偏。</span></p>
+    <p style="text-align:left;font-size:13px;line-height:1.65;color:#4B5563;margin:0;padding:0;"><span leaf="">建议每个阶段入口都保留一行可复核的验收句，例如“输出能被下一段独立读取”。</span></p>
+  </section>
 
-  <section style="width:100%;margin:0 0 12px;padding:13px 14px;background:#FFFFFF;border:1px solid #DCD4FA;border-left:4px solid #8A5CF5;border-radius:6px;box-sizing:border-box;"><span leaf="" style="display:block;margin:0 0 5px;font-size:10px;font-weight:900;letter-spacing:1.1px;color:#5B49FF;">STEP 01 · CONTENT FIRST</span><span leaf="" style="display:block;margin:0 0 4px;font-size:16px;font-weight:800;color:#111111;">将复杂阶段压缩为可读的连续卡片</span><span leaf="" style="font-size:13px;line-height:1.65;color:#68687B;">保留阶段编号、浅紫状态和细线秩序；删除 Grid、伪元素、媒体查询、CSS 变量与依赖 hover 的网页交互。</span></section>
+  <!-- 内容正文卡：参数对比 + 模型色标签（组件5 + 组件8） -->
+  <section style="background:#FFFFFF;border:1px solid #EDE9FE;border-radius:8px;padding:14px 10px;margin:14px 0 0;">
+    <p style="text-align:left;font-size:15px;font-weight:700;color:#111827;margin:0 0 12px;padding:0;"><span leaf="">模型参数对比（演示样例）</span></p>
+    <p style="text-align:left;font-size:12px;font-weight:700;color:#111827;margin:0 0 6px;padding:0;"><span leaf="">上下文窗口</span></p>
+    <p style="text-align:left;font-size:13px;color:#4B5563;margin:0 0 2px;padding:0;"><span style="font-weight:700;color:#00A86B;"><span leaf="">GPT-5.6 Sol</span></span><span leaf="">：128K</span></p>
+    <p style="text-align:left;font-size:13px;color:#4B5563;margin:0 0 12px;padding:0;"><span style="font-weight:700;color:#5B42F3;"><span leaf="">GPT-6 Astra</span></span><span leaf="">：400K（价格约为 2.5 倍）</span></p>
+    <p style="text-align:left;font-size:12px;font-weight:700;color:#111827;margin:0 0 6px;padding:0;"><span leaf="">单次调用延迟</span></p>
+    <p style="text-align:left;font-size:13px;color:#4B5563;margin:0 0 2px;padding:0;"><span style="font-weight:700;color:#00A86B;"><span leaf="">GPT-5.6 Sol</span></span><span leaf="">：约 1.8s</span></p>
+    <p style="text-align:left;font-size:13px;color:#4B5563;margin:0 0 12px;padding:0;"><span style="font-weight:700;color:#5B42F3;"><span leaf="">GPT-6 Astra</span></span><span leaf="">：约 2.4s</span></p>
+    <p style="text-align:left;font-size:13px;line-height:1.65;color:#4B5563;margin:0 0 8px;padding:0;"><span leaf="">选择口径：长文档复核优先窗口，交互式工作流优先延迟；两档不必二选一，可以按阶段混布。</span></p>
+    <p style="text-align:left;font-size:11px;color:#6B7280;margin:0;padding:0;"><span leaf="">＊以上参数与价格倍率均为版式演示数据，非实测或官方数据。</span></p>
+  </section>
 
-  <section style="width:100%;margin:0 0 18px;padding:12px 13px;background:#FFFFFF;border:1px solid #DCD4FA;border-radius:6px;box-sizing:border-box;"><span leaf="" style="display:block;margin:0 0 5px;font-size:10px;font-weight:900;letter-spacing:1px;color:#68687B;">OLD WAY · 桌面优先</span><span leaf="" style="font-size:13px;line-height:1.65;color:#4F4F61;">用固定列数、复杂面板和客户端响应式规则塑造“工作台”；一旦平台清洗 CSS，结构就会失去依托。</span></section>
-  <section style="width:100%;margin:0 0 18px;padding:12px 13px;background:#F2EEFF;border:1px solid #B9A5FB;border-radius:6px;box-sizing:border-box;"><span leaf="" style="display:block;margin:0 0 5px;font-size:10px;font-weight:900;letter-spacing:1px;color:#5B49FF;">NEW WAY · 公众号优先</span><span leaf="" style="font-size:13px;line-height:1.65;color:#111111;">以顺序、边框、主紫色和判断块建立工作台感；所有关键内容均为普通文档流和内联具体样式。</span></section>
+  <!-- 深色决策块（组件6） -->
+  <section style="background:#141226;border:1px solid #231E3D;border-radius:8px;padding:14px 10px;margin:14px 0 0;">
+    <p style="text-align:left;font-size:11px;font-weight:700;color:#A78BFA;letter-spacing:0.08em;text-transform:uppercase;margin:0 0 8px;padding:0;"><span leaf="">KEY INSIGHT</span></p>
+    <p style="text-align:left;font-size:13.5px;font-weight:600;color:#FFFFFF;line-height:1.6;margin:0;padding:0;"><span leaf="">工作流的价值，不是让步骤更多，而是让返工更少；每个阶段都应能指出自己消灭了哪一类返工。</span></p>
+  </section>
 
-  <section style="width:100%;margin:0 0 18px;padding:14px 15px;background:#161324;border:1px solid #161324;border-radius:6px;box-sizing:border-box;"><span leaf="" style="display:block;margin:0 0 6px;font-size:10px;font-weight:900;letter-spacing:1.4px;color:#C8B8FF;">DECISION RULE</span><span leaf="" style="font-size:16px;line-height:1.6;font-weight:800;color:#FFFFFF;">不要让“响应式”依赖公众号客户端执行媒体查询；文章本身应在任何可用宽度中保持单列、清晰与可继续阅读。</span></section>
+  <!-- Section 标题卡（组件4） -->
+  <section style="background:#F4F0FD;border:1px solid #EDE9FE;border-radius:8px;padding:10px;margin:14px 0 0;">
+    <p style="text-align:left;font-size:11px;font-weight:700;color:#5B42F3;letter-spacing:0.08em;text-transform:uppercase;margin:0;padding:0;"><span leaf="">02 · BUILD · 能力拆解</span></p>
+  </section>
 
-  <section style="width:100%;margin:0 0 18px;padding:12px 14px;background:#FFFFFF;border:1px solid #DCD4FA;border-radius:6px;box-sizing:border-box;"><span leaf="" style="display:block;margin:0 0 7px;font-size:13px;font-weight:700;color:#111111;">☑ 关键内容使用全宽自然文档流</span><span leaf="" style="display:block;margin:0 0 7px;font-size:13px;font-weight:700;color:#111111;">☑ 阶段通过连续卡片而非桌面网格表达</span><span leaf="" style="font-size:13px;font-weight:700;color:#111111;">☑ 主题 RefID 可以独立复制和引用</span></section>
+  <!-- 对比卡：OLD WAY（组件5） -->
+  <section style="background:#FFFFFF;border:1px solid #EDE9FE;border-radius:8px;padding:14px 10px;margin:14px 0 0;">
+    <p style="text-align:left;font-size:11px;font-weight:700;color:#6B7280;letter-spacing:0.08em;text-transform:uppercase;margin:0 0 6px;padding:0;"><span leaf="">OLD WAY · 桌面优先</span></p>
+    <p style="text-align:left;font-size:13px;line-height:1.65;color:#4B5563;margin:0;padding:0;"><span leaf="">用固定列数、复杂面板和客户端响应式规则塑造“工作台”；一旦平台清洗 CSS，结构就会失去依托。</span></p>
+  </section>
 
-  <section style="width:100%;padding-top:10px;border-top:1px solid #DCD4FA;box-sizing:border-box;"><span leaf="" style="display:block;margin:0 0 5px;font-size:10px;font-weight:900;letter-spacing:1.2px;color:#68687B;">SOURCES / NOTES</span><span leaf="" style="font-size:12px;line-height:1.7;color:#68687B;">设计依据：微信公众号正文采用响应式阅读容器；手机端优先，约 677px 仅为宽屏环境的常见最大阅读参考。此样稿仅用于主题兼容验收。</span></section>
+  <!-- 对比卡：NEW WAY（组件5） -->
+  <section style="background:#FFFFFF;border:1px solid #EDE9FE;border-radius:8px;padding:14px 10px;margin:14px 0 0;">
+    <p style="text-align:left;font-size:11px;font-weight:700;color:#5B42F3;letter-spacing:0.08em;text-transform:uppercase;margin:0 0 6px;padding:0;"><span leaf="">NEW WAY · 公众号优先</span></p>
+    <p style="text-align:left;font-size:13px;line-height:1.65;color:#4B5563;margin:0;padding:0;"><span leaf="">以顺序、边框、主紫色和判断块建立工作台感；所有关键内容均为普通文档流和内联具体样式，不依赖 flex、网格或媒体查询。</span></p>
+  </section>
+
+  <!-- 检查清单卡（组件5） -->
+  <section style="background:#FFFFFF;border:1px solid #EDE9FE;border-radius:8px;padding:14px 10px;margin:14px 0 0;">
+    <p style="text-align:left;font-size:15px;font-weight:700;color:#111827;margin:0 0 12px;padding:0;"><span leaf="">最小检查清单</span></p>
+    <p style="text-align:left;font-size:13px;font-weight:700;color:#111827;margin:0 0 7px;padding:0;"><span leaf="">☑ 阶段目标是否清楚</span></p>
+    <p style="text-align:left;font-size:13px;font-weight:700;color:#111827;margin:0 0 7px;padding:0;"><span leaf="">☑ 输出是否可被复核</span></p>
+    <p style="text-align:left;font-size:13px;font-weight:700;color:#111827;margin:0;padding:0;"><span leaf="">☑ 失败后是否有回环</span></p>
+  </section>
+
+  <!-- 深色决策块（组件6） -->
+  <section style="background:#141226;border:1px solid #231E3D;border-radius:8px;padding:14px 10px;margin:14px 0 0;">
+    <p style="text-align:left;font-size:11px;font-weight:700;color:#A78BFA;letter-spacing:0.08em;text-transform:uppercase;margin:0 0 8px;padding:0;"><span leaf="">DECISION RULE</span></p>
+    <p style="text-align:left;font-size:13.5px;font-weight:600;color:#FFFFFF;line-height:1.6;margin:0;padding:0;"><span leaf="">不要让“响应式”依赖公众号客户端执行媒体查询；文章本身应在任何可用宽度中保持单列、清晰与可继续阅读。</span></p>
+  </section>
+
+  <!-- 正文插图（组件7） -->
+  <section style="padding:10px 0;margin:14px 0 0;">
+    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 200'%3E%3Crect fill='%23EDE9FE' width='600' height='200'/%3E%3Ctext x='300' y='100' text-anchor='middle' fill='%235B42F3' font-family='sans-serif' font-size='14'%3E插图占位 · 600 x 200%3C/text%3E%3C/svg%3E" width="100%" style="display:block;border-radius:6px;" alt="工作流阶段示意插图占位"/>
+  </section>
+
+  <!-- Section 标题卡（组件4） -->
+  <section style="background:#F4F0FD;border:1px solid #EDE9FE;border-radius:8px;padding:10px;margin:14px 0 0;">
+    <p style="text-align:left;font-size:11px;font-weight:700;color:#5B42F3;letter-spacing:0.08em;text-transform:uppercase;margin:0;padding:0;"><span leaf="">03 · LOOP · 决策建议</span></p>
+  </section>
+
+  <!-- 内容正文卡：决策建议（组件5） -->
+  <section style="background:#FFFFFF;border:1px solid #EDE9FE;border-radius:8px;padding:14px 10px;margin:14px 0 0;">
+    <p style="text-align:left;font-size:15px;font-weight:700;color:#111827;margin:0 0 12px;padding:0;"><span leaf="">把回环写进排期，而不是写进口号</span></p>
+    <p style="text-align:left;font-size:13px;line-height:1.65;color:#4B5563;margin:0 0 10px;padding:0;"><span leaf="">每个阶段结束后安排一次回读：对照入口处的验收句逐条核对，未通过的输出不进入下一阶段。</span></p>
+    <p style="text-align:left;font-size:13px;line-height:1.65;color:#4B5563;margin:0;padding:0;"><span leaf="">回环的成本应计入阶段本身——没有预留回读时间的排期，等于默认零返工，而零返工从不是默认（本句含演示性表述，仅作版式示例）。</span></p>
+  </section>
+
+  <!-- 资料来源卡（组件4 变体） -->
+  <section style="background:#F4F0FD;border:1px solid #EDE9FE;border-radius:8px;padding:12px 10px;margin:14px 0 0;">
+    <p style="text-align:left;font-size:11px;font-weight:700;color:#5B42F3;letter-spacing:0.08em;text-transform:uppercase;margin:0 0 5px;padding:0;"><span leaf="">资料来源</span></p>
+    <p style="text-align:left;font-size:12px;line-height:1.7;color:#4B5563;margin:0;padding:0;"><span leaf="">本文为白紫轻科技风主题的演示样稿：文中模型名称、参数与价格倍率均为虚构示例，仅用于版式与兼容验收，不构成任何产品评测。</span></p>
+  </section>
+
+  <!-- 签名区（Hero 无标题变体） -->
+  <section style="background:#F4F0FD;padding:14px 10px 20px;margin:0;">
+    <p style="text-align:left;font-size:12px;color:#5B42F3;margin:0;padding:0;font-style:italic;"><span leaf="">我是 AG雷达，关注 AI Agent 的技术演进与真实落地。</span></p>
+  </section>
+
 </section>
   </div>
 </div>
