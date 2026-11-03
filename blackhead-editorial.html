@@ -15,7 +15,7 @@
   .gzh-toast{position:fixed;top:66px;left:50%;transform:translateX(-50%);background:#111827;color:#fff;padding:11px 20px;border-radius:10px;font-size:14px;font-weight:600;opacity:0;pointer-events:none;transition:opacity .25s;z-index:100;box-shadow:0 6px 20px rgba(0,0,0,.25);max-width:88vw;text-align:center;}
   .gzh-toast.show{opacity:1;}
   .gzh-stage{max-width:700px;margin:78px auto 64px;padding:0 8px;}
-  @media(max-width:520px){.gzh-hint{max-width:150px;}}
+  @media(max-width:520px){.gzh-toolbar{height:auto;min-height:54px;box-sizing:border-box;flex-wrap:wrap;gap:6px;padding:8px 12px;}.gzh-hint{width:100%;}.gzh-stage{margin-top:108px;}}
 </style>
 </head>
 <body>
@@ -26,7 +26,7 @@
 <div class="gzh-toast" id="gzhToast"></div>
 <div class="gzh-stage">
   <div id="gzh-content">
-<section style="width:100%;max-width:677px;margin:0 auto;padding:8px;box-sizing:border-box;background:#FFFFFF;color:#1A1A1A;font-family:'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Noto Serif SC',sans-serif;line-height:1.75;font-size:14px;text-align:left;overflow-wrap:anywhere;">
+<section style="width:100%;max-width:677px;margin:0 auto;padding:12px 0 16px;box-sizing:border-box;color:#1A1A1A;font-family:'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Noto Serif SC',sans-serif;line-height:1.75;font-size:14px;text-align:left;overflow-wrap:anywhere;">
 
   <!-- 头图卡 hero-card（渲染器 heroBlock 同构：黑底页眉 + 灰底摘要条） -->
   <section style="text-align:left;background:#FFFFFF;border:1px solid #DDDDDD;border-radius:4px;overflow:hidden;">
@@ -76,22 +76,22 @@
   <!-- 工作流步骤卡 ×4（@@STEP 同构） -->
   <section style="text-align:left;margin:14px 0 0;padding-bottom:16px;">
     <p style="text-align:left;margin:0;padding:0;font-size:14px;line-height:1.9;color:#1A1A1A;overflow-wrap:anywhere;font-size:0;line-height:0;"><span style="display:inline-block;width:32px;height:32px;background:#C80018;border-radius:2px;text-align:center;font-size:14px;font-weight:800;color:#FFFFFF;line-height:32px;vertical-align:top;"><span leaf="">1</span></span></p>
-    <span style="display:inline-block;vertical-align:top;padding-left:10px;width:calc(100% - 42px);"><p style="text-align:left;margin:0 0 6px;padding:0;font-size:15px;font-weight:800;color:#1A1A1A;overflow-wrap:anywhere;"><span leaf="">定义边界</span></p><p style="text-align:left;margin:0;padding:0;font-size:13px;line-height:1.7;color:#4A4A4A;overflow-wrap:anywhere;"><span leaf="">哪些动作只读，哪些动作需要授权，在开始前用一段话说清楚。</span></p></span>
+    <section style="text-align:left;margin-top:6px;"><p style="text-align:left;margin:0 0 6px;padding:0;font-size:15px;font-weight:800;color:#1A1A1A;overflow-wrap:anywhere;"><span leaf="">定义边界</span></p><p style="text-align:left;margin:0;padding:0;font-size:13px;line-height:1.7;color:#4A4A4A;overflow-wrap:anywhere;"><span leaf="">哪些动作只读，哪些动作需要授权，在开始前用一段话说清楚。</span></p></section>
     <section style="text-align:left;height:1px;background:#DDDDDD;margin:12px 0 0;"><span leaf=""> </span></section>
   </section>
   <section style="text-align:left;margin:14px 0 0;padding-bottom:16px;">
     <p style="text-align:left;margin:0;padding:0;font-size:14px;line-height:1.9;color:#1A1A1A;overflow-wrap:anywhere;font-size:0;line-height:0;"><span style="display:inline-block;width:32px;height:32px;background:#C80018;border-radius:2px;text-align:center;font-size:14px;font-weight:800;color:#FFFFFF;line-height:32px;vertical-align:top;"><span leaf="">2</span></span></p>
-    <span style="display:inline-block;vertical-align:top;padding-left:10px;width:calc(100% - 42px);"><p style="text-align:left;margin:0 0 6px;padding:0;font-size:15px;font-weight:800;color:#1A1A1A;overflow-wrap:anywhere;"><span leaf="">保留证据</span></p><p style="text-align:left;margin:0;padding:0;font-size:13px;line-height:1.7;color:#4A4A4A;overflow-wrap:anywhere;"><span leaf="">输入、工具输出、修改范围与验收结果放在同一条链路里，随时可回看。</span></p></span>
+    <section style="text-align:left;margin-top:6px;"><p style="text-align:left;margin:0 0 6px;padding:0;font-size:15px;font-weight:800;color:#1A1A1A;overflow-wrap:anywhere;"><span leaf="">保留证据</span></p><p style="text-align:left;margin:0;padding:0;font-size:13px;line-height:1.7;color:#4A4A4A;overflow-wrap:anywhere;"><span leaf="">输入、工具输出、修改范围与验收结果放在同一条链路里，随时可回看。</span></p></section>
     <section style="text-align:left;height:1px;background:#DDDDDD;margin:12px 0 0;"><span leaf=""> </span></section>
   </section>
   <section style="text-align:left;margin:14px 0 0;padding-bottom:16px;">
     <p style="text-align:left;margin:0;padding:0;font-size:14px;line-height:1.9;color:#1A1A1A;overflow-wrap:anywhere;font-size:0;line-height:0;"><span style="display:inline-block;width:32px;height:32px;background:#C80018;border-radius:2px;text-align:center;font-size:14px;font-weight:800;color:#FFFFFF;line-height:32px;vertical-align:top;"><span leaf="">3</span></span></p>
-    <span style="display:inline-block;vertical-align:top;padding-left:10px;width:calc(100% - 42px);"><p style="text-align:left;margin:0 0 6px;padding:0;font-size:15px;font-weight:800;color:#1A1A1A;overflow-wrap:anywhere;"><span leaf="">检查影响</span></p><p style="text-align:left;margin:0;padding:0;font-size:13px;line-height:1.7;color:#4A4A4A;overflow-wrap:anywhere;"><span leaf="">区分已完成、已验证和仍需人工确认的部分，不用一个成功标记掩盖差异。</span></p></span>
+    <section style="text-align:left;margin-top:6px;"><p style="text-align:left;margin:0 0 6px;padding:0;font-size:15px;font-weight:800;color:#1A1A1A;overflow-wrap:anywhere;"><span leaf="">检查影响</span></p><p style="text-align:left;margin:0;padding:0;font-size:13px;line-height:1.7;color:#4A4A4A;overflow-wrap:anywhere;"><span leaf="">区分已完成、已验证和仍需人工确认的部分，不用一个成功标记掩盖差异。</span></p></section>
     <section style="text-align:left;height:1px;background:#DDDDDD;margin:12px 0 0;"><span leaf=""> </span></section>
   </section>
   <section style="text-align:left;margin:14px 0 0;padding-bottom:16px;">
     <p style="text-align:left;margin:0;padding:0;font-size:14px;line-height:1.9;color:#1A1A1A;overflow-wrap:anywhere;font-size:0;line-height:0;"><span style="display:inline-block;width:32px;height:32px;background:#C80018;border-radius:2px;text-align:center;font-size:14px;font-weight:800;color:#FFFFFF;line-height:32px;vertical-align:top;"><span leaf="">4</span></span></p>
-    <span style="display:inline-block;vertical-align:top;padding-left:10px;width:calc(100% - 42px);"><p style="text-align:left;margin:0 0 6px;padding:0;font-size:15px;font-weight:800;color:#1A1A1A;overflow-wrap:anywhere;"><span leaf="">给出回退</span></p><p style="text-align:left;margin:0;padding:0;font-size:13px;line-height:1.7;color:#4A4A4A;overflow-wrap:anywhere;"><span leaf="">失败时说明影响与替代路径，不伪造成功，也不让下一步踩着未知前进。</span></p></span>
+    <section style="text-align:left;margin-top:6px;"><p style="text-align:left;margin:0 0 6px;padding:0;font-size:15px;font-weight:800;color:#1A1A1A;overflow-wrap:anywhere;"><span leaf="">给出回退</span></p><p style="text-align:left;margin:0;padding:0;font-size:13px;line-height:1.7;color:#4A4A4A;overflow-wrap:anywhere;"><span leaf="">失败时说明影响与替代路径，不伪造成功，也不让下一步踩着未知前进。</span></p></section>
     <section style="text-align:left;height:1px;background:#DDDDDD;margin:12px 0 0;"><span leaf=""> </span></section>
   </section>
 
@@ -142,13 +142,13 @@
   <!-- 编号列表（渲染器 renderList 同构：首位红块编号） -->
   <section style="text-align:left;margin:14px 0 0;">
     <section style="text-align:left;padding:2px 0;border-bottom:1px solid #DDDDDD;">
-      <p style="text-align:left;margin:0;padding:8px 0;font-size:14px;line-height:1.9;color:#1A1A1A;overflow-wrap:anywhere;"><span style="display:inline-block;min-width:22px;text-align:center;background:#C80018;color:#FFFFFF;border-radius:2px;font-size:12px;font-weight:800;line-height:22px;vertical-align:top;"><span leaf="">1</span></span><span leaf=""> </span><span leaf="">关键结论是否能被证据支持。</span></p>
+      <p style="text-align:left;margin:0;padding:8px 0;font-size:14px;line-height:1.9;color:#1A1A1A;overflow-wrap:anywhere;"><span style="display:inline-block;width:22px;text-align:center;background:#C80018;color:#FFFFFF;border-radius:2px;font-size:12px;font-weight:800;line-height:22px;vertical-align:top;"><span leaf="">1</span></span><span leaf=""> </span><span leaf="">关键结论是否能被证据支持。</span></p>
     </section>
     <section style="text-align:left;padding:2px 0;border-bottom:1px solid #DDDDDD;">
-      <p style="text-align:left;margin:0;padding:8px 0;font-size:14px;line-height:1.9;color:#1A1A1A;overflow-wrap:anywhere;"><span style="display:inline-block;min-width:22px;text-align:center;background:#4A4A4A;color:#FFFFFF;border-radius:2px;font-size:12px;font-weight:800;line-height:22px;vertical-align:top;"><span leaf="">2</span></span><span leaf=""> </span><span leaf="">边界和授权是否被明确记录。</span></p>
+      <p style="text-align:left;margin:0;padding:8px 0;font-size:14px;line-height:1.9;color:#1A1A1A;overflow-wrap:anywhere;"><span style="display:inline-block;width:22px;text-align:center;background:#4A4A4A;color:#FFFFFF;border-radius:2px;font-size:12px;font-weight:800;line-height:22px;vertical-align:top;"><span leaf="">2</span></span><span leaf=""> </span><span leaf="">边界和授权是否被明确记录。</span></p>
     </section>
     <section style="text-align:left;padding:2px 0;">
-      <p style="text-align:left;margin:0;padding:8px 0;font-size:14px;line-height:1.9;color:#1A1A1A;overflow-wrap:anywhere;"><span style="display:inline-block;min-width:22px;text-align:center;background:#4A4A4A;color:#FFFFFF;border-radius:2px;font-size:12px;font-weight:800;line-height:22px;vertical-align:top;"><span leaf="">3</span></span><span leaf=""> </span><span leaf="">失败时是否还有可执行的回退路径。</span></p>
+      <p style="text-align:left;margin:0;padding:8px 0;font-size:14px;line-height:1.9;color:#1A1A1A;overflow-wrap:anywhere;"><span style="display:inline-block;width:22px;text-align:center;background:#4A4A4A;color:#FFFFFF;border-radius:2px;font-size:12px;font-weight:800;line-height:22px;vertical-align:top;"><span leaf="">3</span></span><span leaf=""> </span><span leaf="">失败时是否还有可执行的回退路径。</span></p>
     </section>
   </section>
   <p style="text-align:left;margin:14px 0 0;padding:0;font-size:14px;line-height:1.9;color:#1A1A1A;overflow-wrap:anywhere;"><span leaf="">这份清单刻意保持在三项——清单的价值在执行率，不在长度。本节条目与上面的对照卡均为</span><span style="border-bottom:2px solid #EF3340;font-weight:700;color:#1A1A1A;"><span leaf="">演示样例（DEMO）</span></span><span leaf="">，用于展示版式，不代表任何真实项目的执行记录。</span></p>
