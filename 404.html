@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>页面不存在 · 公众号主题总览</title>
+<style>
+body{margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;background:#f4f4f5;color:#18181b;font:15px/1.7 -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif}
+a{color:#3b82f6}
+</style>
+</head>
+<body>
+<p>页面不存在，正在返回主题总览… <a href="./" id="spa404Home">立即返回</a></p>
+<script>
+/* SPA fallback for GitHub Pages: climb one path segment per 404 until the
+   gallery root (which serves index.html) is reached; never loops because
+   the path shrinks each time. */
+(function(){
+  var dir=location.pathname.replace(/[^/]+$/,'');
+  if(dir==='')dir='/';
+  document.getElementById('spa404Home').href=dir;
+  location.replace(dir+location.search+location.hash);
+})();
+</script>
+</body>
+</html>

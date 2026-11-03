@@ -22,6 +22,16 @@ a.preview-link-text:hover{color:#3b82f6}
 .gzh-toast{position:fixed;top:16px;left:50%;transform:translateX(-50%);background:#111827;color:#fff;padding:11px 20px;border-radius:10px;font-size:14px;font-weight:600;opacity:0;pointer-events:none;transition:opacity .25s;z-index:100;box-shadow:0 6px 20px rgba(0,0,0,.25);max-width:88vw;text-align:center}
 .gzh-toast.show{opacity:1}
 @media(max-width:420px){main{padding:18px 10px 40px}h1{font-size:26px}.grid{grid-template-columns:1fr;gap:10px}}
+
+/* SPA overlay router */
+#spaView{position:fixed;inset:0;z-index:60;display:none;flex-direction:column;background:#f4f4f5}
+#spaBar{display:flex;align-items:center;gap:10px;padding:8px 14px;background:#18181b;color:#fff;flex:0 0 auto}
+#spaClose{background:#3b82f6;color:#fff;border:0;border-radius:8px;padding:6px 12px;font-size:13px;font-weight:800;cursor:pointer}
+#spaClose:hover{background:#2563eb}
+#spaPath{font-size:12px;opacity:.8;font-family:Consolas,monospace;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#spaTab{margin-left:auto;color:#fff;font-size:12px;text-decoration:none;opacity:.9}
+#spaTab:hover{opacity:1;text-decoration:underline}
+#spaFrame{flex:1;width:100%;border:0;background:#fff}
 </style>
 </head>
 <body>
@@ -963,6 +973,15 @@ a.preview-link-text:hover{color:#3b82f6}
 
 </section>
 </main>
+
+<div id="spaView" aria-hidden="true">
+  <div id="spaBar">
+    <button id="spaClose" type="button">&larr; 返回总览</button>
+    <span id="spaPath"></span>
+    <a id="spaTab" href="#" target="_blank" rel="noopener">新窗口打开 &#8599;</a>
+  </div>
+  <iframe id="spaFrame" title="主题预览"></iframe>
+</div>
 <script>
     function gzhShowToast(msg){
     var t=document.getElementById('gzhToast');
@@ -976,6 +995,68 @@ a.preview-link-text:hover{color:#3b82f6}
     if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(ref).then(done,function(){gzhShowToast('⚠ 请手动复制：'+ref);});}
     else{var x=document.createElement('textarea');x.value=ref;document.body.appendChild(x);x.select();try{document.execCommand('copy');done();}catch(e){gzhShowToast('⚠ 请手动复制：'+ref);}document.body.removeChild(x);}
   }
+
+  /* --- SPA overlay router: theme cards open in-page via history API ---
+     Direct visits / refresh of /theme.html keep serving the static file,
+     so every original URL stays fully compatible. */
+  (function(){
+    var links=[].slice.call(document.querySelectorAll('a.preview-link'));
+    var view=document.getElementById('spaView');
+    if(!view||!links.length)return;
+    var PAGES={};
+    links.forEach(function(a){PAGES[a.getAttribute('href')]=true;});
+    var frame=document.getElementById('spaFrame');
+    var pathEl=document.getElementById('spaPath');
+    var tab=document.getElementById('spaTab');
+    function currentPage(){
+      var name=decodeURIComponent(location.pathname.split('/').pop()||'');
+      return Object.prototype.hasOwnProperty.call(PAGES,name)?name:'';
+    }
+    function load(page){
+      fetch(page,{cache:'force-cache'}).then(function(r){return r.text();}).then(function(html){
+        if(frame.getAttribute('data-page')!==page)return;
+        frame.removeAttribute('src');
+        var doc=frame.contentDocument;
+        doc.open();doc.write(html);doc.close();
+      }).catch(function(){ frame.src=page; });
+    }
+    function render(){
+      var page=currentPage();
+      if(page){
+        view.style.display='flex';
+        view.setAttribute('aria-hidden','false');
+        if(frame.getAttribute('data-page')!==page){
+          frame.setAttribute('data-page',page);
+          pathEl.textContent=page;
+          tab.href=page;
+          load(page);
+        }
+        pathEl.textContent=page;
+        tab.href=page;
+      }else{
+        view.style.display='none';
+        view.setAttribute('aria-hidden','true');
+        frame.removeAttribute('data-page');
+        frame.removeAttribute('src');
+        var doc=frame.contentDocument;
+        if(doc){doc.open();doc.write('');doc.close();}
+      }
+    }
+    links.forEach(function(a){
+      a.addEventListener('click',function(e){
+        if(e.defaultPrevented||e.button!==0||e.metaKey||e.ctrlKey||e.shiftKey||e.altKey)return;
+        e.preventDefault();
+        history.pushState({spaPage:a.getAttribute('href')},'',a.getAttribute('href'));
+        render();
+      });
+    });
+    document.getElementById('spaClose').addEventListener('click',function(){
+      if(history.state&&history.state.spaPage){history.back();}
+      else{history.pushState({},'','./');render();}
+    });
+    window.addEventListener('popstate',render);
+    render();
+  })();
 </script>
 </body>
 </html>
