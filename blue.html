@@ -14,11 +14,23 @@
   .gzh-toast{position:fixed;top:66px;left:50%;transform:translateX(-50%);background:#111827;color:#fff;padding:11px 20px;border-radius:10px;font-size:14px;font-weight:600;opacity:0;pointer-events:none;transition:opacity .25s;z-index:100;box-shadow:0 6px 20px rgba(0,0,0,.25);max-width:88vw;text-align:center;}
   .gzh-toast.show{opacity:1;}
 </style>
+
+<style data-preview-toolbar-responsive>
+  @media(max-width:520px){
+    .gzh-toolbar{position:sticky;height:auto;min-height:54px;box-sizing:border-box;flex-direction:column;align-items:stretch;gap:8px;padding:10px 12px;}
+    .gzh-toolbar .gzh-hint{display:block;width:auto;max-width:none;flex:0 0 auto;overflow:visible;text-overflow:clip;white-space:normal;font-size:13px;line-height:1.4;overflow-wrap:anywhere;}
+    .gzh-toolbar>span:last-child{width:100%;flex:0 0 auto;flex-wrap:wrap;justify-content:flex-end;}
+    .gzh-toolbar .gzh-copy{flex-shrink:0;}
+    .gzh-stage{margin-top:24px;}
+    body>main{padding-top:24px!important;}
+    .gzh-toast{top:auto;bottom:16px;}
+  }
+</style>
 </head>
 <body style="margin:0;background:#FAFBFF;color:#1A1A2E;font:15px/1.8 -apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif;">
 <div class="gzh-toolbar">
   <span class="gzh-hint">👇 公众号兼容样稿 · RefID 一键复制</span>
-  <span style="display:flex;gap:8px;align-items:center;"><button class="gzh-copy" style="background:#111827;padding:10px 12px;" id="gzhRefBtn" onclick="gzhCopyRef()">复制 RefID</button></span>
+  <span style="display:flex;gap:8px;align-items:center;"><button class="gzh-copy" style="background:#111827;padding:10px 12px;" id="gzhRefBtn" onclick="gzhCopyRef()">复制 RefID</button><button class="gzh-copy" id="gzhCopyBtn" onclick="gzhCopy()">📋 复制到公众号</button></span>
 </div>
 <div class="gzh-toast" id="gzhToast"></div>
 <main style="max-width:677px;margin:auto;padding:78px 12px 60px;">
@@ -148,7 +160,43 @@
     var ref='wx-theme:blue';
     var done=function(){gzhShowToast('✅ 已复制主题 RefID：'+ref);var btn=document.getElementById('gzhRefBtn');var old=btn.textContent;btn.textContent='✅ RefID 已复制';setTimeout(function(){btn.textContent=old;},2200);};
     if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(ref).then(done,function(){gzhShowToast('⚠ 请手动复制：'+ref);});}
-    else{var x=document.createElement('textarea');x.value=ref;document.body.appendChild(x);x.select();try{document.execCommand('copy');done();}catch(e){gzhShowToast('⚠ 请手动复制：'+ref);}document.body.removeChild(x);}
+    else{var x=document.createElement('textarea');x.value=ref;document.body.appendChild(x);x.select();try{if(document.execCommand('copy')){done();}else{gzhShowToast('⚠ 请手动复制：'+ref);}}catch(e){gzhShowToast('⚠ 请手动复制：'+ref);}document.body.removeChild(x);}
+  }
+  function gzhCopy(){
+    var el=document.getElementById('gzh-content')||document.querySelector('main');
+    if(!el){gzhShowToast('⚠ 未找到正文，请手动选择正文区域复制');return;}
+    var range=document.createRange();
+    range.selectNodeContents(el);
+    var sel=window.getSelection();
+    sel.removeAllRanges();sel.addRange(range);
+    var html=el.innerHTML,plain=el.innerText;
+    var wrote=false,ok=false;
+    var oncopy=function(event){
+      if(!event.clipboardData)return;
+      event.clipboardData.setData('text/html',html);
+      event.clipboardData.setData('text/plain',plain);
+      event.preventDefault();wrote=true;
+    };
+    var done=function(){
+      sel.removeAllRanges();
+      gzhShowToast('✅ 已复制！去公众号编辑器按 Ctrl/⌘+V 粘贴即可');
+      var btn=document.getElementById('gzhCopyBtn');
+      clearTimeout(btn._timer);btn.textContent='✅ 已复制';
+      btn._timer=setTimeout(function(){btn.textContent='📋 复制到公众号';},2200);
+    };
+    var failed=function(){gzhShowToast('⚠ 自动复制失败，已选中正文，请按 Ctrl/⌘+C 手动复制');};
+    document.addEventListener('copy',oncopy);
+    try{ok=document.execCommand('copy');}catch(e){ok=false;}
+    document.removeEventListener('copy',oncopy);
+    if(ok&&wrote){done();return;}
+    if(navigator.clipboard&&navigator.clipboard.write&&typeof ClipboardItem!=='undefined'){
+      try{
+        navigator.clipboard.write([new ClipboardItem({
+          'text/html':new Blob([html],{type:'text/html'}),
+          'text/plain':new Blob([plain],{type:'text/plain'})
+        })]).then(done,failed);
+      }catch(e){failed();}
+    }else{failed();}
   }
 </script>
 </body>
