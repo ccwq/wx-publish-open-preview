@@ -15,7 +15,7 @@
   .gzh-toast{position:fixed;top:66px;left:50%;transform:translateX(-50%);background:#111827;color:#fff;padding:11px 20px;border-radius:10px;font-size:14px;font-weight:600;opacity:0;pointer-events:none;transition:opacity .25s;z-index:100;box-shadow:0 6px 20px rgba(0,0,0,.25);max-width:88vw;text-align:center;}
   .gzh-toast.show{opacity:1;}
   .gzh-stage{max-width:700px;margin:78px auto 64px;padding:0 8px;}
-  @media(max-width:520px){.gzh-hint{max-width:150px;}}
+  @media(max-width:520px){.gzh-toolbar{height:auto;min-height:54px;padding:8px 12px;flex-wrap:wrap;gap:6px;}.gzh-hint{flex:1 0 100%;max-width:none;}.gzh-toolbar>span:last-child{width:100%;justify-content:flex-end;}.gzh-stage{margin-top:112px;}}
 </style>
 </head>
 <body>
@@ -26,7 +26,7 @@
 <div class="gzh-toast" id="gzhToast"></div>
 <div class="gzh-stage">
   <div id="gzh-content">
-<section style="width:100%;max-width:677px;box-sizing:border-box;padding:10px;background:#F5F2EB;color:#3D3D2D;font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif;line-height:1.8;letter-spacing:0.3px;">
+<section style="text-align:left;padding:12px 0 16px;width:100%;max-width:677px;color:#3D3D2D;font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif;line-height:1.8;letter-spacing:0.3px;">
   <section style="padding:20px 16px 18px;background:#E8E4DB;border:1px solid #D4CFC5;border-radius:4px;margin-bottom:16px;">
     <section style="margin-bottom:14px;">
       <span style="display:inline-block;background:#2F6B4F;color:#FFFFFF;border-radius:3px;padding:4px 12px;font-size:11px;font-weight:700;letter-spacing:1px;margin-right:6px;margin-bottom:6px;"><span leaf="">文献档案</span></span>
@@ -37,9 +37,9 @@
     <span style="display:block;font-size:14px;line-height:1.75;color:#8A8A7A;"><span leaf="">针对各级档案馆在推进数字化转型过程中遇到的分类混乱、元数据缺失、检索效率低等共性问题，提出系统性解决方案。</span></span>
   </section>
   <section style="padding:14px 16px;background:#FFFFFF;border:1px solid #D4CFC5;border-radius:4px;margin-bottom:16px;">
-    <section style="display:flex;justify-content:space-between;margin-bottom:8px;"><span style="font-size:11px;font-weight:700;color:#2F6B4F;letter-spacing:1px;"><span leaf="">卷宗编号</span></span><span style="font-size:11px;color:#8A8A7A;"><span leaf="">GL-2024-007</span></span></section>
-    <section style="display:flex;justify-content:space-between;margin-bottom:8px;"><span style="font-size:11px;font-weight:700;color:#2F6B4F;letter-spacing:1px;"><span leaf="">档案日期</span></span><span style="font-size:11px;color:#8A8A7A;"><span leaf="">2024-03-15</span></span></section>
-    <section style="display:flex;justify-content:space-between;"><span style="font-size:11px;font-weight:700;color:#2F6B4F;letter-spacing:1px;"><span leaf="">保管期限</span></span><span style="font-size:11px;color:#8A8A7A;"><span leaf="">永久</span></span></section>
+    <section style="margin-bottom:8px;"><span style="font-size:11px;font-weight:700;color:#2F6B4F;letter-spacing:1px;"><span leaf="">卷宗编号</span></span><span style="display:block;font-size:11px;color:#8A8A7A;"><span leaf="">GL-2024-007</span></span></section>
+    <section style="margin-bottom:8px;"><span style="font-size:11px;font-weight:700;color:#2F6B4F;letter-spacing:1px;"><span leaf="">档案日期</span></span><span style="display:block;font-size:11px;color:#8A8A7A;"><span leaf="">2024-03-15</span></span></section>
+    <section style=""><span style="font-size:11px;font-weight:700;color:#2F6B4F;letter-spacing:1px;"><span leaf="">保管期限</span></span><span style="display:block;font-size:11px;color:#8A8A7A;"><span leaf="">永久</span></span></section>
   </section>
   <section style="padding:14px 16px;background:#FFFFFF;border-left:3px solid #2F6B4F;border-radius:0 4px 4px 0;margin-bottom:16px;">
     <span style="display:block;font-size:14px;line-height:1.7;color:#1E4D3A;font-style:italic;margin-bottom:8px;"><span leaf="">“档案数字化不仅是技术升级，更是公共服务能力的根本性变革。”</span></span>
