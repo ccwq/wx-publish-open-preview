@@ -1012,6 +1012,23 @@ a.preview-link-text:hover{color:#3b82f6}
     var frame=document.getElementById('spaFrame');
     var pathEl=document.getElementById('spaPath');
     var tab=document.getElementById('spaTab');
+    var lock=null;
+    function lockScroll(){
+      if(lock)return;
+      var de=document.documentElement;
+      var gap=window.innerWidth-de.clientWidth;
+      lock={x:window.scrollX,y:window.scrollY,ov:de.style.overflow,pad:de.style.paddingRight};
+      de.style.overflow='hidden';
+      if(gap>0)de.style.paddingRight=gap+'px';
+    }
+    function unlockScroll(){
+      if(!lock)return;
+      var de=document.documentElement;
+      de.style.overflow=lock.ov;
+      de.style.paddingRight=lock.pad;
+      window.scrollTo(lock.x,lock.y);
+      lock=null;
+    }
     function currentPage(){
       var name=decodeURIComponent(location.pathname.split('/').pop()||'');
       return Object.prototype.hasOwnProperty.call(PAGES,name)?name:'';
@@ -1027,6 +1044,7 @@ a.preview-link-text:hover{color:#3b82f6}
     function render(){
       var page=currentPage();
       if(page){
+        lockScroll();
         view.style.display='flex';
         view.setAttribute('aria-hidden','false');
         if(frame.getAttribute('data-page')!==page){
@@ -1038,6 +1056,7 @@ a.preview-link-text:hover{color:#3b82f6}
         pathEl.textContent=page;
         tab.href=page;
       }else{
+        unlockScroll();
         view.style.display='none';
         view.setAttribute('aria-hidden','true');
         frame.removeAttribute('data-page');
