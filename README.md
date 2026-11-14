@@ -6,6 +6,10 @@
 - 不包含：公众号草稿、文章素材、发布配置、凭据、内部脚本或源主题组件库；
 - 主题组件库与管理工具维护在私有仓库 `ccwq/wx-publish`。
 
+## 维护入口
+
+授权与事务规则见私有仓库 [AGENTS.md](https://github.com/ccwq/wx-publish/blob/feature/publish-timing-v3/AGENTS.md#交付事务)；主题维护及上线验收见 [gzh-theme-manager](https://github.com/ccwq/wx-publish/blob/feature/publish-timing-v3/.agents/skills/gzh-theme-manager/SKILL.md)。
+
 ## 本地预览
 
 ```bash
