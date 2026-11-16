@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>red-ink-editorial.wechat · 公众号排版预览</title>
+<style>
+  body{margin:0;background:#eef0f2;font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;-webkit-text-size-adjust:100%;}
+  .gzh-toolbar{position:fixed;top:0;left:0;right:0;height:54px;background:#ffffff;box-shadow:0 1px 10px rgba(0,0,0,.08);display:flex;align-items:center;justify-content:space-between;padding:0 16px;z-index:99;}
+  .gzh-hint{font-size:13px;color:#6b7280;line-height:1.4;}
+  .gzh-hint b{color:#111827;}
+  .gzh-copy{background:#059669;color:#fff;border:0;border-radius:9px;padding:10px 20px;font-size:14px;font-weight:700;cursor:pointer;box-shadow:0 3px 10px rgba(5,150,105,.28);white-space:nowrap;transition:transform .08s,background .15s;}
+  .gzh-copy:hover{background:#047857;}
+  .gzh-copy:active{transform:translateY(1px);}
+  .gzh-toast{position:fixed;top:66px;left:50%;transform:translateX(-50%);background:#111827;color:#fff;padding:11px 20px;border-radius:10px;font-size:14px;font-weight:600;opacity:0;pointer-events:none;transition:opacity .25s;z-index:100;box-shadow:0 6px 20px rgba(0,0,0,.25);max-width:88vw;text-align:center;}
+  .gzh-toast.show{opacity:1;}
+  .gzh-stage{max-width:700px;margin:78px auto 64px;padding:0 8px;}
+  @media(max-width:520px){
+    .gzh-toolbar{height:auto;min-height:54px;flex-wrap:wrap;padding:10px 16px;row-gap:6px;}
+    .gzh-hint{max-width:100%;flex:1 1 100%;font-size:12px;line-height:1.4;word-break:break-word;}
+    .gzh-toolbar>span:last-child{margin-left:auto;}
+    .gzh-stage{margin-top:116px;}
+    .gzh-toast{top:116px;}
+  }
+</style>
+</head>
+<body>
+<div class="gzh-toolbar">
+  <span class="gzh-hint">👇 公众号兼容样稿 · RefID 一键复制</span>
+  <span style="display:flex;gap:8px;align-items:center;"><button class="gzh-copy" style="background:#111827;padding:10px 12px;" id="gzhRefBtn" onclick="gzhCopyRef()">复制 RefID</button><button class="gzh-copy" id="gzhCopyBtn" onclick="gzhCopy()">📋 复制到公众号</button></span>
+</div>
+<div class="gzh-toast" id="gzhToast"></div>
+<div class="gzh-stage">
+  <div id="gzh-content">
+<section style="text-align:left;width:100%;max-width:677px;margin:0 auto;padding:12px 0 16px;box-sizing:border-box;color:#202024;font-family:'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;line-height:1.8;overflow-wrap:anywhere;">
+
+<!-- ===== Hero（近黑底 · 红眉标 · 大字结论） ===== -->
+<section style="text-align:left;background:#111112;border-radius:10px;padding:26px 20px 28px;margin:0;"><p style="margin:0;font-size:13px;font-weight:800;letter-spacing:2px;color:#D52B2B;text-align:left;margin-bottom:12px;"><span leaf="">RED INK EDITORIAL</span></p><p style="text-align:left;margin:0 0 10px;font-size:26px;font-weight:900;line-height:1.3;color:#FFFFFF;letter-spacing:-0.5px;"><span leaf="">工具的价值不在功能列表，在省下的判断成本</span></p><p style="text-align:left;margin:0;font-size:14px;line-height:1.8;color:#C8C8CB;"><span leaf="">赤墨编辑完整正文样张 · 文中数字均为示例口径，非真实测评</span></p></section>
+
+<!-- ===== 导语 ===== -->
+<p style="text-align:left;margin:36px 0 16px;font-size:16px;line-height:1.9;color:#202024;overflow-wrap:anywhere;"><span leaf="">选工具的时候，多数人先看功能清单，再比价格。真正决定使用成本的，往往不是这两样，而是</span><strong style="border-bottom:2px solid #D52B2B;font-weight:700;color:#111112;"><span leaf="">每一次操作前后的判断开销</span></strong><span leaf="">：要不要用它、选哪一档、出了问题找谁。</span></p>
+<p style="text-align:left;margin:0 0 16px;font-size:16px;line-height:1.9;color:#202024;overflow-wrap:anywhere;"><span leaf="">这篇样稿把赤墨主题跑一遍完整正文：从问题定义、数据对照，到上手命令和适用边界。版式纪律只有一条——</span><span style="background:#F8F6F3;color:#D52B2B;padding:1px 6px;border-radius:4px;font-family:'SF Mono',Consolas,Monaco,monospace;font-size:14px;"><span leaf="">#D52B2B</span></span><span leaf=""> 这一种红，只出现在值得强调的语义位上。</span></p>
+
+<!-- ===== 章节 01：判断成本藏在哪 ===== -->
+<section style="text-align:left;margin:28px 0 0;"><p style="margin:0;font-size:13px;font-weight:800;letter-spacing:2px;color:#D52B2B;text-align:left;margin-bottom:8px;"><span leaf="">01 / WHERE COST LIVES</span></p><p style="margin:0;font-size:22px;font-weight:900;line-height:1.35;color:#111112;letter-spacing:-0.5px;text-align:left;"><span leaf="">判断成本藏在哪</span></p></section>
+<p style="text-align:left;margin:14px 0 16px;font-size:16px;line-height:1.9;color:#202024;overflow-wrap:anywhere;"><span leaf="">一个功能再多的工具，如果每次使用前都要重新理解一遍规则，它的真实成本就被系统性低估了。判断成本通常出现在三个位置：</span></p>
+<section style="text-align:left;margin:0 0 8px;">
+<section style="text-align:left;padding:0;"><p style="margin:0;padding:14px 0;border-bottom:1px solid #E4E2DE;font-size:0;line-height:0;text-align:left;"><span style="display:inline-block;vertical-align:top;width:16%;font-size:24px;font-weight:900;color:#CFC7C3;line-height:1.1;"><span leaf="">01</span></span><span style="display:inline-block;vertical-align:top;width:82%;font-size:16px;font-weight:400;color:#202024;line-height:1.8;"><strong style="font-weight:700;color:#111112;"><span leaf="">选择成本：</span></strong><span leaf="">打开工具时要在多个档位之间反复比较，选错还要重来一遍。</span></span></p></section>
+<section style="text-align:left;margin-top:0;padding:0;"><p style="margin:0;padding:14px 0;border-bottom:1px solid #E4E2DE;font-size:0;line-height:0;text-align:left;"><span style="display:inline-block;vertical-align:top;width:16%;font-size:24px;font-weight:900;color:#CFC7C3;line-height:1.1;"><span leaf="">02</span></span><span style="display:inline-block;vertical-align:top;width:82%;font-size:16px;font-weight:400;color:#202024;line-height:1.8;"><strong style="font-weight:700;color:#111112;"><span leaf="">语义成本：</span></strong><span leaf="">输出结果需要二次翻译，才能交给下一个人或下一个流程。</span></span></p></section>
+<section style="text-align:left;margin-top:0;padding:0;"><p style="margin:0;padding:14px 0;border-bottom:1px solid #E4E2DE;font-size:0;line-height:0;text-align:left;"><span style="display:inline-block;vertical-align:top;width:16%;font-size:24px;font-weight:900;color:#CFC7C3;line-height:1.1;"><span leaf="">03</span></span><span style="display:inline-block;vertical-align:top;width:82%;font-size:16px;font-weight:400;color:#202024;line-height:1.8;"><strong style="font-weight:700;color:#111112;"><span leaf="">修复成本：</span></strong><span leaf="">出错之后没有明确的回退路径，只能整段推翻重做。</span></span></p></section>
+</section>
+<p style="text-align:left;margin:12px 0 0;font-size:16px;line-height:1.9;color:#202024;overflow-wrap:anywhere;"><span leaf="">好的工具设计，是把这三种成本</span><strong style="border-bottom:2px solid #D52B2B;font-weight:700;color:#111112;"><span leaf="">一个一个从流程里删掉</span></strong><span leaf="">，而不是用更长的功能清单把它们藏得更深。</span></p>
+
+<!-- ===== 章节 02：两档对照（暖纸底 · 示例口径） ===== -->
+<section style="text-align:left;margin:28px 0 0;"><p style="margin:0;font-size:13px;font-weight:800;letter-spacing:2px;color:#D52B2B;text-align:left;margin-bottom:8px;"><span leaf="">02 / SAMPLE DATA</span></p><p style="margin:0;font-size:22px;font-weight:900;line-height:1.35;color:#111112;letter-spacing:-0.5px;text-align:left;"><span leaf="">两档服务的真实差距</span></p></section>
+<p style="text-align:left;margin:14px 0 0;font-size:16px;line-height:1.9;color:#202024;overflow-wrap:anywhere;"><span leaf="">对照表只回答一个问题：两档之间省掉的到底是什么。下面这组数字是</span><strong style="border-bottom:2px solid #D52B2B;font-weight:700;color:#111112;"><span leaf="">示例口径</span></strong><span leaf="">，只用于演示版式，不代表任何真实服务的定价。</span></p>
+<section style="text-align:left;background:#F8F6F3;border-radius:10px;padding:18px 16px 20px;margin:16px 0 0;">
+<p style="margin:0 0 12px;font-size:13px;font-weight:800;letter-spacing:1px;color:#8A8A8C;text-align:left;"><span leaf="">示例口径 · SAMPLE DATA</span></p>
+<p style="margin:0;font-size:13px;font-weight:800;letter-spacing:1px;color:#4A4A4C;text-align:left;margin-bottom:6px;"><span leaf="">VS</span></p>
+<section style="text-align:left;border-top:3px solid #111112;border-bottom:3px solid #111112;">
+<p style="margin:0;padding:13px 2px;border-bottom:1px solid #E4E2DE;font-size:0;line-height:0;text-align:left;"><span style="display:inline-block;vertical-align:top;width:58%;font-size:15px;font-weight:700;color:#111112;line-height:1.5;"><span leaf="">标准档（按量计费，示例）</span></span><span style="display:inline-block;vertical-align:top;width:40%;font-size:20px;font-weight:900;color:#111112;line-height:1.2;text-align:right;"><span leaf="">¥1.50</span></span></p>
+<p style="margin:0;padding:13px 2px;border-bottom:1px solid #E4E2DE;font-size:0;line-height:0;text-align:left;"><span style="display:inline-block;vertical-align:top;width:58%;font-size:15px;font-weight:700;color:#111112;line-height:1.5;"><span leaf="">团队档（示例）</span></span><span style="display:inline-block;vertical-align:top;width:40%;font-size:20px;font-weight:900;color:#111112;line-height:1.2;text-align:right;"><span leaf="">¥8.00</span></span></p>
+<p style="margin:0;padding:13px 2px;font-size:0;line-height:0;text-align:left;"><span style="display:inline-block;vertical-align:top;width:58%;font-size:15px;font-weight:700;color:#111112;line-height:1.5;"><span leaf="">免费档（示例口径）</span></span><span style="display:inline-block;vertical-align:top;width:40%;font-size:20px;font-weight:900;color:#D52B2B;line-height:1.2;text-align:right;"><span leaf="">¥0</span></span></p>
+</section>
+<p style="text-align:left;margin:14px 0 0;font-size:15px;line-height:1.9;color:#4A4A4C;overflow-wrap:anywhere;"><span leaf="">免费档的优势不是价格本身，而是把「这单要不要省着用」的犹豫</span><strong style="border-bottom:2px solid #D52B2B;font-weight:700;color:#111112;"><span leaf="">整个删掉了</span></strong><span leaf="">。对照表的红色只给优势方，其余数字保持墨黑。</span></p>
+</section>
+
+<!-- ===== 红线提示 ===== -->
+<section style="text-align:left;background:#FFFFFF;border-left:4px solid #D52B2B;padding:14px 16px;margin:20px 0 0;"><p style="margin:0;font-size:13px;font-weight:800;letter-spacing:2px;color:#D52B2B;text-align:left;margin-bottom:6px;"><span leaf="">红线提示</span></p><p style="text-align:left;margin:0;font-size:15px;font-weight:600;line-height:1.9;color:#202024;overflow-wrap:anywhere;"><span leaf="">无数据不放对照表，无数字不放大字。示例口径必须随文标注，发布前替换为有来源的真实数值——这是本主题唯一的硬性红线。</span></p></section>
+
+<!-- ===== 章节 03：跑通一条最小链路（深色章节 + 代码块） ===== -->
+<section style="text-align:left;margin:28px 0 0;"><p style="margin:0;font-size:13px;font-weight:800;letter-spacing:2px;color:#D52B2B;text-align:left;margin-bottom:8px;"><span leaf="">03 / MINIMAL RUN</span></p><p style="margin:0;font-size:22px;font-weight:900;line-height:1.35;color:#111112;letter-spacing:-0.5px;text-align:left;"><span leaf="">跑通一条最小链路</span></p></section>
+<section style="text-align:left;background:#111112;border-radius:10px;padding:22px 20px 24px;margin:16px 0 0;color:#D9D9DC;"><p style="text-align:left;margin:0;font-size:16px;line-height:1.9;color:#D9D9DC;overflow-wrap:anywhere;"><span leaf="">上手只涉及两个动作：切主题、渲染样稿。主题参数用 </span><span style="background:#2A2A2E;color:#FF6B61;padding:1px 6px;border-radius:4px;font-family:'SF Mono',Consolas,Monaco,monospace;font-size:14px;"><span leaf="">--theme</span></span><span leaf=""> 指定，输出目录由 </span><span style="background:#2A2A2E;color:#FF6B61;padding:1px 6px;border-radius:4px;font-family:'SF Mono',Consolas,Monaco,monospace;font-size:14px;"><span leaf="">--out</span></span><span leaf=""> 接住。深色章节内的正文用</span><strong style="border-bottom:2px solid #D52B2B;font-weight:700;color:#FFFFFF;"><span leaf="">降级灰白</span></strong><span leaf="">，行内代码 token 换提亮红变体——强调红在近黑底不达 4.5:1 对比度，只保留给眉标装饰位。</span></p></section>
+<section style="text-align:left;margin:14px 0 0;background:#202023;border-radius:10px;overflow:hidden;"><p style="text-align:left;margin:0;padding:12px 16px 0;font-family:Consolas,Monaco,monospace;font-size:12px;letter-spacing:1px;color:#8A8A8C;"><span leaf="">bash</span></p><section style="text-align:left;padding:10px 16px 14px;"><p style="text-align:left;margin:0 0 6px;font-family:'SF Mono',Consolas,Monaco,monospace;font-size:13px;line-height:1.7;color:#F0E9E9;word-break:break-all;"><span leaf="">npm run render -- --theme red-ink-editorial \</span></p><p style="text-align:left;margin:0 0 6px;font-family:'SF Mono',Consolas,Monaco,monospace;font-size:13px;line-height:1.7;color:#F0E9E9;word-break:break-all;"><span leaf="">&nbsp;&nbsp;--out ./preview/red-ink</span></p><p style="text-align:left;margin:0;font-family:'SF Mono',Consolas,Monaco,monospace;font-size:13px;line-height:1.7;color:#8A8A8C;word-break:break-all;"><span leaf="">open ./preview/red-ink/index.html</span></p></section></section>
+<p style="text-align:left;margin:14px 0 0;font-size:16px;line-height:1.9;color:#202024;overflow-wrap:anywhere;"><span leaf="">跑通之后再谈调整：</span><strong style="border-bottom:2px solid #D52B2B;font-weight:700;color:#111112;"><span leaf="">先确认字号和红线位置，再动配色</span></strong><span leaf="">。顺序反过来，调参时间通常翻倍。</span></p>
+
+<!-- ===== 章节 04：适用边界 ===== -->
+<section style="text-align:left;margin:28px 0 0;"><p style="margin:0;font-size:13px;font-weight:800;letter-spacing:2px;color:#D52B2B;text-align:left;margin-bottom:8px;"><span leaf="">04 / BOUNDARY</span></p><p style="margin:0;font-size:22px;font-weight:900;line-height:1.35;color:#111112;letter-spacing:-0.5px;text-align:left;"><span leaf="">什么时候不该用它</span></p></section>
+<p style="text-align:left;margin:14px 0 16px;font-size:16px;line-height:1.9;color:#202024;overflow-wrap:anywhere;"><span leaf="">单一强调红的前提，是全文只有一个值得强调的语义位。如果文章需要同时区分成功、警告、错误三种状态，这套纪律会反过来制造噪音——那时候该换主题，而不是往这里塞颜色。</span></p>
+<section style="text-align:left;margin:0 0 16px;"><p style="margin:0 0 8px;font-size:13px;font-weight:800;letter-spacing:2px;color:#D52B2B;text-align:left;"><span leaf="">重点</span></p><p style="text-align:left;margin:0;font-size:20px;font-weight:800;line-height:1.9;color:#111112;overflow-wrap:anywhere;"><span leaf="">不含价格、数字或代码的文章同样成立：只保留眉标、正文、红线提示与小标题即可成篇。</span></p></section>
+<p style="text-align:left;margin:0;font-size:16px;line-height:1.9;color:#202024;overflow-wrap:anywhere;"><span leaf="">版式是约束出来的，不是堆出来的。能删掉的强调位，就删掉。</span></p>
+
+<!-- ===== 收尾 ===== -->
+<section style="text-align:left;border-top:1px solid #E4E2DE;padding-top:14px;margin:36px 0 0;"><p style="text-align:left;margin:0 0 4px;font-size:13px;line-height:1.7;color:#8A8A8C;"><span leaf="">赤墨编辑 · 完整正文样张（示例内容）</span></p><p style="text-align:left;margin:0;font-size:13px;line-height:1.7;color:#8A8A8C;"><span leaf="">RED INK · END</span></p></section>
+</section>
+</div>
+</div>
+<script>
+  function gzhShowToast(msg){
+    var t=document.getElementById('gzhToast');
+    t.textContent=msg;t.classList.add('show');
+    clearTimeout(t._timer);
+    t._timer=setTimeout(function(){t.classList.remove('show');},2800);
+  }
+  function gzhCopyRef(){
+    var ref='wx-theme:red-ink-editorial';
+    var done=function(){gzhShowToast('✅ 已复制主题 RefID：'+ref);var btn=document.getElementById('gzhRefBtn');var old=btn.textContent;btn.textContent='✅ RefID 已复制';setTimeout(function(){btn.textContent=old;},2200);};
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(ref).then(done,function(){gzhShowToast('⚠ 请手动复制：'+ref);});}
+    else{var x=document.createElement('textarea');x.value=ref;document.body.appendChild(x);x.select();try{document.execCommand('copy');done();}catch(e){gzhShowToast('⚠ 请手动复制：'+ref);}document.body.removeChild(x);}
+  }
+  function gzhCopy(){
+    var el=document.getElementById("gzh-content");
+    // 选中渲染后的富文本节点并复制（等价于手动 Ctrl+A / Ctrl+C，保留全部样式）
+    var range=document.createRange();
+    range.selectNodeContents(el);
+    var sel=window.getSelection();
+    sel.removeAllRanges();
+    sel.addRange(range);
+    var ok=false;
+    try{ok=document.execCommand('copy');}catch(e){ok=false;}
+    sel.removeAllRanges();
+    var btn=document.getElementById('gzhCopyBtn');
+    if(ok){
+      gzhShowToast('✅ 已复制！去公众号编辑器按 Ctrl/⌘+V 粘贴即可');
+      var old=btn.textContent;btn.textContent='✅ 已复制';
+      setTimeout(function(){btn.textContent=old;},2200);
+    }else{
+      gzhShowToast('⚠ 自动复制失败，请手动全选(Ctrl/⌘+A)再复制(Ctrl/⌘+C)');
+    }
+  }
+</script>
+</body>
+</html>

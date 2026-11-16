@@ -26,7 +26,7 @@ const THEME_PAGES = [
   'editorial-system.html', 'graphite-minimal.html', 'graph-paper-manual.html',
   'green.html', 'handline-editorial.html', 'hardblue-manual.html',
   'main-editorial.html', 'moyu-green.html', 'moyu-ticket.html',
-  'olive-journal.html', 'paper-editorial.html', 'pixelstack-editorial.html',
+  'olive-journal.html', 'paper-editorial.html', 'pixelstack-editorial.html', 'red-ink-editorial.html',
   'redswiss-editorial.html', 'red-white.html', 'sage-swiss.html',
   'scrapbook-notebook.html', 'white-purple-workbench.html',
   'wood-editorial.html', 'zen-whitespace.html',
